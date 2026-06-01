@@ -4,13 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@font-face {
-  font-family: 'Archivo Black';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/archivoblack/v17/HTxqL289pzCGgOzR4G7oY8mL0Q3igb_j5zM.woff2) format('woff2');
-}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
