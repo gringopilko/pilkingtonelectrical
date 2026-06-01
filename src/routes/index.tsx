@@ -1,29 +1,458 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Zap,
+  Shield,
+  Wrench,
+  ChevronRight,
+  Star,
+  Clock,
+  Award,
+  Menu,
+  X,
+} from "lucide-react";
+import heroImg from "@/assets/hero-electrician.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Pilkington Electrical | Licensed Electrician Melbourne" },
+      {
+        name: "description",
+        content:
+          "Pilkington Electrical — licensed electrician covering South East Melbourne & Elwood. Domestic rewires, fault finding, switchboards & more.",
+      },
+      {
+        property: "og:title",
+        content: "Pilkington Electrical | Licensed Electrician Melbourne",
+      },
+      {
+        property: "og:description",
+        content:
+          "Licensed electrician covering South East Melbourne & Elwood. Domestic rewires, fault finding, switchboards.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    setMobileOpen(false);
+  };
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a
+            href="/"
+            className="flex items-center gap-2 font-heading text-xl tracking-tight"
+          >
+            <Zap className="h-6 w-6 text-primary" />
+            <span>PILKINGTON ELECTRICAL</span>
+          </a>
+
+          {/* Desktop nav */}
+          <div className="hidden items-center gap-8 md:flex">
+            {["Services", "About", "Contact"].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {item}
+              </button>
+            ))}
+            <a
+              href="tel:0466270949"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-amber-dark"
+            >
+              <Phone className="h-4 w-4" />
+              0466 270 949
+            </a>
+          </div>
+
+          {/* Mobile menu toggle */}
+          <button
+            className="md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile nav */}
+        {mobileOpen && (
+          <div className="border-t border-border px-6 py-4 md:hidden">
+            <div className="flex flex-col gap-4">
+              {["Services", "About", "Contact"].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollTo(item.toLowerCase())}
+                  className="text-left text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {item}
+                </button>
+              ))}
+              <a
+                href="tel:0466270949"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+              >
+                <Phone className="h-4 w-4" />
+                0466 270 949
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt="Licensed electrician working on electrical panel"
+            className="h-full w-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        </div>
+
+        <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-center px-6 py-24 md:py-32 lg:py-40">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+            <Shield className="h-3.5 w-3.5" />
+            Fully Licensed & Insured
+          </div>
+          <h1 className="max-w-2xl text-4xl font-normal leading-[1.1] md:text-5xl lg:text-6xl">
+            Reliable Electrical
+            <br />
+            <span className="text-primary">Services You Can Trust</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Professional electrical services for homes across South East
+            Melbourne. From rewires to repairs — done right the first time.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="tel:0466270949"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-amber-dark"
+            >
+              <Phone className="h-4 w-4" />
+              Call Now
+            </a>
+            <button
+              onClick={() => scrollTo("services")}
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-secondary px-6 py-3 text-sm font-medium text-secondary-foreground transition-colors hover:bg-accent"
+            >
+              Our Services
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-primary" />
+              Elwood & South East Melbourne
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="h-4 w-4 text-primary" />
+              Prompt, On-Time Service
+            </div>
+            <div className="flex items-center gap-2">
+              <Award className="h-4 w-4 text-primary" />
+              Quality Guaranteed
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-3xl md:text-4xl">What We Do</h2>
+            <p className="mt-4 text-muted-foreground">
+              From full house rewires to emergency fault finding — every job
+              handled with care and compliance.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <ServiceCard
+              icon={<Zap className="h-8 w-8" />}
+              title="Domestic Rewires & Installations"
+              description="Full and partial house rewires, new lighting circuits, power points, and appliance circuits. Clean, tidy work with minimal disruption."
+            />
+            <ServiceCard
+              icon={<Wrench className="h-8 w-8" />}
+              title="Fault Finding & Repairs"
+              description="Intermittent tripping, flickering lights, dead outlets — we diagnose the root cause and fix it properly, not just patch over it."
+            />
+            <ServiceCard
+              icon={<Shield className="h-8 w-8" />}
+              title="Switchboards & Safety Switches"
+              description="Upgrade old fuse boxes to modern safety switch boards. Protect your home and family with compliant, up-to-date electrical infrastructure."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* About / Why Choose Section */}
+      <section id="about" className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid gap-12 md:grid-cols-2 md:items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl">Why Choose Pilkington Electrical?</h2>
+            <p className="mt-4 text-muted-foreground">
+              I'm a sole trader, which means when you call, you speak directly to
+              the person doing the job. No subcontractors, no call centres —
+              just honest, reliable electrical work from a licensed
+              professional who takes pride in every connection.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {[
+                { label: "Licensed & Insured", desc: "Full compliance & peace of mind" },
+                { label: "Upfront Pricing", desc: "No hidden fees or surprises" },
+                { label: "Local & Reliable", desc: "South East Melbourne based" },
+                { label: "Tidy Worksite", desc: "We clean up after every job" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-lg border border-border bg-card p-4"
+                >
+                  <div className="flex items-center gap-2 text-primary">
+                    <Star className="h-4 w-4" />
+                    <span className="font-semibold">{item.label}</span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-border bg-card p-8">
+            <h3 className="text-xl font-heading">Service Areas</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Based in Elwood, covering:
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[
+                "Elwood",
+                "St Kilda",
+                "Brighton",
+                "Caulfield",
+                "Hampton",
+                "Bentleigh",
+                "Malvern",
+                "Glen Iris",
+                "Camberwell",
+                "South Yarra",
+              ].map((suburb) => (
+                <span
+                  key={suburb}
+                  className="rounded-full border border-border bg-background px-3 py-1 text-xs text-muted-foreground"
+                >
+                  {suburb}
+                </span>
+              ))}
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              If you're nearby but not listed, still give us a call — chances
+              are we cover your area too.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl md:text-4xl">Get In Touch</h2>
+            <p className="mt-4 text-muted-foreground">
+              Need electrical work? Call, text, or email — I respond quickly.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <ContactCard
+              icon={<Phone className="h-6 w-6" />}
+              label="Phone"
+              value="0466 270 949"
+              href="tel:0466270949"
+              description="Call or text anytime"
+            />
+            <ContactCard
+              icon={<Mail className="h-6 w-6" />}
+              label="Email"
+              value="shanepilkington@gmail.com"
+              href="mailto:shanepilkington@gmail.com"
+              description="Send job details & photos"
+            />
+            <ContactCard
+              icon={<MapPin className="h-6 w-6" />}
+              label="Location"
+              value="Elwood, VIC"
+              href="#"
+              description="Serving South East Melbourne"
+            />
+          </div>
+
+          {/* Quick Email Form */}
+          <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
+            <h3 className="text-center text-xl font-heading">
+              Request a Free Quote
+            </h3>
+            <form
+              action="mailto:shanepilkington@gmail.com"
+              method="post"
+              encType="text/plain"
+              className="mt-8 grid gap-4 md:grid-cols-2"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                const name = fd.get("name") as string;
+                const phone = fd.get("phone") as string;
+                const email = fd.get("email") as string;
+                const message = fd.get("message") as string;
+                const subject = `Quote Request from ${name}`;
+                const body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+                window.location.href = `mailto:shanepilkington@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+              }}
+            >
+              <input
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+              <input
+                name="phone"
+                type="tel"
+                placeholder="Phone number"
+                required
+                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+              <input
+                name="email"
+                type="email"
+                placeholder="Email address"
+                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary md:col-span-2"
+              />
+              <textarea
+                name="message"
+                placeholder="Tell us about the job..."
+                rows={4}
+                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary md:col-span-2"
+              />
+              <div className="md:col-span-2">
+                <button
+                  type="submit"
+                  className="w-full rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-amber-dark"
+                >
+                  Send Request
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-background">
+        <div className="mx-auto max-w-7xl px-6 py-12">
+          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+            <div className="flex items-center gap-2 font-heading text-lg tracking-tight">
+              <Zap className="h-5 w-5 text-primary" />
+              <span>PILKINGTON ELECTRICAL</span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              &copy; {new Date().getFullYear()} Pilkington Electrical. Licensed
+              electrician. South East Melbourne.
+            </p>
+            <div className="flex items-center gap-4">
+              <a
+                href="tel:0466270949"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                0466 270 949
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
+  );
+}
+
+function ServiceCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="group rounded-xl border border-border bg-background p-6 transition-all hover:border-primary/30">
+      <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary">
+        {icon}
+      </div>
+      <h3 className="mt-4 text-lg font-heading">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function ContactCard({
+  icon,
+  label,
+  value,
+  href,
+  description,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href: string;
+  description: string;
+}) {
+  return (
+    <a
+      href={href}
+      className="group flex flex-col items-center rounded-xl border border-border bg-background p-6 text-center transition-all hover:border-primary/30"
+    >
+      <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+        {icon}
+      </div>
+      <span className="mt-4 text-sm font-medium text-muted-foreground">
+        {label}
+      </span>
+      <span className="mt-1 font-heading text-lg">{value}</span>
+      <span className="mt-1 text-xs text-muted-foreground">{description}</span>
+    </a>
   );
 }
