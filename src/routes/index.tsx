@@ -62,10 +62,11 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="Pilkington Electrical"
-              className="h-11 w-auto"
+              className="h-16 w-auto md:h-20"
             />
             <span className="sr-only">Pilkington Electrical</span>
           </a>
+
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-8 md:flex">
