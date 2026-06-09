@@ -388,7 +388,7 @@ function Index() {
             </div>
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} Pilkington Electrical. Licensed
-              electrician. South East Melbourne.
+              electrician. South East Melbourne. ABN 16 937 824 485.
             </p>
             <div className="flex items-center gap-4">
               <a
