@@ -145,14 +145,16 @@ function Index() {
             Fully Licensed &amp; Insured
           </div>
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
-            Reliable Electrical
+            Domestic &amp; Commercial
             <br />
-            <span className="text-primary">Services You Can Trust</span>
+            <span className="text-primary">Electrical You Can Trust</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Professional electrical services for homes across South East
-            Melbourne. From rewires to repairs — done right the first time.
+            Licensed electrician serving homes, body corporates and real estate
+            agents across South East Melbourne. From rewires to switchboard
+            upgrades — done right the first time.
           </p>
+
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="tel:0466270949"
@@ -193,12 +195,12 @@ function Index() {
           <div className="mb-12 max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">What We Do</h2>
             <p className="mt-4 text-muted-foreground">
-              From full house rewires to emergency fault finding — every job
-              handled with care and compliance.
+              Domestic and commercial work — from full house rewires to
+              ongoing maintenance for body corporates and real estate agents.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <ServiceCard
               icon={<Zap className="h-8 w-8" />}
               title="Domestic Rewires & Installations"
@@ -214,7 +216,13 @@ function Index() {
               title="Switchboards & Safety Switches"
               description="Upgrade old fuse boxes to modern safety switch boards. Protect your home and family with compliant, up-to-date electrical infrastructure."
             />
+            <ServiceCard
+              icon={<Award className="h-8 w-8" />}
+              title="Commercial, Body Corporate & Real Estate"
+              description="Reliable trade partner for property managers and body corporates. Fast call-outs, compliance work, common-area lighting, and tenant fit-outs — invoiced cleanly."
+            />
           </div>
+
         </div>
       </section>
 
