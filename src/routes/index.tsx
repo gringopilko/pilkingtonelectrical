@@ -8,13 +8,14 @@ import {
   Shield,
   Wrench,
   ChevronRight,
-  Star,
+  Check,
   Clock,
   Award,
   Menu,
   X,
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
+import logoAsset from "@/assets/pilkington-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,13 +57,14 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a
-            href="/"
-            className="flex items-center gap-2 font-heading text-xl tracking-tight"
-          >
-            <Zap className="h-6 w-6 text-primary" />
-            <span>PILKINGTON ELECTRICAL</span>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <a href="/" className="flex items-center gap-2">
+            <img
+              src={logoAsset.url}
+              alt="Pilkington Electrical"
+              className="h-11 w-auto"
+            />
+            <span className="sr-only">Pilkington Electrical</span>
           </a>
 
           {/* Desktop nav */}
@@ -71,14 +73,14 @@ function Index() {
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item}
               </button>
             ))}
             <a
               href="tel:0466270949"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-amber-dark"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
             >
               <Phone className="h-4 w-4" />
               0466 270 949
@@ -107,14 +109,14 @@ function Index() {
                 <button
                   key={item}
                   onClick={() => scrollTo(item.toLowerCase())}
-                  className="text-left text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-left text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {item}
                 </button>
               ))}
               <a
                 href="tel:0466270949"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
               >
                 <Phone className="h-4 w-4" />
                 0466 270 949
@@ -125,22 +127,23 @@ function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden bg-background">
         <div className="absolute inset-0">
           <img
             src={heroImg}
             alt="Licensed electrician working on electrical panel"
-            className="h-full w-full object-cover opacity-30"
+            className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-white/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
         </div>
 
         <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-center px-6 py-24 md:py-32 lg:py-40">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
             <Shield className="h-3.5 w-3.5" />
-            Fully Licensed & Insured
+            Fully Licensed &amp; Insured
           </div>
-          <h1 className="max-w-2xl text-4xl font-normal leading-[1.1] md:text-5xl lg:text-6xl">
+          <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
             Reliable Electrical
             <br />
             <span className="text-primary">Services You Can Trust</span>
@@ -152,24 +155,24 @@ function Index() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="tel:0466270949"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-amber-dark"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
             >
               <Phone className="h-4 w-4" />
               Call Now
             </a>
             <button
               onClick={() => scrollTo("services")}
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-secondary px-6 py-3 text-sm font-medium text-secondary-foreground transition-colors hover:bg-accent"
+              className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent"
             >
               Our Services
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm font-medium text-muted-foreground">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-primary" />
-              Elwood & South East Melbourne
+              Elwood &amp; South East Melbourne
             </div>
             <div className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-primary" />
@@ -187,7 +190,7 @@ function Index() {
       <section id="services" className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mb-12 max-w-2xl">
-            <h2 className="text-3xl md:text-4xl">What We Do</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">What We Do</h2>
             <p className="mt-4 text-muted-foreground">
               From full house rewires to emergency fault finding — every job
               handled with care and compliance.
@@ -218,7 +221,9 @@ function Index() {
       <section id="about" className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl">Why Choose Pilkington Electrical?</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+              Why Choose Pilkington Electrical?
+            </h2>
             <p className="mt-4 text-muted-foreground">
               I'm a sole trader, which means when you call, you speak directly to
               the person doing the job. No subcontractors, no call centres —
@@ -238,8 +243,8 @@ function Index() {
                   className="rounded-lg border border-border bg-card p-4"
                 >
                   <div className="flex items-center gap-2 text-primary">
-                    <Star className="h-4 w-4" />
-                    <span className="font-semibold">{item.label}</span>
+                    <Check className="h-4 w-4" />
+                    <span className="font-bold">{item.label}</span>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {item.desc}
@@ -250,7 +255,7 @@ function Index() {
           </div>
 
           <div className="rounded-xl border border-border bg-card p-8">
-            <h3 className="text-xl font-heading">Service Areas</h3>
+            <h3 className="text-xl font-bold tracking-tight">Service Areas</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Based in Elwood, covering:
             </p>
@@ -269,7 +274,7 @@ function Index() {
               ].map((suburb) => (
                 <span
                   key={suburb}
-                  className="rounded-full border border-border bg-background px-3 py-1 text-xs text-muted-foreground"
+                  className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground"
                 >
                   {suburb}
                 </span>
@@ -287,7 +292,7 @@ function Index() {
       <section id="contact" className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl md:text-4xl">Get In Touch</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Get In Touch</h2>
             <p className="mt-4 text-muted-foreground">
               Need electrical work? Call, text, or email — I respond quickly.
             </p>
@@ -319,7 +324,7 @@ function Index() {
 
           {/* Quick Email Form */}
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
-            <h3 className="text-center text-xl font-heading">
+            <h3 className="text-center text-xl font-bold tracking-tight">
               Request a Free Quote
             </h3>
             <form
@@ -368,7 +373,7 @@ function Index() {
               <div className="md:col-span-2">
                 <button
                   type="submit"
-                  className="w-full rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-amber-dark"
+                  className="w-full rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
                 >
                   Send Request
                 </button>
@@ -382,22 +387,21 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="flex items-center gap-2 font-heading text-lg tracking-tight">
-              <Zap className="h-5 w-5 text-primary" />
-              <span>PILKINGTON ELECTRICAL</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
+            <img
+              src={logoAsset.url}
+              alt="Pilkington Electrical"
+              className="h-12 w-auto"
+            />
+            <p className="text-center text-sm text-muted-foreground md:text-left">
               &copy; {new Date().getFullYear()} Pilkington Electrical. Licensed
               electrician. South East Melbourne. ABN 16 937 824 485.
             </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="tel:0466270949"
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                0466 270 949
-              </a>
-            </div>
+            <a
+              href="tel:0466270949"
+              className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+            >
+              0466 270 949
+            </a>
           </div>
         </div>
       </footer>
@@ -415,11 +419,11 @@ function ServiceCard({
   description: string;
 }) {
   return (
-    <div className="group rounded-xl border border-border bg-background p-6 transition-all hover:border-primary/30">
+    <div className="group rounded-xl border border-border bg-background p-6 transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
       <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary">
         {icon}
       </div>
-      <h3 className="mt-4 text-lg font-heading">{title}</h3>
+      <h3 className="mt-4 text-lg font-bold tracking-tight">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
@@ -443,15 +447,15 @@ function ContactCard({
   return (
     <a
       href={href}
-      className="group flex flex-col items-center rounded-xl border border-border bg-background p-6 text-center transition-all hover:border-primary/30"
+      className="group flex flex-col items-center rounded-xl border border-border bg-background p-6 text-center transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
     >
       <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
         {icon}
       </div>
-      <span className="mt-4 text-sm font-medium text-muted-foreground">
+      <span className="mt-4 text-sm font-semibold text-muted-foreground">
         {label}
       </span>
-      <span className="mt-1 font-heading text-lg">{value}</span>
+      <span className="mt-1 text-lg font-bold tracking-tight">{value}</span>
       <span className="mt-1 text-xs text-muted-foreground">{description}</span>
     </a>
   );
