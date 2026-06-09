@@ -336,6 +336,11 @@ function Index() {
             <h3 className="text-center text-xl font-bold tracking-tight">
               Request a Free Quote
             </h3>
+            <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
+              Got photos of the job? After sending, just reply to the email
+              with photos attached.
+            </p>
+
             <form
               action="mailto:shanepilkington@gmail.com"
               method="post"
