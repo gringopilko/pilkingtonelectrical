@@ -339,69 +339,19 @@ function Index() {
             />
           </div>
 
-          {/* Quick Email Form */}
+          {/* Quote Form */}
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
             <h3 className="text-center text-xl font-bold tracking-tight">
               Request a Free Quote
             </h3>
             <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
-              Got photos of the job? After sending, just reply to the email
-              with photos attached.
+              Send a few details (and photos if you have them) — I'll get back
+              to you fast. Prefer email? <a href="mailto:shanepilkington@gmail.com" className="text-primary hover:underline">shanepilkington@gmail.com</a>
             </p>
 
-            <form
-              action="mailto:shanepilkington@gmail.com"
-              method="post"
-              encType="text/plain"
-              className="mt-8 grid gap-4 md:grid-cols-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const name = fd.get("name") as string;
-                const phone = fd.get("phone") as string;
-                const email = fd.get("email") as string;
-                const message = fd.get("message") as string;
-                const subject = `Quote Request from ${name}`;
-                const body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-                window.location.href = `mailto:shanepilkington@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-              }}
-            >
-              <input
-                name="name"
-                type="text"
-                placeholder="Your name"
-                required
-                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-              <input
-                name="phone"
-                type="tel"
-                placeholder="Phone number"
-                required
-                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-              <input
-                name="email"
-                type="email"
-                placeholder="Email address"
-                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary md:col-span-2"
-              />
-              <textarea
-                name="message"
-                placeholder="Tell us about the job..."
-                rows={4}
-                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary md:col-span-2"
-              />
-              <div className="md:col-span-2">
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
-                >
-                  Send Request
-                </button>
-              </div>
-            </form>
+            <QuoteForm />
           </div>
+
         </div>
       </section>
 
