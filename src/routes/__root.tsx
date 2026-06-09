@@ -77,14 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pilkington Electrical | Licensed Electrician Melbourne" },
-      { name: "description", content: "Pilkington Electrical — licensed electrician covering South East Melbourne & Elwood. Domestic rewires, fault finding, switchboards & more." },
+      { title: "Pilkington Electrical | Domestic & Commercial Electrician Melbourne" },
+      { name: "description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
       { name: "author", content: "Pilkington Electrical" },
-      { property: "og:title", content: "Pilkington Electrical | Licensed Electrician Melbourne" },
-      { property: "og:description", content: "Licensed electrician covering South East Melbourne & Elwood. Domestic rewires, fault finding, switchboards." },
+      { property: "og:title", content: "Pilkington Electrical | Domestic & Commercial Electrician Melbourne" },
+      { property: "og:description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+
     ],
     links: [
       {
