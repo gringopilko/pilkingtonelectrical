@@ -13,9 +13,15 @@ import {
   Award,
   Menu,
   X,
+  Upload,
+  Loader2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
 import logoAsset from "@/assets/pilkington-logo.png.asset.json";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -55,6 +61,8 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Toaster richColors position="top-center" />
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
@@ -331,69 +339,19 @@ function Index() {
             />
           </div>
 
-          {/* Quick Email Form */}
+          {/* Quote Form */}
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
             <h3 className="text-center text-xl font-bold tracking-tight">
               Request a Free Quote
             </h3>
             <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
-              Got photos of the job? After sending, just reply to the email
-              with photos attached.
+              Send a few details (and photos if you have them) — I'll get back
+              to you fast. Prefer email? <a href="mailto:shanepilkington@gmail.com" className="text-primary hover:underline">shanepilkington@gmail.com</a>
             </p>
 
-            <form
-              action="mailto:shanepilkington@gmail.com"
-              method="post"
-              encType="text/plain"
-              className="mt-8 grid gap-4 md:grid-cols-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const name = fd.get("name") as string;
-                const phone = fd.get("phone") as string;
-                const email = fd.get("email") as string;
-                const message = fd.get("message") as string;
-                const subject = `Quote Request from ${name}`;
-                const body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-                window.location.href = `mailto:shanepilkington@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-              }}
-            >
-              <input
-                name="name"
-                type="text"
-                placeholder="Your name"
-                required
-                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-              <input
-                name="phone"
-                type="tel"
-                placeholder="Phone number"
-                required
-                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-              <input
-                name="email"
-                type="email"
-                placeholder="Email address"
-                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary md:col-span-2"
-              />
-              <textarea
-                name="message"
-                placeholder="Tell us about the job..."
-                rows={4}
-                className="rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary md:col-span-2"
-              />
-              <div className="md:col-span-2">
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
-                >
-                  Send Request
-                </button>
-              </div>
-            </form>
+            <QuoteForm />
           </div>
+
         </div>
       </section>
 
@@ -474,3 +432,178 @@ function ContactCard({
     </a>
   );
 }
+
+function QuoteForm() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [photos, setPhotos] = useState<File[]>([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const inputClass =
+    "rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
+
+  const onPhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
+    // Cap at 10 files, 10MB each
+    const filtered = files.filter((f) => f.size <= 10 * 1024 * 1024).slice(0, 10);
+    if (files.length !== filtered.length) {
+      toast.warning("Some photos were skipped (max 10 photos, 10MB each).");
+    }
+    setPhotos(filtered);
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (submitting) return;
+
+    if (!name.trim() || !phone.trim()) {
+      toast.error("Please enter your name and phone number.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      // Upload photos first
+      const photoPaths: string[] = [];
+      const requestId = crypto.randomUUID();
+      for (const file of photos) {
+        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+        const path = `${requestId}/${Date.now()}-${safeName}`;
+        const { error: uploadError } = await supabase.storage
+          .from("quote-photos")
+          .upload(path, file, { upsert: false, contentType: file.type });
+        if (uploadError) throw uploadError;
+        photoPaths.push(path);
+      }
+
+      const { error: insertError } = await supabase
+        .from("quote_requests")
+        .insert({
+          name: name.trim().slice(0, 100),
+          phone: phone.trim().slice(0, 30),
+          email: email.trim().slice(0, 255) || null,
+          message: message.trim().slice(0, 2000) || null,
+          photo_paths: photoPaths,
+        });
+      if (insertError) throw insertError;
+
+      setDone(true);
+      toast.success("Quote request sent! Shane will be in touch shortly.");
+      setName("");
+      setPhone("");
+      setEmail("");
+      setMessage("");
+      setPhotos([]);
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        "Couldn't send your request. Please call 0466 270 949 or email shanepilkington@gmail.com."
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  if (done) {
+    return (
+      <div className="mt-8 rounded-lg border border-primary/30 bg-primary/5 p-8 text-center">
+        <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <Check className="h-6 w-6" />
+        </div>
+        <p className="text-lg font-bold">Request received</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Thanks — I'll be in touch on {phone || "the number you provided"} as soon as possible.
+        </p>
+        <button
+          onClick={() => setDone(false)}
+          className="mt-6 text-sm font-semibold text-primary hover:underline"
+        >
+          Send another request
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="mt-8 grid gap-4 md:grid-cols-2">
+      <input
+        type="text"
+        placeholder="Your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        maxLength={100}
+        required
+        className={inputClass}
+      />
+      <input
+        type="tel"
+        placeholder="Phone number"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        maxLength={30}
+        required
+        className={inputClass}
+      />
+      <input
+        type="email"
+        placeholder="Email address (optional)"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        maxLength={255}
+        className={`${inputClass} md:col-span-2`}
+      />
+      <textarea
+        placeholder="Tell me about the job..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        maxLength={2000}
+        rows={4}
+        className={`${inputClass} md:col-span-2`}
+      />
+
+      <div className="md:col-span-2">
+        <label className="flex cursor-pointer items-center justify-center gap-2 rounded-md border border-dashed border-border bg-card px-4 py-4 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
+          <Upload className="h-4 w-4" />
+          {photos.length === 0
+            ? "Add photos of the job (optional, up to 10)"
+            : `${photos.length} photo${photos.length === 1 ? "" : "s"} attached — tap to change`}
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={onPhotoChange}
+            className="hidden"
+          />
+        </label>
+        {photos.length > 0 && (
+          <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
+            {photos.map((f, i) => (
+              <li key={i} className="truncate">• {f.name}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="md:col-span-2">
+        <button
+          type="submit"
+          disabled={submitting}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark disabled:opacity-60"
+        >
+          {submitting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            "Send Request"
+          )}
+        </button>
+      </div>
+    </form>
+  );
+}
+
