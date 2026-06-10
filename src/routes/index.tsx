@@ -70,7 +70,7 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="Pilkington Electrical"
-              className="h-16 w-auto md:h-20"
+              className="h-24 w-auto md:h-32"
             />
             <span className="sr-only">Pilkington Electrical</span>
           </a>
@@ -326,8 +326,8 @@ function Index() {
             <ContactCard
               icon={<Mail className="h-6 w-6" />}
               label="Email"
-              value="shanepilkington@gmail.com"
-              href="mailto:shanepilkington@gmail.com"
+              value="contact@pilkingtonelectrical.com.au"
+              href="mailto:contact@pilkingtonelectrical.com.au"
               description="Send job details & photos"
             />
             <ContactCard
@@ -346,7 +346,7 @@ function Index() {
             </h3>
             <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
               Send a few details (and photos if you have them) — I'll get back
-              to you fast. Prefer email? <a href="mailto:shanepilkington@gmail.com" className="text-primary hover:underline">shanepilkington@gmail.com</a>
+              to you fast. Prefer email? <a href="mailto:contact@pilkingtonelectrical.com.au" className="text-primary hover:underline">contact@pilkingtonelectrical.com.au</a>
             </p>
 
             <QuoteForm />
@@ -500,7 +500,7 @@ function QuoteForm() {
     } catch (err) {
       console.error(err);
       toast.error(
-        "Couldn't send your request. Please call 0466 270 949 or email shanepilkington@gmail.com."
+        "Couldn't send your request. Please call 0466 270 949 or email contact@pilkingtonelectrical.com.au."
       );
     } finally {
       setSubmitting(false);
