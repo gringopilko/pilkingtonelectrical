@@ -70,7 +70,7 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="Pilkington Electrical"
-              className="h-24 w-auto md:h-32"
+              className="h-16 w-auto object-contain md:h-20"
             />
             <span className="sr-only">Pilkington Electrical</span>
           </a>
