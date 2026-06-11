@@ -20,6 +20,7 @@ import heroImg from "@/assets/hero-electrician.jpg";
 import logoImg from "@/assets/pilkington-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import emailjs from '@emailjs/browser';
+emailjs.init('taUGfrZCwsK87-rZZ');
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
