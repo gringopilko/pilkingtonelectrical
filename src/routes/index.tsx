@@ -18,8 +18,7 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
 import logoImg from "@/assets/pilkington-logo.png";
-import { supabase } from "@/integrations/supabase/client";
-import emailjs from '@emailjs/browser';
+import { send } from "@emailjs/browser";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -75,7 +74,6 @@ function Index() {
             />
             <span className="sr-only">Pilkington Electrical</span>
           </a>
-
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-8 md:flex">
@@ -231,7 +229,6 @@ function Index() {
               description="Reliable trade partner for property managers and body corporates. Fast call-outs, compliance work, common-area lighting, and tenant fit-outs — invoiced cleanly."
             />
           </div>
-
         </div>
       </section>
 
@@ -279,16 +276,8 @@ function Index() {
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {[
-                "Elwood",
-                "St Kilda",
-                "Brighton",
-                "Caulfield",
-                "Hampton",
-                "Bentleigh",
-                "Malvern",
-                "Glen Iris",
-                "Camberwell",
-                "South Yarra",
+                "Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton",
+                "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra",
               ].map((suburb) => (
                 <span
                   key={suburb}
@@ -347,12 +336,13 @@ function Index() {
             </h3>
             <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
               Send a few details (and photos if you have them) — I'll get back
-              to you fast. Prefer email? <a href="mailto:contact@pilkingtonelectrical.com.au" className="text-primary hover:underline">contact@pilkingtonelectrical.com.au</a>
+              to you fast. Prefer email?{" "}
+              <a href="mailto:contact@pilkingtonelectrical.com.au" className="text-primary hover:underline">
+                contact@pilkingtonelectrical.com.au
+              </a>
             </p>
-
             <QuoteForm />
           </div>
-
         </div>
       </section>
 
@@ -360,11 +350,7 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <img
-              src={logoImg}
-              alt="Pilkington Electrical"
-              className="h-12 w-auto"
-            />
+            <img src={logoImg} alt="Pilkington Electrical" className="h-12 w-auto" />
             <p className="text-center text-sm text-muted-foreground md:text-left">
               &copy; {new Date().getFullYear()} Pilkington Electrical. Licensed
               electrician. South East Melbourne. ABN 16 937 824 485.
@@ -383,39 +369,23 @@ function Index() {
 }
 
 function ServiceCard({
-  icon,
-  title,
-  description,
+  icon, title, description,
 }: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
+  icon: React.ReactNode; title: string; description: string;
 }) {
   return (
     <div className="group rounded-xl border border-border bg-background p-6 transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
-      <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary">
-        {icon}
-      </div>
+      <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary">{icon}</div>
       <h3 className="mt-4 text-lg font-bold tracking-tight">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        {description}
-      </p>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
     </div>
   );
 }
 
 function ContactCard({
-  icon,
-  label,
-  value,
-  href,
-  description,
+  icon, label, value, href, description,
 }: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-  href: string;
-  description: string;
+  icon: React.ReactNode; label: string; value: string; href: string; description: string;
 }) {
   return (
     <a
@@ -425,9 +395,7 @@ function ContactCard({
       <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
         {icon}
       </div>
-      <span className="mt-4 text-sm font-semibold text-muted-foreground">
-        {label}
-      </span>
+      <span className="mt-4 text-sm font-semibold text-muted-foreground">{label}</span>
       <span className="mt-1 text-lg font-bold tracking-tight">{value}</span>
       <span className="mt-1 text-xs text-muted-foreground">{description}</span>
     </a>
@@ -439,22 +407,11 @@ function QuoteForm() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [photos, setPhotos] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
 
   const inputClass =
     "rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
-
-  const onPhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files ?? []);
-    // Cap at 10 files, 10MB each
-    const filtered = files.filter((f) => f.size <= 10 * 1024 * 1024).slice(0, 10);
-    if (files.length !== filtered.length) {
-      toast.warning("Some photos were skipped (max 10 photos, 10MB each).");
-    }
-    setPhotos(filtered);
-  };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -467,24 +424,23 @@ function QuoteForm() {
 
     setSubmitting(true);
     try {
-await emailjs.send(
-  'service_s0z48fg',
-  'template_btcdhzb',
-  {
-    from_name: name.trim(),
-    phone: phone.trim(),
-    email: email.trim() || 'Not provided',
-    message: message.trim() || 'No message provided',
-  },
-  { publicKey: 'taUGfrZCwsK87-rZZ' }
-);
+      await send(
+        'service_s0z48fg',
+        'template_btcdhzb',
+        {
+          from_name: name.trim(),
+          phone: phone.trim(),
+          email: email.trim() || 'Not provided',
+          message: message.trim() || 'No message provided',
+        },
+        { publicKey: 'taUGfrZCwsK87-rZZ' }
+      );
       setDone(true);
       toast.success("Quote request sent! Shane will be in touch shortly.");
       setName("");
       setPhone("");
       setEmail("");
       setMessage("");
-      setPhotos([]);
     } catch (err) {
       console.error(err);
       toast.error(
@@ -551,30 +507,6 @@ await emailjs.send(
         rows={4}
         className={`${inputClass} md:col-span-2`}
       />
-
-      <div className="md:col-span-2">
-        <label className="flex cursor-pointer items-center justify-center gap-2 rounded-md border border-dashed border-border bg-card px-4 py-4 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground">
-          <Upload className="h-4 w-4" />
-          {photos.length === 0
-            ? "Add photos of the job (optional, up to 10)"
-            : `${photos.length} photo${photos.length === 1 ? "" : "s"} attached — tap to change`}
-          <input
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={onPhotoChange}
-            className="hidden"
-          />
-        </label>
-        {photos.length > 0 && (
-          <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
-            {photos.map((f, i) => (
-              <li key={i} className="truncate">• {f.name}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-
       <div className="md:col-span-2">
         <button
           type="submit"
@@ -584,14 +516,4 @@ await emailjs.send(
           {submitting ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
-              Sending...
-            </>
-          ) : (
-            "Send Request"
-          )}
-        </button>
-      </div>
-    </form>
-  );
-}
-
+            
