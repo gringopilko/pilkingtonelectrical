@@ -17,7 +17,7 @@ import {
   Loader2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
-import logoImg from "@/assets/pilkington-logo.jpg";
+import logoImg from "@/assets/pilkington-logo.png";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
