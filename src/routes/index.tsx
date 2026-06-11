@@ -467,29 +467,6 @@ function QuoteForm() {
 
     setSubmitting(true);
     try {
-      // Upload photos first
-      const photoPaths: string[] = [];
-      const requestId = crypto.randomUUID();
-      for (const file of photos) {
-        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-        const path = `${requestId}/${Date.now()}-${safeName}`;
-        const { error: uploadError } = await supabase.storage
-          .from("quote-photos")
-          .upload(path, file, { upsert: false, contentType: file.type });
-        if (uploadError) throw uploadError;
-        photoPaths.push(path);
-      }
-
-      const { error: insertError } = await supabase
-        .from("quote_requests")
-        .insert({
-          name: name.trim().slice(0, 100),
-          phone: phone.trim().slice(0, 30),
-          email: email.trim().slice(0, 255) || null,
-          message: message.trim().slice(0, 2000) || null,
-          photo_paths: photoPaths,
-        });
-      if (insertError) throw insertError;
 await emailjs.send(
   'service_s0z48fg',
   'template_btcdhzb',
