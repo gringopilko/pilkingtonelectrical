@@ -19,6 +19,7 @@ import {
 import heroImg from "@/assets/hero-electrician.jpg";
 import logoImg from "@/assets/pilkington-logo.png";
 import { supabase } from "@/integrations/supabase/client";
+import emailjs from '@emailjs/browser';
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -489,7 +490,17 @@ function QuoteForm() {
           photo_paths: photoPaths,
         });
       if (insertError) throw insertError;
-
+await emailjs.send(
+  'service_s0z48fg',
+  'template_btcdhzb',
+  {
+    from_name: name.trim(),
+    phone: phone.trim(),
+    email: email.trim() || 'Not provided',
+    message: message.trim() || 'No message provided',
+  },
+  'taUGfrZCwsK87-rZZ'
+);
       setDone(true);
       toast.success("Quote request sent! Shane will be in touch shortly.");
       setName("");
