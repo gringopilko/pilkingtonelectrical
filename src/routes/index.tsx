@@ -17,7 +17,7 @@ import {
   Loader2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
-import logoAsset from "@/assets/pilkington-logo.png.asset.json";
+import logoImg from "@/assets/pilkington-logo.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
@@ -68,7 +68,7 @@ function Index() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <a href="/" className="flex items-center gap-2">
             <img
-              src={logoAsset.url}
+              src={logoImg}
               alt="Pilkington Electrical"
               className="h-16 w-auto object-contain md:h-20"
             />
@@ -360,7 +360,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <img
-              src={logoAsset.url}
+              src={logoImg}
               alt="Pilkington Electrical"
               className="h-12 w-auto"
             />
