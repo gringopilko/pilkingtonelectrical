@@ -6,14 +6,11 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
-    viteTsConfigPaths({
-      projects: ["./tsconfig.json"],
-    }),
+    viteTsConfigPaths({ projects: ["./tsconfig.json"] }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      target: "node",
+    }),
     viteReact(),
   ],
-  tanstackStart: {
-    server: { entry: "server" },
-  },
 });
