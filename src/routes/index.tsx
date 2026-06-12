@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
 import logoImg from "@/assets/pilkington-logo.png";
-import { send } from "@emailjs/browser";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -424,17 +423,20 @@ function QuoteForm() {
 
     setSubmitting(true);
     try {
-      await send(
-        'service_s0z48fg',
-        'template_btcdhzb',
-        {
-          from_name: name.trim(),
-          phone: phone.trim(),
-          email: email.trim() || 'Not provided',
-          message: message.trim() || 'No message provided',
-        },
-        { publicKey: 'taUGfrZCwsK87-rZZ' }
-      );
+      const response = await fetch('https://api.web3forms.com/submit', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    access_key: 'e16f3311-c329-4de2-a6f4-a49b368d309d',
+    name: name.trim(),
+    phone: phone.trim(),
+    email: email.trim() || 'Not provided',
+    message: message.trim() || 'No message provided',
+    subject: 'New Quote Request - Pilkington Electrical',
+  }),
+});
+const data = await response.json();
+if (!data.success) throw new Error('Failed to send');
       setDone(true);
       toast.success("Quote request sent! Shane will be in touch shortly.");
       setName("");
