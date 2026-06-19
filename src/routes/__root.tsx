@@ -89,9 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
       { name: "twitter:title", content: "Pilkington Electrical | Domestic & Commercial Electrician Melbourne" },
       { name: "twitter:description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3abec999-f3b9-49cd-9f9c-f8a90d2a9037/id-preview-40908be6--4590f7b3-c85a-4fed-a764-609d7a89c323.lovable.app-1781069256599.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3abec999-f3b9-49cd-9f9c-f8a90d2a9037/id-preview-40908be6--4590f7b3-c85a-4fed-a764-609d7a89c323.lovable.app-1781069256599.png" },
-    ],
+      
     links: [
       {
         rel: "stylesheet",
