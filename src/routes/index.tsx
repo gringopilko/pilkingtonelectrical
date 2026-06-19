@@ -13,7 +13,6 @@ import {
   Award,
   Menu,
   X,
-  Upload,
   Loader2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
