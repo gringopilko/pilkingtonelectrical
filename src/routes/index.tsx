@@ -17,7 +17,7 @@ import {
   Loader2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
-import logoImg from "@/assets/pilkington-logo.png";
+import logoImg from "@/assets/pilkington-logo-icon.png";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -65,14 +65,16 @@ function Index() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-          <a href="/" className="flex items-center gap-2">
-            <img
-              src={logoImg}
-              alt="Pilkington Electrical"
-              className="h-16 w-auto object-contain md:h-20"
-            />
-            <span className="sr-only">Pilkington Electrical</span>
-          </a>
+          <a href="/" className="flex items-center gap-3">
+  <img
+    src={logoImg}
+    alt="Pilkington Electrical"
+    className="h-10 w-auto object-contain md:h-12"
+  />
+  <span className="text-lg font-extrabold tracking-tight text-foreground md:text-xl">
+    Pilkington <span className="text-primary">Electrical</span>
+  </span>
+</a>
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-8 md:flex">
