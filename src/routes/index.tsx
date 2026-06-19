@@ -354,7 +354,7 @@ function Index() {
             <img src={logoImg} alt="Pilkington Electrical" className="h-18 w-auto" />
             <p className="text-center text-sm text-muted-foreground md:text-left">
               &copy; {new Date().getFullYear()} Pilkington Electrical. Licensed
-              electrician. South East Melbourne. ABN 16 937 824 485.
+              electrician. REC 30450. South East Melbourne. ABN 16 937 824 485.
             </p>
             <a
               href="tel:0466270949"
