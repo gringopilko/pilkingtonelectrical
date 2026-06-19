@@ -290,7 +290,7 @@ function Index() {
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
               If you're nearby but not listed, still get in touch — chances
-              are we cover your area too.
+              are I cover your area too.
             </p>
           </div>
         </div>
@@ -351,14 +351,14 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <img src={logoImg} alt="Pilkington Electrical" className="h-18 w-auto" />
+            <img src={logoImg} alt="Pilkington Electrical" className="h-[72px] w-auto" />
             <p className="text-center text-sm text-muted-foreground md:text-left">
               &copy; {new Date().getFullYear()} Pilkington Electrical. Licensed
               electrician. REC 30450. South East Melbourne. ABN 16 937 824 485.
             </p>
             <a
               href="tel:0466270949"
-              className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
             >
               <Phone className="h-4 w-4" />
               0466 270 949
