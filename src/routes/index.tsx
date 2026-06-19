@@ -175,7 +175,7 @@ function Index() {
               onClick={() => scrollTo("services")}
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent"
             >
-              Our Services
+              Services
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
@@ -201,7 +201,7 @@ function Index() {
       <section id="services" className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mb-12 max-w-2xl">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">What We Do</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Services</h2>
             <p className="mt-4 text-muted-foreground">
               Domestic and commercial work — from full house rewires to
               ongoing maintenance for body corporates and real estate agents.
@@ -217,7 +217,7 @@ function Index() {
             <ServiceCard
               icon={<Wrench className="h-8 w-8" />}
               title="Fault Finding & Repairs"
-              description="Intermittent tripping, flickering lights, dead outlets — we diagnose the root cause and fix it properly, not just patch over it."
+              description="Intermittent tripping, flickering lights, dead outlets — diagnosing the root cause and fixing it properly, not just patching over it."
             />
             <ServiceCard
               icon={<Shield className="h-8 w-8" />}
@@ -252,7 +252,7 @@ function Index() {
                 { label: "Licensed & Insured", desc: "Full compliance & peace of mind" },
                 { label: "Upfront Pricing", desc: "No hidden fees or surprises" },
                 { label: "Local & Reliable", desc: "South East Melbourne based" },
-                { label: "Tidy Worksite", desc: "We clean up after every job" },
+                { label: "Tidy Worksite", desc: "I clean up after every job" },
               ].map((item) => (
                 <div
                   key={item.label}
@@ -289,7 +289,7 @@ function Index() {
               ))}
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
-              If you're nearby but not listed, still give us a call — chances
+              If you're nearby but not listed, still get in touch — chances
               are we cover your area too.
             </p>
           </div>
@@ -351,7 +351,7 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <img src={logoImg} alt="Pilkington Electrical" className="h-12 w-auto" />
+            <img src={logoImg} alt="Pilkington Electrical" className="h-18 w-auto" />
             <p className="text-center text-sm text-muted-foreground md:text-left">
               &copy; {new Date().getFullYear()} Pilkington Electrical. Licensed
               electrician. South East Melbourne. ABN 16 937 824 485.
@@ -360,6 +360,7 @@ function Index() {
               href="tel:0466270949"
               className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
             >
+              <Phone className="h-4 w-4" />
               0466 270 949
             </a>
           </div>
@@ -410,6 +411,7 @@ function QuoteForm() {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
+  const [files, setFiles] = useState<File[]>([]);
 
   const inputClass =
     "rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
@@ -503,8 +505,15 @@ if (!data.success) throw new Error('Failed to send');
         maxLength={255}
         className={`${inputClass} md:col-span-2`}
       />
-      <textarea
-        placeholder="Tell me about the job..."
+      <input
+  type="file"
+  accept="image/*"
+  multiple
+  onChange={(e) => setFiles(Array.from(e.target.files || []))}
+  className={`${inputClass} md:col-span-2 cursor-pointer file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20`}
+/>
+<textarea
+  placeholder="Tell me about the job..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         maxLength={2000}
