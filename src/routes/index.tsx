@@ -336,8 +336,8 @@ function Index() {
               Request a Free Quote
             </h3>
             <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
-              Send a few details (and photos if you have them) — I'll get back
-              to you fast. Prefer email?{" "}
+              Fill in the form and I'll get back to you promptly. If you'd like
+              to include photos of the job, feel free to email directly:{" "}
               <a href="mailto:contact@pilkingtonelectrical.com.au" className="text-primary hover:underline">
                 contact@pilkingtonelectrical.com.au
               </a>
@@ -411,7 +411,6 @@ function QuoteForm() {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
-  const [files, setFiles] = useState<File[]>([]);
 
   const inputClass =
     "rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
@@ -505,13 +504,7 @@ if (!data.success) throw new Error('Failed to send');
         maxLength={255}
         className={`${inputClass} md:col-span-2`}
       />
-      <input
-  type="file"
-  accept="image/*"
-  multiple
-  onChange={(e) => setFiles(Array.from(e.target.files || []))}
-  className={`${inputClass} md:col-span-2 cursor-pointer file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20`}
-/>
+      
 <textarea
   placeholder="Tell me about the job..."
         value={message}
