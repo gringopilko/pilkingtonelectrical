@@ -24,7 +24,7 @@ import { Toaster } from "@/components/ui/sonner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pilkington Electrical | Licensed Electrician Melbourne" },
+      { title: "Pilkington Electrical | Domestic & Commercial Electrician Melbourne" },
       {
         name: "description",
         content:
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
           "Licensed electrician covering South East Melbourne & Elwood. Domestic rewires, fault finding, switchboards.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
