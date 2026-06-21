@@ -110,6 +110,47 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ElectricalContractor",
+              "name": "Pilkington Electrical",
+              "url": "https://www.pilkingtonelectrical.com.au",
+              "logo": "https://www.pilkingtonelectrical.com.au/og-image.png",
+              "image": "https://www.pilkingtonelectrical.com.au/og-image.png",
+              "telephone": "+61466270949",
+              "email": "contact@pilkingtonelectrical.com.au",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Elwood",
+                "addressLocality": "Elwood",
+                "addressRegion": "VIC",
+                "postalCode": "3184",
+                "addressCountry": "AU"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -37.8729,
+                "longitude": 144.9842
+              },
+              "areaServed": [
+                "Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton",
+                "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra"
+              ],
+              "priceRange": "$$",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                  "opens": "06:30",
+                  "closes": "18:00"
+                }
+              ]
+            })
+          }}
+        />
       </head>
       <body>
         {children}
