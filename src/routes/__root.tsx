@@ -98,6 +98,47 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
     { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" },
   ],
+  scripts: [
+    {
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ElectricalContractor",
+        "name": "Pilkington Electrical",
+        "url": "https://www.pilkingtonelectrical.com.au",
+        "logo": "https://www.pilkingtonelectrical.com.au/og-image.png",
+        "image": "https://www.pilkingtonelectrical.com.au/og-image.png",
+        "telephone": "+61466270949",
+        "email": "contact@pilkingtonelectrical.com.au",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Elwood",
+          "addressLocality": "Elwood",
+          "addressRegion": "VIC",
+          "postalCode": "3184",
+          "addressCountry": "AU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -37.8729,
+          "longitude": 144.9842
+        },
+        "areaServed": [
+          "Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton",
+          "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra"
+        ],
+        "priceRange": "$$",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "06:30",
+            "closes": "18:00"
+          }
+        ]
+      })
+    }
+  ],
 }),
   shellComponent: RootShell,
   component: RootComponent,
