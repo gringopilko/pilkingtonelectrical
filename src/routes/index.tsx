@@ -16,7 +16,7 @@ import {
   Loader2,
 } from "lucide-react";
 import heroImg from "@/assets/hero-electrician.jpg";
-import logoImg from "@/assets/pilkington-logo-icon.png";
+import logoImg from "@/assets/pilkington-logo-icon.webp";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -143,6 +143,7 @@ function Index() {
             src={heroImg}
             alt="Licensed electrician working on electrical panel"
             className="h-full w-full object-cover"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-white/85" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
