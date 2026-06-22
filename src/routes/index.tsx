@@ -66,10 +66,12 @@ function Index() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <a href="/" className="flex items-center gap-3">
   <img
-    src={logoImg}
-    alt="Pilkington Electrical"
-    className="h-10 w-auto object-contain md:h-12"
-  />
+  src={logoImg}
+  alt="Pilkington Electrical"
+  width={49}
+  height={60}
+  className="h-10 w-auto object-contain md:h-12"
+/>
   <span className="text-lg font-extrabold tracking-tight text-foreground md:text-xl">
     Pilkington <span className="text-primary">Electrical</span>
   </span>
@@ -350,7 +352,7 @@ function Index() {
       <footer className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <img src={logoImg} alt="Pilkington Electrical" className="h-[72px] w-auto" />
+            <img src={logoImg} alt="Pilkington Electrical" width={58} height={72} className="h-[72px] w-auto" />
             <p className="text-center text-sm text-muted-foreground md:text-left">
               &copy; {new Date().getFullYear()} Pilkington Electrical. Licensed
               electrician. REC 30450. South East Melbourne. ABN 16 937 824 485.
