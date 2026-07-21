@@ -41,24 +41,35 @@ function Index() {
       <Nav />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-background">
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="Licensed electrician working on electrical panel" className="h-full w-full object-cover" fetchPriority="high" />
-          <div className="absolute inset-0 bg-white/85" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
-        </div>
+      <section className="relative h-[70vh] min-h-[560px] overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImg}
+          className="absolute inset-0 hidden h-full w-full object-cover md:block"
+        >
+          <source src="/melbourne-hero.mp4" type="video/mp4" />
+        </video>
+        <img
+          src={heroImg}
+          alt="Licensed electrician working on electrical panel"
+          className="absolute inset-0 h-full w-full object-cover md:hidden"
+        />
+        <div className="absolute inset-0 bg-black/55" />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-center px-6 py-24 md:py-32 lg:py-40">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
+        <div className="relative mx-auto flex h-full max-w-7xl flex-col items-start justify-center px-6">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
             <Shield className="h-3.5 w-3.5" />
             Fully Licensed &amp; Insured
           </div>
-          <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
+          <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
             Domestic &amp; Commercial
             <br />
             <span className="text-primary">Electrical You Can Trust</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
             Licensed electrician serving homes, body corporates and real estate agents across South East Melbourne. From rewires to switchboard upgrades — done right the first time.
           </p>
 
@@ -67,13 +78,13 @@ function Index() {
               <Phone className="h-4 w-4" />
               Call Now
             </a>
-            <Link to="/services" className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent">
+            <Link to="/services" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">
               Services
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm font-medium text-muted-foreground">
+          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm font-medium text-white/85">
             <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Elwood &amp; South East Melbourne</div>
             <div className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary" />Prompt, On-Time Service</div>
             <div className="flex items-center gap-2"><Award className="h-4 w-4 text-primary" />Quality Guaranteed</div>
