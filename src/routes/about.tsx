@@ -78,9 +78,7 @@ function About() {
               ))}
             </div>
             
-              href="tel:0466270949"
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
-            >
+              <a href="tel:0466270949" className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">
               <Phone className="h-4 w-4" />
               Call Now
             </a>
