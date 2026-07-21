@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-electrician.jpg";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
+import { TrustBadges } from "@/components/TrustBadges";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -79,6 +80,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <TrustBadges />
 
       {/* Services Section */}
       <section id="services" className="border-t border-border bg-card">
