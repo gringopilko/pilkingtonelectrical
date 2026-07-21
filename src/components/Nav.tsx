@@ -125,7 +125,7 @@ export function Nav() {
           </div>
 
           
-            href="tel:0466270949"
+            <a href="tel:0466270949"
               className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
             >
               <Phone className="h-4 w-4" />
@@ -193,7 +193,7 @@ export function Nav() {
             )}
 
             
-              href="tel:0466270949"
+              <a href="tel:0466270949"
               className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
             >
               <Phone className="h-4 w-4" />
