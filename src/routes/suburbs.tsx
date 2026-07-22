@@ -56,13 +56,9 @@ function Suburbs() {
 
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
-            Suburbs We Service
-          </h1>
+          <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">Suburbs We Service</h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Covering Bayside, Stonnington, Boroondara and the greater South East — from Elwood
-            through to Hampton East and the surrounding suburbs. Don't see your suburb listed?
-            Get in touch anyway — chances are I still cover it.
+            Covering Bayside, Stonnington, Boroondara and the greater South East — from Elwood through to Hampton East and the surrounding suburbs. Don't see your suburb listed? Get in touch anyway — chances are I still cover it.
           </p>
         </div>
       </section>
@@ -74,10 +70,7 @@ function Suburbs() {
               <h2 className="text-lg font-bold tracking-tight text-primary">{group.area}</h2>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
                 {group.suburbs.map((suburb) => (
-                  <div
-                    key={suburb}
-                    className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3"
-                  >
+                  <div key={suburb} className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3">
                     <MapPin className="h-4 w-4 flex-shrink-0 text-primary" />
                     <span className="text-sm font-medium">{suburb}</span>
                   </div>
@@ -88,13 +81,8 @@ function Suburbs() {
         </div>
 
         <div className="mt-12 rounded-xl border border-border bg-card p-8 text-center">
-          <p className="text-muted-foreground">
-            Just outside these suburbs? Call and ask — service area boundaries aren't always exact.
-          </p>
-          
-            href="tel:0466270949"
-            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
-          >
+          <p className="text-muted-foreground">Just outside these suburbs? Call and ask — service area boundaries aren't always exact.</p>
+          <a href="tel:0466270949" className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">
             <Phone className="h-4 w-4" />
             Call Now
           </a>
