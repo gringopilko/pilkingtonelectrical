@@ -204,8 +204,8 @@ function ContactCard({ icon, label, value, href, description }: { icon: React.Re
   return (
     <a href={href} className="group flex flex-col items-center rounded-xl border border-border bg-background p-6 text-center transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
       <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">{icon}</div>
-      <span className="mt-4 text-sm font-semibold text-muted-foreground">{label}</span>
-      <span className="mt-1 text-lg font-bold tracking-tight">{value}</span>
+      <span className="mt-4 text-sm font-semibold text-muted-foreground">{label}</span>{" "}
+      <span className="mt-1 text-lg font-bold tracking-tight">{value}</span>{" "}
       <span className="mt-1 text-xs text-muted-foreground">{description}</span>
     </a>
   );
