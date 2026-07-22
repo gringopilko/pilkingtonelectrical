@@ -13,6 +13,7 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return {};
+    const url = `https://pilkingtonelectrical.com.au/services/${loaderData.slug}`;
     return {
       meta: [
         { title: `${loaderData.title} | Pilkington Electrical` },
@@ -22,7 +23,42 @@ export const Route = createFileRoute("/services/$slug")({
         { property: "og:type", content: "website" },
       ],
       links: [
-        { rel: "canonical", href: `https://pilkingtonelectrical.com.au/services/${loaderData.slug}` },
+        { rel: "canonical", href: url },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": loaderData.title,
+            "name": loaderData.title,
+            "description": loaderData.metaDescription,
+            "url": url,
+            "provider": {
+              "@type": "ElectricalContractor",
+              "name": "Pilkington Electrical",
+              "telephone": "+61466270949",
+              "url": "https://pilkingtonelectrical.com.au",
+            },
+            "areaServed": {
+              "@type": "Place",
+              "name": "South East Melbourne",
+            },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pilkingtonelectrical.com.au/" },
+              { "@type": "ListItem", "position": 2, "name": "Electrical", "item": "https://pilkingtonelectrical.com.au/services" },
+              { "@type": "ListItem", "position": 3, "name": loaderData.title, "item": url },
+            ],
+          }),
+        },
       ],
     };
   },
