@@ -4,11 +4,34 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 
-const suburbs = [
-  "Elwood", "St Kilda", "St Kilda East", "Balaclava", "Brighton", "Brighton East",
-  "Caulfield", "Caulfield North", "Caulfield South", "Hampton", "Hampton East",
-  "Bentleigh", "Bentleigh East", "Malvern", "Malvern East", "Glen Iris",
-  "Camberwell", "South Yarra", "Prahran", "Windsor",
+const suburbGroups = [
+  {
+    area: "Inner Bayside",
+    suburbs: ["Elwood", "St Kilda", "St Kilda East", "Balaclava", "Windsor", "Prahran", "South Yarra"],
+  },
+  {
+    area: "Bayside",
+    suburbs: ["Brighton", "Brighton East", "Hampton", "Hampton East", "Black Rock", "Beaumaris", "Mentone", "Mordialloc"],
+  },
+  {
+    area: "Stonnington & Boroondara",
+    suburbs: ["Malvern", "Malvern East", "Glen Iris", "Camberwell", "Caulfield", "Caulfield North", "Caulfield South"],
+  },
+  {
+    area: "South East",
+    suburbs: [
+      "Bentleigh", "Bentleigh East", "Moorabbin", "Cheltenham", "Dingley Village",
+      "Murrumbeena", "Oakleigh", "Clayton", "Clayton South", "Clarinda",
+      "Springvale", "Noble Park", "Keysborough",
+    ],
+  },
+  {
+    area: "Outer South East & Bay",
+    suburbs: [
+      "Aspendale", "Aspendale Gardens", "Braeside", "Waterways", "Bangholme",
+      "Patterson Lakes", "Seaford", "Carrum Downs",
+    ],
+  },
 ];
 
 export const Route = createFileRoute("/suburbs")({
@@ -18,7 +41,7 @@ export const Route = createFileRoute("/suburbs")({
       {
         name: "description",
         content:
-          "Pilkington Electrical services Elwood, St Kilda, Brighton, Caulfield, Bentleigh, Malvern and surrounding South East Melbourne suburbs.",
+          "Pilkington Electrical services Elwood, St Kilda, Brighton, Bayside, Bentleigh, Malvern, and the greater South East Melbourne region.",
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/suburbs" }],
@@ -36,22 +59,30 @@ function Suburbs() {
           <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
             Suburbs We Service
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Based in Elwood, covering homes, body corporates and businesses across South East
-            Melbourne. Don't see your suburb listed? Get in touch anyway — chances are I still cover it.
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Covering Bayside, Stonnington, Boroondara and the greater South East — from Elwood
+            through to Hampton East and the surrounding suburbs. Don't see your suburb listed?
+            Get in touch anyway — chances are I still cover it.
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-          {suburbs.map((suburb) => (
-            <div
-              key={suburb}
-              className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3"
-            >
-              <MapPin className="h-4 w-4 flex-shrink-0 text-primary" />
-              <span className="text-sm font-medium">{suburb}</span>
+        <div className="flex flex-col gap-10">
+          {suburbGroups.map((group) => (
+            <div key={group.area}>
+              <h2 className="text-lg font-bold tracking-tight text-primary">{group.area}</h2>
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+                {group.suburbs.map((suburb) => (
+                  <div
+                    key={suburb}
+                    className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3"
+                  >
+                    <MapPin className="h-4 w-4 flex-shrink-0 text-primary" />
+                    <span className="text-sm font-medium">{suburb}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -61,7 +92,9 @@ function Suburbs() {
             Just outside these suburbs? Call and ask — service area boundaries aren't always exact.
           </p>
           
-            <a href="tel:0466270949" className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">
+            href="tel:0466270949"
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
+          >
             <Phone className="h-4 w-4" />
             Call Now
           </a>
