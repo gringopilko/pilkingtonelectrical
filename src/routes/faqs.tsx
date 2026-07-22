@@ -46,6 +46,23 @@ export const Route = createFileRoute("/faqs")({
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/faqs" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.a,
+            },
+          })),
+        }),
+      },
+    ],
   }),
   component: Faqs,
 });
