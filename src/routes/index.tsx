@@ -41,25 +41,27 @@ function Index() {
       <Nav />
 
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[560px] overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={heroImg}
-          className="absolute inset-0 hidden h-full w-full object-cover md:block"
-        >
-          <source src="/melbourne-hero.mp4" type="video/mp4" />
-        </video>
-        <img
-          src={heroImg}
-          alt="Licensed electrician working on electrical panel"
-          className="absolute inset-0 h-full w-full object-cover md:hidden"
-        />
-        <div className="absolute inset-0 bg-black/55" />
+      <section className="relative min-h-[70vh]">
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroImg}
+            className="hidden h-full w-full object-cover md:block"
+          >
+            <source src="/melbourne-hero.mp4" type="video/mp4" />
+          </video>
+          <img
+            src={heroImg}
+            alt="Licensed electrician working on electrical panel"
+            className="h-full w-full object-cover md:hidden"
+          />
+          <div className="absolute inset-0 bg-black/55" />
+        </div>
 
-        <div className="relative mx-auto flex h-full max-w-7xl flex-col items-start justify-center px-6">
+        <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col items-start justify-center px-6 py-24">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
             <Shield className="h-3.5 w-3.5" />
             Fully Licensed &amp; Insured
