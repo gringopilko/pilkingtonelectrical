@@ -49,15 +49,10 @@ function Index() {
             loop
             playsInline
             poster={heroImg}
-            className="hidden h-full w-full object-cover md:block"
+            className="h-full w-full object-cover"
           >
             <source src="/melbourne-hero.mp4" type="video/mp4" />
           </video>
-          <img
-            src={heroImg}
-            alt="Licensed electrician working on electrical panel"
-            className="h-full w-full object-cover md:hidden"
-          />
           <div className="absolute inset-0 bg-black/55" />
         </div>
 
