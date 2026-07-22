@@ -7,7 +7,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 const suburbGroups = [
   {
     area: "Inner Bayside",
-    suburbs: ["Elwood", "St Kilda", "St Kilda East", "Balaclava", "Windsor", "Prahran", "South Yarra"],
+    suburbs: ["Elwood", "St Kilda", "St Kilda East", "St Kilda West", "Balaclava", "Windsor", "Prahran", "South Yarra", "Albert Park", "Middle Park", "South Melbourne", "Port Melbourne"],
   },
   {
     area: "Bayside",
