@@ -13,7 +13,7 @@ export function BrandsWeUse() {
           Brands We Use &amp; Trust
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-14 gap-y-8">
-          <img src={clipsalLogo} alt="Clipsal" className="h-12 w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0" />
+          <img src={clipsalLogo} alt="Clipsal" className="h-16 w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0" />
           <img src={hagerLogo} alt="Hager" className="h-12 w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0" />
           <img src={hpmLogo} alt="HPM" className="h-12 w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0" />
           <img src={nhpLogo} alt="NHP" className="h-12 w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0" />
