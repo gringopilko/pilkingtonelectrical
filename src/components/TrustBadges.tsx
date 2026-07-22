@@ -8,7 +8,7 @@ export function TrustBadges() {
     <section className="border-t border-border bg-card">
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="grid grid-cols-2 place-items-center gap-x-8 gap-y-10 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-12 sm:gap-y-6">
-          <img src={esvLogo} alt="Energy Safe Victoria — Registered Electrical Contractor REC-30450" className="h-16 w-auto sm:h-20" />
+          <img src={esvLogo} alt="Energy Safe Victoria — Registered Electrical Contractor REC-30450" className="h-28 w-auto" />
           <img src={acrsLogo} alt="ACRS Master Cabler" className="h-11 w-auto sm:h-14" />
           <img src={ewpaLogo} alt="Elevating Work Platform Association" className="h-11 w-auto sm:h-14" />
           <img src={lifetimeLogo} alt="Lifetime Labour Guarantee" className="h-20 w-auto sm:h-24" />
