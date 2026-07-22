@@ -5,6 +5,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 import { TrustBadges } from "@/components/TrustBadges";
+import { BrandsWeUse } from "@/components/BrandsWeUse";
 
 export const Route = createFileRoute("/")({
   head: () => ({
