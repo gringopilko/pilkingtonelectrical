@@ -9,16 +9,16 @@ import { TrustBadges } from "@/components/TrustBadges";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pilkington Electrical | Domestic & Commercial Electrician Melbourne" },
+      { title: "Pilkington Electrical | Residential & Commercial Electrician Melbourne" },
       {
         name: "description",
         content:
-          "Pilkington Electrical — licensed electrician covering South East Melbourne & Elwood. Domestic rewires, fault finding, switchboards & more.",
+          "Pilkington Electrical — licensed electrician covering South East Melbourne & Elwood. Residential rewires, fault finding, switchboards & more.",
       },
       { property: "og:title", content: "Pilkington Electrical | Licensed Electrician Melbourne" },
       {
         property: "og:description",
-        content: "Licensed electrician covering South East Melbourne & Elwood. Domestic rewires, fault finding, switchboards.",
+        content: "Licensed electrician covering South East Melbourne & Elwood. Residential rewires, fault finding, switchboards.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
 
 const featuredServices = [
   { slug: "switchboards", icon: <Shield className="h-8 w-8" />, title: "Switchboards & Safety Switches", description: "Upgrade old fuse boxes to modern safety switch boards. Protect your home and family with compliant, up-to-date electrical infrastructure." },
-  { slug: "rewiring-extensions", icon: <Zap className="h-8 w-8" />, title: "Domestic Rewires & Installations", description: "Full and partial house rewires, new lighting circuits, power points, and appliance circuits. Clean, tidy work with minimal disruption." },
+  { slug: "rewiring-extensions", icon: <Zap className="h-8 w-8" />, title: "Residential Rewires & Installations", description: "Full and partial house rewires, new lighting circuits, power points, and appliance circuits. Clean, tidy work with minimal disruption." },
   { slug: "fault-finding", icon: <Wrench className="h-8 w-8" />, title: "Fault Finding & Repairs", description: "Intermittent tripping, flickering lights, dead outlets — diagnosing the root cause and fixing it properly, not just patching over it." },
   { slug: "body-corporate", icon: <Award className="h-8 w-8" />, title: "Body Corporate & Strata", description: "Reliable trade partner for property and strata managers. Fast call-outs, compliance work, common-area lighting, and tenant fit-outs — invoiced cleanly." },
 ];
@@ -67,7 +67,7 @@ function Index() {
             Fully Licensed &amp; Insured
           </div>
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
-            Domestic &amp; Commercial
+            Residential &amp; Commercial
             <br />
             <span className="text-primary">Electrical You Can Trust</span>
           </h1>
@@ -102,7 +102,7 @@ function Index() {
           <div className="mb-12 max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Services</h2>
             <p className="mt-4 text-muted-foreground">
-              Domestic and commercial work — from full house rewires to ongoing maintenance for body corporates and real estate agents.
+              Residential and commercial work — from full house rewires to ongoing maintenance for body corporates and real estate agents.
             </p>
           </div>
 
