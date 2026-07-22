@@ -121,6 +121,8 @@ function Index() {
         </div>
       </section>
 
+      <BrandsWeUse />
+
       {/* About / Why Choose Section */}
       <section id="about" className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
