@@ -1,21 +1,22 @@
 import { createServerFn } from "@tanstack/react-start";
-import { env } from "cloudflare:workers";
 
 const CACHE_KEY = "google-reviews";
 const CACHE_TTL_SECONDS = 60 * 60 * 24;
 
-export const getReviews = createServerFn({ method: "GET" }).handler(async () => {
-  const kv = (env as any).REVIEWS_CACHE;
-  const apiKey = (env as any).GOOGLE_PLACES_API_KEY;
-  const placeId = (env as any).GOOGLE_PLACE_ID;
+export const getReviews = createServerFn({ method: "GET" }).handler(async ({ request }: any) => {
+  const env = request?.context?.cloudflare?.env;
 
-  const cached = await kv.get(CACHE_KEY, "json");
+  if (!env?.REVIEWS_CACHE) {
+    return { rating: null, userRatingCount: null, reviews: [] };
+  }
+
+  const cached = await env.REVIEWS_CACHE.get(CACHE_KEY, "json");
   if (cached) return cached;
 
-  const placesRes = await fetch(`https://places.googleapis.com/v1/places/${placeId}?fields=displayName,rating,userRatingCount,reviews`, { headers: { "X-Goog-Api-Key": apiKey } });
+  const placesRes = await fetch(`https://places.googleapis.com/v1/places/${env.GOOGLE_PLACE_ID}?fields=displayName,rating,userRatingCount,reviews`, { headers: { "X-Goog-Api-Key": env.GOOGLE_PLACES_API_KEY } });
 
   if (!placesRes.ok) {
-    throw new Error(`Places API error: ${placesRes.status}`);
+    return { rating: null, userRatingCount: null, reviews: [] };
   }
 
   const data: any = await placesRes.json();
@@ -33,7 +34,7 @@ export const getReviews = createServerFn({ method: "GET" }).handler(async () => 
     fetchedAt: new Date().toISOString(),
   };
 
-  await kv.put(CACHE_KEY, JSON.stringify(payload), { expirationTtl: CACHE_TTL_SECONDS });
+  await env.REVIEWS_CACHE.put(CACHE_KEY, JSON.stringify(payload), { expirationTtl: CACHE_TTL_SECONDS });
 
   return payload;
 });
