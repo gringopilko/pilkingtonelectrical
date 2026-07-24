@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 import { TrustBadges } from "@/components/TrustBadges";
 import { BrandsWeUse } from "@/components/BrandsWeUse";
+import { Testimonials } from "@/components/Testimonials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -169,6 +170,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       {/* Contact Section */}
       <section id="contact" className="border-t border-border bg-card">
