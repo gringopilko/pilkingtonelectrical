@@ -1,10 +1,10 @@
 import { createServerFn } from "@tanstack/react-start";
+import { env } from "cloudflare:workers";
 
 const CACHE_KEY = "google-reviews";
 const CACHE_TTL_SECONDS = 60 * 60 * 24;
 
-export const getReviews = createServerFn({ method: "GET" }).handler(async ({ request }: any) => {
-  const env = request?.context?.cloudflare?.env;
+export const getReviews = createServerFn({ method: "GET" }).handler(async () => {
 
   if (!env?.REVIEWS_CACHE) {
     return { rating: null, userRatingCount: null, reviews: [] };
