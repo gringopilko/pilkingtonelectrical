@@ -5,3 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 
 [assets]
 directory = "dist/client"
+
+[[kv_namespaces]]
+binding = "REVIEWS_CACHE"
+id = "e747af2b614f4d5d990edab2e3a9d847"
