@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
+import { getReviews } from "@/lib/reviews-server";
 
 interface Review {
   authorName: string;
@@ -32,9 +33,8 @@ export function Testimonials() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/reviews")
-      .then((res) => { if (!res.ok) throw new Error("Failed to load reviews"); return res.json(); })
-      .then((json) => { if (!cancelled) setData(json); })
+    getReviews()
+      .then((json: any) => { if (!cancelled) setData(json); })
       .catch(() => { if (!cancelled) setError(true); })
       .finally(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
