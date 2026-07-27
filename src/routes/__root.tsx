@@ -133,6 +133,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra"
         ],
         "priceRange": "$$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "7"
+        },
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
