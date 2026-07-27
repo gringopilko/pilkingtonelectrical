@@ -5,11 +5,6 @@ const CACHE_KEY = "google-reviews";
 const CACHE_TTL_SECONDS = 60 * 60 * 24;
 
 export const getReviews = createServerFn({ method: "GET" }).handler(async () => {
-
-  if (!env?.REVIEWS_CACHE) {
-    return { rating: null, userRatingCount: null, reviews: [] };
-  }
-
   const cached = await env.REVIEWS_CACHE.get(CACHE_KEY, "json");
   if (cached) return cached;
 
