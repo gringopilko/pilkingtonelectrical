@@ -13,4 +13,23 @@ export default defineConfig({
     tanstackStart(),
     viteReact(),
   ],
+  environments: {
+    client: {
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks(id) {
+              if (id.includes("node_modules")) {
+                if (id.includes("@radix-ui")) return "vendor-radix";
+                if (id.includes("recharts")) return "vendor-charts";
+                if (id.includes("react-day-picker") || id.includes("date-fns")) return "vendor-date";
+                if (id.includes("embla-carousel")) return "vendor-carousel";
+                return "vendor";
+              }
+            },
+          },
+        },
+      },
+    },
+  },
 });
