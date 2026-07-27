@@ -87,7 +87,7 @@ export const services: Service[] = [
     slug: "rewiring-extensions",
     title: "Rewiring & Extensions",
     shortDesc: "Full or partial house rewires, new circuits for renovations and extensions.",
-    metaDescription: "Domestic rewiring and extension wiring across South East Melbourne. Full and partial rewires, new circuits. Licensed electrician.",
+    metaDescription: "Residential rewiring and extension wiring across South East Melbourne. Full and partial rewires, new circuits. Licensed electrician.",
     intro: "Whether you're renovating, extending, or your home's wiring is simply past its use-by date, I handle full and partial rewires with minimal disruption to your day-to-day.",
     included: [
       "Full house rewires",
