@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Zap, Shield, Wrench, ChevronRight, Check, Clock, Award } from "lucide-react";
-import heroImg from "@/assets/hero-electrician.jpg";
+import heroImg from "@/assets/hero-electrician-poster.jpg";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
