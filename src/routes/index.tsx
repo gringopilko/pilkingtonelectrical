@@ -7,6 +7,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { TrustBadges } from "@/components/TrustBadges";
 import { BrandsWeUse } from "@/components/BrandsWeUse";
 import { Testimonials } from "@/components/Testimonials";
+import { suburbGroups } from "@/lib/suburbs";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -165,6 +166,38 @@ function Index() {
             </div>
             <Link to="/suburbs" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">
               View all suburbs
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas — full list */}
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Areas We Service</h2>
+            <p className="mt-4 text-muted-foreground">
+              Based in Elwood and moving to Hampton East, covering Bayside, Stonnington, Boroondara and the greater South East Melbourne region.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            {suburbGroups.map((group) => (
+              <div key={group.area}>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-primary">{group.area}</h3>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.suburbs.map((suburb) => (
+                    <span key={suburb} className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">{suburb}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link to="/suburbs" className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline">
+              View full suburbs page
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
