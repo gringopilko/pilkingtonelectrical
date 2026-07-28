@@ -88,15 +88,13 @@ function ServicePage() {
             {service.intro}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            
-              <a href="tel:0466270949"
+            <a href="tel:0466270949"
               className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
             >
               <Phone className="h-4 w-4" />
               Call Now
             </a>
-            
-              <a href="#quote"
+            <a href="#quote"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent"
             >
               Request a Quote
@@ -121,6 +119,14 @@ function ServicePage() {
             {para}
           </p>
         ))}
+
+        <p className="mt-6 leading-relaxed text-muted-foreground">
+          All work is carried out personally by{" "}
+          <Link to="/about" className="font-semibold text-primary hover:underline">
+            a licensed sole-trader electrician
+          </Link>{" "}
+          — no subcontractors, so the person who quotes the job is the person who turns up and does it.
+        </p>
       </section>
 
       <section id="quote" className="border-t border-border bg-card">
