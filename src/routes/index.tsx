@@ -217,7 +217,7 @@ function Index() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <ContactCard icon={<Phone className="h-6 w-6" />} label="Phone" value="0466 270 949" href="tel:0466270949" description="Call or text anytime" />
             <ContactCard icon={<Mail className="h-6 w-6" />} label="Email" value="contact@pilkingtonelectrical.com.au" href="mailto:contact@pilkingtonelectrical.com.au" description="Send job details & photos" />
-            <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Elwood, VIC" href="#" description="Serving South East Melbourne" />
+            <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Elwood, VIC" href="https://www.google.com/maps/search/?api=1&query=Elwood+VIC+Australia" description="Serving South East Melbourne" />
           </div>
 
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
