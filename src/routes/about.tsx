@@ -51,6 +51,21 @@ function About() {
               who actually remembers your property the next time you call.
             </p>
 
+            <h2 className="mt-10 text-2xl font-extrabold tracking-tight md:text-3xl">My background</h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              I started my apprenticeship in 2016 and qualified in 2019, and spent the years since
+              working across large-scale commercial and institutional builds — hospitals, correctional
+              facilities, and multi-storey apartment developments. That's where I learned to work to a
+              standard where mistakes aren't an option: compliance, documentation, and getting it right
+              the first time.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Pilkington Electrical is a new business, but it's backed by nearly a decade of hands-on
+              experience. I bring that same commercial-grade discipline to residential jobs and body
+              corporate work across Bayside — which is part of why strata managers and owners
+              corporations find it straightforward to work with me.
+            </p>
+
             <h2 className="mt-10 text-2xl font-extrabold tracking-tight md:text-3xl">Licensed & Insured</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               Pilkington Electrical operates under REC 30450, fully licensed and insured for residential
@@ -77,8 +92,8 @@ function About() {
                 </div>
               ))}
             </div>
-            
-              <a href="tel:0466270949" className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">
+
+            <a href="tel:0466270949" className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">
               <Phone className="h-4 w-4" />
               Call Now
             </a>
