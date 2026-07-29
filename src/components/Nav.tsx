@@ -57,6 +57,8 @@ export function Nav() {
             <button
               onClick={() => setElectricalOpen((o) => !o)}
               className="flex items-center gap-1 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+              aria-expanded={electricalOpen}
+              aria-haspopup="true"
             >
               Electrical
               <ChevronDown className="h-3.5 w-3.5" />
@@ -102,6 +104,8 @@ export function Nav() {
             <button
               onClick={() => setSupportOpen((o) => !o)}
               className="flex items-center gap-1 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+              aria-expanded={supportOpen}
+              aria-haspopup="true"
             >
               Support
               <ChevronDown className="h-3.5 w-3.5" />
@@ -148,6 +152,7 @@ export function Nav() {
             <button
               onClick={() => setMobileElectricalOpen((o) => !o)}
               className="flex items-center justify-between py-2 text-left text-sm font-semibold text-muted-foreground"
+              aria-expanded={mobileElectricalOpen}
             >
               Electrical
               <ChevronDown className={`h-4 w-4 transition-transform ${mobileElectricalOpen ? "rotate-180" : ""}`} />
@@ -178,6 +183,7 @@ export function Nav() {
             <button
               onClick={() => setMobileSupportOpen((o) => !o)}
               className="flex items-center justify-between py-2 text-left text-sm font-semibold text-muted-foreground"
+              aria-expanded={mobileSupportOpen}
             >
               Support
               <ChevronDown className={`h-4 w-4 transition-transform ${mobileSupportOpen ? "rotate-180" : ""}`} />
