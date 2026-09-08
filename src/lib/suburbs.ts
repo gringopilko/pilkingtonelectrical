@@ -6,7 +6,7 @@ export const suburbGroups = [
   },
   {
     area: "Bayside",
-    blurb: "South along the bay through Brighton, Hampton and Beaumaris — heritage homes, newer builds, and apartment buildings with body corporate electrical needs.",
+    blurb: "South along the bay through Brighton and Hampton East, where I'm based, down to Beaumaris — heritage homes, newer builds, and apartment buildings with body corporate electrical needs.",
     suburbs: ["Brighton", "Brighton East", "Hampton", "Hampton East", "Black Rock", "Beaumaris", "Mentone", "Mordialloc"],
   },
   {
