@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Pilkington Electrical — licensed electrician covering South East Melbourne & Elwood. Residential rewires, fault finding, switchboards & more.",
+          "Pilkington Electrical — licensed electrician covering South East Melbourne & Hampton East. Residential rewires, fault finding, switchboards & more.",
       },
       { property: "og:title", content: "Pilkington Electrical | Licensed Electrician Melbourne" },
       {
