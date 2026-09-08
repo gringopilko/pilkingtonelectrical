@@ -1,7 +1,7 @@
 export const suburbGroups = [
   {
     area: "Inner Bayside",
-    blurb: "Elwood and the surrounding beachside suburbs, where I'm based — a mix of character homes, apartment blocks and busy commercial strips close to the city.",
+    blurb: "Elwood and the surrounding beachside suburbs — a mix of character homes, apartment blocks and busy commercial strips close to the city.",
     suburbs: ["Elwood", "St Kilda", "St Kilda East", "St Kilda West", "Balaclava", "Windsor", "Prahran", "South Yarra", "Albert Park", "Middle Park", "South Melbourne", "Port Melbourne"],
   },
   {
