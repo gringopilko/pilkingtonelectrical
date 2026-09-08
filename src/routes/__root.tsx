@@ -118,21 +118,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "image": "https://pilkingtonelectrical.com.au/og-image.jpg",
         "telephone": "+61466270949",
         "email": "contact@pilkingtonelectrical.com.au",
-        "address": {
+                "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Elwood",
-          "addressLocality": "Elwood",
+          "streetAddress": "Hampton East",
+          "addressLocality": "Hampton East",
           "addressRegion": "VIC",
-          "postalCode": "3184",
+          "postalCode": "3188",
           "addressCountry": "AU"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": -37.8729,
-          "longitude": 144.9842
+          "latitude": -37.9389,
+          "longitude": 145.0311
         },
         "areaServed": [
-          "Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton",
+          "Hampton East", "Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton",
           "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra"
         ],
         "priceRange": "$$",
