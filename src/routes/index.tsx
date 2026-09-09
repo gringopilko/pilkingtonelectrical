@@ -220,7 +220,7 @@ function Index() {
             <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Hampton East, VIC" href="https://www.google.com/maps/search/?api=1&query=Hampton+East+VIC+Australia" description="Serving South East Melbourne" />
           </div>
 
-          <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
+          <div id="quote" className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
             <h3 className="text-center text-xl font-bold tracking-tight">Request a Free Quote</h3>
             <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
               Fill in the form and I'll get back to you promptly. If you'd like to include photos of the job, feel free to email directly:{" "}
