@@ -12,7 +12,7 @@ export const Route = createFileRoute("/suburbs")({
       {
         name: "description",
         content:
-          "Pilkington Electrical services Elwood, St Kilda, Brighton, Bayside, Bentleigh, Malvern, and the greater South East Melbourne region.",
+          "Pilkington Electrical services Hampton East, Elwood, St Kilda, Brighton, Bayside, Bentleigh, Malvern, and the greater South East Melbourne region.",
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/suburbs" }],

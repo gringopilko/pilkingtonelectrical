@@ -10,7 +10,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Pilkington Electrical is a sole-trader licensed electrician based in Elwood, serving South East Melbourne. No subcontractors, no call centres.",
+          "Pilkington Electrical is a sole-trader licensed electrician based in Hampton East, serving South East Melbourne. No subcontractors, no call centres.",
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/about" }],
@@ -29,7 +29,7 @@ function About() {
             About Pilkington Electrical
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            A licensed sole-trader electrician based in Elwood, serving homes, body corporates and
+            A licensed sole-trader electrician based in Hampton East, serving homes, body corporates and
             businesses across South East Melbourne.
           </p>
         </div>
@@ -80,7 +80,7 @@ function About() {
                 { label: "No subcontractors", desc: "The person who quotes is the person who does the work" },
                 { label: "Upfront pricing", desc: "No hidden fees or surprises on the invoice" },
                 { label: "Licensed & insured", desc: "REC 30450 — full compliance, every job" },
-                { label: "Local", desc: "Based in Elwood, covering South East Melbourne" },
+                { label: "Local", desc: "Based in Hampton East, covering South East Melbourne" },
                 { label: "Tidy worksite", desc: "Cleaned up properly, every time" },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-3">

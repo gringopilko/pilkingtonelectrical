@@ -118,7 +118,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "image": "https://pilkingtonelectrical.com.au/og-image.jpg",
         "telephone": "+61466270949",
         "email": "contact@pilkingtonelectrical.com.au",
-                "address": {
+        "address": {
           "@type": "PostalAddress",
           "streetAddress": "Hampton East",
           "addressLocality": "Hampton East",

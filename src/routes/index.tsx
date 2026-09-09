@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Pilkington Electrical | Licensed Electrician Melbourne" },
       {
         property: "og:description",
-        content: "Licensed electrician covering South East Melbourne & Elwood. Residential rewires, fault finding, switchboards.",
+        content: "Licensed electrician covering South East Melbourne & Hampton East. Residential rewires, fault finding, switchboards.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -85,7 +85,7 @@ function Index() {
           </div>
 
           <div className="mt-12 flex flex-wrap items-center gap-6 text-sm font-medium text-white/85">
-            <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Elwood &amp; South East Melbourne</div>
+            <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Hampton East &amp; South East Melbourne</div>
             <div className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary" />Prompt, On-Time Service</div>
             <div className="flex items-center gap-2"><Award className="h-4 w-4 text-primary" />Quality Guaranteed</div>
           </div>
@@ -158,7 +158,7 @@ function Index() {
 
           <div className="rounded-xl border border-border bg-card p-8">
             <h3 className="text-xl font-bold tracking-tight">Service Areas</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Based in Elwood, covering:</p>
+            <p className="mt-2 text-sm text-muted-foreground">Based in Hampton East, covering:</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {["Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton", "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra"].map((suburb) => (
                 <span key={suburb} className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">{suburb}</span>
@@ -178,7 +178,7 @@ function Index() {
           <div className="mb-12 max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Areas We Service</h2>
             <p className="mt-4 text-muted-foreground">
-              Based in Elwood and moving to Hampton East, covering Bayside, Stonnington, Boroondara and the greater South East Melbourne region.
+              Based in Hampton East, covering Bayside, Stonnington, Boroondara and the greater South East Melbourne region.
             </p>
           </div>
 
@@ -217,7 +217,7 @@ function Index() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <ContactCard icon={<Phone className="h-6 w-6" />} label="Phone" value="0466 270 949" href="tel:0466270949" description="Call or text anytime" />
             <ContactCard icon={<Mail className="h-6 w-6" />} label="Email" value="contact@pilkingtonelectrical.com.au" href="mailto:contact@pilkingtonelectrical.com.au" description="Send job details & photos" />
-            <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Elwood, VIC" href="https://www.google.com/maps/search/?api=1&query=Elwood+VIC+Australia" description="Serving South East Melbourne" />
+            <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Hampton East, VIC" href="https://www.google.com/maps/search/?api=1&query=Hampton+East+VIC+Australia" description="Serving South East Melbourne" />
           </div>
 
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">

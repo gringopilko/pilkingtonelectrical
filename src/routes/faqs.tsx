@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: "What areas do you service?",
-    a: "    a: "Based in Hampton East, covering South East Melbourne including St Kilda, Brighton, Caulfield, Hampton, Bentleigh, Malvern, Glen Iris, Camberwell and South Yarra. See the Suburbs page for the full list — if you're nearby but not listed, get in touch anyway.",
+    a: "Based in Hampton East, covering South East Melbourne including St Kilda, Brighton, Caulfield, Hampton, Bentleigh, Malvern, Glen Iris, Camberwell and South Yarra. See the Suburbs page for the full list — if you're nearby but not listed, get in touch anyway.",
     linkTo: "/suburbs",
     linkText: "Suburbs page",
   },
