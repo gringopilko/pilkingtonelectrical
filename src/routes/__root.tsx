@@ -13,6 +13,8 @@ import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { trackContactClick } from "@/lib/analytics";
+import { services } from "@/lib/services";
+import { getAllSuburbs } from "@/lib/suburbs";
 
 function NotFoundComponent() {
   return (
@@ -79,17 +81,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   meta: [
     { charSet: "utf-8" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { title: "Pilkington Electrical | Residential & Commercial Electrician" },
+    { title: "Pilkington Electrical | Electrician in South East Melbourne" },
     { name: "description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
     { name: "author", content: "Pilkington Electrical" },
-    { property: "og:title", content: "Pilkington Electrical | Residential & Commercial Electrician" },
+    { property: "og:title", content: "Pilkington Electrical | Electrician in South East Melbourne" },
     { property: "og:description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://pilkingtonelectrical.com.au/" },
     { property: "og:site_name", content: "Pilkington Electrical" },
     { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Pilkington Electrical | Residential & Commercial Electrician" },
+    { name: "twitter:title", content: "Pilkington Electrical | Electrician in South East Melbourne" },
     { name: "twitter:description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
     { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg" },
   ],
@@ -135,10 +137,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "longitude": 145.0311
         },
         "areaServed": [
-          "Hampton East", "Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton",
-          "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra"
+          { "@type": "Place", "name": "Hampton East" },
+          ...getAllSuburbs()
+            .filter((s) => s.name !== "Hampton East")
+            .map((s) => ({ "@type": "Place", "name": s.name })),
         ],
         "priceRange": "$$",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Electrical Services",
+          "itemListElement": services.map((s) => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": s.title,
+              "description": s.shortDesc,
+              "url": `https://pilkingtonelectrical.com.au/services/${s.slug}`,
+            },
+          })),
+        },
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",

@@ -4,7 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 
-export const Route = createFileRoute("/contact")({
+export const Route = createFileRoute("/Contact")({
   head: () => ({
     meta: [
       { title: "Contact | Pilkington Electrical" },
