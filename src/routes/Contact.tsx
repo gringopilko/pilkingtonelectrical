@@ -15,6 +15,19 @@ export const Route = createFileRoute("/contact")({
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pilkingtonelectrical.com.au/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://pilkingtonelectrical.com.au/contact" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Contact,
 });

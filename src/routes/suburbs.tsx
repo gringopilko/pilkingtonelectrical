@@ -16,6 +16,19 @@ export const Route = createFileRoute("/suburbs")({
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/suburbs" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pilkingtonelectrical.com.au/" },
+            { "@type": "ListItem", "position": 2, "name": "Suburbs", "item": "https://pilkingtonelectrical.com.au/suburbs" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Suburbs,
 });

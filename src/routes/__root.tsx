@@ -94,7 +94,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg" },
   ],
   links: [
-    { rel: "canonical", href: "https://pilkingtonelectrical.com.au/" },
     { rel: "stylesheet", href: appCss },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
