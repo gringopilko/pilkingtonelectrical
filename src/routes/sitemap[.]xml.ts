@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { services } from "@/lib/services";
+import { getAllSuburbs } from "@/lib/suburbs";
 
 const BASE_URL = "https://pilkingtonelectrical.com.au";
 
@@ -24,6 +25,11 @@ export const Route = createFileRoute("/sitemap.xml")({
             path: `/services/${s.slug}`,
             changefreq: "monthly" as const,
             priority: "0.8",
+          })),
+          ...getAllSuburbs().map((s) => ({
+            path: `/suburbs/${s.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
           })),
         ];
 

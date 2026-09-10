@@ -32,3 +32,31 @@ export const suburbGroups = [
     ],
   },
 ];
+
+export function slugify(name: string): string {
+  return name.toLowerCase().replace(/\s+/g, "-");
+}
+
+export interface SuburbEntry {
+  name: string;
+  slug: string;
+  area: string;
+  blurb: string;
+  neighbours: string[];
+}
+
+export function getAllSuburbs(): SuburbEntry[] {
+  return suburbGroups.flatMap((group) =>
+    group.suburbs.map((name) => ({
+      name,
+      slug: slugify(name),
+      area: group.area,
+      blurb: group.blurb,
+      neighbours: group.suburbs.filter((s) => s !== name),
+    })),
+  );
+}
+
+export function getSuburbBySlug(slug: string): SuburbEntry | undefined {
+  return getAllSuburbs().find((s) => s.slug === slug);
+}

@@ -1,11 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { MapPin, Phone } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
-import { suburbGroups } from "@/lib/suburbs";
+import { suburbGroups, slugify } from "@/lib/suburbs";
 
-export const Route = createFileRoute("/suburbs")({
+export const Route = createFileRoute("/suburbs/")({
   head: () => ({
     meta: [
       { title: "Suburbs We Service | Pilkington Electrical" },
@@ -55,10 +55,15 @@ function Suburbs() {
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">{group.blurb}</p>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
                 {group.suburbs.map((suburb) => (
-                  <div key={suburb} className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3">
+                  <Link
+                    key={suburb}
+                    to="/suburbs/$slug"
+                    params={{ slug: slugify(suburb) }}
+                    className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 transition-colors hover:border-primary/40 hover:text-primary"
+                  >
                     <MapPin className="h-4 w-4 flex-shrink-0 text-primary" />
                     <span className="text-sm font-medium">{suburb}</span>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
