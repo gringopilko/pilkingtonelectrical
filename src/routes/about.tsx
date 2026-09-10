@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, ChevronRight, Phone } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import servicesOverview from "@/assets/services-overview.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -28,25 +27,13 @@ function About() {
 
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div>
-              <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
-                About Pilkington Electrical
-              </h1>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                A licensed sole-trader electrician based in Hampton East, serving homes, body corporates and
-                businesses across South East Melbourne.
-              </p>
-            </div>
-            <img
-              src={servicesOverview}
-              alt="Pilkington Electrical services overview: lighting upgrades, switchboard upgrades, fault finding and repairs, body corporate and real estate work, and renovations across Melbourne's bayside and south-east"
-              width={1024}
-              height={1536}
-              loading="eager"
-              className="mx-auto w-full max-w-sm rounded-xl shadow-lg md:justify-self-end"
-            />
-          </div>
+          <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
+            About Pilkington Electrical
+          </h1>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            A licensed sole-trader electrician based in Hampton East, serving homes, body corporates and
+            businesses across South East Melbourne.
+          </p>
         </div>
       </section>
 
