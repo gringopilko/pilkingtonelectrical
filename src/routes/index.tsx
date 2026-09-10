@@ -12,7 +12,7 @@ import { suburbGroups } from "@/lib/suburbs";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pilkington Electrical | Residential & Commercial Electrician Melbourne" },
+      { title: "Pilkington Electrical | Residential & Commercial Electrician" },
       {
         name: "description",
         content:
