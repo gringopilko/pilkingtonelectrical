@@ -176,7 +176,7 @@ gtag('config', '${import.meta.env.VITE_GA_MEASUREMENT_ID}');`,
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-AU">
       <head>
         <HeadContent />
       </head>
