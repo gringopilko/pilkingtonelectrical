@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { trackQuoteRequest } from "@/lib/analytics";
 
 const inputClass =
   "rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
@@ -39,6 +40,7 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
       const data = await response.json();
       if (!data.success) throw new Error("Failed to send");
       setDone(true);
+      trackQuoteRequest(typeof window !== "undefined" ? window.location.pathname : "unknown");
       toast.success("Quote request sent! Shane will be in touch shortly.");
       setName("");
       setPhone("");

@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { trackContactClick } from "@/lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -115,7 +116,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "name": "Pilkington Electrical",
         "url": "https://pilkingtonelectrical.com.au",
         "logo": "https://pilkingtonelectrical.com.au/og-image.jpg",
-        "image": "https://pilkingtonelectrical.com.au/og-image.jpg",
+        "image": [
+          "https://pilkingtonelectrical.com.au/og-image.jpg",
+          "https://pilkingtonelectrical.com.au/services-overview-social.jpg"
+        ],
         "telephone": "+61466270949",
         "email": "contact@pilkingtonelectrical.com.au",
         "address": {
@@ -145,7 +149,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           }
         ]
       })
-    }
+    },
+    // GA4 / Google Ads tag — only renders once VITE_GA_MEASUREMENT_ID is set
+    // (Cloudflare dashboard env var, or .env locally). No code change needed
+    // once the ID is added — see src/lib/analytics.ts for the event helpers.
+    ...(import.meta.env.VITE_GA_MEASUREMENT_ID
+      ? [
+          {
+            src: `https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_MEASUREMENT_ID}`,
+            async: true,
+          },
+          {
+            children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${import.meta.env.VITE_GA_MEASUREMENT_ID}');`,
+          },
+        ]
+      : []),
   ],
 }),
   shellComponent: RootShell,
@@ -170,6 +191,16 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const link = (e.target as HTMLElement)?.closest?.("a[href^='tel:'], a[href^='mailto:']") as HTMLAnchorElement | null;
+      if (!link) return;
+      trackContactClick(link.href.startsWith("tel:") ? "phone" : "email");
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
