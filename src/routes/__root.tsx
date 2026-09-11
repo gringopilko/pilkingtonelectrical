@@ -13,6 +13,7 @@ import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { trackContactClick } from "@/lib/analytics";
+import { MobileCallBar } from "@/components/MobileCallBar";
 import { services } from "@/lib/services";
 import { getAllSuburbs } from "@/lib/suburbs";
 
@@ -221,6 +222,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Toaster richColors position="top-center" />
+      <MobileCallBar />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

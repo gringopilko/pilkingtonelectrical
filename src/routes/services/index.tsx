@@ -52,7 +52,7 @@ function ServicesIndex() {
               key={s.slug}
               to="/services/$slug"
               params={{ slug: s.slug }}
-              className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+              className="group rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
             >
               <h2 className="text-lg font-bold tracking-tight">{s.title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.shortDesc}</p>

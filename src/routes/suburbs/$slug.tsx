@@ -106,7 +106,7 @@ function SuburbPage() {
               key={s.slug}
               to="/services/$slug"
               params={{ slug: s.slug }}
-              className="rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+              className="rounded-xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
             >
               <h3 className="font-bold tracking-tight">{s.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{s.shortDesc}</p>
@@ -125,7 +125,7 @@ function SuburbPage() {
                   key={n}
                   to="/suburbs/$slug"
                   params={{ slug: slugify(n) }}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:border-primary/40 hover:text-primary"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
                 >
                   <MapPin className="h-3.5 w-3.5" />
                   {n}

@@ -57,6 +57,7 @@ function Index() {
             <source src="/melbourne-hero.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background md:h-40" />
         </div>
 
         <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col items-start justify-center px-6 py-24">
@@ -106,7 +107,7 @@ function Index() {
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {featuredServices.map((s) => (
-              <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group rounded-xl border border-border bg-background p-6 transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+              <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group rounded-xl border border-border bg-background p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary">{s.icon}</div>
                 <h3 className="mt-4 text-lg font-bold tracking-tight">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
@@ -238,7 +239,7 @@ function Index() {
 
 function ContactCard({ icon, label, value, href, description }: { icon: React.ReactNode; label: string; value: string; href: string; description: string }) {
   return (
-    <a href={href} className="group flex flex-col items-center rounded-xl border border-border bg-background p-6 text-center transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+    <a href={href} className="group flex flex-col items-center rounded-xl border border-border bg-background p-6 text-center transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
       <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">{icon}</div>
       <span className="mt-4 text-sm font-semibold text-muted-foreground">{label}</span>{" "}
       <span className="mt-1 text-lg font-bold tracking-tight">{value}</span>{" "}
