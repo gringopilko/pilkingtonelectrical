@@ -56,8 +56,7 @@ function Index() {
           >
             <source src="/melbourne-hero.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-black/55" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background md:h-40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/55 to-black" />
         </div>
 
         <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col items-start justify-center px-6 py-24">
