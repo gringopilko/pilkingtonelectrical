@@ -1,7 +1,7 @@
-import acrsLogo from "@/assets/acrs-master-cabler.png";
-import esvLogo from "@/assets/energy-safe-victoria.png";
-import ewpaLogo from "@/assets/ewpa-logo.png";
-import lifetimeLogo from "@/assets/lifetime-labour-guarantee.png";
+import acrsLogo from "@/assets/acrs-master-cabler.webp";
+import esvLogo from "@/assets/energy-safe-victoria.webp";
+import ewpaLogo from "@/assets/ewpa-logo.webp";
+import lifetimeLogo from "@/assets/lifetime-labour-guarantee.webp";
 
 export function TrustBadges() {
   return (

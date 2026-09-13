@@ -144,6 +144,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             .map((s) => ({ "@type": "Place", "name": s.name })),
         ],
         "priceRange": "$$",
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "name": "Registered Electrical Contractor",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Energy Safe Victoria",
+          },
+          "identifier": "REC-30450",
+        },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Electrical Services",

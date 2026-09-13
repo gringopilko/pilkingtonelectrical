@@ -1,9 +1,9 @@
-import clipsalLogo from "@/assets/clipsal-logo.png";
-import hagerLogo from "@/assets/hager-logo.png";
-import hpmLogo from "@/assets/hpm-logo.png";
-import nhpLogo from "@/assets/nhp-logo.png";
-import voltexLogo from "@/assets/voltex-logo.png";
-import beaconLogo from "@/assets/beacon-logo.png";
+import clipsalLogo from "@/assets/clipsal-logo.webp";
+import hagerLogo from "@/assets/hager-logo.webp";
+import hpmLogo from "@/assets/hpm-logo.webp";
+import nhpLogo from "@/assets/nhp-logo.webp";
+import voltexLogo from "@/assets/voltex-logo.webp";
+import beaconLogo from "@/assets/beacon-logo.webp";
 
 export function BrandsWeUse() {
   return (
