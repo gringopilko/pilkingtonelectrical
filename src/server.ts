@@ -40,6 +40,16 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+
+      // Keep one public origin. Canonical tags are advisory, while this permanent
+      // redirect prevents Google and visitors from treating www as a second site.
+      if (url.hostname === "www.pilkingtonelectrical.com.au") {
+        url.hostname = "pilkingtonelectrical.com.au";
+        url.protocol = "https:";
+        return Response.redirect(url.toString(), 301);
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);

@@ -99,6 +99,19 @@ function SuburbPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
+        {suburb.localIntro && (
+          <div className="mb-12 max-w-3xl">
+            <h2 className="text-2xl font-bold tracking-tight">Your local electrician in {suburb.name}</h2>
+            <p className="mt-3 leading-relaxed text-muted-foreground">{suburb.localIntro}</p>
+            {suburb.commonJobs && (
+              <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
+                {suburb.commonJobs.map((job) => (
+                  <li key={job} className="rounded-lg border border-border bg-card px-4 py-3">{job}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
         <h2 className="text-2xl font-bold tracking-tight">Electrical services in {suburb.name}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {services.map((s) => (
