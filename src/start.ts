@@ -2,6 +2,18 @@ import { createStart, createMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage } from "./lib/error-page";
 
+const canonicalHostMiddleware = createMiddleware().server(({ request, next }) => {
+  const url = new URL(request.url);
+
+  if (url.hostname !== "www.pilkingtonelectrical.com.au") {
+    return next();
+  }
+
+  url.hostname = "pilkingtonelectrical.com.au";
+  url.protocol = "https:";
+  return Response.redirect(url.toString(), 301);
+});
+
 const errorMiddleware = createMiddleware().server(async ({ next }) => {
   try {
     return await next();
@@ -19,5 +31,5 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
 
 export const startInstance = createStart(() => ({
   functionMiddleware: [],
-  requestMiddleware: [errorMiddleware],
+  requestMiddleware: [canonicalHostMiddleware, errorMiddleware],
 }));
