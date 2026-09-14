@@ -126,7 +126,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "email": "contact@pilkingtonelectrical.com.au",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Hampton East",
           "addressLocality": "Hampton East",
           "addressRegion": "VIC",
           "postalCode": "3188",
@@ -188,9 +187,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           },
           {
             children: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${import.meta.env.VITE_GA_MEASUREMENT_ID}');`,
+window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+window.gtag('js', new Date());
+window.gtag('config', '${import.meta.env.VITE_GA_MEASUREMENT_ID}');`,
           },
         ]
       : []),
