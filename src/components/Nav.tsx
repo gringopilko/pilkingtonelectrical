@@ -41,7 +41,7 @@ export function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           <Link
             to="/about"
             className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
@@ -128,24 +128,33 @@ export function Nav() {
             )}
           </div>
 
-          
-            <a href="tel:0466270949"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
-            >
-              <Phone className="h-4 w-4" />
-              0466 270 949
-            </a>
+          <a
+            href="tel:0466270949"
+            className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
+          >
+            <Phone className="h-4 w-4" />
+            0466 270 949
+          </a>
         </div>
 
-        <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
+        <button
+          className="p-2 lg:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-expanded={mobileOpen}
+          aria-label="Toggle menu"
+        >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border px-6 py-4 md:hidden">
+        <div className="border-t border-border px-6 py-4 lg:hidden">
           <div className="flex flex-col gap-1">
-            <Link to="/about" onClick={closeAll} className="py-2 text-sm font-semibold text-muted-foreground">
+            <Link
+              to="/about"
+              onClick={closeAll}
+              className="py-2 text-sm font-semibold text-muted-foreground"
+            >
               About
             </Link>
 
@@ -155,7 +164,9 @@ export function Nav() {
               aria-expanded={mobileElectricalOpen}
             >
               Electrical
-              <ChevronDown className={`h-4 w-4 transition-transform ${mobileElectricalOpen ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${mobileElectricalOpen ? "rotate-180" : ""}`}
+              />
             </button>
             {mobileElectricalOpen && (
               <div className="ml-3 flex flex-col gap-1 border-l border-border pl-3">
@@ -170,13 +181,21 @@ export function Nav() {
                     {s.title}
                   </Link>
                 ))}
-                <Link to="/services" onClick={closeAll} className="py-1.5 text-sm font-bold text-primary">
+                <Link
+                  to="/services"
+                  onClick={closeAll}
+                  className="py-1.5 text-sm font-bold text-primary"
+                >
                   View all services
                 </Link>
               </div>
             )}
 
-            <Link to="/suburbs" onClick={closeAll} className="py-2 text-sm font-semibold text-muted-foreground">
+            <Link
+              to="/suburbs"
+              onClick={closeAll}
+              className="py-2 text-sm font-semibold text-muted-foreground"
+            >
               Suburbs
             </Link>
 
@@ -186,20 +205,27 @@ export function Nav() {
               aria-expanded={mobileSupportOpen}
             >
               Support
-              <ChevronDown className={`h-4 w-4 transition-transform ${mobileSupportOpen ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${mobileSupportOpen ? "rotate-180" : ""}`}
+              />
             </button>
             {mobileSupportOpen && (
               <div className="ml-3 flex flex-col gap-1 border-l border-border pl-3">
                 {supportLinks.map((s) => (
-                  <Link key={s.href} to={s.href} onClick={closeAll} className="py-1.5 text-sm text-muted-foreground">
+                  <Link
+                    key={s.href}
+                    to={s.href}
+                    onClick={closeAll}
+                    className="py-1.5 text-sm text-muted-foreground"
+                  >
                     {s.title}
                   </Link>
                 ))}
               </div>
             )}
 
-            
-              <a href="tel:0466270949"
+            <a
+              href="tel:0466270949"
               className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
             >
               <Phone className="h-4 w-4" />

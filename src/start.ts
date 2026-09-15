@@ -4,13 +4,18 @@ import { renderErrorPage } from "./lib/error-page";
 
 const canonicalHostMiddleware = createMiddleware().server(({ request, next }) => {
   const url = new URL(request.url);
-
-  if (url.hostname !== "www.pilkingtonelectrical.com.au") {
+  const canonicalHost = url.hostname === "www.pilkingtonelectrical.com.au";
+  const canonicalContact = url.pathname === "/Contact";
+  const canonicalProtocol =
+    url.hostname === "pilkingtonelectrical.com.au" && url.protocol === "http:";
+  if (!canonicalHost && !canonicalContact && !canonicalProtocol) {
     return next();
   }
-
-  url.hostname = "pilkingtonelectrical.com.au";
-  url.protocol = "https:";
+  if (canonicalHost || canonicalProtocol) {
+    url.hostname = "pilkingtonelectrical.com.au";
+    url.protocol = "https:";
+  }
+  if (canonicalContact) url.pathname = "/contact";
   return Response.redirect(url.toString(), 301);
 });
 
