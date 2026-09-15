@@ -33,8 +33,8 @@ export function trackQuoteRequest(source: string) {
 }
 
 // Call on tel:/mailto: link clicks.
-export function trackContactClick(channel: "phone" | "email" | "sms") {
-  trackEvent(`contact_${channel}_click`, {
+export function trackContactClick(channel: "phone" | "email") {
+  trackEvent(channel === "phone" ? "contact_phone_click" : "contact_email_click", {
     source: typeof window !== "undefined" ? window.location.pathname : undefined,
   });
 }
