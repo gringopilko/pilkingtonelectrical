@@ -24,6 +24,7 @@ export const Route = createFileRoute("/suburbs/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -32,19 +33,20 @@ export const Route = createFileRoute("/suburbs/$slug")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "serviceType": "Residential and commercial electrician",
-            "name": `Electrician services in ${loaderData.name}`,
-            "description": description,
-            "url": url,
-            "provider": {
+            serviceType: "Residential and commercial electrician",
+            name: `Electrician services in ${loaderData.name}`,
+            description: description,
+            url: url,
+            provider: {
+              "@id": "https://pilkingtonelectrical.com.au/#business",
               "@type": "ElectricalContractor",
-              "name": "Pilkington Electrical",
-              "telephone": "+61466270949",
-              "url": "https://pilkingtonelectrical.com.au",
+              name: "Pilkington Electrical",
+              telephone: "+61466270949",
+              url: "https://pilkingtonelectrical.com.au",
             },
-            "areaServed": {
+            areaServed: {
               "@type": "Place",
-              "name": `${loaderData.name}, VIC`,
+              name: `${loaderData.name}, VIC`,
             },
           }),
         },
@@ -53,10 +55,20 @@ export const Route = createFileRoute("/suburbs/$slug")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pilkingtonelectrical.com.au/" },
-              { "@type": "ListItem", "position": 2, "name": "Suburbs", "item": "https://pilkingtonelectrical.com.au/suburbs" },
-              { "@type": "ListItem", "position": 3, "name": loaderData.name, "item": url },
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://pilkingtonelectrical.com.au/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Suburbs",
+                item: "https://pilkingtonelectrical.com.au/suburbs",
+              },
+              { "@type": "ListItem", position: 3, name: loaderData.name, item: url },
             ],
           }),
         },
@@ -73,12 +85,16 @@ function SuburbPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
 
-      <section className="border-b border-border bg-card">
+      <section className="border-b border-border area-panel">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
           <nav className="mb-4 flex items-center gap-1 text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-primary">Home</Link>
+            <Link to="/" className="hover:text-primary">
+              Home
+            </Link>
             <ChevronRight className="h-3 w-3" />
-            <Link to="/suburbs" className="hover:text-primary">Suburbs</Link>
+            <Link to="/suburbs" className="hover:text-primary">
+              Suburbs
+            </Link>
             <ChevronRight className="h-3 w-3" />
             <span className="text-foreground">{suburb.name}</span>
           </nav>
@@ -86,7 +102,8 @@ function SuburbPage() {
             Electrician in {suburb.name}, VIC
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Licensed residential and commercial electrical work in {suburb.name}, part of Melbourne's {suburb.area} area. {suburb.blurb}
+            Licensed residential and commercial electrical work in {suburb.name}, part of
+            Melbourne's {suburb.area} area. {suburb.blurb}
           </p>
           <a
             href="tel:0466270949"
@@ -101,12 +118,16 @@ function SuburbPage() {
       <section className="mx-auto max-w-5xl px-6 py-16">
         {suburb.localIntro && (
           <div className="mb-12 max-w-3xl">
-            <h2 className="text-2xl font-bold tracking-tight">Your local electrician in {suburb.name}</h2>
+            <h2 className="text-2xl font-bold tracking-tight">
+              Your local electrician in {suburb.name}
+            </h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">{suburb.localIntro}</p>
             {suburb.commonJobs && (
               <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
                 {suburb.commonJobs.map((job) => (
-                  <li key={job} className="rounded-lg border border-border bg-card px-4 py-3">{job}</li>
+                  <li key={job} className="rounded-lg border border-border bg-card px-4 py-3">
+                    {job}
+                  </li>
                 ))}
               </ul>
             )}
@@ -152,10 +173,17 @@ function SuburbPage() {
       <section className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Request a Free Quote</h2>
-            <p className="mt-4 text-muted-foreground">Servicing {suburb.name} — fill in the form and I'll get back to you promptly.</p>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+              Request a Free Quote
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Servicing {suburb.name} — fill in the form and I'll get back to you promptly.
+            </p>
           </div>
-          <div id="quote" className="mt-12 scroll-mt-24 rounded-xl border border-border bg-background p-8 md:p-12">
+          <div
+            id="quote"
+            className="mt-12 scroll-mt-24 rounded-xl border border-border bg-background p-8 md:p-12"
+          >
             <QuoteForm />
           </div>
         </div>

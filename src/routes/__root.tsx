@@ -8,7 +8,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react"; 
+import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -39,7 +39,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -79,122 +79,138 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
-  meta: [
-    { charSet: "utf-8" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { title: "Pilkington Electrical | Electrician in South East Melbourne" },
-    { name: "description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
-    { name: "author", content: "Pilkington Electrical" },
-    { property: "og:title", content: "Pilkington Electrical | Electrician in South East Melbourne" },
-    { property: "og:description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
-    { property: "og:type", content: "website" },
-    { property: "og:url", content: "https://pilkingtonelectrical.com.au/" },
-    { property: "og:site_name", content: "Pilkington Electrical" },
-    { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Pilkington Electrical | Electrician in South East Melbourne" },
-    { name: "twitter:description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
-    { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg" },
-  ],
-  links: [
-    { rel: "stylesheet", href: appCss },
-    { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-    { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" },
-    { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-    { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/favicon_512.png' },
-    { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicon_192.png' },
-    { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon_32.png' },
-    { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon_16.png' },
-    { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon_180.png' },
-
-  ],
-  scripts: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ElectricalContractor",
-        "name": "Pilkington Electrical",
-        "url": "https://pilkingtonelectrical.com.au",
-        "logo": "https://pilkingtonelectrical.com.au/og-image.jpg",
-        "image": [
-          "https://pilkingtonelectrical.com.au/og-image.jpg",
-          "https://pilkingtonelectrical.com.au/services-overview-social.jpg"
-        ],
-        "telephone": "+61466270949",
-        "email": "contact@pilkingtonelectrical.com.au",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Hampton East",
-          "addressRegion": "VIC",
-          "postalCode": "3188",
-          "addressCountry": "AU"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -37.9389,
-          "longitude": 145.0311
-        },
-        "areaServed": [
-          { "@type": "Place", "name": "Hampton East" },
-          ...getAllSuburbs()
-            .filter((s) => s.name !== "Hampton East")
-            .map((s) => ({ "@type": "Place", "name": s.name })),
-        ],
-        "priceRange": "$$",
-        "hasCredential": {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "license",
-          "name": "Registered Electrical Contractor",
-          "recognizedBy": {
-            "@type": "Organization",
-            "name": "Energy Safe Victoria",
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Pilkington Electrical | Electrician in South East Melbourne" },
+      {
+        name: "description",
+        content:
+          "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards.",
+      },
+      { name: "author", content: "Pilkington Electrical" },
+      {
+        property: "og:title",
+        content: "Pilkington Electrical | Electrician in South East Melbourne",
+      },
+      {
+        property: "og:description",
+        content:
+          "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pilkingtonelectrical.com.au/" },
+      { property: "og:site_name", content: "Pilkington Electrical" },
+      { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Pilkington Electrical | Electrician in South East Melbourne",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards.",
+      },
+      { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg" },
+    ],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+      },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", type: "image/png", sizes: "512x512", href: "/favicon_512.png" },
+      { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon_192.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon_180.png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ElectricalContractor",
+          "@id": "https://pilkingtonelectrical.com.au/#business",
+          name: "Pilkington Electrical",
+          url: "https://pilkingtonelectrical.com.au",
+          logo: "https://pilkingtonelectrical.com.au/pilkington-logo-transparent.png",
+          image: [
+            "https://pilkingtonelectrical.com.au/og-image.jpg",
+            "https://pilkingtonelectrical.com.au/services-overview-social.jpg",
+          ],
+          telephone: "+61466270949",
+          email: "contact@pilkingtonelectrical.com.au",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Hampton East",
+            addressRegion: "VIC",
+            postalCode: "3188",
+            addressCountry: "AU",
           },
-          "identifier": "REC-30450",
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Electrical Services",
-          "itemListElement": services.map((s) => ({
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": s.title,
-              "description": s.shortDesc,
-              "url": `https://pilkingtonelectrical.com.au/services/${s.slug}`,
+          areaServed: [
+            { "@type": "Place", name: "Hampton East" },
+            ...getAllSuburbs()
+              .filter((s) => s.name !== "Hampton East")
+              .map((s) => ({ "@type": "Place", name: s.name })),
+          ],
+          priceRange: "$$",
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "license",
+            name: "Registered Electrical Contractor",
+            recognizedBy: {
+              "@type": "Organization",
+              name: "Energy Safe Victoria",
             },
-          })),
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-            "opens": "06:30",
-            "closes": "18:00"
-          }
-        ]
-      })
-    },
-    // GA4 / Google Ads tag — only renders once VITE_GA_MEASUREMENT_ID is set
-    // (Cloudflare dashboard env var, or .env locally). No code change needed
-    // once the ID is added — see src/lib/analytics.ts for the event helpers.
-    ...(import.meta.env.VITE_GA_MEASUREMENT_ID
-      ? [
-          {
-            src: `https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_MEASUREMENT_ID}`,
-            async: true,
+            identifier: "REC-30450",
           },
-          {
-            children: `window.dataLayer = window.dataLayer || [];
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Electrical Services",
+            itemListElement: services.map((s) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: s.title,
+                description: s.shortDesc,
+                url: `https://pilkingtonelectrical.com.au/services/${s.slug}`,
+              },
+            })),
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              opens: "06:30",
+              closes: "18:00",
+            },
+          ],
+        }),
+      },
+      // GA4 / Google Ads tag — only renders once VITE_GA_MEASUREMENT_ID is set
+      // (Cloudflare dashboard env var, or .env locally). No code change needed
+      // once the ID is added — see src/lib/analytics.ts for the event helpers.
+      ...(import.meta.env.VITE_GA_MEASUREMENT_ID
+        ? [
+            {
+              src: `https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_MEASUREMENT_ID}`,
+              async: true,
+            },
+            {
+              children: `window.dataLayer = window.dataLayer || [];
 window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
 window.gtag('js', new Date());
 window.gtag('config', '${import.meta.env.VITE_GA_MEASUREMENT_ID}');`,
-          },
-        ]
-      : []),
-  ],
-}),
+            },
+          ]
+        : []),
+    ],
+  }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -220,9 +236,13 @@ function RootComponent() {
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      const link = (e.target as HTMLElement)?.closest?.("a[href^='tel:'], a[href^='mailto:']") as HTMLAnchorElement | null;
+      const link = (e.target as HTMLElement)?.closest?.(
+        "a[href^='tel:'], a[href^='mailto:'], a[href^='sms:']",
+      ) as HTMLAnchorElement | null;
       if (!link) return;
-      trackContactClick(link.href.startsWith("tel:") ? "phone" : "email");
+      trackContactClick(
+        link.href.startsWith("tel:") ? "phone" : link.href.startsWith("sms:") ? "sms" : "email",
+      );
     };
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
