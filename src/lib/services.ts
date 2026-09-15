@@ -13,10 +13,8 @@ export const services: Service[] = [
     slug: "switchboards",
     title: "Switchboard Upgrades & Repairs",
     shortDesc: "Old fuse box or tripping switchboard? Upgrade to a modern, compliant board.",
-    metaDescription:
-      "Switchboard upgrades, repairs and replacements across South East Melbourne. Licensed electrician, upfront pricing. Call Pilkington Electrical.",
-    intro:
-      "Your switchboard is the heart of your home's electrical safety. If it's still running on an old fuse box, tripping repeatedly, or hasn't been assessed in years, it's worth having it checked properly.",
+    metaDescription: "Switchboard upgrades, repairs and replacements across South East Melbourne. Licensed electrician, upfront pricing. Call Pilkington Electrical.",
+    intro: "Your switchboard is the heart of your home's electrical safety. If it's still running on an old fuse box, tripping repeatedly, or hasn't been assessed in years, it's worth having it checked properly.",
     included: [
       "Switchboard upgrades (fuses to safety switches)",
       "New switchboard installation",
@@ -34,10 +32,8 @@ export const services: Service[] = [
     slug: "safety-switches",
     title: "Safety Switches",
     shortDesc: "RCD safety switch installation and testing to protect your home and family.",
-    metaDescription:
-      "Safety switch (RCD) installation and testing in Hampton East, Bayside and South East Melbourne. Speak with Shane for a quote.",
-    intro:
-      "A safety switch (RCD) is one of the cheapest, most effective pieces of protection in your home — cutting power in milliseconds if there's a fault. Many older homes still don't have one fitted.",
+    metaDescription: "Safety switch (RCD) installation and testing across South East Melbourne. Licensed electrician, same-day quotes.",
+    intro: "A safety switch (RCD) is one of the cheapest, most effective pieces of protection in your home — cutting power in milliseconds if there's a fault. Many older homes still don't have one fitted.",
     included: [
       "Safety switch installation",
       "Testing existing safety switches",
@@ -53,12 +49,9 @@ export const services: Service[] = [
   {
     slug: "fault-finding",
     title: "Fault Finding & Repairs",
-    shortDesc:
-      "Flickering lights, dead outlets, or unexplained tripping — found and fixed properly.",
-    metaDescription:
-      "Electrical fault finding and repairs across South East Melbourne. Diagnosing the real cause, not just patching symptoms. Licensed electrician.",
-    intro:
-      "Intermittent faults are frustrating — power that drops out, lights that flicker, an outlet that's suddenly dead. I diagnose the actual cause rather than guessing or replacing parts until something works.",
+    shortDesc: "Flickering lights, dead outlets, or unexplained tripping — found and fixed properly.",
+    metaDescription: "Electrical fault finding and repairs across South East Melbourne. Diagnosing the real cause, not just patching symptoms. Licensed electrician.",
+    intro: "Intermittent faults are frustrating — power that drops out, lights that flicker, an outlet that's suddenly dead. I diagnose the actual cause rather than guessing or replacing parts until something works.",
     included: [
       "Circuit tracing & fault diagnosis",
       "Flickering or dimming lights",
@@ -75,12 +68,9 @@ export const services: Service[] = [
   {
     slug: "emergency-electrical",
     title: "Emergency Electrical",
-    shortDesc:
-      "Loss of power or an urgent electrical fault? Fast response across South East Melbourne.",
-    metaDescription:
-      "Emergency electrician for loss of power and urgent electrical faults across South East Melbourne. Call Pilkington Electrical.",
-    intro:
-      "Complete loss of power, a tripped board that won't reset, or anything that feels unsafe — call straight away. I'll talk you through what to check immediately and get to you as fast as possible.",
+    shortDesc: "Loss of power or an urgent electrical fault? Fast response across South East Melbourne.",
+    metaDescription: "Emergency electrician for loss of power and urgent electrical faults across South East Melbourne. Call Pilkington Electrical.",
+    intro: "Complete loss of power, a tripped board that won't reset, or anything that feels unsafe — call straight away. I'll talk you through what to check immediately and get to you as fast as possible.",
     included: [
       "Total loss of power",
       "Switchboard that won't reset",
@@ -97,10 +87,8 @@ export const services: Service[] = [
     slug: "rewiring-extensions",
     title: "Rewiring & Extensions",
     shortDesc: "Full or partial house rewires, new circuits for renovations and extensions.",
-    metaDescription:
-      "Residential rewiring and extension wiring across South East Melbourne. Full and partial rewires, new circuits. Licensed electrician.",
-    intro:
-      "Whether you're renovating, extending, or your home's wiring is simply past its use-by date, I handle full and partial rewires with minimal disruption to your day-to-day.",
+    metaDescription: "Residential rewiring and extension wiring across South East Melbourne. Full and partial rewires, new circuits. Licensed electrician.",
+    intro: "Whether you're renovating, extending, or your home's wiring is simply past its use-by date, I handle full and partial rewires with minimal disruption to your day-to-day.",
     included: [
       "Full house rewires",
       "Partial rewires (room by room)",
@@ -118,10 +106,8 @@ export const services: Service[] = [
     slug: "commercial-electrician",
     title: "Commercial Electrician",
     shortDesc: "Reliable electrical trade partner for businesses, offices and retail fit-outs.",
-    metaDescription:
-      "Commercial electrician serving businesses across South East Melbourne. Fit-outs, maintenance, compliance work. Licensed and insured.",
-    intro:
-      "Downtime costs businesses money. I work with offices, retail spaces and commercial tenants to keep electrical systems running and get fit-out work done properly and on time.",
+    metaDescription: "Commercial electrician serving businesses across South East Melbourne. Fit-outs, maintenance, compliance work. Licensed and insured.",
+    intro: "Downtime costs businesses money. I work with offices, retail spaces and commercial tenants to keep electrical systems running and get fit-out work done properly and on time.",
     included: [
       "Office & retail fit-outs",
       "Commercial lighting",
@@ -139,10 +125,8 @@ export const services: Service[] = [
     slug: "hot-water",
     title: "Electrical Hot Water Services",
     shortDesc: "Installation and repair of electric hot water systems.",
-    metaDescription:
-      "Electric hot water system installation and repairs across South East Melbourne. Licensed electrician.",
-    intro:
-      "No hot water is never convenient. I install and repair electric hot water systems, and can talk you through the right option if you're replacing an old unit.",
+    metaDescription: "Electric hot water system installation and repairs across South East Melbourne. Licensed electrician.",
+    intro: "No hot water is never convenient. I install and repair electric hot water systems, and can talk you through the right option if you're replacing an old unit.",
     included: [
       "Electric hot water system installation",
       "Hot water system repairs",
@@ -157,10 +141,8 @@ export const services: Service[] = [
     slug: "lighting",
     title: "Energy Efficient Lighting",
     shortDesc: "LED upgrades, downlights and outdoor lighting that cut your power bill.",
-    metaDescription:
-      "Energy efficient LED lighting installation across South East Melbourne. Downlights, outdoor & security lighting. Licensed electrician.",
-    intro:
-      "Switching to LED lighting is one of the simplest ways to cut your power bill while improving how a space looks and feels — inside and out.",
+    metaDescription: "Energy efficient LED lighting installation across South East Melbourne. Downlights, outdoor & security lighting. Licensed electrician.",
+    intro: "Switching to LED lighting is one of the simplest ways to cut your power bill while improving how a space looks and feels — inside and out.",
     included: [
       "LED downlight installation & upgrades",
       "Outdoor & garden lighting",
@@ -176,10 +158,8 @@ export const services: Service[] = [
     slug: "power-points",
     title: "Power Points & USB Wall Sockets",
     shortDesc: "Additional power points, USB outlets and switch upgrades.",
-    metaDescription:
-      "Power point and USB wall socket installation across South East Melbourne. Licensed electrician, upfront pricing.",
-    intro:
-      "Never enough power points? I install additional outlets, USB wall sockets, and can update old switches throughout your home or office.",
+    metaDescription: "Power point and USB wall socket installation across South East Melbourne. Licensed electrician, upfront pricing.",
+    intro: "Never enough power points? I install additional outlets, USB wall sockets, and can update old switches throughout your home or office.",
     included: [
       "Additional power point installation",
       "USB wall socket upgrades",
@@ -195,10 +175,8 @@ export const services: Service[] = [
     slug: "ceiling-fans",
     title: "Ceiling Fan Installation",
     shortDesc: "Supply and installation of ceiling fans, or new wiring for your own fan.",
-    metaDescription:
-      "Ceiling fan installation across South East Melbourne. Supply and install, or wiring for your own fan. Licensed electrician.",
-    intro:
-      "Ceiling fans are a cost-effective way to keep rooms comfortable year-round. I can supply and install, or wire up a fan you've already bought.",
+    metaDescription: "Ceiling fan installation across South East Melbourne. Supply and install, or wiring for your own fan. Licensed electrician.",
+    intro: "Ceiling fans are a cost-effective way to keep rooms comfortable year-round. I can supply and install, or wire up a fan you've already bought.",
     included: [
       "Ceiling fan installation (supply & install, or install-only)",
       "Fan replacement",
@@ -213,10 +191,8 @@ export const services: Service[] = [
     slug: "smoke-alarms",
     title: "Smoke Alarms",
     shortDesc: "Compliant smoke alarm installation, testing and replacement.",
-    metaDescription:
-      "Smoke alarm installation, testing and replacement across South East Melbourne. Compliance-focused, licensed electrician.",
-    intro:
-      "Victorian regulations require interconnected, photoelectric smoke alarms in most homes. I install and service smoke alarms to make sure your property is properly compliant.",
+    metaDescription: "Smoke alarm installation, testing and replacement across South East Melbourne. Compliance-focused, licensed electrician.",
+    intro: "Victorian regulations require interconnected, photoelectric smoke alarms in most homes. I install and service smoke alarms to make sure your property is properly compliant.",
     included: [
       "Smoke alarm installation",
       "Interconnected alarm systems",
@@ -232,10 +208,8 @@ export const services: Service[] = [
     slug: "ev-charger-install",
     title: "EV Charger Installation",
     shortDesc: "Home EV charger supply and installation, done safely and to standard.",
-    metaDescription:
-      "EV charger installation across South East Melbourne. Home charging points installed safely and to compliance standards. Licensed electrician.",
-    intro:
-      "Charging at home is the easiest way to live with an EV. I install home EV charging points properly — assessing your switchboard's capacity first, not just bolting a charger to the wall.",
+    metaDescription: "EV charger installation across South East Melbourne. Home charging points installed safely and to compliance standards. Licensed electrician.",
+    intro: "Charging at home is the easiest way to live with an EV. I install home EV charging points properly — assessing your switchboard's capacity first, not just bolting a charger to the wall.",
     included: [
       "Home EV charger installation",
       "Switchboard capacity assessment",
@@ -251,10 +225,8 @@ export const services: Service[] = [
     slug: "body-corporate",
     title: "Body Corporate & Strata Electrical",
     shortDesc: "A dependable trade partner for strata and body corporate common area electrical.",
-    metaDescription:
-      "Electrical services for body corporates and strata managers across South East Melbourne. Common area lighting, compliance, fast call-outs.",
-    intro:
-      "I work directly with strata and body corporate managers as a reliable trade partner — fast call-outs, clear communication, and invoicing that makes sense for committee approval.",
+    metaDescription: "Electrical services for body corporates and strata managers across South East Melbourne. Common area lighting, compliance, fast call-outs.",
+    intro: "I work directly with strata and body corporate managers as a reliable trade partner — fast call-outs, clear communication, and invoicing that makes sense for committee approval.",
     included: [
       "Common area lighting & repairs",
       "Carpark & stairwell electrical",

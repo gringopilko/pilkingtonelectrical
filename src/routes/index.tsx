@@ -1,354 +1,249 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Phone, MapPin, ShieldCheck, MessageSquare, Check } from "lucide-react";
+import { Phone, Mail, MapPin, Zap, Shield, Wrench, ChevronRight, Check, Clock, Award } from "lucide-react";
 import heroImg from "@/assets/hero-electrician-poster.jpg";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
-import { Testimonials } from "@/components/Testimonials";
+import { TrustBadges } from "@/components/TrustBadges";
 import { BrandsWeUse } from "@/components/BrandsWeUse";
-import { services } from "@/lib/services";
-import { slugify } from "@/lib/suburbs";
+import { Testimonials } from "@/components/Testimonials";
+import { suburbGroups } from "@/lib/suburbs";
 
-const title = "Electrician Hampton East & Bayside | Pilkington Electrical";
-const description =
-  "Your local Hampton East electrician for switchboards, lighting, fault finding and property maintenance across Bayside. Speak directly with Shane. Free quotes.";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { name: "twitter:title", content: title },
-      { name: "twitter:description", content: description },
+      { title: "Pilkington Electrical | Electrician in South East Melbourne" },
+      {
+        name: "description",
+        content:
+          "Pilkington Electrical — licensed electrician covering South East Melbourne & Hampton East. Residential rewires, fault finding, switchboards & more.",
+      },
+      { property: "og:title", content: "Pilkington Electrical | Licensed Electrician Melbourne" },
+      {
+        property: "og:description",
+        content: "Licensed electrician covering South East Melbourne & Hampton East. Residential rewires, fault finding, switchboards.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "canonical", href: "https://pilkingtonelectrical.com.au/" },
-      { rel: "preload", as: "image", href: heroImg },
-    ],
+    links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/" }],
   }),
   component: Index,
 });
 
-const localAreas = [
-  "Hampton East",
-  "Hampton",
-  "Brighton",
-  "Brighton East",
-  "Moorabbin",
-  "Bentleigh",
-  "Bentleigh East",
-  "Cheltenham",
-  "Elwood",
-  "St Kilda",
-];
-const featured = [
-  "fault-finding",
-  "switchboards",
-  "lighting",
-  "power-points",
-  "body-corporate",
-  "rewiring-extensions",
-];
-const questions = [
-  [
-    "Where are you based?",
-    "I'm based in Hampton East and travel to homes and businesses throughout Bayside and Melbourne's south-east. I still look after customers in Elwood and St Kilda following the move.",
-  ],
-  [
-    "Will I deal with the electrician doing the work?",
-    "Yes. I'm Shane, the owner and electrician behind Pilkington Electrical. You'll speak directly with me about the job, the quote and the work itself. No call centres or subcontractors.",
-  ],
-  [
-    "Can I get a quote before work starts?",
-    "Yes. Tell me what you need, your suburb and any useful job details. I offer free quotes and will explain the scope and pricing before you decide to proceed. Fault diagnosis may require an on-site visit; contact me to discuss the job.",
-  ],
-  [
-    "Do you work with real estate agents and body corporates?",
-    "Yes. I handle electrical repairs, common-area lighting, switchboard work and ongoing maintenance for property managers, owners corporations and small businesses.",
-  ],
+const featuredServices = [
+  { slug: "switchboards", icon: <Shield className="h-8 w-8" />, title: "Switchboards & Safety Switches", description: "Upgrade old fuse boxes to modern safety switch boards. Protect your home and family with compliant, up-to-date electrical infrastructure." },
+  { slug: "rewiring-extensions", icon: <Zap className="h-8 w-8" />, title: "Residential Rewires & Installations", description: "Full and partial house rewires, new lighting circuits, power points, and appliance circuits. Clean, tidy work with minimal disruption." },
+  { slug: "fault-finding", icon: <Wrench className="h-8 w-8" />, title: "Fault Finding & Repairs", description: "Intermittent tripping, flickering lights, dead outlets — diagnosing the root cause and fixing it properly, not just patching over it." },
+  { slug: "body-corporate", icon: <Award className="h-8 w-8" />, title: "Body Corporate & Strata", description: "Reliable trade partner for property and strata managers. Fast call-outs, compliance work, common-area lighting, and tenant fit-outs — invoiced cleanly." },
 ];
 
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
-      <main id="main-content">
-        <section className="home-hero relative overflow-hidden">
-          <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:py-24">
-            <div>
-              <p className="eyebrow !text-sky-300">
-                <MapPin size={15} /> Hampton East · Bayside · South-east Melbourne
-              </p>
-              <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Your Hampton East electrician.
-                <br />
-                <span className="text-sky-300">A personal approach.</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
-                I'm Shane. From a power point that needs fixing to a switchboard upgrade, I make
-                electrical work straightforward for homes, businesses and property managers.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="tel:0466270949" className="action-primary">
-                  <Phone size={18} /> Call Shane · 0466 270 949
-                </a>
-                <a href="#quote" className="action-ghost">
-                  Request a free quote <ArrowUpRight size={18} />
-                </a>
-              </div>
-              <p className="mt-5 text-sm text-slate-300">
-                No call centres. No subcontractors. Just your electrician.
-              </p>
-            </div>
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/15">
-              <img
-                src={heroImg}
-                width={1280}
-                height={720}
-                fetchPriority="high"
-                alt=""
-                className="h-[290px] w-full object-cover sm:h-[370px] lg:h-[450px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" />
-              <div className="absolute inset-x-5 bottom-5 flex items-center gap-4 rounded-2xl border border-white/20 bg-slate-950/80 p-5 text-white backdrop-blur">
-                <ShieldCheck className="shrink-0 text-sky-300" size={30} />
-                <div>
-                  <p className="font-bold">Licensed. Insured. Owner-operated.</p>
-                  <p className="mt-1 text-sm text-slate-300">Electrical Contractor · REC 30450</p>
-                </div>
-              </div>
-            </div>
+
+      {/* Hero Section */}
+      <section className="relative min-h-[70vh]">
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroImg}
+            className="h-full w-full object-cover"
+          >
+            <source src="/melbourne-hero.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/55 to-black" />
+          <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-b from-transparent to-background" />
+        </div>
+
+        <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col items-start justify-center px-6 py-24">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+            <Shield className="h-3.5 w-3.5" />
+            Fully Licensed &amp; Insured
           </div>
-        </section>
-        <div className="border-b border-border bg-white">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 px-6 py-6 text-sm font-semibold md:grid-cols-4">
-            {[
-              "Direct contact with Shane",
-              "Clear, upfront quotes",
-              "Homes & small businesses",
-              "Based in Hampton East",
-            ].map((item) => (
-              <span key={item} className="flex items-center gap-2">
-                <Check size={17} className="shrink-0 text-primary" />
-                {item}
-              </span>
-            ))}
+          <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
+            Residential &amp; Commercial
+            <br />
+            <span className="text-primary">Electrical You Can Trust</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
+            Licensed electrician serving homes, body corporates and real estate agents across South East Melbourne. From rewires to switchboard upgrades — done right the first time.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a href="tel:0466270949" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">
+              <Phone className="h-4 w-4" />
+              Call Now
+            </a>
+            <Link to="/services" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+              Services
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm font-medium text-white/85">
+            <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Hampton East &amp; South East Melbourne</div>
+            <div className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary" />Prompt, On-Time Service</div>
+            <div className="flex items-center gap-2"><Award className="h-4 w-4 text-primary" />Quality Guaranteed</div>
           </div>
         </div>
-        <section id="services" className="section-wrap">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div className="max-w-2xl">
-              <p className="eyebrow">Practical help. Quality work.</p>
-              <h2 className="section-title">What can I help you with?</h2>
-              <p className="section-copy">
-                Repairs, upgrades and maintenance from a local electrician who takes care of the
-                details.
-              </p>
-            </div>
-            <Link to="/services" className="text-link">
-              All electrical services <ArrowUpRight size={18} />
+      </section>
+
+      <TrustBadges />
+
+      {/* Services Section */}
+      <section id="services" className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Services</h2>
+            <p className="mt-4 text-muted-foreground">
+              Residential and commercial work — from full house rewires to ongoing maintenance for body corporates and real estate agents.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {featuredServices.map((s) => (
+              <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group rounded-xl border border-border bg-background p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+                <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary">{s.icon}</div>
+                <h3 className="mt-4 text-lg font-bold tracking-tight">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline">
+              View all 13 services
+              <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {featured
-              .map((slug) => services.find((s) => s.slug === slug))
-              .filter((s): s is (typeof services)[number] => Boolean(s))
-              .map((s, index) => (
-                <Link
-                  key={s.slug}
-                  to="/services/$slug"
-                  params={{ slug: s.slug }}
-                  className="service-tile group"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-primary">0{index + 1}</span>
-                    <ArrowUpRight size={22} className="text-primary" />
-                  </div>
-                  <h3 className="mt-8 text-xl font-bold">{s.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {s.shortDesc}
-                  </p>
-                </Link>
-              ))}
-          </div>
-        </section>
-        <section className="bg-slate-950 text-white">
-          <div className="section-wrap grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="eyebrow !text-sky-300">A small business. A real person.</p>
-              <h2 className="section-title">
-                The person you call
-                <br />
-                is the person who turns up.
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-slate-300">
-                When you contact Pilkington Electrical, you deal with me from the first conversation
-                to the finished job. I'll explain the options, agree on the work and leave things
-                tidy.
-              </p>
-              <Link
-                to="/about"
-                className="mt-7 inline-flex items-center gap-2 font-bold text-sky-300"
-              >
-                Meet Shane <ArrowUpRight size={18} />
-              </Link>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+        </div>
+      </section>
+
+      <BrandsWeUse />
+
+      {/* About / Why Choose Section */}
+      <section id="about" className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid gap-12 md:grid-cols-2 md:items-center">
+          <div>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Why Choose Pilkington Electrical?</h2>
+            <p className="mt-4 text-muted-foreground">
+              I'm a sole trader, which means when you call, you speak directly to the person doing the job. No subcontractors, no call centres — just honest, reliable electrical work from a licensed professional who takes pride in every connection.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
-                [
-                  "01",
-                  "Tell me about the job",
-                  "Call, text or send a quote request with your suburb and what you need.",
-                ],
-                [
-                  "02",
-                  "Agree on a plan",
-                  "We'll discuss the scope, arrange a visit if needed and confirm pricing.",
-                ],
-                [
-                  "03",
-                  "Get the work sorted",
-                  "Careful electrical work, straightforward communication and a tidy finish.",
-                ],
-                [
-                  "04",
-                  "Keep a local contact",
-                  "One familiar electrician for future repairs, upgrades and maintenance.",
-                ],
-              ].map(([n, t, d]) => (
-                <div key={n} className="rounded-2xl border border-white/15 bg-white/5 p-6">
-                  <span className="text-sm font-bold text-sky-300">{n}</span>
-                  <h3 className="mt-4 font-bold">{t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{d}</p>
+                { label: "Licensed & Insured", desc: "Full compliance & peace of mind" },
+                { label: "Upfront Pricing", desc: "No hidden fees or surprises" },
+                { label: "Local & Reliable", desc: "South East Melbourne based" },
+                { label: "Tidy Worksite", desc: "I clean up after every job" },
+              ].map((item) => (
+                <div key={item.label} className="rounded-lg border border-border bg-card p-4">
+                  <div className="flex items-center gap-2 text-primary">
+                    <Check className="h-4 w-4" />
+                    <span className="font-bold">{item.label}</span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-        <section className="section-wrap grid gap-10 lg:grid-cols-[.9fr_1.1fr]">
-          <div>
-            <p className="eyebrow">
-              <MapPin size={15} /> Your neighbourhood electrician
-            </p>
-            <h2 className="section-title">
-              Hampton East based.
-              <br />
-              Bayside and beyond.
-            </h2>
-            <p className="section-copy">
-              Looking for an electrician nearby? I service Hampton East and surrounding suburbs,
-              plus the Elwood and St Kilda customers who've supported the business from the start.
-            </p>
-            <Link to="/suburbs" className="text-link mt-6">
-              Explore all service areas <ArrowUpRight size={18} />
+            <Link to="/about" className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">
+              More about Pilkington Electrical
+              <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="area-panel rounded-3xl border border-border p-7">
-            <p className="mb-5 text-sm font-bold uppercase tracking-wider text-primary">
-              Local electrical services
-            </p>
-            <div className="grid gap-2 sm:grid-cols-2">
-              {localAreas.map((name) => (
-                <Link
-                  key={name}
-                  to="/suburbs/$slug"
-                  params={{ slug: slugify(name) }}
-                  className="flex items-center justify-between rounded-xl border border-border bg-white p-4 text-sm font-semibold transition-colors hover:border-primary"
-                >
-                  {name}
-                  <ArrowUpRight size={16} className="text-primary" />
-                </Link>
+
+          <div className="rounded-xl border border-border bg-card p-8">
+            <h3 className="text-xl font-bold tracking-tight">Service Areas</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Based in Hampton East, covering:</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton", "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra"].map((suburb) => (
+                <span key={suburb} className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">{suburb}</span>
               ))}
             </div>
-          </div>
-        </section>
-        <section className="mx-auto max-w-7xl px-6 pb-16">
-          <div className="rounded-3xl border border-sky-200 bg-sky-50 p-8 md:flex md:items-center md:justify-between md:gap-10 md:p-12">
-            <div className="max-w-2xl">
-              <p className="eyebrow">For property professionals</p>
-              <h2 className="mt-3 text-2xl font-bold md:text-3xl">
-                A reliable electrical contact for your properties.
-              </h2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                Real estate maintenance, body corporate common areas and small-business electrical
-                work. Send through the property details and scope so we can organise the next step.
-              </p>
-            </div>
-            <Link
-              to="/services/$slug"
-              params={{ slug: "body-corporate" }}
-              className="action-primary mt-6 shrink-0 md:mt-0"
-            >
-              Property services <ArrowUpRight size={18} />
+            <Link to="/suburbs" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">
+              View all suburbs
+              <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
-        </section>
-        <Testimonials />
-        <BrandsWeUse />
-        <section className="section-wrap grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
-          <div>
-            <p className="eyebrow">Before you book</p>
-            <h2 className="section-title">A few helpful answers.</h2>
-            <Link to="/faqs" className="text-link mt-6">
-              More questions answered <ArrowUpRight size={18} />
-            </Link>
+        </div>
+      </section>
+
+      {/* Service Areas — full list */}
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Areas We Service</h2>
+            <p className="mt-4 text-muted-foreground">
+              Based in Hampton East, covering Bayside, Stonnington, Boroondara and the greater South East Melbourne region.
+            </p>
           </div>
-          <div>
-            {questions.map(([q, a]) => (
-              <details key={q} className="faq-item">
-                <summary>{q}</summary>
-                <p className="pb-5 text-sm leading-relaxed text-muted-foreground">{a}</p>
-              </details>
+
+          <div className="flex flex-col gap-8">
+            {suburbGroups.map((group) => (
+              <div key={group.area}>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-primary">{group.area}</h3>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.suburbs.map((suburb) => (
+                    <span key={suburb} className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">{suburb}</span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-        </section>
-        <section id="quote" className="scroll-mt-24 border-t border-border bg-slate-50">
-          <div className="section-wrap grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
-            <div>
-              <p className="eyebrow">Let's get it sorted</p>
-              <h2 className="section-title">
-                Tell me what
-                <br />
-                you need done.
-              </h2>
-              <p className="section-copy">
-                Leave your details and I'll get back to you to discuss the job. For a more immediate
-                conversation, give me a call.
-              </p>
-              <a
-                href="tel:0466270949"
-                className="mt-8 flex items-center gap-3 text-2xl font-extrabold text-primary"
-              >
-                <Phone size={24} />
-                0466 270 949
-              </a>
-              <a href="sms:0466270949" className="text-link mt-5">
-                <MessageSquare size={18} />
-                Prefer to text? Message Shane
-              </a>
-              <p className="mt-6 text-sm text-muted-foreground">
-                Photos help explain the job. You can text them or email{" "}
-                <a
-                  className="break-all underline"
-                  href="mailto:contact@pilkingtonelectrical.com.au"
-                >
-                  contact@pilkingtonelectrical.com.au
-                </a>
-                .
-              </p>
-            </div>
-            <div className="rounded-3xl border border-border bg-white p-6 shadow-xl shadow-slate-200/40 md:p-9">
-              <h3 className="text-xl font-bold">Request a free quote</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                No obligation. Your details go directly to Shane.
-              </p>
-              <QuoteForm />
-            </div>
+
+          <div className="mt-10 text-center">
+            <Link to="/suburbs" className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline">
+              View full suburbs page
+              <ChevronRight className="h-4 w-4" />
+            </Link>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      <Testimonials />
+
+      {/* Contact Section */}
+      <section id="contact" className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Get In Touch</h2>
+            <p className="mt-4 text-muted-foreground">Need electrical work? Call, text, or email — I respond quickly.</p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <ContactCard icon={<Phone className="h-6 w-6" />} label="Phone" value="0466 270 949" href="tel:0466270949" description="Call or text anytime" />
+            <ContactCard icon={<Mail className="h-6 w-6" />} label="Email" value="contact@pilkingtonelectrical.com.au" href="mailto:contact@pilkingtonelectrical.com.au" description="Send job details & photos" />
+            <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Hampton East, VIC" href="https://www.google.com/maps/search/?api=1&query=Hampton+East+VIC+Australia" description="Serving South East Melbourne" />
+          </div>
+
+          <div id="quote" className="mt-12 scroll-mt-24 rounded-xl border border-border bg-background p-8 md:p-12">
+            <h3 className="text-center text-xl font-bold tracking-tight">Request a Free Quote</h3>
+            <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
+              Fill in the form and I'll get back to you promptly. If you'd like to include photos of the job, feel free to email directly:{" "}
+              <a href="mailto:contact@pilkingtonelectrical.com.au" className="text-primary hover:underline">contact@pilkingtonelectrical.com.au</a>
+            </p>
+            <QuoteForm />
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
+  );
+}
+
+function ContactCard({ icon, label, value, href, description }: { icon: React.ReactNode; label: string; value: string; href: string; description: string }) {
+  return (
+    <a href={href} className="group flex flex-col items-center rounded-xl border border-border bg-background p-6 text-center transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+      <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">{icon}</div>
+      <span className="mt-4 text-sm font-semibold text-muted-foreground">{label}</span>{" "}
+      <span className="mt-1 text-lg font-bold tracking-tight">{value}</span>{" "}
+      <span className="mt-1 text-xs text-muted-foreground">{description}</span>
+    </a>
   );
 }
