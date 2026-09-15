@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 import logoImg from "@/assets/pilkington-logo-icon.webp";
 import { services } from "@/lib/services";
 
@@ -56,6 +56,26 @@ export function Footer() {
               <Mail className="h-4 w-4" />
               Email
             </a>
+            <div className="flex items-center gap-4 border-l border-border pl-6">
+              <a
+                href="https://www.facebook.com/pilkingtonelectrical"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Pilkington Electrical on Facebook"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/pilkingtonelectrical"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Pilkington Electrical on Instagram"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

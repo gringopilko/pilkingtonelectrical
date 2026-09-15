@@ -154,6 +154,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           },
           "identifier": "REC-30450",
         },
+        "sameAs": [
+          "https://www.facebook.com/pilkingtonelectrical",
+          "https://www.instagram.com/pilkingtonelectrical",
+        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Electrical Services",
