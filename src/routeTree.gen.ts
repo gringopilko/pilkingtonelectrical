@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/Contact'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ElectricianHamptonEastRouteImport } from './routes/electrician-hampton-east'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -33,6 +34,11 @@ const ContactRoute = ContactRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ElectricianHamptonEastRoute = ElectricianHamptonEastRouteImport.update({
+  id: '/electrician-hampton-east',
+  path: '/electrician-hampton-east',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqsRoute = FaqsRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/Contact': typeof ContactRoute
   '/about': typeof AboutRoute
+  '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -87,6 +94,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/Contact': typeof ContactRoute
   '/about': typeof AboutRoute
+  '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -100,6 +108,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/Contact': typeof ContactRoute
   '/about': typeof AboutRoute
+  '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
     | '/'
     | '/Contact'
     | '/about'
+    | '/electrician-hampton-east'
     | '/faqs'
     | '/review'
     | '/sitemap.xml'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/Contact'
     | '/about'
+    | '/electrician-hampton-east'
     | '/faqs'
     | '/review'
     | '/sitemap.xml'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/'
     | '/Contact'
     | '/about'
+    | '/electrician-hampton-east'
     | '/faqs'
     | '/review'
     | '/sitemap.xml'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   AboutRoute: typeof AboutRoute
+  ElectricianHamptonEastRoute: typeof ElectricianHamptonEastRoute
   FaqsRoute: typeof FaqsRoute
   ReviewRoute: typeof ReviewRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/electrician-hampton-east': {
+      id: '/electrician-hampton-east'
+      path: '/electrician-hampton-east'
+      fullPath: '/electrician-hampton-east'
+      preLoaderRoute: typeof ElectricianHamptonEastRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faqs': {
@@ -239,6 +259,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   AboutRoute: AboutRoute,
+  ElectricianHamptonEastRoute: ElectricianHamptonEastRoute,
   FaqsRoute: FaqsRoute,
   ReviewRoute: ReviewRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
