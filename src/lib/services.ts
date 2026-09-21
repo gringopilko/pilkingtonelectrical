@@ -237,7 +237,27 @@ export const services: Service[] = [
     ],
     body: [
       "Body corporate work has its own pace — approvals, committee sign-off, clear scope before work starts. I keep communication direct with the strata manager and provide invoicing that's straightforward to bring to a committee.",
-      "No subcontractors — the person who quotes the job is the person who does it, every time.",
+    ],
+  },
+  {
+    slug: "electrical-safety-inspections",
+    title: "Electrical Safety Inspections",
+    shortDesc: "Periodic electrical safety checks for rental properties, sale, or peace of mind.",
+    metaDescription: "Electrical safety inspections across South East Melbourne. Rental compliance checks, pre-sale inspections, landlord servicing. Licensed electrician.",
+    intro: "A periodic electrical safety inspection covers your switchboard, visible wiring, safety switches and power points — giving you (or your property manager) a clear, written picture of where things stand.",
+    included: [
+      "Switchboard & safety switch (RCD) testing",
+      "Visible wiring condition check",
+      "Power point & switch condition check",
+      "Written inspection report",
+      "Rental/tenancy compliance checks",
+      "Pre-sale electrical inspections",
+      "Can be booked alongside a smoke alarm check",
+    ],
+    body: [
+      "Landlords and property managers often need this done on a regular cycle for rental compliance — I can set that up as a standing arrangement so it's one less thing to remember each year.",
+      "Selling or buying a property? A pre-sale inspection gives you a clear report of any issues before they come up in someone else's building inspection.",
+      "Every inspection gets a proper price based on the property and scope — get in touch and I'll quote it directly rather than guessing at a number that doesn't fit your situation.",
     ],
   },
 ];
