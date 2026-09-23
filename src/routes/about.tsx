@@ -10,7 +10,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Pilkington Electrical is a sole-trader licensed electrician based in Hampton East, serving South East Melbourne. No subcontractors, no call centres.",
+          "Pilkington Electrical is a sole-trader licensed electrician based in Hampton East, serving South East Melbourne. No call centres, just direct contact with Shane.",
       },
       { property: "og:image", content: "https://pilkingtonelectrical.com.au/services-overview-social.jpg" },
       { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/services-overview-social.jpg" },
@@ -56,12 +56,12 @@ function About() {
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Why I work this way</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               I'm a sole trader, which means when you call, you speak directly to the person doing the
-              job — not a call centre, not a subcontractor, not whoever's rostered on that day. The
+              job, not a call centre and not whoever's rostered on that day. The
               person who quotes the work is the person who shows up and does it.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              That matters most when things go wrong — a fault that's hard to trace, a job that turns
-              out bigger than expected, a body corporate that needs clear communication with the
+              That matters most when things go wrong: a fault that's hard to trace, a job that turns
+              out bigger than expected, or a body corporate that needs clear communication with the
               strata manager, not just a job number. You get consistency, accountability, and someone
               who actually remembers your property the next time you call.
             </p>
@@ -69,7 +69,7 @@ function About() {
             <h2 className="mt-10 text-2xl font-extrabold tracking-tight md:text-3xl">My background</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               I started my apprenticeship in 2016 and qualified in 2019, and spent the years since
-              working across large-scale commercial and institutional builds — hospitals, correctional
+              working across large-scale commercial and institutional builds: hospitals, correctional
               facilities, and multi-storey apartment developments. That's where I learned to work to a
               standard where mistakes aren't an option: compliance, documentation, and getting it right
               the first time.
@@ -77,7 +77,7 @@ function About() {
             <p className="mt-4 leading-relaxed text-muted-foreground">
               Pilkington Electrical is a new business, but it's backed by nearly a decade of hands-on
               experience. I bring that same commercial-grade discipline to residential jobs and body
-              corporate work across Bayside — which is part of why strata managers and owners
+              corporate work across Bayside, which is part of why strata managers and owners
               corporations find it straightforward to work with me.
             </p>
 
@@ -92,9 +92,9 @@ function About() {
             <h3 className="text-xl font-bold tracking-tight">What you get</h3>
             <div className="mt-6 flex flex-col gap-4">
               {[
-                { label: "No subcontractors", desc: "The person who quotes is the person who does the work" },
+                { label: "One point of contact", desc: "The person who quotes is the person who does the work" },
                 { label: "Upfront pricing", desc: "No hidden fees or surprises on the invoice" },
-                { label: "Licensed & insured", desc: "REC 30450 — full compliance, every job" },
+                { label: "Licensed & insured", desc: "REC 30450, full compliance, every job" },
                 { label: "Local", desc: "Based in Hampton East, covering South East Melbourne" },
                 { label: "Tidy worksite", desc: "Cleaned up properly, every time" },
               ].map((item) => (

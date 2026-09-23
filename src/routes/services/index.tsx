@@ -11,7 +11,7 @@ export const Route = createFileRoute("/services/")({
       {
         name: "description",
         content:
-          "Full range of licensed electrical services across South East Melbourne — switchboards, rewiring, lighting, EV chargers, body corporate work and more.",
+          "Full range of licensed electrical services across South East Melbourne: switchboards, rewiring, lighting, EV chargers, body corporate work and more.",
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/services" }],

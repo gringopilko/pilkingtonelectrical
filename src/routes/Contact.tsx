@@ -11,7 +11,7 @@ export const Route = createFileRoute("/Contact")({
       {
         name: "description",
         content:
-          "Get in touch with Pilkington Electrical — licensed electrician serving South East Melbourne. Call, text, or request a free quote.",
+          "Get in touch with Pilkington Electrical, a licensed electrician serving South East Melbourne. Call, text, or request a free quote.",
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/contact" }],
@@ -41,7 +41,7 @@ function Contact() {
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20 text-center">
           <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">Get In Touch</h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Need electrical work? Call, text, or email — I respond quickly.
+            Need electrical work? Call, text, or email and I'll respond quickly.
           </p>
         </div>
       </section>

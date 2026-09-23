@@ -7,25 +7,25 @@ import { Footer } from "@/components/Footer";
 const faqs = [
   {
     q: "Are you licensed and insured?",
-    a: "Yes — Pilkington Electrical operates under REC 30450, fully licensed and insured for residential and commercial electrical work across Victoria. That covers everything from a single power point to a full switchboard upgrade, so you're covered whether it's a small job or a larger one.",
+    a: "Yes. Pilkington Electrical operates under REC 30450, fully licensed and insured for residential and commercial electrical work across Victoria. That covers everything from a single power point to a full switchboard upgrade, so you're covered whether it's a small job or a larger one.",
   },
   {
-    q: "Do you use subcontractors?",
-    a: "No. I'm a sole trader, which means the person who quotes your job is the person who turns up and does the work, every time. There's no handoff to a subcontractor or whoever's rostered on that day — you deal with one person from the first call through to the finished job.",
+    q: "Will you be the one doing the work?",
+    a: "Yes. I'm a sole trader, which means the person who quotes your job is the person who turns up and does the work, every time. You deal with one person from the first call through to the finished job.",
   },
   {
     q: "What areas do you service?",
-    a: "Based in Hampton East, covering South East Melbourne including St Kilda, Brighton, Caulfield, Hampton, Bentleigh, Malvern, Glen Iris, Camberwell and South Yarra. See the Suburbs page for the full list — if you're nearby but not listed, get in touch anyway.",
+    a: "Based in Hampton East, covering South East Melbourne including St Kilda, Brighton, Caulfield, Hampton, Bentleigh, Malvern, Glen Iris, Camberwell and South Yarra. See the Suburbs page for the full list, and if you're nearby but not listed, get in touch anyway.",
     linkTo: "/suburbs",
     linkText: "Suburbs page",
   },
   {
     q: "Do you provide upfront pricing?",
-    a: "Yes. I'll assess the job in person or over the phone and give you a clear, itemised price before any work starts — no surprises on the invoice and no billing by the hour after you've already said yes.",
+    a: "Yes. I'll assess the job in person or over the phone and give you a clear, itemised price before any work starts, with no surprises on the invoice and no billing by the hour after you've already said yes.",
   },
   {
     q: "Can you work with body corporates and strata managers?",
-    a: "Yes — this is a core part of my work and a growing focus for the business. I provide clear, itemised invoicing suited to committee approval, communicate directly with the strata manager rather than a building contact, and I'm comfortable quoting common-area and multi-unit electrical work. See the Body Corporate & Strata Electrical page for more detail.",
+    a: "Yes, this is a core part of my work and a growing focus for the business. I provide clear, itemised invoicing suited to committee approval, communicate directly with the strata manager rather than a building contact, and I'm comfortable quoting common-area and multi-unit electrical work. See the Body Corporate & Strata Electrical page for more detail.",
     linkTo: "/services/body-corporate",
     linkText: "Body Corporate & Strata Electrical page",
   },
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "How quickly can you quote a job?",
-    a: "Send details through the contact form or call directly, and I'll turn most quotes around promptly — often the same day. For straightforward jobs like a power point or safety switch, I can often give a price over the phone.",
+    a: "Send details through the contact form or call directly, and I'll turn most quotes around promptly, often the same day. For straightforward jobs like a power point or safety switch, I can often give a price over the phone.",
   },
   {
     q: "Do I need a safety switch in my home?",
@@ -47,13 +47,13 @@ const faqs = [
   },
   {
     q: "Are smoke alarms compulsory in Victorian rental properties?",
-    a: "Yes — Victorian rental properties must have compliant, interconnected smoke alarms, and owners are required to keep them tested and up to standard. I install, test and replace smoke alarms to meet current requirements. See the Smoke Alarms page for more.",
+    a: "Yes, Victorian rental properties must have compliant, interconnected smoke alarms, and owners are required to keep them tested and up to standard. I install, test and replace smoke alarms to meet current requirements. See the Smoke Alarms page for more.",
     linkTo: "/services/smoke-alarms",
     linkText: "Smoke Alarms page",
   },
   {
     q: "Can you install EV chargers in apartment buildings or strata properties?",
-    a: "Yes — EV charger installs in shared buildings usually need owners corporation approval and careful load management so the building's supply isn't overloaded. I handle the installation and can coordinate directly with the strata manager on the approval side. See the EV Charger Installation page for details.",
+    a: "Yes, EV charger installs in shared buildings usually need owners corporation approval and careful load management so the building's supply isn't overloaded. I handle the installation and can coordinate directly with the strata manager on the approval side. See the EV Charger Installation page for details.",
     linkTo: "/services/ev-charger-install",
     linkText: "EV Charger Installation page",
   },
@@ -80,7 +80,7 @@ export const Route = createFileRoute("/faqs")({
       {
         name: "description",
         content:
-          "Common questions about Pilkington Electrical — licensing, service areas, pricing, and working with body corporates across South East Melbourne.",
+          "Common questions about Pilkington Electrical: licensing, service areas, pricing, and working with body corporates across South East Melbourne.",
       },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/faqs" }],

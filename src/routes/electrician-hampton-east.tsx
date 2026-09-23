@@ -10,11 +10,11 @@ import { services } from "@/lib/services";
 const landingFaqs = [
   {
     q: "Are you licensed and insured?",
-    a: "Yes — Pilkington Electrical operates under REC 30450, fully licensed and insured for residential and commercial electrical work across Victoria.",
+    a: "Yes. Pilkington Electrical operates under REC 30450, fully licensed and insured for residential and commercial electrical work across Victoria.",
   },
   {
-    q: "Do you use subcontractors?",
-    a: "No. I'm a sole trader — the person who quotes your job is the person who turns up and does the work, every time.",
+    q: "Will you be the one doing the work?",
+    a: "Yes. I'm a sole trader, so the person who quotes your job is the person who turns up and does the work, every time.",
   },
   {
     q: "Do you provide upfront pricing?",
@@ -22,7 +22,7 @@ const landingFaqs = [
   },
   {
     q: "How quickly can you quote a job?",
-    a: "Send details through the form below or call directly, and I'll turn most quotes around promptly — often the same day.",
+    a: "Send details through the form below or call directly, and I'll turn most quotes around promptly, often the same day.",
   },
 ];
 
@@ -72,7 +72,7 @@ function ElectricianHamptonEast() {
         <div className="mx-auto max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
             <Shield className="h-3.5 w-3.5" />
-            Fully Licensed &amp; Insured — REC 30450
+            Fully Licensed &amp; Insured, REC 30450
           </div>
           <h1 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl">
             Electrician Hampton East &amp; Bayside
@@ -139,7 +139,7 @@ function ElectricianHamptonEast() {
               </span>
             ))}
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">Plus the surrounding Bayside and South East Melbourne suburbs — get in touch if yours isn't listed.</p>
+          <p className="mt-4 text-sm text-muted-foreground">Plus the surrounding Bayside and South East Melbourne suburbs. Get in touch if yours isn't listed.</p>
         </div>
       </section>
 
@@ -177,7 +177,7 @@ export const Route = createFileRoute("/electrician-hampton-east")({
       { title: "Electrician Hampton East & Bayside | Pilkington Electrical" },
       {
         name: "description",
-        content: "Licensed electrician servicing Hampton East, Bentleigh, Brighton, Moorabbin and Bayside. Direct contact with Shane — no call centres, no subcontractors. Call 0466 270 949.",
+        content: "Licensed electrician servicing Hampton East, Bentleigh, Brighton, Moorabbin and Bayside. Direct contact with Shane, no call centres. Call 0466 270 949.",
       },
       { name: "robots", content: "noindex, follow" },
     ],

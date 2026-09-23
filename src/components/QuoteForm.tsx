@@ -64,7 +64,7 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
         </div>
         <p className="text-lg font-bold">Request received</p>
         <p className="mt-2 text-sm text-muted-foreground">
-          Thanks — I'll be in touch on {phone || "the number you provided"} as soon as possible.
+          Thanks, I'll be in touch on {phone || "the number you provided"} as soon as possible.
         </p>
         <button onClick={() => setDone(false)} className="mt-6 text-sm font-semibold text-primary hover:underline">
           Send another request

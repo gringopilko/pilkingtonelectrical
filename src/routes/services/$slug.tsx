@@ -124,8 +124,8 @@ function ServicePage() {
           All work is carried out personally by{" "}
           <Link to="/about" className="font-semibold text-primary hover:underline">
             a licensed sole-trader electrician
-          </Link>{" "}
-          — no subcontractors, so the person who quotes the job is the person who turns up and does it.
+          </Link>
+          , so the person who quotes the job is the person who turns up and does it.
         </p>
       </section>
 

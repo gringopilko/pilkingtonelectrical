@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Pilkington Electrical — licensed electrician covering South East Melbourne & Hampton East. Residential rewires, fault finding, switchboards & more.",
+          "Pilkington Electrical: licensed electrician covering South East Melbourne & Hampton East. Residential rewires, fault finding, switchboards & more.",
       },
       { property: "og:title", content: "Pilkington Electrical | Licensed Electrician Melbourne" },
       {
@@ -34,8 +34,8 @@ export const Route = createFileRoute("/")({
 const featuredServices = [
   { slug: "switchboards", icon: <Shield className="h-8 w-8" />, title: "Switchboards & Safety Switches", description: "Upgrade old fuse boxes to modern safety switch boards. Protect your home and family with compliant, up-to-date electrical infrastructure." },
   { slug: "rewiring-extensions", icon: <Zap className="h-8 w-8" />, title: "Residential Rewires & Installations", description: "Full and partial house rewires, new lighting circuits, power points, and appliance circuits. Clean, tidy work with minimal disruption." },
-  { slug: "fault-finding", icon: <Wrench className="h-8 w-8" />, title: "Fault Finding & Repairs", description: "Intermittent tripping, flickering lights, dead outlets — diagnosing the root cause and fixing it properly, not just patching over it." },
-  { slug: "body-corporate", icon: <Award className="h-8 w-8" />, title: "Body Corporate & Strata", description: "Reliable trade partner for property and strata managers. Fast call-outs, compliance work, common-area lighting, and tenant fit-outs — invoiced cleanly." },
+  { slug: "fault-finding", icon: <Wrench className="h-8 w-8" />, title: "Fault Finding & Repairs", description: "Intermittent tripping, flickering lights, dead outlets: diagnosing the root cause and fixing it properly, not just patching over it." },
+  { slug: "body-corporate", icon: <Award className="h-8 w-8" />, title: "Body Corporate & Strata", description: "Reliable trade partner for property and strata managers. Fast call-outs, compliance work, common-area lighting, and tenant fit-outs, invoiced cleanly." },
 ];
 
 function Index() {
@@ -71,7 +71,7 @@ function Index() {
             <span className="text-primary">Electrical You Can Trust</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-            Licensed electrician serving homes, body corporates and real estate agents across South East Melbourne. From rewires to switchboard upgrades — done right the first time.
+            Licensed electrician serving homes, body corporates and real estate agents across South East Melbourne. From rewires to switchboard upgrades, done right the first time.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -101,7 +101,7 @@ function Index() {
           <div className="mb-12 max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Services</h2>
             <p className="mt-4 text-muted-foreground">
-              Residential and commercial work — from full house rewires to ongoing maintenance for body corporates and real estate agents.
+              Residential and commercial work, from full house rewires to ongoing maintenance for body corporates and real estate agents.
             </p>
           </div>
 
@@ -132,7 +132,7 @@ function Index() {
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Why Choose Pilkington Electrical?</h2>
             <p className="mt-4 text-muted-foreground">
-              I'm a sole trader, which means when you call, you speak directly to the person doing the job. No subcontractors, no call centres — just honest, reliable electrical work from a licensed professional who takes pride in every connection.
+              I'm a sole trader, which means when you call, you speak directly to the person doing the job. No call centres, just honest, reliable electrical work from a licensed professional who takes pride in every connection.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -173,7 +173,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Service Areas — full list */}
+      {/* Service Areas: full list */}
       <section className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mb-12 max-w-2xl">
@@ -212,7 +212,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Get In Touch</h2>
-            <p className="mt-4 text-muted-foreground">Need electrical work? Call, text, or email — I respond quickly.</p>
+            <p className="mt-4 text-muted-foreground">Need electrical work? Call, text, or email and I'll respond quickly.</p>
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">

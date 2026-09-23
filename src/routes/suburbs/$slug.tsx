@@ -16,7 +16,7 @@ export const Route = createFileRoute("/suburbs/$slug")({
     if (!loaderData) return {};
     const url = `https://pilkingtonelectrical.com.au/suburbs/${loaderData.slug}`;
     const title = `Electrician in ${loaderData.name}, VIC | Pilkington Electrical`;
-    const description = `Licensed electrician servicing ${loaderData.name} — switchboards, fault finding, lighting, rewiring and more across Melbourne's ${loaderData.area} area. Call 0466 270 949.`;
+    const description = `Licensed electrician servicing ${loaderData.name}: switchboards, fault finding, lighting, rewiring and more across Melbourne's ${loaderData.area} area. Call 0466 270 949.`;
     return {
       meta: [
         { title },
@@ -153,7 +153,7 @@ function SuburbPage() {
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Request a Free Quote</h2>
-            <p className="mt-4 text-muted-foreground">Servicing {suburb.name} — fill in the form and I'll get back to you promptly.</p>
+            <p className="mt-4 text-muted-foreground">Servicing {suburb.name}. Fill in the form and I'll get back to you promptly.</p>
           </div>
           <div id="quote" className="mt-12 scroll-mt-24 rounded-xl border border-border bg-background p-8 md:p-12">
             <QuoteForm />
