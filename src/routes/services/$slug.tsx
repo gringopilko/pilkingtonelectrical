@@ -67,6 +67,7 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServicePage() {
   const service = Route.useLoaderData();
+  const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 6);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -128,6 +129,26 @@ function ServicePage() {
           , so the person who quotes the job is the person who turns up and does it.
         </p>
       </section>
+
+      {otherServices.length > 0 && (
+        <section className="border-t border-border bg-card">
+          <div className="mx-auto max-w-5xl px-6 py-16">
+            <h2 className="text-xl font-bold tracking-tight">Related Services</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {otherServices.map((s) => (
+                <Link
+                  key={s.slug}
+                  to="/services/$slug"
+                  params={{ slug: s.slug }}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+                >
+                  {s.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section id="quote" className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-20">
