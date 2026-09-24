@@ -260,4 +260,25 @@ export const services: Service[] = [
       "Every inspection gets a proper price based on the property and scope. Get in touch and I'll quote it directly rather than guessing at a number that doesn't fit your situation.",
     ],
   },
+  {
+    slug: "test-and-tag",
+    title: "Test and Tag",
+    shortDesc: "Portable appliance testing and RCD testing for offices, retail, and small businesses.",
+    metaDescription: "Test and tag services across South East Melbourne. Portable appliance testing and RCD safety switch testing to AS/NZS 3760:2022. Licensed electrician.",
+    intro: "AS/NZS 3760:2022 sets the standard for in-service testing of portable electrical equipment — the appliances, leads and power boards that plug into a wall. Keeping on top of it is part of an employer's general workplace safety obligations, and it's straightforward to build into a regular routine so it's never something you have to think twice about.",
+    included: [
+      "Portable appliance testing & tagging (Class I & Class II)",
+      "RCD / safety switch testing",
+      "Visual inspection of cords, plugs & power boards",
+      "Compliant tags — test date, retest date, pass/fail, on every item",
+      "Written report for your records",
+      "Recommended retest schedule based on your environment",
+      "Suits offices, retail, small warehouses & rental properties",
+    ],
+    body: [
+      "How often testing is needed depends on the environment — more frequent for construction sites and workshops, less frequent for a typical office. I'll recommend a schedule that fits your actual risk level rather than a one-size-fits-all interval.",
+      "Every item gets a compliant tag on the spot, and you get a written report you can hand to an auditor, insurer, or landlord without a second thought.",
+      "Get in touch with the number of items and the type of workplace, and I'll quote it properly rather than guessing at a number that doesn't fit your situation.",
+    ],
+  },
 ];
