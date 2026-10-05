@@ -61,8 +61,12 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     commonJobs: ["Electrical fault finding", "Commercial and real-estate maintenance", "Switchboard upgrades", "Lighting and dedicated appliance circuits"],
   },
   Bentleigh: {
-    localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered by a local sole trader.",
+    localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered personally, start to finish.",
     commonJobs: ["Renovation and extension wiring", "Switchboards and safety switches", "Lighting, fans and power points", "Fault finding and repairs"],
+  },
+  "Malvern East": {
+    localIntro: "Servicing Malvern East's period homes and renovated properties, from Edwardian and Californian bungalow rewiring through to switchboard upgrades for newer townhouse developments near Wattletree Road.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Lighting and power-point installation"],
   },
   Brighton: {
     localIntro: "Providing careful residential electrical work and property maintenance throughout Brighton, including established homes, apartments and renovation projects.",
