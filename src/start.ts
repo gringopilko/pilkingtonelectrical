@@ -4,11 +4,15 @@ import { renderErrorPage } from "./lib/error-page";
 
 const canonicalHostMiddleware = createMiddleware().server(({ request, next }) => {
   const url = new URL(request.url);
+  const isWww = url.hostname === "www.pilkingtonelectrical.com.au";
+  const isHttp = url.protocol === "http:";
 
-  if (url.hostname !== "www.pilkingtonelectrical.com.au") {
+  if (!isWww && !isHttp) {
     return next();
   }
 
+  // Covers all three non-canonical variants in one pass:
+  // http(s)://www.* and http://pilkingtonelectrical.com.au (no www, but unencrypted)
   url.hostname = "pilkingtonelectrical.com.au";
   url.protocol = "https:";
   return Response.redirect(url.toString(), 301);
