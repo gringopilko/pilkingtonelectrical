@@ -64,6 +64,14 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered personally, start to finish.",
     commonJobs: ["Renovation and extension wiring", "Switchboards and safety switches", "Lighting, fans and power points", "Fault finding and repairs"],
   },
+  Oakleigh: {
+    localIntro: "Working across Oakleigh's mix of Federation-era weatherboards near Atherton Road and the newer townhouse and apartment developments that have grown up around Eaton Mall and the station, with switchboard upgrades and rewiring for older homes alongside new-build electrical for recent builds.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades for older weatherboards", "New-build electrical for townhouses and apartments", "Lighting and power-point installation"],
+  },
+  Beaumaris: {
+    localIntro: "Servicing Beaumaris, including the suburb's well-known collection of mid-century modern homes around the Concourse and the coast. Careful, respectful electrical work in houses where original character matters, alongside standard upgrades for newer builds.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Electrical work in heritage mid-century homes", "Renovation and extension circuits", "Lighting and outdoor electrical"],
+  },
   "Malvern East": {
     localIntro: "Servicing Malvern East's period homes and renovated properties, from Edwardian and Californian bungalow rewiring through to switchboard upgrades for newer townhouse developments near Wattletree Road.",
     commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Lighting and power-point installation"],
