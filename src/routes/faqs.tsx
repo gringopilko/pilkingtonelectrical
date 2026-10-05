@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { ChevronDown, Phone } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -117,8 +116,6 @@ export const Route = createFileRoute("/faqs")({
 });
 
 function Faqs() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
@@ -136,23 +133,16 @@ function Faqs() {
 
       <section className="mx-auto max-w-3xl px-6 py-16">
         <div className="flex flex-col gap-3">
-          {faqs.map((faq, i) => (
-            <div key={faq.q} className="rounded-lg border border-border bg-card">
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-              >
+          {faqs.map((faq) => (
+            <details key={faq.q} className="group rounded-lg border border-border bg-card open:pb-4">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left">
                 <span className="font-bold">{faq.q}</span>
-                <ChevronDown
-                  className={`h-4 w-4 flex-shrink-0 text-primary transition-transform ${openIndex === i ? "rotate-180" : ""}`}
-                />
-              </button>
-              {openIndex === i && (
-                <div className="px-5 pb-4">
-                  <p className="text-sm leading-relaxed text-muted-foreground">{renderAnswer(faq)}</p>
-                </div>
-              )}
-            </div>
+                <ChevronDown className="h-4 w-4 flex-shrink-0 text-primary transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="px-5">
+                <p className="text-sm leading-relaxed text-muted-foreground">{renderAnswer(faq)}</p>
+              </div>
+            </details>
           ))}
         </div>
 
