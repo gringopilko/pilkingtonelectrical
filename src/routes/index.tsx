@@ -8,6 +8,7 @@ import { TrustBadges } from "@/components/TrustBadges";
 import { BrandsWeUse } from "@/components/BrandsWeUse";
 import { Testimonials } from "@/components/Testimonials";
 import { suburbGroups } from "@/lib/suburbs";
+import { services } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -117,7 +118,7 @@ function Index() {
 
           <div className="mt-10 text-center">
             <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline">
-              View all 13 services
+              View all {services.length} services
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
