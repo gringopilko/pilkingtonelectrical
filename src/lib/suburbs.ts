@@ -64,6 +64,26 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered personally, start to finish.",
     commonJobs: ["Renovation and extension wiring", "Switchboards and safety switches", "Lighting, fans and power points", "Fault finding and repairs"],
   },
+  Mentone: {
+    localIntro: "Working on Mentone's character homes near Charman Road and the Mentone Beach foreshore, where original features like high ceilings and picture rails are common, alongside newer builds further from the beachside strip.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  Mordialloc: {
+    localIntro: "Servicing Mordialloc's mix of mid-century houses, character cottages and newer townhouses near Main Street and Mordialloc Creek, with switchboard upgrades and rewiring that respect the age of the property.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs", "New-build electrical for townhouses"],
+  },
+  Malvern: {
+    localIntro: "Working across Malvern's grand Victorian and Edwardian homes around Glenferrie Road and High Street, where much of the housing stock is heritage-listed and electrical work needs a careful, considered approach.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades respecting heritage features", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  "Glen Iris": {
+    localIntro: "Covering Glen Iris's mix of period homes, townhouses and apartments either side of Gardiners Creek, from older character properties near High Street to newer builds throughout the suburb.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "New-build electrical for townhouses and apartments"],
+  },
+  Camberwell: {
+    localIntro: "Servicing Camberwell's grand period homes around Camberwell Junction and Burke Road, much of it brick housing from the early twentieth century, with careful electrical work that suits the character of the property.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades for older brick homes", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
   "Bentleigh East": {
     localIntro: "Covering Bentleigh East's established family homes around GESAC and the Yarra Yarra Golf Club, through to the newer medium-density townhouses going up along Centre Road and East Boundary Road as the area continues to develop.",
     commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits for family homes", "New-build electrical for townhouse developments", "Fault finding and repairs"],
