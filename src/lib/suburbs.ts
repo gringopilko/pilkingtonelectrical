@@ -64,6 +64,22 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered personally, start to finish.",
     commonJobs: ["Renovation and extension wiring", "Switchboards and safety switches", "Lighting, fans and power points", "Fault finding and repairs"],
   },
+  "Albert Park": {
+    localIntro: "Working on Albert Park's Victorian terrace and semi-detached housing near St Vincent Gardens and Bridport Street, much of it under heritage overlay, with electrical work that respects the age and character of the property.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades respecting heritage features", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  "Middle Park": {
+    localIntro: "Servicing Middle Park's well-preserved Victorian and Edwardian terraces around Armstrong Street and Canterbury Road, one of Melbourne's strictest heritage-conservation areas, with electrical work suited to the character of the property.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades respecting heritage features", "Renovation and extension circuits", "Fault finding and repairs"],
+  },
+  "South Melbourne": {
+    localIntro: "Covering South Melbourne's wide, leafy streets of Victorian homes and apartment buildings around Clarendon Street, including properties near the South Melbourne Market.",
+    commonJobs: ["Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades", "Renovation and extension circuits"],
+  },
+  "Port Melbourne": {
+    localIntro: "Working across Port Melbourne's mix of single-fronted Victorian timber worker's cottages and large-scale new apartment developments near Bay Street, two very different housing types that both come through regularly.",
+    commonJobs: ["Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades", "New-build electrical for apartments"],
+  },
   Windsor: {
     localIntro: "Working across Windsor's diverse mix of Victorian terrace housing, semi-detached cottages and growing apartment stock around Chapel Street, with electrical work suited to the suburb's older, mostly rental-occupied properties.",
     commonJobs: ["Rental compliance electrical checks", "Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades"],
