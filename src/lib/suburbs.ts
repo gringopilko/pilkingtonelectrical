@@ -64,6 +64,18 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered personally, start to finish.",
     commonJobs: ["Renovation and extension wiring", "Switchboards and safety switches", "Lighting, fans and power points", "Fault finding and repairs"],
   },
+  Caulfield: {
+    localIntro: "Working around Caulfield's mix of homes near the racecourse and Monash University's Caulfield campus, with switchboard upgrades and general electrical work for the area's established housing stock.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Fault finding and repairs", "Rental compliance electrical checks", "Lighting and power-point installation"],
+  },
+  "Caulfield North": {
+    localIntro: "Servicing Caulfield North's tree-lined streets and period homes around Caulfield Park and Hawthorn Road, where heritage character is common and electrical work needs a careful approach.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades respecting heritage features", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  "Caulfield South": {
+    localIntro: "Covering Caulfield South's period-style family homes around Princes Park, with switchboard upgrades and rewiring for the area's predominantly established detached housing.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs"],
+  },
   Mentone: {
     localIntro: "Working on Mentone's character homes near Charman Road and the Mentone Beach foreshore, where original features like high ceilings and picture rails are common, alongside newer builds further from the beachside strip.",
     commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Lighting and power-point installation"],
