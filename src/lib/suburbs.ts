@@ -104,6 +104,38 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Covering Balaclava's period homes and semi-detached cottages around Carlisle Street, including the late-1870s terrace housing typical of the area, with electrical work that respects the age of the property.",
     commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Rental compliance electrical checks"],
   },
+  Aspendale: {
+    localIntro: "Servicing Aspendale's beachside housing, from preserved mid-century homes near the foreshore to contemporary townhouse developments further from the water, split by the Nepean Highway.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Coastal-property electrical (corrosion-aware fittings)", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  "Aspendale Gardens": {
+    localIntro: "Working across Aspendale Gardens' master-planned family housing estates near the Aspendale Gardens Shopping Centre, predominantly spacious four and five-bedroom homes with high owner-occupation.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs", "Lighting and power-point installation"],
+  },
+  Braeside: {
+    localIntro: "Servicing Braeside's industrial and commercial properties, with the suburb being almost entirely industrial estate and holding very little residential housing.",
+    commonJobs: ["Commercial and industrial electrical work", "Switchboard upgrades for commercial premises", "Test and tag for workplaces", "Fault finding and repairs"],
+  },
+  Waterways: {
+    localIntro: "Working in the Waterways estate, a small, purpose-built residential development set around its own system of lakes, surrounded by the larger suburbs of Braeside, Aspendale Gardens and Keysborough.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "New-build electrical", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  Bangholme: {
+    localIntro: "Covering Bangholme's small residential pocket alongside its semi-rural and light-industrial properties, near the National Water Sports Centre on the Patterson River.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Rural and semi-rural property electrical", "Commercial and industrial electrical work", "Fault finding and repairs"],
+  },
+  "Patterson Lakes": {
+    localIntro: "Working across Patterson Lakes' waterfront housing built around its artificial canal and lake system, including marina-adjacent homes and the retirement villages further from the water.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Waterfront-property electrical", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  Seaford: {
+    localIntro: "Servicing Seaford's mix of original 1950s-60s beach houses, post-war brick veneer homes and newer townhouses and knockdown-rebuilds, close to the beach and Kananook Creek.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Period and post-war home rewiring", "Renovation and extension circuits", "New-build electrical for townhouses"],
+  },
+  "Carrum Downs": {
+    localIntro: "Covering Carrum Downs' mostly 1980s-onward housing on the former Carrum Swamp, one of Melbourne's fastest-growing suburbs through the late twentieth century, with construction still continuing today.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "New-build electrical", "Renovation and extension circuits", "Fault finding and repairs"],
+  },
   Caulfield: {
     localIntro: "Working around Caulfield's mix of homes near the racecourse and Monash University's Caulfield campus, with switchboard upgrades and general electrical work for the area's established housing stock.",
     commonJobs: ["Switchboard and safety-switch upgrades", "Fault finding and repairs", "Rental compliance electrical checks", "Lighting and power-point installation"],
