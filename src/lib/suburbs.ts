@@ -172,6 +172,18 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Covering Black Rock from the Victorian and Edwardian homes near the Beach Road and Half Moon Bay end, through to the mid-century houses and newer apartment developments further from the coast.",
     commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Coastal-property electrical (corrosion-aware fittings)", "Renovation and extension circuits"],
   },
+  Springvale: {
+    localIntro: "Servicing Springvale's diverse housing mix, with a significant proportion of rental properties and established homes close to the Monash Freeway and the suburb's busy shopping precinct.",
+    commonJobs: ["Rental compliance electrical checks", "Switchboard and safety-switch upgrades", "Fault finding and repairs", "Lighting and power-point installation"],
+  },
+  "Noble Park": {
+    localIntro: "Working across Noble Park's mix of houses and apartments, a notably diverse residential and commercial area where around a third of homes are apartments, roughly double the Melbourne average.",
+    commonJobs: ["Apartment and flat electrical work", "Rental compliance electrical checks", "Switchboard and safety-switch upgrades", "Fault finding and repairs"],
+  },
+  Keysborough: {
+    localIntro: "Covering Keysborough's mix of established 1960s-90s housing in the north and newer estates like Elmswood and Somerfield further south, near Tatterson Park and the Keysborough Golf Club.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "New-build electrical for newer estates", "Renovation and extension circuits", "Fault finding and repairs"],
+  },
   Oakleigh: {
     localIntro: "Working across Oakleigh's mix of Federation-era weatherboards near Atherton Road and the newer townhouse and apartment developments that have grown up around Eaton Mall and the station, with switchboard upgrades and rewiring for older homes alongside new-build electrical for recent builds.",
     commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades for older weatherboards", "New-build electrical for townhouses and apartments", "Lighting and power-point installation"],
