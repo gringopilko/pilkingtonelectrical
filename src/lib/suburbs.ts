@@ -64,6 +64,30 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered personally, start to finish.",
     commonJobs: ["Renovation and extension wiring", "Switchboards and safety switches", "Lighting, fans and power points", "Fault finding and repairs"],
   },
+  Windsor: {
+    localIntro: "Working across Windsor's diverse mix of Victorian terrace housing, semi-detached cottages and growing apartment stock around Chapel Street, with electrical work suited to the suburb's older, mostly rental-occupied properties.",
+    commonJobs: ["Rental compliance electrical checks", "Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades"],
+  },
+  Prahran: {
+    localIntro: "Servicing Prahran's mix of restored historic homes and modern apartments around Chapel Street and Greville Street, including properties in and around the Prahran Market precinct.",
+    commonJobs: ["Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades", "Rental compliance electrical checks"],
+  },
+  "South Yarra": {
+    localIntro: "Covering South Yarra's mix of period terrace homes near Fawkner Park and Darling Street, and the denser apartment stock around Toorak Road and Chapel Street, one of Melbourne's more prestigious addresses.",
+    commonJobs: ["Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades", "Renovation and extension circuits"],
+  },
+  "St Kilda East": {
+    localIntro: "Working across St Kilda East's mix of 1960s flats, Victorian-era terraces and medium-density apartments near Carlisle Street and Alma Park, with electrical work suited to both older buildings and more recent developments.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Apartment and flat electrical work", "Fault finding and repairs", "Rental compliance electrical checks"],
+  },
+  "St Kilda West": {
+    localIntro: "Servicing St Kilda West's quieter, tightly held pocket near the bay, where townhouses, low-rise apartments and character homes make up some of the area's most established real estate.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Character-home rewiring and fault finding", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  Balaclava: {
+    localIntro: "Covering Balaclava's period homes and semi-detached cottages around Carlisle Street, including the late-1870s terrace housing typical of the area, with electrical work that respects the age of the property.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Rental compliance electrical checks"],
+  },
   Caulfield: {
     localIntro: "Working around Caulfield's mix of homes near the racecourse and Monash University's Caulfield campus, with switchboard upgrades and general electrical work for the area's established housing stock.",
     commonJobs: ["Switchboard and safety-switch upgrades", "Fault finding and repairs", "Rental compliance electrical checks", "Lighting and power-point installation"],
