@@ -136,6 +136,26 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Servicing Camberwell's grand period homes around Camberwell Junction and Burke Road, much of it brick housing from the early twentieth century, with careful electrical work that suits the character of the property.",
     commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades for older brick homes", "Renovation and extension circuits", "Lighting and power-point installation"],
   },
+  "Dingley Village": {
+    localIntro: "Servicing Dingley Village's family homes, mostly built from the 1970s onward around quiet court-style streets near the Dingley Village Neighbourhood Centre, with straightforward switchboard and general electrical work for established family properties.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs", "Lighting and power-point installation"],
+  },
+  Murrumbeena: {
+    localIntro: "Working in Murrumbeena's village-feel pocket around the heritage-listed Murrumbeena Village Precinct, a small, well-connected suburb where character homes sit alongside more recent development.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
+  Clayton: {
+    localIntro: "Covering Clayton's mix of 1960s homes and student/rental housing around Monash University and Clayton Road, where a high proportion of properties are rentals needing regular compliance electrical work.",
+    commonJobs: ["Rental compliance electrical checks", "Switchboard and safety-switch upgrades", "Shared-housing and rental electrical work", "Fault finding and repairs"],
+  },
+  "Clayton South": {
+    localIntro: "Servicing Clayton South's family homes near the sandbelt golf courses and Westall, a mix of established properties and newer development close to Monash Medical Centre and the university precinct.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Rental compliance electrical checks", "Fault finding and repairs"],
+  },
+  Clarinda: {
+    localIntro: "Working across Clarinda's established family homes near Clarinda Shopping Village, with switchboard upgrades and general electrical work for the suburb's mostly mid-to-late-twentieth-century housing stock.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Fault finding and repairs", "Renovation and extension circuits", "Lighting and power-point installation"],
+  },
   "Bentleigh East": {
     localIntro: "Covering Bentleigh East's established family homes around GESAC and the Yarra Yarra Golf Club, through to the newer medium-density townhouses going up along Centre Road and East Boundary Road as the area continues to develop.",
     commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits for family homes", "New-build electrical for townhouse developments", "Fault finding and repairs"],
