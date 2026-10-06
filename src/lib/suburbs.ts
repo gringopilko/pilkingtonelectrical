@@ -64,6 +64,22 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs
     localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered personally, start to finish.",
     commonJobs: ["Renovation and extension wiring", "Switchboards and safety switches", "Lighting, fans and power points", "Fault finding and repairs"],
   },
+  "Bentleigh East": {
+    localIntro: "Covering Bentleigh East's established family homes around GESAC and the Yarra Yarra Golf Club, through to the newer medium-density townhouses going up along Centre Road and East Boundary Road as the area continues to develop.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits for family homes", "New-build electrical for townhouse developments", "Fault finding and repairs"],
+  },
+  "Brighton East": {
+    localIntro: "Working on Brighton East's Art Deco and period Victorian homes around Hawthorn Road and Dendy Park, where original character features are common and electrical work needs to respect the age of the property.",
+    commonJobs: ["Period and Art Deco home rewiring", "Switchboard upgrades for older homes", "Renovation and extension electrical", "Lighting and power-point installation"],
+  },
+  Cheltenham: {
+    localIntro: "Servicing Cheltenham's mix of character homes near Charman Road and newer family builds further out, close to Southland and the sandbelt golf courses, with the area continuing to grow as the Suburban Rail Loop development progresses.",
+    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs", "Lighting and power-point installation"],
+  },
+  "Black Rock": {
+    localIntro: "Covering Black Rock from the Victorian and Edwardian homes near the Beach Road and Half Moon Bay end, through to the mid-century houses and newer apartment developments further from the coast.",
+    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Coastal-property electrical (corrosion-aware fittings)", "Renovation and extension circuits"],
+  },
   Oakleigh: {
     localIntro: "Working across Oakleigh's mix of Federation-era weatherboards near Atherton Road and the newer townhouse and apartment developments that have grown up around Eaton Mall and the station, with switchboard upgrades and rewiring for older homes alongside new-build electrical for recent builds.",
     commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades for older weatherboards", "New-build electrical for townhouses and apartments", "Lighting and power-point installation"],
