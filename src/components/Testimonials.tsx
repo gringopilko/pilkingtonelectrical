@@ -62,7 +62,7 @@ export function Testimonials() {
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">"{review.text}"</p>
               <div className="mt-6 flex items-center gap-3">
                 {review.authorPhoto ? (
-                  <img src={review.authorPhoto} alt={review.authorName} className="h-10 w-10 rounded-full object-cover" />
+                  <img src={review.authorPhoto} alt={review.authorName} className="h-10 w-10 rounded-full object-cover" loading="lazy" />
                 ) : (
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">{review.authorName.charAt(0)}</div>
                 )}

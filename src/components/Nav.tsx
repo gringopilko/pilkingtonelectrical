@@ -34,6 +34,7 @@ export function Nav() {
             width={49}
             height={60}
             className="h-10 w-auto object-contain md:h-12"
+            loading="eager"
           />
           <span className="text-lg font-extrabold tracking-tight text-foreground md:text-xl">
             Pilkington <span className="text-primary">Electrical</span>

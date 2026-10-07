@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <img src={logoImg} alt="Pilkington Electrical" width={58} height={72} className="h-14 w-auto" />
+            <img src={logoImg} alt="Pilkington Electrical" width={58} height={72} className="h-14 w-auto" loading="lazy" />
             <p className="mt-4 text-sm text-muted-foreground">
               Licensed electrician serving homes, body corporates and businesses across South East Melbourne.
             </p>
