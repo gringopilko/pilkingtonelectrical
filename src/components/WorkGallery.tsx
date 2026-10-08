@@ -1,3 +1,4 @@
+import { Instagram } from "lucide-react";
 import { workPhotos, type WorkPhoto } from "@/lib/workPhotos";
 
 interface WorkGalleryProps {
@@ -35,6 +36,19 @@ export function WorkGallery({ photos = workPhotos, compact = false }: WorkGaller
             />
           ))}
         </div>
+        {!compact && (
+          <div className="mt-8 text-center">
+            <a
+              href="https://www.instagram.com/pilkingtonelectrical"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-bold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+            >
+              <Instagram className="h-4 w-4" />
+              See more recent jobs on Instagram
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );
