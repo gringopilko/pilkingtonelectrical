@@ -7,6 +7,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { TrustBadges } from "@/components/TrustBadges";
 import { BrandsWeUse } from "@/components/BrandsWeUse";
 import { Testimonials } from "@/components/Testimonials";
+import { WorkGallery } from "@/components/WorkGallery";
 import { suburbGroups } from "@/lib/suburbs";
 import { services } from "@/lib/services";
 
@@ -205,6 +206,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <WorkGallery />
 
       <Testimonials />
 

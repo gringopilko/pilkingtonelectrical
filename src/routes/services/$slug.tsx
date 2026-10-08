@@ -4,6 +4,8 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
+import { WorkGallery } from "@/components/WorkGallery";
+import { workPhotos } from "@/lib/workPhotos";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -68,6 +70,7 @@ export const Route = createFileRoute("/services/$slug")({
 function ServicePage() {
   const service = Route.useLoaderData();
   const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 6);
+  const servicePhotos = workPhotos.filter((p) => p.services.includes(service.slug));
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -129,6 +132,8 @@ function ServicePage() {
           , so the person who quotes the job is the person who turns up and does it.
         </p>
       </section>
+
+      {servicePhotos.length > 0 && <WorkGallery photos={servicePhotos} compact />}
 
       {otherServices.length > 0 && (
         <section className="border-t border-border bg-card">
