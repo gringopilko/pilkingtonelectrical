@@ -72,13 +72,6 @@ export const workPhotos: WorkPhoto[] = [
     services: [],
   },
   {
-    file: "bedroom-ring-fan-light-cool.webp",
-    alt: "Low profile ceiling fan with built in light in a bedroom corner",
-    width: 800,
-    height: 600,
-    services: ["ceiling-fans"],
-  },
-  {
     file: "two-lamp-heat-light-panel.webp",
     alt: "Ceiling light panel above a two lamp heat light",
     width: 800,
