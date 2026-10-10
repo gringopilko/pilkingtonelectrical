@@ -3,6 +3,8 @@ export interface WorkPhoto {
   alt: string;
   width: number;
   height: number;
+  /** CSS object-position used when the photo is cropped to a square tile. */
+  focus?: string;
   /** Service slugs this photo is also shown on (it always appears in the homepage gallery). */
   services: string[];
 }
@@ -20,6 +22,7 @@ export const workPhotos: WorkPhoto[] = [
     alt: "LED cove lighting and a round wall light above a staircase",
     width: 800,
     height: 1067,
+    focus: "50% 30%",
     services: ["lighting"],
   },
   {
@@ -27,6 +30,7 @@ export const workPhotos: WorkPhoto[] = [
     alt: "Low profile ceiling fan with built in light in a bedroom",
     width: 800,
     height: 600,
+    focus: "70% 50%",
     services: ["ceiling-fans"],
   },
   {
@@ -48,6 +52,7 @@ export const workPhotos: WorkPhoto[] = [
     alt: "White ceiling fan with light in a bedroom with a raked ceiling",
     width: 800,
     height: 1067,
+    focus: "50% 20%",
     services: ["ceiling-fans"],
   },
   {
@@ -55,6 +60,7 @@ export const workPhotos: WorkPhoto[] = [
     alt: "Flush mount ceiling light with an exposed globe in a hallway",
     width: 800,
     height: 1067,
+    focus: "50% 30%",
     services: ["lighting"],
   },
   {
@@ -62,6 +68,7 @@ export const workPhotos: WorkPhoto[] = [
     alt: "Low profile ceiling fan with built in light above a bedroom window",
     width: 800,
     height: 600,
+    focus: "45% 50%",
     services: ["ceiling-fans"],
   },
   {
@@ -76,6 +83,7 @@ export const workPhotos: WorkPhoto[] = [
     alt: "Ceiling light panel above a two lamp heat light",
     width: 800,
     height: 600,
+    focus: "85% 50%",
     services: [],
   },
 ];

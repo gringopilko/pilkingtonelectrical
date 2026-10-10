@@ -138,47 +138,37 @@ function Index() {
             <p className="mt-4 text-muted-foreground">
               I'm a sole trader, which means when you call, you speak directly to the person doing the job. No call centres, just honest, reliable electrical work from a licensed professional who takes pride in every connection.
             </p>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {[
-                { label: "Licensed & Insured", desc: "Full compliance & peace of mind" },
-                { label: "Upfront Pricing", desc: "No hidden fees or surprises" },
-                { label: "Local & Reliable", desc: "South East Melbourne based" },
-                { label: "Tidy Worksite", desc: "I clean up after every job" },
-              ].map((item) => (
-                <div key={item.label} className="rounded-lg border border-border bg-card p-4">
-                  <div className="flex items-center gap-2 text-primary">
-                    <Check className="h-4 w-4" />
-                    <span className="font-bold">{item.label}</span>
-                  </div>
-                  <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              ))}
-            </div>
             <Link to="/about" className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">
               More about Pilkington Electrical
               <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="rounded-xl border border-border bg-card p-8">
-            <h3 className="text-xl font-bold tracking-tight">Service Areas</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Based in Hampton East, covering:</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["Elwood", "St Kilda", "Brighton", "Caulfield", "Hampton", "Bentleigh", "Malvern", "Glen Iris", "Camberwell", "South Yarra"].map((suburb) => (
-                <span key={suburb} className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">{suburb}</span>
-              ))}
-            </div>
-            <Link to="/suburbs" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">
-              View all suburbs
-              <ChevronRight className="h-4 w-4" />
-            </Link>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              { label: "Licensed & Insured", desc: "Full compliance & peace of mind" },
+              { label: "Upfront Pricing", desc: "No hidden fees or surprises" },
+              { label: "Local & Reliable", desc: "South East Melbourne based" },
+              { label: "Tidy Worksite", desc: "I clean up after every job" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-lg border border-border bg-card p-5">
+                <div className="flex items-center gap-2 text-primary">
+                  <Check className="h-4 w-4" />
+                  <span className="font-bold">{item.label}</span>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      <WorkGallery />
+
+      <Testimonials />
+
       {/* Service Areas: full list */}
-      <section className="border-t border-border bg-card">
+      <section className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mb-12 max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Areas We Service</h2>
@@ -193,7 +183,7 @@ function Index() {
                 <h3 className="text-sm font-bold uppercase tracking-wider text-primary">{group.area}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {group.suburbs.map((suburb) => (
-                    <span key={suburb} className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">{suburb}</span>
+                    <span key={suburb} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">{suburb}</span>
                   ))}
                 </div>
               </div>
@@ -208,10 +198,6 @@ function Index() {
           </div>
         </div>
       </section>
-
-      <WorkGallery />
-
-      <Testimonials />
 
       {/* Contact Section */}
       <section id="contact" className="border-t border-border bg-card">
