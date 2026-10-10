@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Zap, Shield, Wrench, ChevronRight, Check, Clock, Award } from "lucide-react";
+import { Phone, Mail, MapPin, Zap, Shield, Wrench, ChevronRight, Check, Clock, Award, ClipboardCheck, Tag } from "lucide-react";
 import heroImg from "@/assets/hero-electrician-poster.jpg";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -34,10 +34,12 @@ export const Route = createFileRoute("/")({
 });
 
 const featuredServices = [
+  { slug: "electrical-safety-inspections", icon: <ClipboardCheck className="h-8 w-8" />, title: "Electrical Safety Inspections", description: "Rental compliance checks and pre-sale inspections for landlords, agents and owners, with a written report for your records." },
+  { slug: "test-and-tag", icon: <Tag className="h-8 w-8" />, title: "Test and Tag", description: "Portable appliance and safety switch testing to AS/NZS 3760:2022 for offices, retail and small businesses." },
   { slug: "switchboards", icon: <Shield className="h-8 w-8" />, title: "Switchboards & Safety Switches", description: "Upgrade old fuse boxes to modern safety switch boards. Protect your home and family with compliant, up-to-date electrical infrastructure." },
+  { slug: "body-corporate", icon: <Award className="h-8 w-8" />, title: "Body Corporate & Strata", description: "Reliable trade partner for property and strata managers. Fast call-outs, compliance work, common-area lighting, and tenant fit-outs, invoiced cleanly." },
   { slug: "rewiring-extensions", icon: <Zap className="h-8 w-8" />, title: "Residential Rewires & Installations", description: "Full and partial house rewires, new lighting circuits, power points, and appliance circuits. Clean, tidy work with minimal disruption." },
   { slug: "fault-finding", icon: <Wrench className="h-8 w-8" />, title: "Fault Finding & Repairs", description: "Intermittent tripping, flickering lights, dead outlets: diagnosing the root cause and fixing it properly, not just patching over it." },
-  { slug: "body-corporate", icon: <Award className="h-8 w-8" />, title: "Body Corporate & Strata", description: "Reliable trade partner for property and strata managers. Fast call-outs, compliance work, common-area lighting, and tenant fit-outs, invoiced cleanly." },
 ];
 
 function Index() {
@@ -107,7 +109,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuredServices.map((s) => (
               <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group rounded-xl border border-border bg-background p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary">{s.icon}</div>
