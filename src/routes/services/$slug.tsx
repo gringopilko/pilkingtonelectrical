@@ -6,6 +6,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
+import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
 import { ElectricalSafetyDetails } from "@/components/ElectricalSafetyDetails";
 import { workPhotos } from "@/lib/workPhotos";
@@ -113,7 +114,7 @@ function ServicePage() {
         </div>
       </section>
 
-      {service.image && (
+      {service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.image && (
         <div className="mx-auto max-w-5xl px-6 pt-12">
           <img
             src={`/img/${service.image.file}`}
