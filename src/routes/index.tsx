@@ -105,7 +105,15 @@ function Index() {
           <div className="mb-12 max-w-2xl">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Services</h2>
             <p className="mt-4 text-muted-foreground">
-              Residential and commercial work, from full house rewires to ongoing maintenance for body corporates and real estate agents.
+              Residential and commercial work, from full house rewires to ongoing maintenance for{" "}
+              <Link to="/services/$slug" params={{ slug: "body-corporate" }} className="font-semibold text-primary hover:underline">
+                body corporates
+              </Link>{" "}
+              and{" "}
+              <Link to="/services/$slug" params={{ slug: "real-estate" }} className="font-semibold text-primary hover:underline">
+                real estate agents
+              </Link>
+              .
             </p>
           </div>
 
