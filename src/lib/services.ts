@@ -108,7 +108,7 @@ export const services: Service[] = [
       "Repairs and fault finding for rental properties",
       "The cheapest option, always offered",
       "Upgrade paths that save owners money over time",
-      "Several properties in one building done on the same day",
+      "Save money on call outs by visiting several properties in one building on the same day",
       "Electrical safety inspections and smoke alarm checks",
       "Quotes with one clear GST inclusive total",
       "A call from me before anything goes over the quote",
