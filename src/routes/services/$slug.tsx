@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
+import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { ElectricalSafetyDetails } from "@/components/ElectricalSafetyDetails";
 import { workPhotos } from "@/lib/workPhotos";
 
@@ -125,7 +126,7 @@ function ServicePage() {
       )}
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        {service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : (
+        {service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : (
           <>
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">

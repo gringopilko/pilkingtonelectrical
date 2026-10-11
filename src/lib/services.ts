@@ -107,7 +107,7 @@ export const services: Service[] = [
     title: "Switchboard Upgrades & Repairs",
     shortDesc: "Old fuse box or tripping switchboard? Upgrade to a modern, compliant board.",
     metaDescription: "Switchboard upgrades, repairs and replacements across South East Melbourne. Licensed electrician, upfront pricing. Call Pilkington Electrical.",
-    intro: "Your switchboard is the heart of your home's electrical safety. If it's still running on an old fuse box, tripping repeatedly, or hasn't been assessed in years, it's worth having it checked properly.",
+    intro: "Modern circuit protection, reliable repairs and switchboard upgrades for homes and rental properties across Bayside and South-East Melbourne. Get clear advice from your licensed electrician and an upfront quote tailored to your property.",
     included: [
       "Switchboard upgrades (fuses to safety switches)",
       "New switchboard installation",
