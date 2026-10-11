@@ -89,6 +89,9 @@ function ServicePage() {
           <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
             {service.title}
           </h1>
+          {service.heroSubtitle && (
+            <h2 className="mt-5 max-w-2xl text-xl font-bold tracking-tight md:text-2xl">{service.heroSubtitle}</h2>
+          )}
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
             {service.intro}
           </p>
@@ -102,7 +105,7 @@ function ServicePage() {
             <a href="#quote"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent"
             >
-              Request a Quote
+              {service.slug === "test-and-tag" ? "Request a Free Quote" : "Request a Quote"}
             </a>
           </div>
         </div>
@@ -142,7 +145,7 @@ function ServicePage() {
 
         {service.sections && service.sections.length > 0 && (
           <>
-            <h2 className="mt-14 text-2xl font-extrabold tracking-tight md:text-3xl">How I Work</h2>
+            <h2 className="mt-14 text-2xl font-extrabold tracking-tight md:text-3xl">{service.slug === "test-and-tag" ? "Professional Test & Tag for Your Business" : "How I Work"}</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {service.sections.map((sec) => (
                 <div key={sec.title} className="rounded-xl border border-border bg-card p-6">
@@ -157,6 +160,13 @@ function ServicePage() {
           </>
         )}
 
+        {service.slug === "test-and-tag" && (
+          <div className="mt-10 rounded-xl border border-primary/20 bg-accent p-6 md:p-8">
+            <h2 className="text-2xl font-bold tracking-tight">Make Electrical Testing One Less Thing to Worry About</h2>
+            <p className="mt-3 leading-relaxed text-muted-foreground">Get your equipment checked, your results documented and your next testing dates planned. A test tag records the result at the time of testing; continue checking equipment for damage before use and remove unsafe items from service.</p>
+            <a href="#quote" className="mt-5 inline-flex rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-brand-dark">Request a Free Test & Tag Quote</a>
+          </div>
+        )}
         <div className="mt-10 rounded-xl border border-border bg-card p-6">
           <h3 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">Licensed, Insured & Accountable</h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -203,10 +213,10 @@ function ServicePage() {
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
               Get a Quote for {service.title}
             </h2>
-            <p className="mt-4 text-muted-foreground">Fill in the form and I'll get back to you promptly.</p>
+            <p className="mt-4 text-muted-foreground">{service.slug === "test-and-tag" ? "Include your suburb, workplace type, approximate number of items, any RCD testing required and preferred timing. I'll get back to you with a clear quote." : "Fill in the form and I'll get back to you promptly."}</p>
           </div>
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
-            <QuoteForm defaultMessage={`Enquiry: ${service.title}`} />
+            <QuoteForm defaultMessage={service.slug === "test-and-tag" ? "Test & Tag enquiry\nSuburb: \nWorkplace type: \nApproximate number of items: \nRCD testing required: \nPreferred timing: " : `Enquiry: ${service.title}`} />
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ export interface Service {
   shortDesc: string;
   metaDescription: string;
   intro: string;
+  heroSubtitle?: string;
   included: string[];
   body: string[];
   /** Optional headed cards shown instead of plain paragraphs. */
@@ -42,29 +43,63 @@ export const services: Service[] = [
   },
   {
     slug: "test-and-tag",
-    title: "Test and Tag",
-    shortDesc: "Portable appliance testing and RCD testing for offices, retail, and small businesses.",
-    metaDescription: "Test and tag services across South East Melbourne. Portable appliance testing and RCD safety switch testing to AS/NZS 3760:2022. Licensed electrician.",
-    intro: "AS/NZS 3760:2022 sets the standard for in-service testing of portable electrical equipment: the appliances, leads and power boards that plug into a wall. Keeping on top of it is part of an employer's general workplace safety obligations, and it's straightforward to build into a regular routine so it's never something you have to think twice about.",
+    title: "Test and Tag Melbourne",
+    shortDesc: "Portable appliance and RCD testing with clear records for Melbourne businesses.",
+    metaDescription: "Test and tag across Bayside and South East Melbourne. Appliance and RCD testing, clear reports and retest schedules from a licensed electrician. Free quotes.",
+    heroSubtitle: "Keep Your Workplace Safe, Tested & Properly Documented",
+    intro: "Professional inspection and testing of appliances, leads, power boards and safety switches across Bayside and South East Melbourne. Pilkington Electrical helps you identify electrical faults, maintain clear testing records and plan appropriate retesting, with services carried out by a licensed A-Grade electrician.",
     included: [
-      "Portable appliance testing & tagging (Class I & Class II)",
-      "RCD / safety switch testing",
-      "Visual inspection of cords, plugs & power boards",
-      "Compliant tags on every item, showing test date, retest date and pass/fail",
-      "Written report for your records",
-      "Recommended retest schedule based on your environment",
-      "Suits offices, retail, small warehouses & rental properties",
+      "Visual inspection of equipment, plugs and cords",
+      "Portable appliance testing: Class I and Class II equipment",
+      "Extension leads, power boards and portable tools",
+      "Office, kitchen and workplace appliances",
+      "Portable and fixed RCD testing, as agreed in your quote",
+      "Test tags on equipment that passes; failed items clearly identified",
+      "Equipment register and written test results",
+      "Recommended retest dates for your equipment and environment"
     ],
     body: [
-      "How often testing is needed depends on the environment. More frequent for construction sites and workshops, less frequent for a typical office. I'll recommend a schedule that fits your actual risk level rather than a one-size-fits-all interval.",
-      "Every item gets a compliant tag on the spot, and you get a written report you can hand to an auditor, insurer, or landlord without a second thought.",
-      "Get in touch with the number of items and the type of workplace, and I'll quote it properly rather than guessing at a number that doesn't fit your situation.",
+      "Testing is carried out in accordance with AS/NZS 3760:2022 where applicable. The scope and testing schedule are agreed for your workplace, including any additional requirements for construction equipment."
+    ],
+    sections: [
+      {
+        "title": "Portable Appliance Testing & Tagging",
+        "text": "Damaged plugs, worn insulation and loose connections can create serious hazards. Each item is visually inspected before the appropriate electrical tests are performed. This covers everyday equipment such as monitors, printers, chargers, kettles, extension leads and portable tools."
+      },
+      {
+        "title": "RCD & Safety Switch Testing",
+        "text": "RCDs disconnect power when they detect an imbalance in current that may indicate leakage to earth. I can carry out push-button checks and instrument testing of operating times for portable and fixed RCDs, where applicable. Results are recorded, and any concerns are explained. We will agree on access and any power interruptions before testing."
+      },
+      {
+        "title": "Clear Reports & Equipment Records",
+        "text": "Receive an equipment register and written test results so you can track what was tested, the outcome and recommended retest dates. These records support your electrical safety maintenance program and make it easier to respond to requests from facility managers, contractors or insurers."
+      },
+      {
+        "title": "An Appropriate Retesting Schedule",
+        "text": "Testing frequency depends on the equipment, how it is used and the environment. Moisture, dust, heat, frequent movement and mechanical wear can increase risk. I will recommend intervals suited to your workplace. Construction sites have additional requirements; include any site rules when requesting a quote."
+      },
+      {
+        "title": "Offices, Retail & Hospitality",
+        "text": "Testing for offices, shops, cafés and other businesses, covering accessible appliances, leads, chargers and power boards. We can plan the visit around your operations where possible and agree on which equipment needs to be disconnected."
+      },
+      {
+        "title": "Trades, Workshops & Managed Properties",
+        "text": "Testing for portable tools, leads and equipment in workshops and small warehouses, plus shared facilities managed by property managers and owners corporations. Tell me how and where equipment is used so the quote reflects the scope and operating conditions."
+      },
+      {
+        "title": "If an Item Fails Testing",
+        "text": "Failed equipment is clearly identified and should be removed from service until repaired and successfully retested, or replaced. I will explain the issue and your options. As a licensed electrician, I can also investigate related electrical faults and quote suitable repairs separately before proceeding."
+      },
+      {
+        "title": "Direct Service & Upfront Pricing",
+        "text": "Deal directly with a local A-Grade electrician from your first enquiry through to completion. Your quote is based on the number and type of items, site access and any RCD testing required, with a clear scope and price before work starts."
+      }
     ],
     image: {
-      file: "test-and-tag.webp",
-      alt: "Portable appliance tester beside a tagged power lead and tools on an office desk",
-      width: 1600,
-      height: 646,
+      "file": "test-and-tag.webp",
+      "alt": "Portable appliance tester beside a tagged power lead and tools on an office desk",
+      "width": 1600,
+      "height": 646
     },
   },
   {
