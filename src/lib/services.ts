@@ -6,6 +6,8 @@ export interface Service {
   intro: string;
   included: string[];
   body: string[];
+  /** Optional banner shown under the page heading. Files live in public/img. */
+  image?: { file: string; alt: string; width: number; height: number };
 }
 
 export const services: Service[] = [
@@ -29,6 +31,12 @@ export const services: Service[] = [
       "Selling or buying a property? A pre-sale inspection gives you a clear report of any issues before they come up in someone else's building inspection.",
       "Every inspection gets a proper price based on the property and scope. Get in touch and I'll quote it directly rather than guessing at a number that doesn't fit your situation.",
     ],
+    image: {
+      file: "electrical-inspection-report-apartment.webp",
+      alt: "Electrical inspection report on a clipboard beside a smoke alarm and electrician's tools in a modern apartment",
+      width: 1600,
+      height: 800,
+    },
   },
   {
     slug: "test-and-tag",
@@ -104,9 +112,8 @@ export const services: Service[] = [
       "A call from me before anything goes over the quote",
     ],
     body: [
-      "I've worked for electricians who stuck to the bare minimum on repairs. They would rarely try to fix the real issue and would only ever offer the lowest level of maintenance. I don't want to work that way.",
-      "A common example is replacing the MR16 globe in an old halogen downlight. It's the cheapest fix on the day, but the technology is old and it will often blow again in a few months. That means another call out, another bill and another message from the tenant.",
-      "I'm always happy to provide the cheapest option. I'll also always offer a second path: an upgrade to standard LED downlights that costs more upfront and saves your owners money in the long run.",
+      "A quick patch is sometimes the cheapest fix on the day, but it often means the same fault comes back a few months later. That's another call out, another bill and another message from the tenant. I'd rather find the real cause of a problem and talk you through the options.",
+      "I'm always happy to provide the cheapest option. Where it makes sense, I'll also offer a second path that costs more upfront and saves your owners money in the long run, such as upgrading ageing lighting to modern LED fittings.",
       "If you have a number of properties in the same building, I can repair them all on the same day and save on a separate call out fee for each one.",
       "I'm always happy to find the cheapest path for your owners. If you have any ideas on how to make things easier or cheaper, I'd like to hear them. The goal is a relationship that works well for everyone.",
     ],

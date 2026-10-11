@@ -107,6 +107,19 @@ function ServicePage() {
         </div>
       </section>
 
+      {service.image && (
+        <div className="mx-auto max-w-5xl px-6 pt-12">
+          <img
+            src={`/img/${service.image.file}`}
+            alt={service.image.alt}
+            width={service.image.width}
+            height={service.image.height}
+            decoding="async"
+            className="h-auto w-full rounded-xl border border-border"
+          />
+        </div>
+      )}
+
       <section className="mx-auto max-w-5xl px-6 py-16">
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
