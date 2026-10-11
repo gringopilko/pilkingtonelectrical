@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
+import { ElectricalSafetyDetails } from "@/components/ElectricalSafetyDetails";
 import { workPhotos } from "@/lib/workPhotos";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -121,6 +122,8 @@ function ServicePage() {
       )}
 
       <section className="mx-auto max-w-5xl px-6 py-16">
+        {service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : (
+          <>
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {service.included.map((item) => (
@@ -148,6 +151,9 @@ function ServicePage() {
                 </div>
               ))}
             </div>
+          </>
+        )}
+
           </>
         )}
 

@@ -18,7 +18,7 @@ export const services: Service[] = [
     title: "Electrical Safety Inspections",
     shortDesc: "Periodic electrical safety checks for rental properties, sale, or peace of mind.",
     metaDescription: "Electrical safety inspections across South East Melbourne. Rental compliance checks, pre-sale inspections, landlord servicing. Licensed electrician.",
-    intro: "Under Victoria's Residential Tenancies Regulations 2021, rental providers must have an electrical safety check carried out every 2 years by a licensed electrician, with a written record of the check kept and made available to renters on request. I carry out these checks properly and give you a clear report for your records.",
+    intro: "Thorough electrical safety checks for rental properties, landlords and property managers across Bayside and South-East Melbourne. Inspection, testing and a clear written report from your licensed electrician, with upfront pricing of $350 including GST.",
     included: [
       "Switchboard & safety switch (RCD) testing",
       "Visible wiring condition check",
