@@ -243,10 +243,11 @@ export const services: Service[] = [
   },
   {
     slug: "emergency-electrical",
-    title: "Emergency Electrical",
-    shortDesc: "Loss of power or an urgent electrical fault? Fast response across South East Melbourne.",
+    title: "Emergency Electrician",
+    heroSubtitle: "Urgent Electrical Faults. Direct Help From Your Local Electrician.",
+    shortDesc: "Urgent fault finding, make-safe work and electrical repairs across Bayside and South East Melbourne.",
     metaDescription: "Emergency electrician for loss of power and urgent electrical faults across South East Melbourne. Call Pilkington Electrical.",
-    intro: "Complete loss of power, a tripped board that won't reset, or anything that feels unsafe: call straight away. I'll talk you through what to check immediately and get to you as fast as possible.",
+    intro: "Lost power, a safety switch that will not reset, or a damaged electrical fitting? Call Pilkington Electrical for urgent fault finding and repairs across Bayside and South East Melbourne. You will speak directly with Shane, a licensed A-Grade electrician, who will confirm availability, estimated arrival time and charges before arranging a visit.",
     included: [
       "Total loss of power",
       "Switchboard that won't reset",

@@ -6,6 +6,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
+import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
 import { ElectricalSafetyDetails } from "@/components/ElectricalSafetyDetails";
 import { workPhotos } from "@/lib/workPhotos";
 
@@ -101,12 +102,12 @@ function ServicePage() {
               className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
             >
               <Phone className="h-4 w-4" />
-              Call Now
+              {service.slug === "emergency-electrical" ? "Call Shane: 0466 270 949" : "Call Now"}
             </a>
             <a href="#quote"
               className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent"
             >
-              {service.slug === "test-and-tag" ? "Request a Free Quote" : "Request a Quote"}
+              {service.slug === "test-and-tag" ? "Request a Free Quote" : service.slug === "emergency-electrical" ? "Non-Urgent Enquiry" : "Request a Quote"}
             </a>
           </div>
         </div>
@@ -126,7 +127,7 @@ function ServicePage() {
       )}
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        {service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : (
+        {service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
           <>
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -212,9 +213,9 @@ function ServicePage() {
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
-              Get a Quote for {service.title}
+              {service.slug === "emergency-electrical" ? "Non-Urgent Electrical Enquiries" : `Get a Quote for ${service.title}`}
             </h2>
-            <p className="mt-4 text-muted-foreground">{service.slug === "test-and-tag" ? "Include your suburb, workplace type, approximate number of items, any RCD testing required and preferred timing. I'll get back to you with a clear quote." : "Fill in the form and I'll get back to you promptly."}</p>
+            <p className="mt-4 text-muted-foreground">{service.slug === "test-and-tag" ? "Include your suburb, workplace type, approximate number of items, any RCD testing required and preferred timing. I'll get back to you with a clear quote." : service.slug === "emergency-electrical" ? "For urgent faults, call 0466 270 949 to check availability. Use this form for follow-up repairs or general enquiries; it is not monitored as an emergency service." : "Fill in the form and I'll get back to you promptly."}</p>
           </div>
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
             <QuoteForm defaultMessage={service.slug === "test-and-tag" ? "Test & Tag enquiry\nSuburb: \nWorkplace type: \nApproximate number of items: \nRCD testing required: \nPreferred timing: " : `Enquiry: ${service.title}`} />
