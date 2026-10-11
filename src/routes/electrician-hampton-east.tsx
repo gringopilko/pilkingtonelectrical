@@ -14,7 +14,7 @@ const landingFaqs = [
   },
   {
     q: "Will you be the one doing the work?",
-    a: "Yes. I'm a sole trader, so the person who quotes your job is the person who turns up and does the work, every time.",
+    a: "Yes. The person who quotes your job is the person who turns up and does the work, every time.",
   },
   {
     q: "Do you provide upfront pricing?",
@@ -78,7 +78,7 @@ function ElectricianHamptonEast() {
             Electrician Hampton East &amp; Bayside
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-            Sole trader electrician handling every job personally, from quote to completion. Switchboards, fault finding, rewiring, EV chargers and more, done right the first time.
+            Handling every job personally, from quote to completion. Switchboards, fault finding, rewiring, EV chargers and more, done right the first time.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <a href="tel:0466270949" className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">

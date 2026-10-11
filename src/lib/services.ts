@@ -6,6 +6,8 @@ export interface Service {
   intro: string;
   included: string[];
   body: string[];
+  /** Optional headed cards shown instead of plain paragraphs. */
+  sections?: { title: string; text: string }[];
   /** Optional banner shown under the page heading. Files live in public/img. */
   image?: { file: string; alt: string; width: number; height: number };
 }
@@ -111,12 +113,31 @@ export const services: Service[] = [
       "Quotes with one clear GST inclusive total",
       "A call from me before anything goes over the quote",
     ],
-    body: [
-      "A quick patch is sometimes the cheapest fix on the day, but it often means the same fault comes back a few months later. That's another call out, another bill and another message from the tenant. I'd rather find the real cause of a problem and talk you through the options.",
-      "I'm always happy to provide the cheapest option. Where it makes sense, I'll also offer a second path that costs more upfront and saves your owners money in the long run, such as upgrading ageing lighting to modern LED fittings.",
-      "If you have a number of properties in the same building, I can repair them all on the same day and save on a separate call out fee for each one.",
-      "I'm always happy to find the cheapest path for your owners. If you have any ideas on how to make things easier or cheaper, I'd like to hear them. The goal is a relationship that works well for everyone.",
+    body: [],
+    sections: [
+      {
+        title: "Fix the cause, not just the symptom",
+        text: "A quick patch is sometimes the cheapest fix on the day, but it often means the same fault comes back a few months later. That's another call out, another bill and another message from the tenant. I'd rather find the real cause of a problem and talk you through the options.",
+      },
+      {
+        title: "The cheapest option, plus a better path",
+        text: "I'm always happy to provide the cheapest option. Where it makes sense, I'll also offer a second path that costs more upfront and saves your owners money in the long run, such as upgrading ageing lighting to modern LED fittings.",
+      },
+      {
+        title: "Several properties, one visit",
+        text: "If you have a number of properties in the same building, I can repair them all on the same day and save on a separate call out fee for each one.",
+      },
+      {
+        title: "Ideas are welcome",
+        text: "I'm always happy to find the cheapest path for your owners. If you have any ideas on how to make things easier or cheaper, I'd like to hear them. The goal is a relationship that works well for everyone.",
+      },
     ],
+    image: {
+      file: "electrical-inspection-report-apartment.webp",
+      alt: "Electrical inspection report on a clipboard beside a smoke alarm and electrician's tools in a modern apartment",
+      width: 1600,
+      height: 800,
+    },
   },
   {
     slug: "safety-switches",

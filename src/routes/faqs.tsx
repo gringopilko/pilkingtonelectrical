@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: "Will you be the one doing the work?",
-    a: "Yes. I'm a sole trader, which means the person who quotes your job is the person who turns up and does the work, every time. You deal with one person from the first call through to the finished job.",
+    a: "Yes. The person who quotes your job is the person who turns up and does the work, every time. You deal with one person from the first call through to the finished job.",
   },
   {
     q: "What areas do you service?",

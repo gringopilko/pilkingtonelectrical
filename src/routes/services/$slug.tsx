@@ -78,7 +78,7 @@ function ServicePage() {
 
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <div className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-foreground">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <Link to="/services" className="hover:text-foreground">Electrical</Link>
@@ -124,7 +124,7 @@ function ServicePage() {
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {service.included.map((item) => (
-            <div key={item} className="flex items-start gap-3 rounded-lg border border-border bg-card p-4">
+            <div key={item} className="flex items-start gap-3 rounded-lg border border-border bg-card px-4 py-3 sm:p-4">
               <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
               <span className="text-sm text-muted-foreground">{item}</span>
             </div>
@@ -137,13 +137,36 @@ function ServicePage() {
           </p>
         ))}
 
-        <p className="mt-6 leading-relaxed text-muted-foreground">
-          All work is carried out personally by{" "}
-          <Link to="/about" className="font-semibold text-primary hover:underline">
-            a licensed sole-trader electrician
-          </Link>
-          , so the person who quotes the job is the person who turns up and does it.
-        </p>
+        {service.sections && service.sections.length > 0 && (
+          <>
+            <h2 className="mt-14 text-2xl font-extrabold tracking-tight md:text-3xl">How I Work</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {service.sections.map((sec) => (
+                <div key={sec.title} className="rounded-xl border border-border bg-card p-6">
+                  <h3 className="font-bold tracking-tight">{sec.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{sec.text}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        <div className="mt-10 rounded-xl border border-border bg-card p-6">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">Licensed, Insured & Accountable</h3>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {[
+              "Licensed electrician, REC 30450",
+              "Fully insured with public liability cover",
+              "Upfront pricing with no surprises on the invoice",
+              "The same electrician from first call to finished job",
+            ].map((line) => (
+              <div key={line} className="flex items-start gap-3">
+                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <span className="text-sm text-muted-foreground">{line}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {servicePhotos.length > 0 && <WorkGallery photos={servicePhotos} compact />}
