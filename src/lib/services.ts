@@ -60,6 +60,12 @@ export const services: Service[] = [
       "Every item gets a compliant tag on the spot, and you get a written report you can hand to an auditor, insurer, or landlord without a second thought.",
       "Get in touch with the number of items and the type of workplace, and I'll quote it properly rather than guessing at a number that doesn't fit your situation.",
     ],
+    image: {
+      file: "test-and-tag.webp",
+      alt: "Portable appliance tester beside a tagged power lead and tools on an office desk",
+      width: 1600,
+      height: 646,
+    },
   },
   {
     slug: "switchboards",
@@ -79,6 +85,12 @@ export const services: Service[] = [
       "Old ceramic fuses don't offer the same protection as a modern safety switch. If your board still has fuse wire rather than switches, or if it's tripping without an obvious cause, that's a sign it's time for an upgrade.",
       "I'll assess your existing board, explain exactly what's needed and why, and give you an upfront price before any work starts, with no surprises on the invoice.",
     ],
+    image: {
+      file: "switchboards.webp",
+      alt: "Electrician working on a residential switchboard",
+      width: 1600,
+      height: 640,
+    },
   },
   {
     slug: "body-corporate",
@@ -97,6 +109,12 @@ export const services: Service[] = [
     body: [
       "Body corporate work has its own pace: approvals, committee sign-off, clear scope before work starts. I keep communication direct with the strata manager and provide invoicing that's straightforward to bring to a committee.",
     ],
+    image: {
+      file: "body-corporate.webp",
+      alt: "Apartment building and electrician working on a shared switchboard",
+      width: 1600,
+      height: 649,
+    },
   },
   {
     slug: "real-estate",
@@ -156,6 +174,12 @@ export const services: Service[] = [
       "If your home was built before the mid-1990s, there's a good chance it isn't fitted with a safety switch on every circuit. It's a straightforward job with a real safety impact.",
       "If your safety switch is tripping randomly, that's usually a sign of a fault elsewhere in the circuit. I'll track down the actual cause rather than just resetting it.",
     ],
+    image: {
+      file: "safety-switches.webp",
+      alt: "Safety switches in a switchboard being tested by an electrician",
+      width: 960,
+      height: 640,
+    },
   },
   {
     slug: "fault-finding",
@@ -175,6 +199,12 @@ export const services: Service[] = [
       "Electrical faults rarely show up exactly where the problem is. A tripping circuit at one end of the house can be caused by a fault somewhere else entirely, so proper fault finding means testing systematically, not guessing.",
       "If something feels off, such as warm switches, a burning smell, or repeated tripping, treat it as urgent and get it looked at before it becomes a bigger problem.",
     ],
+    image: {
+      file: "fault-finding.webp",
+      alt: "Electrician using a multimeter to diagnose a switchboard fault",
+      width: 1600,
+      height: 716,
+    },
   },
   {
     slug: "emergency-electrical",
@@ -193,6 +223,12 @@ export const services: Service[] = [
       "If you've lost power, first check whether it's just your property or the whole street, as that changes what's actually needed. Call and I'll help you figure out the next step immediately.",
       "For anything involving sparking, burning smells, or exposed wiring, stay clear of the area and call straight away.",
     ],
+    image: {
+      file: "emergency-electrical.webp",
+      alt: "Electrician investigating a switchboard fault by torchlight",
+      width: 1600,
+      height: 640,
+    },
   },
   {
     slug: "rewiring-extensions",
@@ -212,6 +248,12 @@ export const services: Service[] = [
       "Homes with wiring from the 1970s or earlier are often due for a rewire, particularly if you're renovating anyway, since it's far easier to do before walls are closed up again.",
       "I plan the work to keep disruption manageable, and clean up properly at the end of every job.",
     ],
+    image: {
+      file: "rewiring-extensions.webp",
+      alt: "Electrician installing wiring during a home renovation",
+      width: 1600,
+      height: 640,
+    },
   },
   {
     slug: "commercial-electrician",
@@ -231,6 +273,12 @@ export const services: Service[] = [
       "I invoice cleanly and work around your business hours where possible, so electrical work doesn't mean lost trading time.",
       "For ongoing sites, such as offices, retail tenancies or small commercial buildings, I can also set up a standing maintenance arrangement rather than starting from scratch each time something comes up.",
     ],
+    image: {
+      file: "commercial-electrician.webp",
+      alt: "Electrician installing track lighting in a modern commercial office",
+      width: 1600,
+      height: 640,
+    },
   },
   {
     slug: "hot-water",
@@ -247,6 +295,12 @@ export const services: Service[] = [
     body: [
       "If your hot water system has failed, I can usually assess and quote quickly, including whether your existing circuit can handle a straight swap or needs upgrading.",
     ],
+    image: {
+      file: "hot-water.webp",
+      alt: "Electric hot water system and electrical connections outside a home",
+      width: 1600,
+      height: 640,
+    },
   },
   {
     slug: "lighting",
@@ -281,6 +335,12 @@ export const services: Service[] = [
     body: [
       "If you're relying on power boards and double adaptors in every room, it's usually a sign you need more outlets, both for convenience and for safety.",
     ],
+    image: {
+      file: "power-points.webp",
+      alt: "Black double power point on a dark splashback in a modern kitchen",
+      width: 1536,
+      height: 1024,
+    },
   },
   {
     slug: "ceiling-fans",
