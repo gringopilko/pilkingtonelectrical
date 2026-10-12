@@ -431,6 +431,7 @@ export const services: Service[] = [
     title: "Smoke Alarms",
     heroSubtitle: "Understand your options. Keep your alarms working.",
     pageTitle: "Smoke Alarm Installation & Servicing Melbourne",
+    image: { file: "smoke-alarm-ceiling.webp", alt: "Clipsal smoke alarm installed on a home ceiling", width: 875, height: 656 },
     shortDesc: "Compliant smoke alarm installation, testing and replacement.",
     metaDescription: "Smoke alarm installation, servicing and rental checks in Bayside and South East Melbourne. Compare hardwired, battery and interconnected alarms with a licensed electrician.",
     intro: "All Victorian homes must have working smoke alarms. I assess your property, install suitable alarms and discuss photoelectric and interconnected options, with hard-wiring where required. Rental properties need annual smoke alarm safety checks.",

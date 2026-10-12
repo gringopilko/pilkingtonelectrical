@@ -27,6 +27,10 @@ export function SmokeAlarmDetails() {
     <section id="alarm-options" className="mt-14 scroll-mt-28">
       <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Hardwired or battery: what changes?</h2>
       <p className="mt-4 leading-relaxed text-muted-foreground">The right choice depends on your building's requirements, access and the coverage you want. These are three different power options; photoelectric detection and interconnection can be considered alongside them.</p>
+      <figure className="mt-6 flex flex-col items-center gap-6 rounded-2xl border border-border bg-card p-6 sm:flex-row md:p-8">
+        <div className="w-full shrink-0 rounded-xl bg-white p-4 sm:w-52"><img src="/img/smoke-alarm-red.webp" alt="Close-up of a white RED smoke alarm with its test and hush button" width={1000} height={1000} loading="lazy" decoding="async" className="aspect-square w-full object-contain" /></div>
+        <figcaption><p className="text-xs font-bold uppercase tracking-wide text-primary">A closer look</p><h3 className="mt-2 text-xl font-bold">Practical advice on the right alarm</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">I'll discuss suitable models, the test and hush controls, and how the alarms will work together in your home. The exact model depends on your property's requirements and compatibility with existing alarms.</p></figcaption>
+      </figure>
       <div className="mt-6 grid gap-5 md:grid-cols-3">{options.map(o=><article key={o.title} className="rounded-2xl border border-border bg-card p-6"><p className="text-xs font-bold uppercase tracking-wide text-primary">{o.subtitle}</p><h3 className="mt-3 text-xl font-bold">{o.title}</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{o.text}</p><p className="mt-5 border-t border-border pt-4 text-sm leading-relaxed text-muted-foreground">{o.care}</p></article>)}</div>
       <a href={cfa+"types-of-smoke-alarms"} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-primary underline">CFA: alarm power and connection options</a>
     </section>
