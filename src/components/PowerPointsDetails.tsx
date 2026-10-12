@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import clipsalLogo from "@/assets/clipsal-logo.webp";
 import hagerLogo from "@/assets/hager-logo.webp";
@@ -10,13 +10,13 @@ import { powerPointStyles } from "@/lib/powerPointStyles";
 const styleGroups = [
   { title: "Clipsal Saturn Zen", images: ["saturn-zen-black", "saturn-zen-white"] },
   { title: "Clipsal Iconic Styl", images: ["iconic-styl-crowne", "iconic-styl-shadow", "iconic-styl-silver"] },
-  { title: "Hager silhouette", images: ["hager-silhouette-aluminium", "hager-silhouette-black"] },
-  { title: "HPM Linea", images: ["hpm-linea-black"] },
+  { title: "Hager silhouette", images: ["hager-silhouette-aluminium", "hager-silhouette-black", "hager-silhouette-gloss-white", "hager-silhouette-matt-white", "hager-silhouette-stainless-steel"] },
+  { title: "HPM Linea", images: ["hpm-linea-black", "hpm-linea-white", "hpm-linea-matt-silver", "hpm-linea-asphalt", "hpm-linea-gun-metal", "hpm-linea-ghost-gum", "hpm-linea-ninja-khaki", "hpm-linea-wet-elephant", "hpm-linea-midnight-dash", "hpm-linea-cheeky-boy-blue"] },
   { title: "Clipsal Iconic USB-C", images: ["iconic-usb-c"] },
-  { title: "Clipsal Iconic", images: ["iconic-white"] },
-  { title: "HPM Excel", images: ["hpm-excel-white"] },
-  { title: "Clipsal 2000", images: ["clipsal-2000-white"] },
-  { title: "Clipsal Classic", images: ["clipsal-classic-white"] },
+  { title: "Clipsal Iconic", images: ["iconic-white", "iconic-warm-grey", "iconic-extra-white", "iconic-anthracite", "iconic-cool-grey", "iconic-extra-black"] },
+  { title: "HPM Excel", images: ["hpm-excel-white", "hpm-excel-black", "hpm-excel-matt-silver", "hpm-excel-stainless-steel", "hpm-excel-polished-brass", "hpm-excel-red", "hpm-excel-green", "hpm-excel-mist-grey", "hpm-excel-beige", "hpm-excel-gloss-cream", "hpm-excel-brown"] },
+  { title: "Clipsal 2000", images: ["clipsal-2000-white", "clipsal-2000-cream", "clipsal-2000-black", "clipsal-2000-dark-blue", "clipsal-2000-green", "clipsal-2000-red"] },
+  { title: "Clipsal Classic", images: ["clipsal-classic-white", "clipsal-classic-brushed-aluminium", "clipsal-classic-cream", "clipsal-classic-black", "clipsal-classic-dark-blue", "clipsal-classic-green", "clipsal-classic-red"] },
 ];
 
 function StyleGallery({ title, images }: { title: string; images: string[] }) {
@@ -24,6 +24,12 @@ function StyleGallery({ title, images }: { title: string; images: string[] }) {
   const [selected, setSelected] = useState(0);
   const track = useRef<HTMLDivElement>(null);
   const active = variants[selected];
+  const colourRow = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const row = colourRow.current;
+    const button = row?.children[selected] as HTMLElement | undefined;
+    if (row && button) row.scrollTo({ left: button.offsetLeft - (row.clientWidth - button.clientWidth) / 2, behavior: "instant" });
+  }, [selected]);
   const goTo = (index: number) => {
     const element = track.current;
     if (element) element.scrollTo({ left: index * element.clientWidth, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
@@ -46,10 +52,15 @@ function StyleGallery({ title, images }: { title: string; images: string[] }) {
           }}>
           {variants.map((variant) => (
             <div key={variant.image} className="w-full shrink-0 snap-start p-3">
-              <img src={"/img/power-points/" + variant.image + ".webp"}
-                alt={variant.title + " double power point product photograph"}
+              {variant.photoUnavailable ? (
+                <div className="flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-lg bg-slate-50 p-4 text-center text-slate-600">
+                  <p className="font-semibold">{colour(variant.title)}</p>
+                  <p className="text-xs">Listed finish · product photo unavailable</p>
+                </div>
+              ) : <img src={"/img/power-points/" + variant.image + ".webp"}
+                alt={variant.title + (variant.photoType === "cover" || /iconic-(white|styl)/.test(variant.image) ? " double power point cover photograph" : " double power point product photograph")}
                 loading="lazy" decoding="async" width={360} height={270}
-                draggable={false} className="aspect-[4/3] w-full object-contain" />
+                draggable={false} className="aspect-[4/3] w-full object-contain" />}
             </div>
           ))}
         </div>
@@ -61,19 +72,21 @@ function StyleGallery({ title, images }: { title: string; images: string[] }) {
         </>}
       </div>
       <h3 className="text-xl font-bold tracking-tight">{title}</h3>
-      <div className="mt-3 flex gap-2 overflow-x-auto pb-2" aria-label={title + " finishes"}>
+      <div ref={colourRow} className="relative mt-3 flex gap-2 overflow-x-auto pb-2" aria-label={title + " finishes"}>
         {variants.map((variant, index) => (
           <button key={variant.image} type="button" aria-pressed={selected === index}
             onClick={() => goTo(index)} className={"shrink-0 rounded-full border px-3 py-2 text-xs font-semibold transition-colors " + (selected === index ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary")}>{variant.image === "iconic-usb-c" ? "Vivid White" : colour(variant.title)}</button>
         ))}
       </div>
+      <p className="mt-1 text-xs text-muted-foreground">{selected + 1} / {variants.length} finishes</p>
       <div aria-live="polite" aria-atomic="true">
+        {active.availability && <p className="mt-3 text-xs font-semibold text-muted-foreground">{active.availability}</p>}
         <p className="mt-3 text-xs font-bold uppercase tracking-wide text-primary">{active.label}</p>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{active.text}</p>
         <p className="mt-6 border-t border-border pt-4 text-xs font-medium leading-relaxed text-muted-foreground">{active.detail}</p>
       </div>
       <a href={active.source} target="_blank" rel="noopener noreferrer" className="mt-4 text-sm font-semibold text-primary underline underline-offset-4"
-        aria-label={"View " + active.title + " on the manufacturer's website (opens in a new tab)"}>View product details</a>
+        aria-label={"View " + active.title + " on the product website (opens in a new tab)"}>View product details</a>
     </article>
   );
 }
@@ -200,10 +213,14 @@ export function PowerPointsDetails() {
           functionality and price. Browse the examples below, arranged from statement designer
           finishes through to simple everyday white fittings.
         </p>
-        <p className="mt-4 text-sm text-muted-foreground">Swipe sideways over a photo, or choose a colour below it, to compare finishes.</p>
+        <p className="mt-4 text-sm text-muted-foreground">Swipe sideways over a photo, or scroll the colour row and tap a finish to compare. Cover-only photos and discontinued finishes are labelled.</p>
         <div className="mt-8 grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {styleGroups.map((group) => <StyleGallery key={group.title} {...group} />)}
         </div>
+        <details className="mt-6 rounded-2xl border border-border p-6">
+          <summary className="cursor-pointer font-bold">Matching an older HPM colour?</summary>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Older Linea catalogues also list Cream, Runaway Bride, 5 O’Clock Olive, Sunshine, Orange Crush, Bubblegum, Saucy Red and Abracadabra. Older Excel catalogues include Blue, Polished Silver, Stone Metal and Brushed Brass. These older colours vary by product, and current supply and matching product photos must be checked. Send a photo of your existing fitting and I’ll help find a match.</p>
+        </details>
         <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
           <h3 className="text-xl font-bold tracking-tight">Let's find the perfect fit</h3>
           <p className="mt-3 leading-relaxed text-muted-foreground">
@@ -353,4 +370,5 @@ export function PowerPointsDetails() {
     </>
   );
 }
+
 
