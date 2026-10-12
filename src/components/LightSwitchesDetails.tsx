@@ -1,5 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
-import { WiringStyleGallery } from "@/components/WiringStyleGallery";
+import { WiringStyleGallery, DimmerStyleGallery } from "@/components/WiringStyleGallery";
 
 const inclusions = [
   ["Replacement light switches", "Replace worn, damaged or yellowed switches, with the wiring and existing installation checked before work proceeds."],
@@ -24,9 +24,10 @@ const faqs = [
 export function LightSwitchesDetails() {
   return <>
     <nav aria-label="Light switch page sections" className="mb-12 flex flex-wrap gap-2">
-      {[["Choose Your Style", "choose-your-style"], ["What's Included", "light-switch-inclusions"], ["How It Works", "light-switch-process"], ["FAQs", "light-switch-faqs"]].map(([label, id]) => <a key={id} href={`#${id}`} className="rounded-full border border-border px-4 py-2 text-sm font-semibold transition-colors hover:border-primary hover:text-primary">{label}</a>)}
+      {[["Choose Your Style", "choose-your-style"], ["Dimmers & Smart Controls", "dimmer-options"], ["What's Included", "light-switch-inclusions"], ["How It Works", "light-switch-process"], ["FAQs", "light-switch-faqs"]].map(([label, id]) => <a key={id} href={`#${id}`} className="rounded-full border border-border px-4 py-2 text-sm font-semibold transition-colors hover:border-primary hover:text-primary">{label}</a>)}
     </nav>
     <WiringStyleGallery lightSwitches />
+    <DimmerStyleGallery />
     <section id="light-switch-inclusions" className="mt-16 scroll-mt-28">
       <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Lighting Controls That Suit Your Home</h2>
       <p className="mt-4 leading-relaxed text-muted-foreground">From one replacement switch to a coordinated update throughout your property, I install and replace light switches for homes, rentals and businesses across Bayside and South East Melbourne.</p>
