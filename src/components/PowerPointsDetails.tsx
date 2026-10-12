@@ -5,6 +5,7 @@ import hagerLogo from "@/assets/hager-logo.webp";
 import hpmLogo from "@/assets/hpm-logo.webp";
 
 import { powerPointStyles } from "@/lib/powerPointStyles";
+import { powerPointPhotoLayout } from "@/lib/powerPointPhotoLayout";
 
 
 const styleGroups = [
@@ -37,7 +38,7 @@ function StyleGallery({ title, images }: { title: string; images: string[] }) {
   };
   const colour = (name: string) => name.split(/ — | - /).pop()!;
   return (
-    <article className="flex min-w-0 flex-col rounded-2xl border border-border bg-card p-6 md:p-8">
+    <article className="flex min-w-0 flex-col rounded-2xl border border-border bg-card p-5 md:p-6">
       <div className="relative mb-4 overflow-hidden rounded-xl bg-white">
         <div ref={track} role="region" aria-label={title + " colour photos"} tabIndex={0}
           className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -52,7 +53,7 @@ function StyleGallery({ title, images }: { title: string; images: string[] }) {
             }
           }}>
           {variants.map((variant) => (
-            <div key={variant.image} className="w-full shrink-0 snap-start p-3">
+            <div key={variant.image} className="relative aspect-[4/3] w-full shrink-0 snap-start overflow-hidden">
               {variant.photoUnavailable ? (
                 <div className="flex aspect-[4/3] flex-col items-center justify-center gap-3 rounded-lg bg-slate-50 p-4 text-center text-slate-600">
                   <p className="font-semibold">{colour(variant.title)}</p>
@@ -61,34 +62,39 @@ function StyleGallery({ title, images }: { title: string; images: string[] }) {
               ) : <img src={"/img/power-points/" + variant.image + ".webp"}
                 alt={variant.title + (variant.photoType === "cover" || /iconic-(white|styl)/.test(variant.image) ? " double power point cover photograph" : " double power point product photograph")}
                 loading="lazy" decoding="async" width={360} height={270}
-                draggable={false} className="aspect-[4/3] w-full object-contain" />}
+                draggable={false} style={powerPointPhotoLayout[variant.image]}
+                className="absolute left-1/2 top-1/2 h-full w-full object-fill" />}
             </div>
           ))}
         </div>
-        {variants.length > 1 && <>
-          <button type="button" aria-label={"Previous " + title + " colour"} disabled={selected === 0}
-            onClick={() => goTo(selected - 1)} className="absolute left-1 top-1/2 -translate-y-1/2 rounded-full border bg-white p-2 text-slate-900 shadow-sm disabled:opacity-25"><ChevronLeft size={18} /></button>
-          <button type="button" aria-label={"Next " + title + " colour"} disabled={selected === variants.length - 1}
-            onClick={() => goTo(selected + 1)} className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full border bg-white p-2 text-slate-900 shadow-sm disabled:opacity-25"><ChevronRight size={18} /></button>
-        </>}
       </div>
-      {title === "HPM Linea" && <p className="mb-4 rounded-lg bg-muted px-3 py-2 text-xs font-semibold">{active.photoType === "cover" ? "Colour cover only — complete power point photo unavailable" : "Complete power point shown"}</p>}
       <h3 className="text-xl font-bold tracking-tight">{title}</h3>
-      <div ref={colourRow} className="relative mt-3 flex gap-2 overflow-x-auto pb-2" aria-label={title + " finishes"}>
+      <div ref={colourRow} className="relative mt-3 flex gap-2 overflow-x-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label={title + " finishes"}>
         {variants.map((variant, index) => (
           <button key={variant.image} type="button" aria-pressed={selected === index}
             onClick={() => goTo(index)} className={"shrink-0 rounded-full border px-3 py-2 text-xs font-semibold transition-colors " + (selected === index ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary")}>{variant.image === "iconic-usb-c" ? "Vivid White" : colour(variant.title)}</button>
         ))}
       </div>
-      <p className="mt-1 text-xs text-muted-foreground">{selected + 1} / {variants.length} finishes</p>
+      <div className="mt-3 flex h-9 items-center justify-between gap-2">
+        <p className="text-xs text-muted-foreground">{variants.length === 1 ? "1 finish" : `${selected + 1} of ${variants.length} finishes`}</p>
+        {variants.length > 1 && <div className="flex gap-2">
+          <button type="button" aria-label={"Previous " + title + " colour"} disabled={selected === 0}
+            onClick={() => goTo(selected - 1)} className="rounded-full border border-border bg-white p-2 text-slate-900 transition-colors hover:border-primary disabled:opacity-25"><ChevronLeft size={16} /></button>
+          <button type="button" aria-label={"Next " + title + " colour"} disabled={selected === variants.length - 1}
+            onClick={() => goTo(selected + 1)} className="rounded-full border border-border bg-white p-2 text-slate-900 transition-colors hover:border-primary disabled:opacity-25"><ChevronRight size={16} /></button>
+        </div>}
+      </div>
       <div aria-live="polite" aria-atomic="true">
         {active.availability && <p className="mt-3 text-xs font-semibold text-muted-foreground">{active.availability}</p>}
         <p className="mt-3 text-xs font-bold uppercase tracking-wide text-primary">{active.label}</p>
+        {title === "HPM Linea" && active.photoType === "cover" && <p className="mt-2 text-xs font-medium text-muted-foreground">Cover only shown · complete outlet photo unavailable</p>}
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{active.text}</p>
-        <p className="mt-6 border-t border-border pt-4 text-xs font-medium leading-relaxed text-muted-foreground">{active.detail}</p>
       </div>
-      <a href={active.source} target="_blank" rel="noopener noreferrer" className="mt-4 text-sm font-semibold text-primary underline underline-offset-4"
+      <div className="mt-auto pt-5">
+      <p className="border-t border-border pt-4 text-xs leading-relaxed text-muted-foreground">{active.detail}</p>
+      <a href={active.source} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm font-semibold text-primary underline underline-offset-4"
         aria-label={"View " + active.title + " on the product website (opens in a new tab)"}>View product details</a>
+      </div>
     </article>
   );
 }
