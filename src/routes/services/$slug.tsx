@@ -108,8 +108,8 @@ function ServicePage() {
       <Nav />
 
       <section className="border-b border-border bg-card">
-        <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <div className={service.slug === "power-points" ? "grid items-center gap-10 md:grid-cols-2" : ""}>
+        <div className={`mx-auto ${service.slug === "commercial-electrician" ? "max-w-7xl" : "max-w-5xl"} px-6 py-16 md:py-20`}>
+          <div className={service.slug === "commercial-electrician" ? "grid items-center gap-10 lg:grid-cols-2" : service.slug === "power-points" ? "grid items-center gap-10 md:grid-cols-2" : ""}>
           <div>
           <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-foreground">Home</Link>
@@ -141,6 +141,7 @@ function ServicePage() {
             </a>
           </div>
           </div>
+          {service.slug === "commercial-electrician" && <CommercialHeroVideo />}
           {service.slug === "power-points" && service.image && (
             <img src={`/img/${service.image.file}`} alt={service.image.alt} width={service.image.width} height={service.image.height} decoding="async" className="aspect-[4/3] w-full rounded-2xl border border-border object-cover" />
           )}
@@ -148,7 +149,7 @@ function ServicePage() {
         </div>
       </section>
 
-      {service.slug === "commercial-electrician" ? <CommercialHeroVideo /> : service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.slug !== "power-points" && service.image && (
+      {service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.slug !== "commercial-electrician" && service.slug !== "power-points" && service.image && (
         <div className="mx-auto max-w-5xl px-6 pt-12">
           <img
             src={`/img/${service.image.file}`}
