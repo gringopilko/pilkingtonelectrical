@@ -10,6 +10,11 @@ import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
 import { ElectricalSafetyDetails } from "@/components/ElectricalSafetyDetails";
 import { PowerPointsDetails } from "@/components/PowerPointsDetails";
+import { SmokeAlarmDetails } from "@/components/SmokeAlarmDetails";
+import { FaultFindingDetails } from "@/components/FaultFindingDetails";
+import { BodyCorporateDetails } from "@/components/BodyCorporateDetails";
+import { RealEstateDetails } from "@/components/RealEstateDetails";
+import { CommercialHeroVideo } from "@/components/CommercialHeroVideo";
 import { workPhotos } from "@/lib/workPhotos";
 
 export const Route = createFileRoute("/services/$slug")({
@@ -87,6 +92,10 @@ function ServicePage() {
     "smoke-alarms": ["electrical-safety-inspections", "real-estate", "body-corporate", "safety-switches"],
     "ev-charger-install": ["switchboards", "safety-switches", "body-corporate", "commercial-electrician"],
     "lighting": ["ceiling-fans", "power-points", "rewiring-extensions", "commercial-electrician"],
+    "fault-finding": ["emergency-electrical", "switchboards", "safety-switches", "electrical-safety-inspections"],
+    "body-corporate": ["lighting", "switchboards", "smoke-alarms", "test-and-tag", "ev-charger-install", "real-estate"],
+    "real-estate": ["electrical-safety-inspections", "smoke-alarms", "fault-finding", "switchboards", "body-corporate", "lighting"],
+    "commercial-electrician": ["test-and-tag", "lighting", "switchboards", "power-points", "body-corporate", "fault-finding"],
   };
   const preferredSlugs = relatedSlugs[service.slug];
   const otherServices = preferredSlugs
@@ -139,7 +148,7 @@ function ServicePage() {
         </div>
       </section>
 
-      {service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.slug !== "power-points" && service.image && (
+      {service.slug === "commercial-electrician" ? <CommercialHeroVideo /> : service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.slug !== "power-points" && service.image && (
         <div className="mx-auto max-w-5xl px-6 pt-12">
           <img
             src={`/img/${service.image.file}`}
@@ -153,7 +162,7 @@ function ServicePage() {
       )}
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        {service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
+        {service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <BodyCorporateDetails /> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
           <>
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">

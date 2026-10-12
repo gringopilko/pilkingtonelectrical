@@ -132,9 +132,11 @@ export const services: Service[] = [
   {
     slug: "body-corporate",
     title: "Body Corporate & Strata Electrical",
+    heroSubtitle: "Shared-property maintenance, with clear communication at every step.",
+    pageTitle: "Body Corporate & Strata Electrician Melbourne",
     shortDesc: "A dependable trade partner for strata and body corporate common area electrical.",
-    metaDescription: "Electrical services for body corporates and strata managers across South East Melbourne. Common area lighting, compliance, fast call-outs.",
-    intro: "I work directly with strata and body corporate managers as a reliable trade partner: fast call-outs, clear communication, and invoicing that makes sense for committee approval.",
+    metaDescription: "Body corporate and strata electrician in Bayside and South East Melbourne. Common-area lighting, fault finding, maintenance and clear committee reporting.",
+    intro: "I help owners corporations, committees and property managers look after common-area electrical systems across Bayside and South East Melbourne. From a failed stairwell light to planned upgrades, you'll get practical advice, an agreed scope and reporting that makes sense for committee approval.",
     included: [
       "Common area lighting & repairs",
       "Carpark & stairwell electrical",
@@ -156,8 +158,10 @@ export const services: Service[] = [
   {
     slug: "real-estate",
     title: "Real Estate & Property Managers",
+    heroSubtitle: "Helpful to your team. Respectful of tenants. Mindful of owners' budgets.",
+    pageTitle: "Electrician for Real Estate & Property Managers Melbourne",
     shortDesc: "Honest repairs, upgrade options and same day visits for agents, property managers and their owners.",
-    metaDescription: "Electrician for real estate agents and property managers in South East Melbourne. Honest repair options, upgrade paths and same day visits across a building.",
+    metaDescription: "Electrical repairs, rental safety checks and maintenance for real estate agents in Bayside and South East Melbourne. Helpful advice, tenant-friendly visits and clear pricing.",
     intro: "I'm here to build long term relationships with real estate agents and property managers, based on understanding what you and your owners actually need. Whether it's a single repair, a compliance check or a building full of small jobs, I'm happy to help.",
     included: [
       "Repairs and fault finding for rental properties",
@@ -175,12 +179,12 @@ export const services: Service[] = [
         text: "A quick patch is sometimes the cheapest fix on the day, but it often means the same fault comes back a few months later. That's another call out, another bill and another message from the tenant. I'd rather find the real cause of a problem and talk you through the options.",
       },
       {
-        title: "The cheapest option, plus a better path",
-        text: "I'm always happy to provide the cheapest option. Where it makes sense, I'll also offer a second path that costs more upfront and saves your owners money in the long run, such as upgrading ageing lighting to modern LED fittings.",
+        title: "An affordable repair, plus a better path",
+        text: "I'll offer the most affordable safe option and, where it makes sense, a second path that may reduce costs over time, such as updating ageing lighting to modern LED fittings. I'll explain the trade-off and let the owner decide.",
       },
       {
         title: "Several properties, one visit",
-        text: "If you have a number of properties in the same building, I can repair them all on the same day and save on a separate call out fee for each one.",
+        text: "If you manage several properties in the same building, we can group agreed jobs into one visit where access and timing allow. I'll discuss any call-out savings when quoting.",
       },
       {
         title: "Ideas are welcome",
@@ -188,8 +192,8 @@ export const services: Service[] = [
       },
     ],
     image: {
-      file: "electrical-inspection-report-apartment.webp",
-      alt: "Electrical inspection report on a clipboard beside a smoke alarm and electrician's tools in a modern apartment",
+      file: "real-estate-keys.webp",
+      alt: "House keys at an open doorway, illustrating rental property access and tenancy handover",
       width: 1600,
       height: 800,
     },
@@ -221,9 +225,11 @@ export const services: Service[] = [
   {
     slug: "fault-finding",
     title: "Fault Finding & Repairs",
+    heroSubtitle: "Careful testing. Clear answers. Practical repairs.",
+    pageTitle: "Electrical Fault Finding & Repairs Melbourne",
     shortDesc: "Flickering lights, dead outlets, or unexplained tripping, found and fixed properly.",
     metaDescription: "Electrical fault finding and repairs across South East Melbourne. Diagnosing the real cause, not just patching symptoms. Licensed electrician.",
-    intro: "Intermittent faults are frustrating: power that drops out, lights that flicker, an outlet that's suddenly dead. I diagnose the actual cause rather than guessing or replacing parts until something works.",
+    intro: "Tripping circuits, flickering lights or power that disappears can be frustrating and worrying. I'll listen to what's happening, investigate the cause and explain the repair options clearly, so you know what needs attention and what the next step will cost.",
     included: [
       "Circuit tracing & fault diagnosis",
       "Flickering or dimming lights",
@@ -296,11 +302,14 @@ export const services: Service[] = [
   {
     slug: "commercial-electrician",
     title: "Commercial Electrician",
+    heroSubtitle: "We design practical electrical layouts and estimate the work before you commit.",
+    pageTitle: "Commercial Electrical Planning, Estimates & Installation",
     shortDesc: "Reliable electrical trade partner for businesses, offices and retail fit-outs.",
-    metaDescription: "Commercial electrician serving businesses across South East Melbourne. Fit-outs, maintenance, compliance work. Licensed and insured.",
-    intro: "Downtime costs businesses money. I work with offices, retail spaces and commercial tenants to keep electrical systems running and get fit-out work done properly and on time.",
+    metaDescription: "Commercial electrical layout design, cost estimates, fit-outs and maintenance in Bayside and South East Melbourne. Practical advice from a licensed electrician.",
+    intro: "Planning a fit-out or upgrading a workplace? I can help design a practical lighting and power layout, estimate the electrical scope and discuss options for your budget. From initial planning through installation, you'll have one clear point of contact.",
     included: [
       "Office & retail fit-outs",
+      "Electrical layout planning & cost estimates",
       "Commercial lighting",
       "Data & power point installation",
       "Compliance & test-and-tag",
@@ -311,6 +320,24 @@ export const services: Service[] = [
       "I invoice cleanly and work around your business hours where possible, so electrical work doesn't mean lost trading time.",
       "For ongoing sites, such as offices, retail tenancies or small commercial buildings, I can also set up a standing maintenance arrangement rather than starting from scratch each time something comes up.",
     ],
+    sections: [
+  {
+    "title": "Design around how you work",
+    "text": "Send your plans, equipment requirements and ideas. I'll discuss lighting, power point positions, circuits and access, and help develop a practical electrical layout suited to the space."
+  },
+  {
+    "title": "Estimate early. Quote a clear scope.",
+    "text": "An early estimate helps you plan a budget; a final quote depends on the agreed scope, site access and supply capacity. I'll identify assumptions, allowances and any further information needed so you can compare options."
+  },
+  {
+    "title": "Coordinate installation and disruption",
+    "text": "We agree access, shutdowns and timing with your business or builder. I'll explain what can be staged and discuss work outside trading hours where practical and available."
+  },
+  {
+    "title": "Know when specialist design is needed",
+    "text": "Some projects need an electrical engineer, lighting designer, surveyor or other specialist. I'll identify those requirements and coordinate the electrical installation scope, rather than treating an early layout as a complete engineering design."
+  }
+],
     image: {
       file: "commercial-electrician.webp",
       alt: "Electrician installing track lighting in a modern commercial office",
@@ -402,8 +429,10 @@ export const services: Service[] = [
   {
     slug: "smoke-alarms",
     title: "Smoke Alarms",
+    heroSubtitle: "Understand your options. Keep your alarms working.",
+    pageTitle: "Smoke Alarm Installation & Servicing Melbourne",
     shortDesc: "Compliant smoke alarm installation, testing and replacement.",
-    metaDescription: "Smoke alarm installation, testing and replacement across South East Melbourne. Compliance-focused, licensed electrician.",
+    metaDescription: "Smoke alarm installation, servicing and rental checks in Bayside and South East Melbourne. Compare hardwired, battery and interconnected alarms with a licensed electrician.",
     intro: "All Victorian homes must have working smoke alarms. I assess your property, install suitable alarms and discuss photoelectric and interconnected options, with hard-wiring where required. Rental properties need annual smoke alarm safety checks.",
     included: [
       "Smoke alarm installation",
