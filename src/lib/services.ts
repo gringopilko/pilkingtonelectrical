@@ -21,7 +21,7 @@ export const services: Service[] = [
     title: "Electrical Safety Inspections",
     shortDesc: "Periodic electrical safety checks for rental properties, sale, or peace of mind.",
     metaDescription: "Electrical safety inspections across South East Melbourne. Rental compliance checks, pre-sale inspections, landlord servicing. Licensed electrician.",
-    intro: "Thorough electrical safety checks for rental properties, landlords and property managers across Bayside and South-East Melbourne. Inspection, testing and a clear written report from your licensed electrician, with upfront pricing of $350 including GST.",
+    intro: "Thorough electrical safety checks for rental properties, landlords and property managers across Bayside and South-East Melbourne. Inspection, testing and a clear written report from your licensed electrician, with a clear quote before you book. Ask about combining your check with smoke alarm servicing.",
     included: [
       "Switchboard & safety switch (RCD) testing",
       "Visible wiring condition check",

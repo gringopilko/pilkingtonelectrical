@@ -13,7 +13,7 @@ export function ElectricalSafetyDetails() {
   return (
     <>
       <nav aria-label="Electrical safety page sections" className="mb-12 flex flex-wrap gap-2">
-        {[["About", "about-service"], ["Inclusions", "inclusions"], ["Pricing", "pricing"], ["Rental requirements", "requirements"], ["Book a Check", "quote"]].map(([label, id]) => (
+        {[["About", "about-service"], ["Inclusions", "inclusions"], ["Service packages", "pricing"], ["Rental requirements", "requirements"], ["Book a Check", "quote"]].map(([label, id]) => (
           <a key={id} href={`#${id}`} className="rounded-full border border-border px-4 py-2 text-sm font-semibold transition-colors hover:border-primary hover:text-primary">{label}</a>
         ))}
       </nav>
@@ -41,15 +41,13 @@ export function ElectricalSafetyDetails() {
       </section>
 
       <section id="pricing" className="mt-14 scroll-mt-28">
-        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Clear, upfront pricing</h2>
-        <div className="mt-6 rounded-2xl border border-primary/25 bg-primary/5 p-6 md:p-8">
-          <p className="text-sm font-bold uppercase tracking-wide text-primary">Electrical Safety Inspection</p>
-          <div className="mt-4 flex flex-wrap items-baseline gap-3"><span className="text-5xl font-extrabold tracking-tight">$350</span><span className="font-semibold text-muted-foreground">including GST · per inspection</span></div>
-          <p className="mt-5 leading-relaxed text-muted-foreground">Includes the electrical safety check and written report. Rental checks are carried out on a two-yearly cycle; this price covers one inspection.</p>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Repairs, replacement parts and switchboard upgrades are quoted separately. I'll explain any issues and agree the scope and price with you before additional work starts. For larger properties, multiple dwellings or unusual access requirements, contact me to confirm the scope and price before booking.</p>
-          <a href="#quote" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-brand-dark">Book an Electrical Safety Check <ArrowRight className="h-4 w-4" /></a>
+        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Choose the support your property needs</h2>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Book a standalone electrical check, or combine it with smoke alarm servicing for one convenient visit. I'll confirm the inclusions and a clear quote for your property before you book.</p>
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+          <article className="rounded-2xl border border-border bg-card p-6 md:p-8"><p className="text-xs font-bold uppercase tracking-wide text-primary">Electrical safety check</p><h3 className="mt-3 text-2xl font-bold">A thorough check and written report</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Inspection and testing of the accessible electrical installation, clear findings and practical advice on any work needed.</p><a href="#quote" className="mt-6 inline-flex items-center gap-2 rounded-xl border border-primary px-5 py-3 text-sm font-bold text-primary">Get a tailored quote <ArrowRight className="h-4 w-4" /></a></article>
+          <article className="rounded-2xl border border-primary/30 bg-primary/5 p-6 md:p-8"><p className="text-xs font-bold uppercase tracking-wide text-primary">Combined property safety package</p><h3 className="mt-3 text-2xl font-bold">Electrical check + smoke alarm service</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Coordinate the electrical safety check and written report with smoke alarm testing, cleaning, condition and expiry checks, and suitable battery servicing.</p><ul className="mt-4 space-y-2 text-sm text-muted-foreground"><li>✓ One coordinated visit and access arrangement</li><li>✓ Clear electrical and smoke alarm records</li><li>✓ Repair and replacement options explained</li></ul><a href="#quote" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground">Ask about the combined package <ArrowRight className="h-4 w-4" /></a></article>
         </div>
-        <p className="mt-5 leading-relaxed text-muted-foreground">Need smoke alarm servicing too? Ask me to quote it alongside your electrical check so we can coordinate access in one visit. Gas safety checks require a suitably qualified gasfitter and are not included in this electrical service.</p>
+        <p className="mt-5 text-sm leading-relaxed text-muted-foreground">Your quote depends on the property, access and number of alarms. Replacement alarms, parts, repairs and upgrades are agreed and quoted separately. Electrical checks and smoke alarm servicing have different required intervals; combining a visit does not change those intervals. Gas safety checks require a suitably qualified gasfitter.</p>
       </section>
 
       <section className="mt-14">
