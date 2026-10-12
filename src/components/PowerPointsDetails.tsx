@@ -8,6 +8,7 @@ import { powerPointStyles } from "@/lib/powerPointStyles";
 
 
 const styleGroups = [
+  {"title":"Clipsal Solis","images":["clipsal-solis-brushed-brass","clipsal-solis-ebony-aluminium","clipsal-solis-platinum-aluminium","clipsal-solis-white-ceramic","clipsal-solis-zen-black","clipsal-solis-zen-white"]},
   { title: "Clipsal Saturn Zen", images: ["saturn-zen-black", "saturn-zen-white"] },
   { title: "Clipsal Iconic Styl", images: ["iconic-styl-crowne", "iconic-styl-shadow", "iconic-styl-silver"] },
   { title: "Hager silhouette", images: ["hager-silhouette-aluminium", "hager-silhouette-black", "hager-silhouette-gloss-white", "hager-silhouette-matt-white", "hager-silhouette-stainless-steel"] },

@@ -5,6 +5,60 @@ export type PowerPointStyle = {
   photoType?: "cover" | "outlet"; availability?: string; photoUnavailable?: boolean;
 };
 export const powerPointStyles: PowerPointStyle[] = [
+{
+  "title": "Clipsal Solis — Brushed Brass",
+  "image": "clipsal-solis-brushed-brass",
+  "label": "Solis T Series luxury finish",
+  "text": "A complete Solis double power point in brushed brass, with refined detailing for a premium interior.",
+  "detail": "Complete double outlet shown. Explore matching switches and confirm current availability when quoting.",
+  "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-BB",
+  "photoType": "outlet"
+},
+{
+  "title": "Clipsal Solis — Ebony Aluminium",
+  "image": "clipsal-solis-ebony-aluminium",
+  "label": "Solis T Series luxury finish",
+  "text": "A complete Solis double power point in ebony aluminium, with refined detailing for a premium interior.",
+  "detail": "Complete double outlet shown. Explore matching switches and confirm current availability when quoting.",
+  "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-EA",
+  "photoType": "outlet"
+},
+{
+  "title": "Clipsal Solis — Platinum Aluminium",
+  "image": "clipsal-solis-platinum-aluminium",
+  "label": "Solis T Series luxury finish",
+  "text": "A complete Solis double power point in platinum aluminium, with refined detailing for a premium interior.",
+  "detail": "Complete double outlet shown. Explore matching switches and confirm current availability when quoting.",
+  "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-PT",
+  "photoType": "outlet"
+},
+{
+  "title": "Clipsal Solis — White Ceramic",
+  "image": "clipsal-solis-white-ceramic",
+  "label": "Solis T Series luxury finish",
+  "text": "A complete Solis double power point in white ceramic, with refined detailing for a premium interior.",
+  "detail": "Complete double outlet shown. Explore matching switches and confirm current availability when quoting.",
+  "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-WC",
+  "photoType": "outlet"
+},
+{
+  "title": "Clipsal Solis — Zen Black",
+  "image": "clipsal-solis-zen-black",
+  "label": "Solis matte finish",
+  "text": "A complete Solis double power point in zen black, with refined detailing for a premium interior.",
+  "detail": "Complete double outlet shown. Explore matching switches and confirm current availability when quoting.",
+  "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-ZB",
+  "photoType": "outlet"
+},
+{
+  "title": "Clipsal Solis — Zen White",
+  "image": "clipsal-solis-zen-white",
+  "label": "Solis matte finish",
+  "text": "A complete Solis double power point in zen white, with refined detailing for a premium interior.",
+  "detail": "Complete double outlet shown. Explore matching switches and confirm current availability when quoting.",
+  "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-ZW",
+  "photoType": "outlet"
+},
   {
     title: "Clipsal Saturn Zen - Black",
     label: "Premium statement",
