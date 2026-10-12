@@ -298,20 +298,20 @@ export const powerPointStyles: PowerPointStyle[] = [
   {
     "title": "HPM Linea — White",
     "image": "hpm-linea-white",
-    "label": "Interchangeable colour cover",
-    "text": "A white cover plate to coordinate a compatible HPM Linea double power point with your room.",
-    "detail": "Cover plate only shown; quoted with the compatible outlet. Confirm the base colour and stock when enquiring.",
-    "source": "https://www.powerpointsandswitches.com.au/products/hpm-linear-double-switch-socket-cover-plate-only-10-colour-finishes?variant=43917876265273",
-    "photoType": "cover"
+    "label": "Slim & modern",
+    "text": "A complete white Linea double power point with matching white sockets and switches.",
+    "detail": "Complete outlet shown. I'll confirm the correct fitting and installation when quoting.",
+    "source": "https://www.hpm.com.au/en/catalog/products/hpm-linea-horizontal-double-power-point-white-cdln777wewe",
+    "photoType": "outlet"
   },
   {
     "title": "HPM Linea — Matt Silver",
     "image": "hpm-linea-matt-silver",
-    "label": "Interchangeable colour cover",
-    "text": "A matt silver cover plate to coordinate a compatible HPM Linea double power point with your room.",
-    "detail": "Cover plate only shown; quoted with the compatible outlet. Confirm the base colour and stock when enquiring.",
-    "source": "https://www.powerpointsandswitches.com.au/products/hpm-linear-double-switch-socket-cover-plate-only-10-colour-finishes?variant=43917876330809",
-    "photoType": "cover"
+    "label": "Slim & modern",
+    "text": "A complete Linea double power point with a matt silver faceplate and white sockets and switches.",
+    "detail": "Complete outlet shown: CDLN777WEMS. Confirm current supply when quoting.",
+    "source": "https://www.hpm.com.au/en/catalog/electrical/power-points-switches-by-range/linea/power-points",
+    "photoType": "outlet"
   },
   {
     "title": "HPM Linea — Asphalt",
@@ -325,11 +325,11 @@ export const powerPointStyles: PowerPointStyle[] = [
   {
     "title": "HPM Linea — Gun Metal",
     "image": "hpm-linea-gun-metal",
-    "label": "Interchangeable colour cover",
-    "text": "A gun metal cover plate to coordinate a compatible HPM Linea double power point with your room.",
-    "detail": "Cover plate only shown; quoted with the compatible outlet. Confirm the base colour and stock when enquiring.",
-    "source": "https://www.powerpointsandswitches.com.au/products/hpm-linear-double-switch-socket-cover-plate-only-10-colour-finishes?variant=43917876396345",
-    "photoType": "cover"
+    "label": "Slim & modern",
+    "text": "A complete Linea double power point with a gunmetal faceplate and black sockets and switches.",
+    "detail": "Complete outlet shown: CDLN777BLGL. Confirm current supply when quoting.",
+    "source": "https://www.hpm.com.au/en/catalog/products/hpm-linea-horizontal-double-power-point-blackgunmetal-cdln777blgl",
+    "photoType": "outlet"
   },
   {
     "title": "HPM Linea — Ghost Gum",

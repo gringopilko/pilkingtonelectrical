@@ -1,5 +1,15 @@
 # Power point gallery sources
 
+## Linea complete-outlet correction — 12 October 2026
+
+White (CDLN777WEWE), Matt Silver/White (CDLN777WEMS) and Gunmetal/Black (CDLN777BLGL) now use complete outlet photos. Black already showed a complete outlet. The six remaining Linea finish images have prominent cover-only labels.
+
+- White photo: https://ccapi.mitre10.co.nz/medias/sys_master/productimages/h3e/h70/8809998155806/Mitre10-1500x1500_173192xlg/Mitre10-1500x1500-173192xlg.jpg ; source https://www.mitre10.co.nz/shop/hpm-linea-horizontal-double-powerpoint-10-amp-white/p/173192
+- Matt Silver photo: https://cdn.shopify.com/s/files/1/0662/6007/4614/files/d1513520b7a94466b9fa2b97e952db12_7a241da1-c870-4b03-b859-b17a53fab29d.jpg?v=1769777756 ; source https://www.supersaverau.com.au/products/hpm-linea-double-powerpoint
+- Gunmetal photo: https://cdn.shopify.com/s/files/1/0662/6007/4614/files/69c69a4760e446ec80dd0fa847f9f0ca.jpg?v=1786715623 ; source https://www.supersaverau.com.au/products/hpm-gun-metal-black-linea-double-powerpoint-82mm-abs-slim-design
+
+All three photographs visually checked for sockets and switches. Model and finish combinations checked against https://www.hpm.com.au/en/catalog/electrical/power-points-switches-by-range/linea/power-points .
+
 The gallery shows representative Australian product ranges, ordered by visual
 style from premium designer finishes to everyday white fittings. It is not a
 claim about sales rankings. Product-page links are stored alongside each card

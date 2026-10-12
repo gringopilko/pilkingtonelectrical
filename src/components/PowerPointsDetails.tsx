@@ -71,6 +71,7 @@ function StyleGallery({ title, images }: { title: string; images: string[] }) {
             onClick={() => goTo(selected + 1)} className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full border bg-white p-2 text-slate-900 shadow-sm disabled:opacity-25"><ChevronRight size={18} /></button>
         </>}
       </div>
+      {title === "HPM Linea" && <p className="mb-4 rounded-lg bg-muted px-3 py-2 text-xs font-semibold">{active.photoType === "cover" ? "Colour cover only — complete power point photo unavailable" : "Complete power point shown"}</p>}
       <h3 className="text-xl font-bold tracking-tight">{title}</h3>
       <div ref={colourRow} className="relative mt-3 flex gap-2 overflow-x-auto pb-2" aria-label={title + " finishes"}>
         {variants.map((variant, index) => (
