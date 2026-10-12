@@ -10,8 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ContactRouteImport } from './routes/Contact'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ElectricianHamptonEastRouteImport } from './routes/electrician-hampton-east'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as ReviewRouteImport } from './routes/review'
@@ -26,14 +26,14 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/Contact',
-  path: '/Contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ElectricianHamptonEastRoute = ElectricianHamptonEastRouteImport.update({
@@ -79,8 +79,8 @@ const SuburbsSlugRoute = SuburbsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/Contact': typeof ContactRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
@@ -92,8 +92,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/Contact': typeof ContactRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
@@ -106,8 +106,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/Contact': typeof ContactRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
@@ -121,8 +121,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/Contact'
     | '/about'
+    | '/contact'
     | '/electrician-hampton-east'
     | '/faqs'
     | '/review'
@@ -134,8 +134,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/Contact'
     | '/about'
+    | '/contact'
     | '/electrician-hampton-east'
     | '/faqs'
     | '/review'
@@ -147,8 +147,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/Contact'
     | '/about'
+    | '/contact'
     | '/electrician-hampton-east'
     | '/faqs'
     | '/review'
@@ -161,8 +161,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ContactRoute: typeof ContactRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
   ElectricianHamptonEastRoute: typeof ElectricianHamptonEastRoute
   FaqsRoute: typeof FaqsRoute
   ReviewRoute: typeof ReviewRoute
@@ -182,18 +182,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/Contact': {
-      id: '/Contact'
-      path: '/Contact'
-      fullPath: '/Contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about': {
       id: '/about'
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/electrician-hampton-east': {
@@ -257,8 +257,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ContactRoute: ContactRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
   ElectricianHamptonEastRoute: ElectricianHamptonEastRoute,
   FaqsRoute: FaqsRoute,
   ReviewRoute: ReviewRoute,

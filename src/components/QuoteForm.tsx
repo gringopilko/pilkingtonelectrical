@@ -13,6 +13,7 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
   const [message, setMessage] = useState(defaultMessage);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
+  const [submittedPhone, setSubmittedPhone] = useState("");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,7 +39,15 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
         }),
       });
       const data = await response.json();
-      if (!data.success) throw new Error("Failed to send");
+      if (
+        !response.ok ||
+        !data ||
+        typeof data !== "object" ||
+        !("success" in data) ||
+        !data.success
+      )
+        throw new Error("Failed to send");
+      setSubmittedPhone(phone.trim());
       setDone(true);
       trackQuoteRequest(typeof window !== "undefined" ? window.location.pathname : "unknown");
       toast.success("Quote request sent! Shane will be in touch shortly.");
@@ -49,7 +58,7 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
     } catch (err) {
       console.error(err);
       toast.error(
-        "Couldn't send your request. Please call 0466 270 949 or email contact@pilkingtonelectrical.com.au."
+        "Couldn't send your request. Please call 0466 270 949 or email contact@pilkingtonelectrical.com.au.",
       );
     } finally {
       setSubmitting(false);
@@ -64,9 +73,12 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
         </div>
         <p className="text-lg font-bold">Request received</p>
         <p className="mt-2 text-sm text-muted-foreground">
-          Thanks, I'll be in touch on {phone || "the number you provided"} as soon as possible.
+          Thanks, I'll be in touch on {submittedPhone} as soon as possible.
         </p>
-        <button onClick={() => setDone(false)} className="mt-6 text-sm font-semibold text-primary hover:underline">
+        <button
+          onClick={() => setDone(false)}
+          className="mt-6 text-sm font-semibold text-primary hover:underline"
+        >
           Send another request
         </button>
       </div>
@@ -75,13 +87,68 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
 
   return (
     <form onSubmit={onSubmit} className="mt-8 grid gap-4 md:grid-cols-2">
-      <input type="text" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} maxLength={100} required className={inputClass} />
-      <input type="tel" placeholder="Phone number" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={30} required className={inputClass} />
-      <input type="email" placeholder="Email address (optional)" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={255} className={`${inputClass} md:col-span-2`} />
-      <textarea placeholder="Tell me about the job..." value={message} onChange={(e) => setMessage(e.target.value)} maxLength={2000} rows={4} className={`${inputClass} md:col-span-2`} />
+      <label className="grid gap-2 text-sm font-semibold">
+        Your name <span className="font-normal text-muted-foreground">(required)</span>
+        <input
+          type="text"
+          autoComplete="name"
+          placeholder="Your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          maxLength={100}
+          required
+          className={inputClass}
+        />
+      </label>
+      <label className="grid gap-2 text-sm font-semibold">
+        Phone number <span className="font-normal text-muted-foreground">(required)</span>
+        <input
+          type="tel"
+          autoComplete="tel"
+          placeholder="Phone number"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          maxLength={30}
+          required
+          className={inputClass}
+        />
+      </label>
+      <label className="grid gap-2 text-sm font-semibold md:col-span-2">
+        Email address (optional)
+        <input
+          type="email"
+          autoComplete="email"
+          placeholder="Email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          maxLength={255}
+          className={inputClass}
+        />
+      </label>
+      <label className="grid gap-2 text-sm font-semibold md:col-span-2">
+        Tell me about the job
+        <textarea
+          placeholder="Include your suburb, what you need and preferred timing..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          maxLength={2000}
+          rows={6}
+          className={inputClass}
+        />
+      </label>
       <div className="md:col-span-2">
-        <button type="submit" disabled={submitting} className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark disabled:opacity-60">
-          {submitting ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>) : ("Send Request")}
+        <button
+          type="submit"
+          disabled={submitting}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark disabled:opacity-60"
+        >
+          {submitting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" /> Sending...
+            </>
+          ) : (
+            "Send Request"
+          )}
         </button>
       </div>
     </form>

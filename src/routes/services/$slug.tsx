@@ -23,11 +23,19 @@ export const Route = createFileRoute("/services/$slug")({
     const url = `https://pilkingtonelectrical.com.au/services/${loaderData.slug}`;
     return {
       meta: [
-        { title: `${loaderData.title} | Pilkington Electrical` },
+        { title: `${loaderData.seoTitle ?? loaderData.title} | Pilkington Electrical` },
         { name: "description", content: loaderData.metaDescription },
-        { property: "og:title", content: `${loaderData.title} | Pilkington Electrical` },
+        { property: "og:title", content: `${loaderData.seoTitle ?? loaderData.title} | Pilkington Electrical` },
         { property: "og:description", content: loaderData.metaDescription },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
+        ...(loaderData.image ? [
+          { property: "og:image", content: `https://pilkingtonelectrical.com.au/img/${loaderData.image.file}` },
+          { property: "og:image:width", content: String(loaderData.image.width) },
+          { property: "og:image:height", content: String(loaderData.image.height) },
+          { property: "og:image:type", content: "image/webp" },
+          { name: "twitter:image", content: `https://pilkingtonelectrical.com.au/img/${loaderData.image.file}` },
+        ] : []),
       ],
       links: [
         { rel: "canonical", href: url },
@@ -74,7 +82,16 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServicePage() {
   const service = Route.useLoaderData();
-  const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 6);
+  const relatedSlugs: Record<string, string[]> = {
+    "power-points": ["rewiring-extensions", "switchboards", "safety-switches", "lighting", "fault-finding", "commercial-electrician"],
+    "smoke-alarms": ["electrical-safety-inspections", "real-estate", "body-corporate", "safety-switches"],
+    "ev-charger-install": ["switchboards", "safety-switches", "body-corporate", "commercial-electrician"],
+    "lighting": ["ceiling-fans", "power-points", "rewiring-extensions", "commercial-electrician"],
+  };
+  const preferredSlugs = relatedSlugs[service.slug];
+  const otherServices = preferredSlugs
+    ? preferredSlugs.flatMap((slug) => services.filter((item) => item.slug === slug))
+    : services.filter((item) => item.slug !== service.slug).slice(0, 6);
   const servicePhotos = workPhotos.filter((p) => p.services.includes(service.slug));
 
   return (
@@ -83,6 +100,8 @@ function ServicePage() {
 
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+          <div className={service.slug === "power-points" ? "grid items-center gap-10 md:grid-cols-2" : ""}>
+          <div>
           <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-foreground">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -91,7 +110,7 @@ function ServicePage() {
             <span className="text-foreground">{service.title}</span>
           </div>
           <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
-            {service.title}
+            {service.pageTitle ?? service.title}
           </h1>
           {service.heroSubtitle && (
             <h2 className="mt-5 max-w-2xl text-xl font-bold tracking-tight md:text-2xl">{service.heroSubtitle}</h2>
@@ -112,10 +131,15 @@ function ServicePage() {
               {service.slug === "test-and-tag" ? "Request a Free Quote" : service.slug === "emergency-electrical" ? "Non-Urgent Enquiry" : "Request a Quote"}
             </a>
           </div>
+          </div>
+          {service.slug === "power-points" && service.image && (
+            <img src={`/img/${service.image.file}`} alt={service.image.alt} width={service.image.width} height={service.image.height} decoding="async" className="aspect-[4/3] w-full rounded-2xl border border-border object-cover" />
+          )}
+          </div>
         </div>
       </section>
 
-      {service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.image && (
+      {service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.slug !== "power-points" && service.image && (
         <div className="mx-auto max-w-5xl px-6 pt-12">
           <img
             src={`/img/${service.image.file}`}
@@ -217,10 +241,10 @@ function ServicePage() {
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
               {service.slug === "emergency-electrical" ? "Non-Urgent Electrical Enquiries" : `Get a Quote for ${service.title}`}
             </h2>
-            <p className="mt-4 text-muted-foreground">{service.slug === "test-and-tag" ? "Include your suburb, workplace type, approximate number of items, any RCD testing required and preferred timing. I'll get back to you with a clear quote." : service.slug === "emergency-electrical" ? "For urgent faults, call 0466 270 949 to check availability. Use this form for follow-up repairs or general enquiries; it is not monitored as an emergency service." : service.slug === "power-points" ? "Tell me your suburb, how many outlets you need, and any style or budget preferences. Photos of the existing fittings and proposed locations are helpful." : "Fill in the form and I'll get back to you promptly."}</p>
+            <p className="mt-4 text-muted-foreground">{service.slug === "test-and-tag" ? "Include your suburb, workplace type, approximate number of items, any RCD testing required and preferred timing. I'll get back to you with a clear quote." : service.slug === "emergency-electrical" ? "For urgent faults, call 0466 270 949 to check availability. Use this form for follow-up repairs or general enquiries; it is not monitored as an emergency service." : service.slug === "power-points" ? "Tell me your suburb, how many outlets you need, and any style or budget preferences. Photos of the existing fittings and proposed locations are helpful. Already found a Clipsal, Hager, HPM or Legrand fitting you like? Send a product link and I can look into it." : "Fill in the form and I'll get back to you promptly."}</p>
           </div>
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
-            <QuoteForm defaultMessage={service.slug === "power-points" ? "Power point enquiry\nSuburb: \nNumber of outlets: \nNew outlets or replacements: \nPreferred style / brand: \nBudget: " : service.slug === "test-and-tag" ? "Test & Tag enquiry\nSuburb: \nWorkplace type: \nApproximate number of items: \nRCD testing required: \nPreferred timing: " : `Enquiry: ${service.title}`} />
+            <QuoteForm key={service.slug} defaultMessage={service.slug === "power-points" ? "Power point enquiry\nSuburb: \nNumber of outlets: \nNew outlets or replacements: \nPreferred style / brand: \nBudget: " : service.slug === "test-and-tag" ? "Test & Tag enquiry\nSuburb: \nWorkplace type: \nApproximate number of items: \nRCD testing required: \nPreferred timing: " : `Enquiry: ${service.title}`} />
           </div>
         </div>
       </section>

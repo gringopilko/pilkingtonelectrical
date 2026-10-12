@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Do you handle emergency call-outs?",
-    a: "Yes. For loss of power, a tripped board that won't reset, or anything that feels unsafe, call and I'll get to you as quickly as I can. See the Emergency Electrical page for what's covered.",
+    a: "Yes. For loss of power, a tripped board that won't reset, or anything that feels unsafe, call Shane to confirm availability, estimated arrival time and charges. See the Emergency Electrical page for what's covered.",
     linkTo: "/services/emergency-electrical",
     linkText: "Emergency Electrical page",
   },
@@ -40,13 +40,13 @@ const faqs = [
   },
   {
     q: "Do I need a safety switch in my home?",
-    a: "Victorian regulations require safety switches on power and lighting circuits in most homes, and they're commonly checked at point of sale or for rental compliance. If you're not sure whether yours are up to standard, I can check what's fitted and install compliant safety switches. See the Safety Switches page for details.",
+    a: "Safety switches help protect against electric shock. Victorian rental minimum standards require circuit breakers and safety switches on power outlet and lighting circuits. Requirements for other homes depend on the installation and work being carried out. If you're not sure whether yours are up to standard, I can check what's fitted and install compliant safety switches. See the Safety Switches page for details.",
     linkTo: "/services/safety-switches",
     linkText: "Safety Switches page",
   },
   {
     q: "Are smoke alarms compulsory in Victorian rental properties?",
-    a: "Yes, Victorian rental properties must have compliant, interconnected smoke alarms, and owners are required to keep them tested and up to standard. I install, test and replace smoke alarms to meet current requirements. See the Smoke Alarms page for more.",
+    a: "Yes. All Victorian homes must have working smoke alarms, and rental properties require annual smoke alarm safety checks. Hard-wiring and interconnection requirements depend on the building and applicable requirements. I can assess, install, test and replace suitable alarms. See the Smoke Alarms page for more.",
     linkTo: "/services/smoke-alarms",
     linkText: "Smoke Alarms page",
   },

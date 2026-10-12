@@ -5,6 +5,8 @@ export interface Service {
   metaDescription: string;
   intro: string;
   heroSubtitle?: string;
+  seoTitle?: string;
+  pageTitle?: string;
   included: string[];
   body: string[];
   /** Optional headed cards shown instead of plain paragraphs. */
@@ -358,8 +360,11 @@ export const services: Service[] = [
   {
     slug: "power-points",
     title: "Power Points & USB Wall Sockets",
+    pageTitle: "Power Point Installation & USB Wall Sockets Melbourne",
+    seoTitle: "Power Point Installation Melbourne | USB Power Points & Upgrades",
+    heroSubtitle: "More power where you need it, with styles to suit your home and budget.",
     shortDesc: "Additional power points, USB outlets and switch upgrades.",
-    metaDescription: "Power points, USB wall sockets and switch upgrades across South East Melbourne. Explore Clipsal, Hager and HPM styles to suit your home and budget.",
+    metaDescription: "Power points, USB wall sockets and switch upgrades across South East Melbourne. Explore Clipsal, Hager, HPM and Legrand styles to suit your home and budget.",
     intro: "Get power where you need it, with a finish you love. I install additional power points, USB wall sockets and matching switches — from affordable everyday fittings to designer ranges for your home or office.",
     included: [
       "Additional power point installation",
@@ -399,7 +404,7 @@ export const services: Service[] = [
     title: "Smoke Alarms",
     shortDesc: "Compliant smoke alarm installation, testing and replacement.",
     metaDescription: "Smoke alarm installation, testing and replacement across South East Melbourne. Compliance-focused, licensed electrician.",
-    intro: "Victorian regulations require interconnected, photoelectric smoke alarms in most homes. I install and service smoke alarms to make sure your property is properly compliant.",
+    intro: "All Victorian homes must have working smoke alarms. I assess your property, install suitable alarms and discuss photoelectric and interconnected options, with hard-wiring where required. Rental properties need annual smoke alarm safety checks.",
     included: [
       "Smoke alarm installation",
       "Interconnected alarm systems",

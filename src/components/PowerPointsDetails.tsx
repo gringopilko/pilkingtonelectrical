@@ -1,39 +1,27 @@
-import { ArrowRight, Check, Plug, Palette, Usb, Sun } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import clipsalLogo from "@/assets/clipsal-logo.webp";
 import hagerLogo from "@/assets/hager-logo.webp";
 import hpmLogo from "@/assets/hpm-logo.webp";
 
-const styles = [
-  {
-    title: "Simple & affordable",
-    label: "Keep it practical",
-    icon: Plug,
-    text: "A clean white finish and reliable everyday power. If you just want the most affordable suitable option, I'll happily quote that.",
-    detail: "Ideal for rentals, spare rooms & budget-conscious upgrades",
-  },
-  {
-    title: "Modern & understated",
-    label: "A fresh finish",
-    icon: Palette,
-    text: "Explore slim profiles, black or white finishes and matching light switches for a consistent look throughout your home.",
-    detail: "Ideal for kitchens, renovations & contemporary interiors",
-  },
-  {
-    title: "Designer details",
-    label: "Make it your own",
-    icon: Sun,
-    text: "Looking for something specific? We can explore decorative finishes and premium ranges to complement your cabinetry, fittings and walls.",
-    detail: "Ideal for feature spaces & a coordinated whole-home finish",
-  },
-  {
-    title: "Built-in USB charging",
-    label: "Everyday convenience",
-    icon: Usb,
-    text: "Combine power outlets with USB-A or USB-C charging. I'll help compare charging output and device compatibility as well as the appearance.",
-    detail: "Ideal for bedsides, kitchen benches & home offices",
-  },
-];
+import { powerPointStyles } from "@/lib/powerPointStyles";
+
 const inclusions = [
+  [
+    "Kitchen & renovation upgrades",
+    "Coordinate outlets and switches with cabinetry, splashbacks and interior finishes, with convenient bench and appliance positions.",
+  ],
+  [
+    "TV & entertainment areas",
+    "Plan outlets for wall-mounted TVs, entertainment units and home theatre equipment to keep connections convenient and discreet.",
+  ],
+  [
+    "Appliance outlets & circuits",
+    "Choose appropriate outlets and dedicated circuits where required for larger appliances, after assessing the electrical load.",
+  ],
+  [
+    "Surface-mounted installations",
+    "Explore neatly installed surface fittings and ducting where concealed wiring isn't feasible or would involve extensive building work.",
+  ],
   [
     "Additional power points",
     "Put outlets where you actually use them: beside the bed, behind the TV, at your desk or along the kitchen bench.",
@@ -60,6 +48,30 @@ const inclusions = [
   ],
 ];
 const faqs = [
+  [
+    "Can I replace white power points with black ones?",
+    "Yes. I'll help you compare suitable black fittings and finishes, including options that complement dark splashbacks and cabinetry.",
+  ],
+  [
+    "Can you install USB-C power points?",
+    "Yes. We can compare USB-C and combined USB-A / USB-C options to suit your devices, charging needs and budget.",
+  ],
+  [
+    "Can you replace all the power points in my house?",
+    "Yes. I can quote multiple replacements together and help coordinate switches and outlets throughout your home.",
+  ],
+  [
+    "Can you add a power point to brick or concrete?",
+    "In many cases, yes. It depends on wall construction and wiring access. Surface-mounted outlets or neat ducting may be practical where concealed wiring isn't feasible.",
+  ],
+  [
+    "Do I need a new electrical circuit?",
+    "Not necessarily. I'll assess the condition, capacity and protection of your existing circuit and the intended load, and explain any circuit or switchboard work required before proceeding.",
+  ],
+  [
+    "Do you supply the power points?",
+    "Yes. I can source suitable fittings from electrical wholesalers. If you've selected a product yourself, send a photo or product link so I can check its availability and suitability before installation.",
+  ],
   [
     "Can you match my existing power points?",
     "I'll check the brand, range and finish and look for a suitable match. If the range is discontinued, we can compare alternatives or update nearby switches and outlets together.",
@@ -112,22 +124,35 @@ export function PowerPointsDetails() {
         <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">
           Power points don't have to be an afterthought. From a simple white outlet to a finish that
           ties the whole room together, I'll help you find the right balance of appearance,
-          functionality and price.
+          functionality and price. Browse the examples below, arranged from statement designer
+          finishes through to simple everyday white fittings.
         </p>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2">
-          {styles.map(({ title, label, icon: Icon, text, detail }) => (
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {powerPointStyles.map(({ title, label, image, source, text, detail }) => (
             <article
               key={title}
               className="flex flex-col rounded-2xl border border-border bg-card p-6 md:p-8"
             >
-              <div className="mb-6 flex items-center justify-between gap-3">
-                <span className="text-xs font-bold uppercase tracking-wide text-primary">
-                  {label}
-                </span>
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <Icon aria-hidden="true" className="h-6 w-6" />
-                </span>
-              </div>
+              <a
+                href={source}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-5 block rounded-xl bg-white p-3 focus-visible:outline-2 focus-visible:outline-primary"
+                aria-label={`View ${title} on the manufacturer's website (opens in a new tab)`}
+              >
+                <img
+                  src={`/img/power-points/${image}.webp`}
+                  alt={`${title} double power point product photograph`}
+                  loading="lazy"
+                  decoding="async"
+                  width={360}
+                  height={270}
+                  className="aspect-[4/3] w-full object-contain"
+                />
+              </a>
+              <span className="mb-3 text-xs font-bold uppercase tracking-wide text-primary">
+                {label}
+              </span>
               <h3 className="text-xl font-bold tracking-tight">{title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
               <p className="mt-6 border-t border-border pt-4 text-xs font-medium leading-relaxed text-muted-foreground">
@@ -139,9 +164,12 @@ export function PowerPointsDetails() {
         <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
           <h3 className="text-xl font-bold tracking-tight">Let's find the perfect fit</h3>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            I'm happy to explore ranges from Clipsal, Hager, HPM and other brands with you. Bring a
-            photo, a finish you love or simply a budget, and we'll work through the options.
-            Available colours, features and pricing vary by range.
+            I'm happy to explore ranges from Clipsal Iconic, Hager, HPM, Legrand and other suitable
+            brands with you. Bring a photo, a finish you love or simply a budget, and we'll work
+            through the options. HPM Excel and Linea and Legrand decorative ranges are also worth
+            exploring. Available colours, features and pricing vary by range. These photos are style
+            examples; I'll confirm current availability and quote the complete fitting and
+            installation.
           </p>
           <div
             className="mt-6 flex flex-wrap items-center gap-8"
@@ -176,7 +204,8 @@ export function PowerPointsDetails() {
         </h2>
         <p className="mt-4 leading-relaxed text-muted-foreground">
           One extra socket or a refresh throughout the property — I install and replace power points
-          for homes, offices and rental properties across South East Melbourne.
+          for homes, offices, commercial and rental properties across Bayside and South East
+          Melbourne.
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {inclusions.map(([title, text]) => (
@@ -193,6 +222,45 @@ export function PowerPointsDetails() {
           If you're relying on extension leads and power boards in every room, better outlet
           placement can make daily life much easier. I'll also assess the circuit: adding more
           sockets doesn't increase the amount of power it can safely supply.
+        </p>
+      </section>
+
+      <section className="mt-16 grid gap-6 md:grid-cols-2">
+        <article className="rounded-2xl border border-border bg-card p-6 md:p-8">
+          <h2 className="text-2xl font-extrabold tracking-tight">Renovating? Finish the details</h2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">
+            Replacing yellowed switches and outlets can help bring a new kitchen, bathroom or living
+            area together. We can match fittings to cabinetry and splashbacks, coordinate switches
+            throughout the property, and plan USB charging beside beds and desks. Bathroom placement
+            needs to suit the location and applicable electrical requirements.
+          </p>
+        </article>
+        <article className="rounded-2xl border border-border bg-card p-6 md:p-8">
+          <h2 className="text-2xl font-extrabold tracking-tight">
+            Practical options for older homes
+          </h2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">
+            Older Melbourne homes often have fewer outlets than today's households need. I'll assess
+            your circuits and wiring access and discuss concealed wiring or surface ducting. If
+            extra wiring, circuit protection or switchboard work is needed, I'll explain the options
+            before proceeding.
+          </p>
+        </article>
+      </section>
+      <section className="mt-16 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
+        <h2 className="text-2xl font-extrabold tracking-tight">
+          Straightforward advice & upfront pricing
+        </h2>
+        <p className="mt-4 leading-relaxed text-muted-foreground">
+          Not every room needs designer fittings. Tell me your budget and I'll compare affordable
+          options with premium alternatives. Pricing depends on the fitting, wiring access, wall
+          construction, circuit capacity and number of outlets. Replacing an existing fitting is
+          generally simpler than adding a new outlet in a difficult location. You'll get a clear
+          quote before work starts.
+        </p>
+        <p className="mt-4 leading-relaxed text-muted-foreground">
+          Expect neat, careful installation, respect for your home and the appropriate electrical
+          safety documentation. Based in Hampton East, servicing Bayside and South East Melbourne.
         </p>
       </section>
 

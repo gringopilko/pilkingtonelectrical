@@ -5,7 +5,7 @@ import { renderErrorPage } from "./lib/error-page";
 const canonicalHostMiddleware = createMiddleware().server(({ request, next }) => {
   const url = new URL(request.url);
   const isWww = url.hostname === "www.pilkingtonelectrical.com.au";
-  const isHttp = url.protocol === "http:";
+  const isHttp = url.hostname === "pilkingtonelectrical.com.au" && url.protocol === "http:";
 
   if (!isWww && !isHttp) {
     return next();
@@ -15,6 +15,7 @@ const canonicalHostMiddleware = createMiddleware().server(({ request, next }) =>
   // http(s)://www.* and http://pilkingtonelectrical.com.au (no www, but unencrypted)
   url.hostname = "pilkingtonelectrical.com.au";
   url.protocol = "https:";
+  url.port = "";
   return Response.redirect(url.toString(), 301);
 });
 
