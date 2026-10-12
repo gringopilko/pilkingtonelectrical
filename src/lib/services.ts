@@ -359,8 +359,8 @@ export const services: Service[] = [
     slug: "power-points",
     title: "Power Points & USB Wall Sockets",
     shortDesc: "Additional power points, USB outlets and switch upgrades.",
-    metaDescription: "Power point and USB wall socket installation across South East Melbourne. Licensed electrician, upfront pricing.",
-    intro: "Never enough power points? I install additional outlets, USB wall sockets, and can update old switches throughout your home or office.",
+    metaDescription: "Power points, USB wall sockets and switch upgrades across South East Melbourne. Explore Clipsal, Hager and HPM styles to suit your home and budget.",
+    intro: "Get power where you need it, with a finish you love. I install additional power points, USB wall sockets and matching switches — from affordable everyday fittings to designer ranges for your home or office.",
     included: [
       "Additional power point installation",
       "USB wall socket upgrades",
