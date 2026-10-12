@@ -157,7 +157,7 @@ function ServicePage() {
             width={service.image.width}
             height={service.image.height}
             decoding="async"
-            className="h-auto w-full rounded-xl border border-border"
+            className={service.slug === "ev-charger-install" ? "mx-auto h-auto max-h-[540px] w-auto max-w-full rounded-xl border border-border object-contain" : "h-auto w-full rounded-xl border border-border"}
           />
         </div>
       )}

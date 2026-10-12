@@ -449,6 +449,7 @@ export const services: Service[] = [
   {
     slug: "ev-charger-install",
     title: "EV Charger Installation",
+    image: { file: "evnex-home-charger.webp", alt: "Evnex home EV charger mounted on an exterior wall beside garden plants", width: 1249, height: 1245 },
     shortDesc: "Home EV charger supply and installation, done safely and to standard.",
     metaDescription: "EV charger installation across South East Melbourne. Home charging points installed safely and to compliance standards. Licensed electrician.",
     intro: "Charging at home is the easiest way to live with an EV. I install home EV charging points properly, assessing your switchboard's capacity first, not just bolting a charger to the wall.",
