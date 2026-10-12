@@ -23,15 +23,14 @@ export function EmergencyHeroVideo() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-6 pt-12">
-      <div className="relative aspect-video overflow-hidden rounded-xl border border-border bg-card">
-        <img src="/img/emergency-video-poster.webp" alt="Electrician examining a switchboard by torchlight" width={960} height={540} decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+    <div className="mx-auto w-full max-w-5xl px-6 pt-12">
+      <div className="relative mx-auto w-full overflow-hidden rounded-xl border border-border bg-black" style={{ aspectRatio: "16 / 9" }}>
+        <img src="/img/emergency-video-poster.webp" alt="Electrician examining a switchboard by torchlight" width={960} height={540} decoding="async" className="absolute inset-0 block h-full w-full object-contain object-center" />
         {allowVideo && (
-          <video ref={videoRef} src="/emergency-hero.mp4" poster="/img/emergency-video-poster.webp" autoPlay muted loop playsInline preload="none" aria-hidden="true" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setAllowVideo(false)} className="absolute inset-0 h-full w-full object-cover">
+          <video width={960} height={540} ref={videoRef} src="/emergency-hero.mp4" poster="/img/emergency-video-poster.webp" autoPlay muted loop playsInline preload="none" aria-hidden="true" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setAllowVideo(false)} className="absolute inset-0 block h-full w-full object-contain object-center">
             Your browser does not support video.
           </video>
         )}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/35 via-transparent to-background/10" />
         {allowVideo && (
           <button type="button" onClick={togglePlayback} aria-label={playing ? "Pause background video" : "Play background video"} className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/65 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
             {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
