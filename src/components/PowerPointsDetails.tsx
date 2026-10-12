@@ -1,9 +1,82 @@
-import { ArrowRight, Check } from "lucide-react";
+import { useRef, useState } from "react";
+import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import clipsalLogo from "@/assets/clipsal-logo.webp";
 import hagerLogo from "@/assets/hager-logo.webp";
 import hpmLogo from "@/assets/hpm-logo.webp";
 
 import { powerPointStyles } from "@/lib/powerPointStyles";
+
+
+const styleGroups = [
+  { title: "Clipsal Saturn Zen", images: ["saturn-zen-black", "saturn-zen-white"] },
+  { title: "Clipsal Iconic Styl", images: ["iconic-styl-crowne", "iconic-styl-shadow", "iconic-styl-silver"] },
+  { title: "Hager silhouette", images: ["hager-silhouette-aluminium", "hager-silhouette-black"] },
+  { title: "HPM Linea", images: ["hpm-linea-black"] },
+  { title: "Clipsal Iconic USB-C", images: ["iconic-usb-c"] },
+  { title: "Clipsal Iconic", images: ["iconic-white"] },
+  { title: "HPM Excel", images: ["hpm-excel-white"] },
+  { title: "Clipsal 2000", images: ["clipsal-2000-white"] },
+  { title: "Clipsal Classic", images: ["clipsal-classic-white"] },
+];
+
+function StyleGallery({ title, images }: { title: string; images: string[] }) {
+  const variants = images.map((image) => powerPointStyles.find((style) => style.image === image)!);
+  const [selected, setSelected] = useState(0);
+  const track = useRef<HTMLDivElement>(null);
+  const active = variants[selected];
+  const goTo = (index: number) => {
+    const element = track.current;
+    if (element) element.scrollTo({ left: index * element.clientWidth, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  };
+  const colour = (name: string) => name.split(/ — | - /).pop()!;
+  return (
+    <article className="flex min-w-0 flex-col rounded-2xl border border-border bg-card p-6 md:p-8">
+      <div className="relative mb-4 overflow-hidden rounded-xl bg-white">
+        <div ref={track} role="region" aria-label={title + " colour photos"} tabIndex={0}
+          className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          onScroll={(event) => {
+            const element = event.currentTarget;
+            setSelected(Math.min(variants.length - 1, Math.max(0, Math.round(element.scrollLeft / element.clientWidth))));
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+              event.preventDefault();
+              goTo(Math.max(0, Math.min(variants.length - 1, selected + (event.key === "ArrowRight" ? 1 : -1))));
+            }
+          }}>
+          {variants.map((variant) => (
+            <div key={variant.image} className="w-full shrink-0 snap-start p-3">
+              <img src={"/img/power-points/" + variant.image + ".webp"}
+                alt={variant.title + " double power point product photograph"}
+                loading="lazy" decoding="async" width={360} height={270}
+                draggable={false} className="aspect-[4/3] w-full object-contain" />
+            </div>
+          ))}
+        </div>
+        {variants.length > 1 && <>
+          <button type="button" aria-label={"Previous " + title + " colour"} disabled={selected === 0}
+            onClick={() => goTo(selected - 1)} className="absolute left-1 top-1/2 -translate-y-1/2 rounded-full border bg-white p-2 text-slate-900 shadow-sm disabled:opacity-25"><ChevronLeft size={18} /></button>
+          <button type="button" aria-label={"Next " + title + " colour"} disabled={selected === variants.length - 1}
+            onClick={() => goTo(selected + 1)} className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full border bg-white p-2 text-slate-900 shadow-sm disabled:opacity-25"><ChevronRight size={18} /></button>
+        </>}
+      </div>
+      <h3 className="text-xl font-bold tracking-tight">{title}</h3>
+      <div className="mt-3 flex gap-2 overflow-x-auto pb-2" aria-label={title + " finishes"}>
+        {variants.map((variant, index) => (
+          <button key={variant.image} type="button" aria-pressed={selected === index}
+            onClick={() => goTo(index)} className={"shrink-0 rounded-full border px-3 py-2 text-xs font-semibold transition-colors " + (selected === index ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary")}>{variant.image === "iconic-usb-c" ? "Vivid White" : colour(variant.title)}</button>
+        ))}
+      </div>
+      <div aria-live="polite" aria-atomic="true">
+        <p className="mt-3 text-xs font-bold uppercase tracking-wide text-primary">{active.label}</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{active.text}</p>
+        <p className="mt-6 border-t border-border pt-4 text-xs font-medium leading-relaxed text-muted-foreground">{active.detail}</p>
+      </div>
+      <a href={active.source} target="_blank" rel="noopener noreferrer" className="mt-4 text-sm font-semibold text-primary underline underline-offset-4"
+        aria-label={"View " + active.title + " on the manufacturer's website (opens in a new tab)"}>View product details</a>
+    </article>
+  );
+}
 
 const inclusions = [
   [
@@ -127,39 +200,9 @@ export function PowerPointsDetails() {
           functionality and price. Browse the examples below, arranged from statement designer
           finishes through to simple everyday white fittings.
         </p>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {powerPointStyles.map(({ title, label, image, source, text, detail }) => (
-            <article
-              key={title}
-              className="flex flex-col rounded-2xl border border-border bg-card p-6 md:p-8"
-            >
-              <a
-                href={source}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mb-5 block rounded-xl bg-white p-3 focus-visible:outline-2 focus-visible:outline-primary"
-                aria-label={`View ${title} on the manufacturer's website (opens in a new tab)`}
-              >
-                <img
-                  src={`/img/power-points/${image}.webp`}
-                  alt={`${title} double power point product photograph`}
-                  loading="lazy"
-                  decoding="async"
-                  width={360}
-                  height={270}
-                  className="aspect-[4/3] w-full object-contain"
-                />
-              </a>
-              <span className="mb-3 text-xs font-bold uppercase tracking-wide text-primary">
-                {label}
-              </span>
-              <h3 className="text-xl font-bold tracking-tight">{title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
-              <p className="mt-6 border-t border-border pt-4 text-xs font-medium leading-relaxed text-muted-foreground">
-                {detail}
-              </p>
-            </article>
-          ))}
+        <p className="mt-4 text-sm text-muted-foreground">Swipe sideways over a photo, or choose a colour below it, to compare finishes.</p>
+        <div className="mt-8 grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {styleGroups.map((group) => <StyleGallery key={group.title} {...group} />)}
         </div>
         <div className="mt-6 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
           <h3 className="text-xl font-bold tracking-tight">Let's find the perfect fit</h3>
@@ -310,3 +353,4 @@ export function PowerPointsDetails() {
     </>
   );
 }
+
