@@ -19,15 +19,15 @@ export interface WiringProductGroup {
 // Each page selects only its own product type; sources and matching finishes are independently checked.
 export const wiringProducts: WiringProductGroup[] = [
   {
-    "id": "clipsal-solis-t-solis-outlet",
-    "title": "Clipsal Solis T & Solis",
+    "id": "clipsal-solis-t-outlet",
+    "title": "Clipsal Solis T",
     "kind": "outlet",
-    "note": "",
+    "note": "Coordinated designer finishes for outlets and metal toggle switches. USB-C and extra-switch outlet configurations can also be quoted.",
     "variants": [
       {
         "id": "clipsal-solis-brushed-brass",
         "finish": "Brushed Brass",
-        "sku": "",
+        "sku": "1025-BB",
         "image": "/img/power-points/clipsal-solis-brushed-brass.webp",
         "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-BB",
         "photoType": "complete",
@@ -36,7 +36,7 @@ export const wiringProducts: WiringProductGroup[] = [
       {
         "id": "clipsal-solis-ebony-aluminium",
         "finish": "Ebony Aluminium",
-        "sku": "",
+        "sku": "1025-EA",
         "image": "/img/power-points/clipsal-solis-ebony-aluminium.webp",
         "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-EA",
         "photoType": "complete",
@@ -45,7 +45,7 @@ export const wiringProducts: WiringProductGroup[] = [
       {
         "id": "clipsal-solis-platinum-aluminium",
         "finish": "Platinum Aluminium",
-        "sku": "",
+        "sku": "1025-PT",
         "image": "/img/power-points/clipsal-solis-platinum-aluminium.webp",
         "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-PT",
         "photoType": "complete",
@@ -54,16 +54,24 @@ export const wiringProducts: WiringProductGroup[] = [
       {
         "id": "clipsal-solis-white-ceramic",
         "finish": "White Ceramic",
-        "sku": "",
+        "sku": "1025-WC",
         "image": "/img/power-points/clipsal-solis-white-ceramic.webp",
         "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-WC",
         "photoType": "complete",
         "availability": "Confirm current stock"
-      },
+      }
+    ]
+  },
+  {
+    "id": "clipsal-solis-outlet",
+    "title": "Clipsal Solis",
+    "kind": "outlet",
+    "note": "Zen White and Zen Black outlets to coordinate with the Solis push-button switches.",
+    "variants": [
       {
         "id": "clipsal-solis-zen-black",
         "finish": "Zen Black",
-        "sku": "",
+        "sku": "1025-ZB",
         "image": "/img/power-points/clipsal-solis-zen-black.webp",
         "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-ZB",
         "photoType": "complete",
@@ -72,7 +80,7 @@ export const wiringProducts: WiringProductGroup[] = [
       {
         "id": "clipsal-solis-zen-white",
         "finish": "Zen White",
-        "sku": "",
+        "sku": "1025-ZW",
         "image": "/img/power-points/clipsal-solis-zen-white.webp",
         "source": "https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-ZW",
         "photoType": "complete",
@@ -714,7 +722,7 @@ export const wiringProducts: WiringProductGroup[] = [
     "variants": [
       {
         "id": "clipsal-saturn-zen-switch-z4061pbl-zw",
-        "finish": "Z4061PBL-ZW",
+        "finish": "Zen White",
         "sku": "Z4061PBL-ZW",
         "image": "https://cdn.shopify.com/s/files/1/0682/1727/4681/products/files_52cee2a1-3a7a-497f-b9b4-e021fbbc4a4d.jpg?v=1750977918",
         "source": "https://www.powerpointsandswitches.com.au/products/clipsal-saturn-zen-switch-1g-pb-250v-16ax-20a-led-white?variant=43918229307705",
@@ -723,7 +731,7 @@ export const wiringProducts: WiringProductGroup[] = [
       },
       {
         "id": "clipsal-saturn-zen-switch-z4061pbl-zb",
-        "finish": "Z4061PBL-ZB",
+        "finish": "Zen Black",
         "sku": "Z4061PBL-ZB",
         "image": "https://cdn.shopify.com/s/files/1/0682/1727/4681/products/files_92825c25-e9db-42d1-8a24-4d6f34fdbc24.jpg?v=1750977916",
         "source": "https://www.powerpointsandswitches.com.au/products/clipsal-saturn-zen-switch-1g-pb-250v-16ax-20a-led-black?variant=43918231142713",
@@ -1487,29 +1495,11 @@ export const wiringProducts: WiringProductGroup[] = [
     ]
   },
   {
-    "id": "clipsal-solis-solis-t-rotary-controls-dimmer",
-    "title": "Clipsal Solis / Solis T rotary controls",
+    "id": "clipsal-solis-t-rotary-controls",
+    "title": "Clipsal Solis T rotary controls",
     "kind": "dimmer",
     "note": "Colour-matched rotary adaptor only; compatible Wiser dimmer and plate are quoted together.",
     "variants": [
-      {
-        "id": "clipsal-solis-solis-t-rotary-controls-dimmer-zen-white",
-        "finish": "Zen White",
-        "sku": "40RWDA-ZW",
-        "image": "https://cdn.shopify.com/s/files/1/0682/1727/4681/files/files_0bcffc92-8500-4cdf-96bc-c83820a39421.jpg?v=1750979087",
-        "source": "https://www.powerpointsandswitches.com.au/products/clipsal-solis-wiser-rotary-adaptor?variant=49869122961721",
-        "photoType": "adaptor",
-        "availability": "Confirm current stock"
-      },
-      {
-        "id": "clipsal-solis-solis-t-rotary-controls-dimmer-zen-black",
-        "finish": "Zen Black",
-        "sku": "40RWDA-ZB",
-        "image": "https://cdn.shopify.com/s/files/1/0682/1727/4681/files/files_aea5510d-766d-4893-ae50-3b4d335dabb5.jpg?v=1750979087",
-        "source": "https://www.powerpointsandswitches.com.au/products/clipsal-solis-wiser-rotary-adaptor?variant=49869122994489",
-        "photoType": "adaptor",
-        "availability": "Confirm current stock"
-      },
       {
         "id": "clipsal-solis-solis-t-rotary-controls-dimmer-white-ceramic",
         "finish": "White Ceramic",
@@ -1543,6 +1533,32 @@ export const wiringProducts: WiringProductGroup[] = [
         "sku": "40RWDA-PT",
         "image": "https://cdn.shopify.com/s/files/1/0682/1727/4681/files/files_d87594ee-86fc-4ed2-a66a-27bc4c47cf4d.jpg?v=1750979087",
         "source": "https://www.powerpointsandswitches.com.au/products/clipsal-solis-wiser-rotary-adaptor?variant=49869123125561",
+        "photoType": "adaptor",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-solis-rotary-controls",
+    "title": "Clipsal Solis rotary controls",
+    "kind": "dimmer",
+    "note": "Colour-matched rotary adaptor only; compatible Wiser dimmer and plate are quoted together.",
+    "variants": [
+      {
+        "id": "clipsal-solis-solis-t-rotary-controls-dimmer-zen-white",
+        "finish": "Zen White",
+        "sku": "40RWDA-ZW",
+        "image": "https://cdn.shopify.com/s/files/1/0682/1727/4681/files/files_0bcffc92-8500-4cdf-96bc-c83820a39421.jpg?v=1750979087",
+        "source": "https://www.powerpointsandswitches.com.au/products/clipsal-solis-wiser-rotary-adaptor?variant=49869122961721",
+        "photoType": "adaptor",
+        "availability": "Confirm current stock"
+      },
+      {
+        "id": "clipsal-solis-solis-t-rotary-controls-dimmer-zen-black",
+        "finish": "Zen Black",
+        "sku": "40RWDA-ZB",
+        "image": "https://cdn.shopify.com/s/files/1/0682/1727/4681/files/files_aea5510d-766d-4893-ae50-3b4d335dabb5.jpg?v=1750979087",
+        "source": "https://www.powerpointsandswitches.com.au/products/clipsal-solis-wiser-rotary-adaptor?variant=49869122994489",
         "photoType": "adaptor",
         "availability": "Confirm current stock"
       }
@@ -2121,6 +2137,284 @@ export const wiringProducts: WiringProductGroup[] = [
         "source": "https://www.clipsal.com/products/power-points-switches/clipsal-iconic/dimmer-rotary-push-30-series-350w-30erpbdm?itemno=30ERPBDM-WE",
         "photoType": "mechanism",
         "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-saturn-zen-rotary-dimmer",
+    "title": "Clipsal Saturn Zen rotary dimmer",
+    "kind": "dimmer",
+    "note": "4062ELEDM mechanism for a compatible Saturn Zen plate and knob kit. A separate switch is required; the complete combination is quoted for your lighting load.",
+    "variants": [
+      {
+        "id": "clipsal-saturn-zen-dimmer-4062eledm",
+        "finish": "Rotary dimmer mechanism",
+        "sku": "4062ELEDM-TR",
+        "image": "https://download.se.com/files?default_image=DefaultProductImage.png&p_Doc_Ref=CLPIMG_I0000883&p_File_Type=rendition_369_jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/dimmer-mechanism-led-rotary-220-240v-ac-400w-4062eledm?itemno=4062ELEDM-TR",
+        "photoType": "mechanism",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-saturn-zen-dimmer-knobs",
+    "title": "Clipsal Saturn Zen dimmer controls",
+    "kind": "dimmer",
+    "note": "Knob accessory kit with matt black and matt white controls. Dimmer mechanism, switch plate and any separate switch are selected and quoted separately.",
+    "variants": [
+      {
+        "id": "clipsal-saturn-zen-knob-kit",
+        "finish": "Matt Black & Matt White kit",
+        "sku": "Z4062EDIM-KB",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/files/Clipsal_Z4062Edim-KB_369x369.jpg?v=1750977921",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-zen/knob-dimmer-fan-control-z4062edim-kb?itemno=Z4062EDIM-KB",
+        "photoType": "adaptor",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-iconic-outdoor-outlet",
+    "title": "Clipsal Iconic Outdoor",
+    "kind": "outlet",
+    "note": "Outdoor double power point examples. The fitting and location are assessed for the installation.",
+    "variants": [
+      {
+        "id": "clipsal-iconic-outdoor-outlet-xw",
+        "finish": "Extra White",
+        "sku": "O3025-XW",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/files/files_237de92f-ab90-4ab2-8575-4937381a98fc_700x700.png?v=1773717213",
+        "source": "https://www.clipsal.com/products/power-points-switches/iconic-outdoor/twin-switched-socket-outlet-horizontal-10a-250v-o3025?itemno=O3025-XW",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      },
+      {
+        "id": "clipsal-iconic-outdoor-outlet-bk",
+        "finish": "Black",
+        "sku": "O3025-BK",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/files/files_eb1df230-6816-42a7-8913-a963725d2d99_700x700.png?v=1773717246",
+        "source": "https://www.clipsal.com/products/power-points-switches/iconic-outdoor/twin-switched-socket-outlet-horizontal-10a-250v-o3025?itemno=O3025-BK",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-iconic-outdoor-switch",
+    "title": "Clipsal Iconic Outdoor",
+    "kind": "switch",
+    "note": "Weather-resistant switching for outdoor locations. The fitting and installation conditions are checked before quoting.",
+    "variants": [
+      {
+        "id": "clipsal-iconic-outdoor-switch-xw",
+        "finish": "Extra White",
+        "sku": "O3041HA-XW",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/files/files_cbcfb90b-d015-4b64-812d-243c39844d26_700x700.png?v=1773718845",
+        "source": "https://www.clipsal.com/products/power-points-switches/iconic-outdoor/switch-horizontal-1-gang-20a-16ax-250v-o3041ha?itemno=O3041HA-XW",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      },
+      {
+        "id": "clipsal-iconic-outdoor-switch-bk",
+        "finish": "Black",
+        "sku": "O3041HA-BK",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/files/files_68fcb2aa-a016-4504-b37c-f2a096cc8a57_700x700.png?v=1773718868",
+        "source": "https://www.clipsal.com/products/power-points-switches/iconic-outdoor/switch-horizontal-1-gang-20a-16ax-250v-o3041ha?itemno=O3041HA-BK",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-metal-stainless-outlet",
+    "title": "Clipsal Metal Plate — Stainless Steel",
+    "kind": "outlet",
+    "note": "Stainless-steel double outlet examples with white or black inserts.",
+    "variants": [
+      {
+        "id": "clipsal-metal-stainless-outlet-white",
+        "finish": "Stainless Steel / White",
+        "sku": "BSL25A-WE",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/products/BSL25A-WE_700x700.jpg?v=1750975532",
+        "source": "https://www.clipsal.com/products/power-points-switches/metal-plate-series/twin-switch-socket-outlet-250v-10a-bsl-style-bsl25a?itemno=BSL25A-WE",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      },
+      {
+        "id": "clipsal-metal-stainless-outlet-black",
+        "finish": "Stainless Steel / Black",
+        "sku": "BSL25A-BK",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/products/clipsal-BSL25A-BK_700x700.png?v=1750975532",
+        "source": "https://www.clipsal.com/products/power-points-switches/metal-plate-series/twin-switch-socket-outlet-250v-10a-bsl-style-bsl25a?itemno=BSL25A-BK",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-metal-brass-outlet",
+    "title": "Clipsal Metal Plate — Polished Brass",
+    "kind": "outlet",
+    "note": "Polished-brass double outlet with white inserts; matching switches can be quoted.",
+    "variants": [
+      {
+        "id": "clipsal-metal-brass-outlet-white",
+        "finish": "Polished Brass / White",
+        "sku": "BBSL25A-WE",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/products/BBSL25A-WE_700x700.jpg?v=1750975726",
+        "source": "https://www.clipsal.com/products/power-points-switches/metal-plate-series/twin-switch-socket-outlet-250v-10a-bbsl-style-flat-plate-bbsl25a?itemno=BBSL25A-WE",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-metal-stainless-switch",
+    "title": "Clipsal Metal Plate — Stainless Steel",
+    "kind": "switch",
+    "note": "One-gang white and two-gang black examples are shown. The number of switches and matching mechanisms are confirmed in your quote.",
+    "variants": [
+      {
+        "id": "clipsal-metal-stainless-switch-white",
+        "finish": "Stainless Steel / White · 1 gang",
+        "sku": "BSL31VA-WE",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/files/files_3ab018cc-56ee-4cb2-88ed-6972f2b25d7c_369x369.jpg?v=1750975445",
+        "source": "https://www.clipsal.com/products/power-points-switches/metal-plate-series/flush-switch-1-gang-250vac-10a-range-bsl-style-standard-vertical-bsl31va?itemno=BSL31VA-WE",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      },
+      {
+        "id": "clipsal-metal-stainless-switch-black",
+        "finish": "Stainless Steel / Black · 2 gang",
+        "sku": "BSL32VA-BK",
+        "image": "https://download.se.com/files?default_image=DefaultProductImage.png&p_Doc_Ref=CLPIMG_A0004238&p_File_Type=rendition_369_jpg",
+        "source": "https://www.se.com/au/en/product/BSL32VA-BK/flush-switch-metal-plate-series-2-gang-250vac-10a-range-bsl-style-standard-vert/",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-metal-brass-switch",
+    "title": "Clipsal Metal Plate — Polished Brass",
+    "kind": "switch",
+    "note": "Polished-brass switch example with a white rocker. Other layouts are checked before quoting.",
+    "variants": [
+      {
+        "id": "clipsal-metal-brass-switch-white",
+        "finish": "Polished Brass / White · 1 gang",
+        "sku": "BBSL31VA-WE",
+        "image": "https://www.powerpointsandswitches.com.au/cdn/shop/files/files_fcbb2be9-8d0f-46f7-8f6a-b951aecda024_369x369.jpg?v=1750975617",
+        "source": "https://www.clipsal.com/products/power-points-switches/metal-plate-series/flush-switch-1-gang-250vac-10a-range-bbsl-style-standard-vert-bbsl31va?itemno=BBSL31VA-WE",
+        "photoType": "complete",
+        "availability": "Confirm current stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-saturn-horizon-legacy-outlet",
+    "title": "Clipsal Saturn / Horizon — Legacy",
+    "kind": "outlet",
+    "note": "Earlier glass and Horizon finishes for matching existing fittings. This range is discontinued; remaining stock and suitable alternatives must be checked.",
+    "variants": [
+      {
+        "id": "clipsal-saturn-horizon-legacy-outlet-pw",
+        "finish": "Pure White",
+        "sku": "4025-PW",
+        "image": "https://www.clipsal.com/clipsal-product-images/A0004745.jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/double-switch-power-point-250v-10a-4025?itemno=4025-PW",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      },
+      {
+        "id": "clipsal-saturn-horizon-legacy-outlet-eb",
+        "finish": "Espresso Black",
+        "sku": "4025-EB",
+        "image": "https://www.clipsal.com/clipsal-product-images/A0004528.jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/double-switch-power-point-250v-10a-4025?itemno=4025-EB",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      },
+      {
+        "id": "clipsal-saturn-horizon-legacy-outlet-hb",
+        "finish": "Horizon Black",
+        "sku": "4025-HB",
+        "image": "https://www.clipsal.com/clipsal-product-images/A0005008.jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/double-switch-power-point-250v-10a-4025?itemno=4025-HB",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      },
+      {
+        "id": "clipsal-saturn-horizon-legacy-outlet-hs",
+        "finish": "Horizon Silver",
+        "sku": "4025-HS",
+        "image": "https://www.clipsal.com/clipsal-product-images/A0005009.jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/double-switch-power-point-250v-10a-4025?itemno=4025-HS",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      },
+      {
+        "id": "clipsal-saturn-horizon-legacy-outlet-om",
+        "finish": "Ocean Mist",
+        "sku": "4025-OM",
+        "image": "https://www.clipsal.com/clipsal-product-images/A0004599.jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/double-switch-power-point-250v-10a-4025?itemno=4025-OM",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      }
+    ]
+  },
+  {
+    "id": "clipsal-saturn-horizon-legacy-switch",
+    "title": "Clipsal Saturn / Horizon — Legacy",
+    "kind": "switch",
+    "note": "Earlier glass and Horizon finishes for matching existing fittings. This range is discontinued; remaining stock and suitable alternatives must be checked.",
+    "variants": [
+      {
+        "id": "clipsal-saturn-horizon-legacy-switch-pw",
+        "finish": "Pure White",
+        "sku": "4061PBL-PW",
+        "image": "https://www.clipsal.com/clipsal-product-images/A0004905.jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/push-button-switch-led-1-gang-20a-4061pbl?itemno=4061PBL-PW",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      },
+      {
+        "id": "clipsal-saturn-horizon-legacy-switch-eb",
+        "finish": "Espresso Black",
+        "sku": "4061PBL-EB",
+        "image": "https://download.se.com/files?p_Doc_Ref=CLPIMG_A0004667&p_File_Type=rendition_369_jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/push-button-switch-led-1-gang-20a-4061pbl?itemno=4061PBL-EB",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      },
+      {
+        "id": "clipsal-saturn-horizon-legacy-switch-hb",
+        "finish": "Horizon Black",
+        "sku": "4061PBL-HB",
+        "image": "https://download.se.com/files?p_Doc_Ref=CLPIMG_A0005031&p_File_Type=rendition_369_jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/push-button-switch-led-1-gang-20a-4061pbl?itemno=4061PBL-HB",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      },
+      {
+        "id": "clipsal-saturn-horizon-legacy-switch-hs",
+        "finish": "Horizon Silver",
+        "sku": "4061PBL-HS",
+        "image": "https://download.se.com/files?p_Doc_Ref=CLPIMG_A0005061&p_File_Type=rendition_369_jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/push-button-switch-led-1-gang-20a-4061pbl?itemno=4061PBL-HS",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
+      },
+      {
+        "id": "clipsal-saturn-horizon-legacy-switch-om",
+        "finish": "Ocean Mist",
+        "sku": "4061PBL-OM",
+        "image": "https://download.se.com/files?p_Doc_Ref=CLPIMG_A0004702&p_File_Type=rendition_369_jpg",
+        "source": "https://www.clipsal.com/products/power-points-switches/saturn-inc-saturn-horizon/push-button-switch-led-1-gang-20a-4061pbl?itemno=4061PBL-OM",
+        "photoType": "complete",
+        "availability": "Discontinued range · limited remaining stock"
       }
     ]
   }
