@@ -449,10 +449,12 @@ export const services: Service[] = [
   {
     slug: "ev-charger-install",
     title: "EV Charger Installation",
+    pageTitle: "EV Charger Installation in Bayside & South East Melbourne",
+    heroSubtitle: "Charging that suits your car, your home and your budget.",
     image: { file: "evnex-home-charger.webp", alt: "Evnex home EV charger mounted on an exterior wall beside garden plants", width: 1249, height: 1245 },
     shortDesc: "Home EV charger supply and installation, done safely and to standard.",
     metaDescription: "EV charger installation across South East Melbourne. Home charging points installed safely and to compliance standards. Licensed electrician.",
-    intro: "Charging at home is the easiest way to live with an EV. I install home EV charging points properly, assessing your switchboard's capacity first, not just bolting a charger to the wall.",
+    intro: "Not sure which charger you need? I'll assess your electrical supply, discuss how you drive and quote a practical setup before work begins. Based in Hampton East, I help homeowners, property managers and businesses plan charging with clear advice and straightforward communication.",
     included: [
       "Home EV charger installation",
       "Switchboard capacity assessment",

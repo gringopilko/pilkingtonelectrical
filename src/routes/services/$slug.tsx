@@ -14,6 +14,7 @@ import { SmokeAlarmDetails } from "@/components/SmokeAlarmDetails";
 import { FaultFindingDetails } from "@/components/FaultFindingDetails";
 import { BodyCorporateDetails } from "@/components/BodyCorporateDetails";
 import { RealEstateDetails } from "@/components/RealEstateDetails";
+import { EVChargerDetails } from "@/components/EVChargerDetails";
 import { CommercialHeroVideo } from "@/components/CommercialHeroVideo";
 import { workPhotos } from "@/lib/workPhotos";
 
@@ -163,7 +164,7 @@ function ServicePage() {
       )}
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        {service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <BodyCorporateDetails /> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
+        {service.slug === "ev-charger-install" ? <EVChargerDetails /> : service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <BodyCorporateDetails /> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
           <>
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -251,10 +252,10 @@ function ServicePage() {
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
               {service.slug === "emergency-electrical" ? "Non-Urgent Electrical Enquiries" : `Get a Quote for ${service.title}`}
             </h2>
-            <p className="mt-4 text-muted-foreground">{service.slug === "test-and-tag" ? "Include your suburb, workplace type, approximate number of items, any RCD testing required and preferred timing. I'll get back to you with a clear quote." : service.slug === "emergency-electrical" ? "For urgent faults, call 0466 270 949 to check availability. Use this form for follow-up repairs or general enquiries; it is not monitored as an emergency service." : service.slug === "power-points" ? "Tell me your suburb, how many outlets you need, and any style or budget preferences. Photos of the existing fittings and proposed locations are helpful. Already found a Clipsal, Hager, HPM or Legrand fitting you like? Send a product link and I can look into it." : "Fill in the form and I'll get back to you promptly."}</p>
+            <p className="mt-4 text-muted-foreground">{service.slug === "ev-charger-install" ? "Tell me your suburb, vehicle model, parking location and any charger you are considering. Photos of the closed switchboard and proposed charger position are helpful. You do not need to choose a charger before getting in touch." : service.slug === "test-and-tag" ? "Include your suburb, workplace type, approximate number of items, any RCD testing required and preferred timing. I'll get back to you with a clear quote." : service.slug === "emergency-electrical" ? "For urgent faults, call 0466 270 949 to check availability. Use this form for follow-up repairs or general enquiries; it is not monitored as an emergency service." : service.slug === "power-points" ? "Tell me your suburb, how many outlets you need, and any style or budget preferences. Photos of the existing fittings and proposed locations are helpful. Already found a Clipsal, Hager, HPM or Legrand fitting you like? Send a product link and I can look into it." : "Fill in the form and I'll get back to you promptly."}</p>
           </div>
           <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
-            <QuoteForm key={service.slug} defaultMessage={service.slug === "power-points" ? "Power point enquiry\nSuburb: \nNumber of outlets: \nNew outlets or replacements: \nPreferred style / brand: \nBudget: " : service.slug === "test-and-tag" ? "Test & Tag enquiry\nSuburb: \nWorkplace type: \nApproximate number of items: \nRCD testing required: \nPreferred timing: " : `Enquiry: ${service.title}`} />
+            <QuoteForm key={service.slug} defaultMessage={service.slug === "ev-charger-install" ? "EV charger enquiry\nSuburb: \nVehicle model: \nHome / rental / shared parking / workplace: \nPreferred charger location: \nCharger model (if known): \nPreferred timing: " : service.slug === "power-points" ? "Power point enquiry\nSuburb: \nNumber of outlets: \nNew outlets or replacements: \nPreferred style / brand: \nBudget: " : service.slug === "test-and-tag" ? "Test & Tag enquiry\nSuburb: \nWorkplace type: \nApproximate number of items: \nRCD testing required: \nPreferred timing: " : `Enquiry: ${service.title}`} />
           </div>
         </div>
       </section>
