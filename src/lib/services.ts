@@ -411,6 +411,16 @@ export const services: Service[] = [
     },
   },
   {
+    slug: "light-switches",
+    title: "Light Switches & Dimmers",
+    shortDesc: "Light switch replacements, dimmers and matching finishes for your home or business.",
+    metaDescription: "Light switch and dimmer installation in Bayside and South East Melbourne. Clipsal, Hager, HPM and Legrand / BTicino. Licensed electrician, upfront quotes.",
+    heroSubtitle: "Your Lighting. Your Style. Your Control.",
+    intro: "Replace worn switches, add compatible dimmers or coordinate a fresh look throughout your home. Pilkington Electrical installs and upgrades light switches across Bayside and South East Melbourne, with options to match your power points, interior finishes and budget.",
+    included: ["Light switch replacements", "Dimmer installation and replacement", "Two-way and multi-gang switching", "Matching switches and power points", "Legrand / BTicino Living Now and other suitable ranges"],
+    body: [],
+  },
+  {
     slug: "ceiling-fans",
     title: "Ceiling Fan Installation",
     shortDesc: "Supply and installation of ceiling fans, or new wiring for your own fan.",

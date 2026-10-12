@@ -9,6 +9,7 @@ import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
 import { ElectricalSafetyDetails } from "@/components/ElectricalSafetyDetails";
+import { LightSwitchesDetails } from "@/components/LightSwitchesDetails";
 import { PowerPointsDetails } from "@/components/PowerPointsDetails";
 import { SmokeAlarmDetails } from "@/components/SmokeAlarmDetails";
 import { FaultFindingDetails } from "@/components/FaultFindingDetails";
@@ -164,7 +165,7 @@ function ServicePage() {
       )}
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        {service.slug === "ev-charger-install" ? <EVChargerDetails /> : service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <BodyCorporateDetails /> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
+        {service.slug === "ev-charger-install" ? <EVChargerDetails /> : service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <BodyCorporateDetails /> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "light-switches" ? <LightSwitchesDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
           <>
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">

@@ -6,6 +6,42 @@ export type PowerPointStyle = {
 };
 export const powerPointStyles: PowerPointStyle[] = [
 {
+  "title": "Legrand / BTicino Living Now \u2014 White",
+  "image": "bticino-living-now-outlet-white",
+  "label": "Contemporary coordinated range",
+  "text": "A Living Now double power point with automatic switching for a clean faceplate.",
+  "detail": "Complete outlet shown. Confirm the configuration, finish and current availability when quoting.",
+  "source": "https://www.powerpointsandswitches.com.au/products/hpm-legrand-living-now-double-powerpoint-autoswitched",
+  "photoType": "outlet"
+},
+{
+  "title": "Legrand / BTicino Living Now \u2014 Black",
+  "image": "bticino-living-now-outlet-black",
+  "label": "Contemporary coordinated range",
+  "text": "A Living Now double power point with automatic switching for a clean faceplate.",
+  "detail": "Complete outlet shown. Confirm the configuration, finish and current availability when quoting.",
+  "source": "https://www.powerpointsandswitches.com.au/products/hpm-legrand-living-now-double-powerpoint-autoswitched",
+  "photoType": "outlet"
+},
+{
+  "title": "Legrand / BTicino Living Now \u2014 White",
+  "image": "bticino-living-now-switch-white",
+  "label": "Contemporary coordinated range",
+  "text": "A Living Now two-gang light switch with broad, aligned keys.",
+  "detail": "Complete switch shown. Confirm the configuration, finish and current availability when quoting.",
+  "source": "https://www.powerpointsandswitches.com.au/products/hpm-legrand-living-now-2-gang-switch-with-led",
+  "photoType": "outlet"
+},
+{
+  "title": "Legrand / BTicino Living Now \u2014 Black",
+  "image": "bticino-living-now-switch-black",
+  "label": "Contemporary coordinated range",
+  "text": "A Living Now two-gang light switch with broad, aligned keys.",
+  "detail": "Complete switch shown. Confirm the configuration, finish and current availability when quoting.",
+  "source": "https://www.powerpointsandswitches.com.au/products/hpm-legrand-living-now-2-gang-switch-with-led",
+  "photoType": "outlet"
+},
+{
   "title": "Clipsal Solis — Brushed Brass",
   "image": "clipsal-solis-brushed-brass",
   "label": "Solis T Series luxury finish",

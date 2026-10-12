@@ -97,3 +97,14 @@ Added as the first range at the user’s request. All six finishes listed in the
 - Clipsal Solis — White Ceramic: https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-WC ; photo https://download.se.com/files?p_Doc_Ref=1025-WC_IOP-Default&p_File_Type=rendition_369_jpg
 - Clipsal Solis — Zen Black: https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-ZB ; photo https://download.se.com/files?p_Doc_Ref=1025-ZB_IOP-Default&p_File_Type=rendition_369_jpg
 - Clipsal Solis — Zen White: https://www.clipsal.com/products/power-points-switches/solis/double-switch-power-point-horizontal-mount-230v-240v-10a-1025?itemno=1025-ZW ; photo https://download.se.com/files?p_Doc_Ref=1025-ZW_IOP-Default&p_File_Type=rendition_369_jpg
+
+
+## Legrand / BTicino Living Now
+
+Added black and white complete double outlets (LVN777AWE / LVN777ABL) and two-gang switches (LVNSW2WE / LVNSW2BL). Product photos downloaded from the matching variant images in Powerpoints and Switches' product catalogue, converted to WebP without changing the product appearance.
+
+- https://www.powerpointsandswitches.com.au/products/hpm-legrand-living-now-double-powerpoint-autoswitched
+- https://www.powerpointsandswitches.com.au/products/hpm-legrand-living-now-2-gang-switch-with-led
+- Manufacturer range: https://www.legrand.com.au/en/solutions/by-popular-range/living-now
+
+Light Switches reuses the existing outlet gallery as explicitly labelled range/finish references. BTicino shows actual switches on that page and outlets on Power Points.
