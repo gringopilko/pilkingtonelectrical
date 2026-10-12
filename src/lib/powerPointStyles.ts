@@ -107,4 +107,13 @@ export const powerPointStyles = [
     source:
       "https://www.clipsal.com/products/power-points-switches/2000-series/twin-switch-socket-outlet-250v-10a-2025?itemno=2025-WE",
   },
+  {
+    title: "Clipsal Classic — White",
+    label: "Familiar classic",
+    image: "clipsal-classic-white",
+    text: "A white double power point from the Classic C2000 range, with a low-profile design and clip-on cover for a neat, familiar finish.",
+    detail: "A practical option for matching existing Classic outlets and switches",
+    source:
+      "https://www.clipsal.com/products/power-points-switches/classic-c2000-series/switched-socket-outlet-twin-250v-10a-c2025?itemno=C2025-WE",
+  },
 ];

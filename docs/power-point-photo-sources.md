@@ -29,3 +29,5 @@ Broader smoke-alarm and FAQ copy was checked against Consumer Affairs Victoria:
 Smoke-alarm copy distinguishes annual rental checks from building-specific
 hard-wiring and interconnection requirements; it does not claim every home
 requires interconnected photoelectric alarms.
+
+Clipsal Classic C2000 C2025-WE (after Clipsal 2000): manufacturer photo https://download.se.com/files?p_Doc_Ref=A00021792&p_File_Type=rendition_369_jpg ; product https://www.clipsal.com/products/power-points-switches/classic-c2000-series/switched-socket-outlet-twin-250v-10a-c2025?itemno=C2025-WE
