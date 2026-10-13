@@ -12,7 +12,7 @@ export interface Service {
   /** Optional headed cards shown instead of plain paragraphs. */
   sections?: { title: string; text: string }[];
   /** Optional banner shown under the page heading. Files live in public/img. */
-  image?: { file: string; alt: string; width: number; height: number };
+  image?: { file: string; alt: string; width: number; height: number; focus?: string };
 }
 
 export const services: Service[] = [
@@ -127,6 +127,7 @@ export const services: Service[] = [
       alt: "Electrician working on a residential switchboard",
       width: 1600,
       height: 640,
+      focus: "90% 50%",
     },
   },
   {

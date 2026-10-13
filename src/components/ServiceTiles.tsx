@@ -31,6 +31,7 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
                   height={s.image.height}
                   loading="lazy"
                   decoding="async"
+                  style={s.image.focus ? { objectPosition: s.image.focus } : undefined}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
