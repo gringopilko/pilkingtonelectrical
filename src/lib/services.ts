@@ -161,7 +161,7 @@ export const services: Service[] = [
     heroSubtitle: "Helpful to your team. Respectful of tenants. Mindful of owners' budgets.",
     pageTitle: "Electrician for Real Estate & Property Managers Melbourne",
     shortDesc: "Honest repairs, upgrade options and same day visits for agents, property managers and their owners.",
-    metaDescription: "Electrical repairs, rental safety checks and maintenance for real estate agents in Bayside and South East Melbourne. Helpful advice, tenant-friendly visits and clear pricing.",
+    metaDescription: "Electrical repairs, rental safety checks and maintenance for real estate agents in Bayside and South East Melbourne. Honest options and clear pricing.",
     intro: "I'm here to build long term relationships with real estate agents and property managers, based on understanding what you and your owners actually need. Whether it's a single repair, a compliance check or a building full of small jobs, I'm happy to help.",
     included: [
       "Repairs and fault finding for rental properties",
@@ -443,7 +443,7 @@ export const services: Service[] = [
     pageTitle: "Smoke Alarm Installation & Servicing Melbourne",
     image: { file: "smoke-alarm-ceiling.webp", alt: "Clipsal smoke alarm installed on a home ceiling", width: 875, height: 656 },
     shortDesc: "Compliant smoke alarm installation, testing and replacement.",
-    metaDescription: "Smoke alarm installation, servicing and rental checks in Bayside and South East Melbourne. Compare hardwired, battery and interconnected alarms with a licensed electrician.",
+    metaDescription: "Smoke alarm installation, servicing and rental checks in Bayside and South East Melbourne. Hardwired, battery and interconnected options explained.",
     intro: "All Victorian homes must have working smoke alarms. I assess your property, install suitable alarms and discuss photoelectric and interconnected options, with hard-wiring where required. Rental properties need annual smoke alarm safety checks.",
     included: [
       "Smoke alarm installation",
