@@ -50,7 +50,7 @@ function Index() {
             poster={heroImg}
             className="h-full w-full object-cover"
           >
-            <source src="/melbourne-hero.mp4" type="video/mp4" />
+            <source src="/melbourne-hero-compact.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/60" />
         </div>

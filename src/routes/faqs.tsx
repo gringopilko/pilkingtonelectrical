@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 const faqs = [
   {
     q: "Are you licensed and insured?",
-    a: "Yes. Pilkington Electrical operates under REC 30450, fully licensed and insured for residential and commercial electrical work across Victoria. That covers everything from a single power point to a full switchboard upgrade, so you're covered whether it's a small job or a larger one.",
+    a: "Yes. Pilkington Electrical operates under REC 30450, fully licensed and insured, with $5 million public liability cover, for residential and commercial electrical work across Victoria. That covers everything from a single power point to a full switchboard upgrade, so you're covered whether it's a small job or a larger one.",
   },
   {
     q: "Will you be the one doing the work?",

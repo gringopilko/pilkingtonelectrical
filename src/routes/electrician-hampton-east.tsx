@@ -10,7 +10,7 @@ import { services } from "@/lib/services";
 const landingFaqs = [
   {
     q: "Are you licensed and insured?",
-    a: "Yes. Pilkington Electrical operates under REC 30450, fully licensed and insured for residential and commercial electrical work across Victoria.",
+    a: "Yes. Pilkington Electrical operates under REC 30450, fully licensed and insured, with $5 million public liability cover, for residential and commercial electrical work across Victoria.",
   },
   {
     q: "Will you be the one doing the work?",

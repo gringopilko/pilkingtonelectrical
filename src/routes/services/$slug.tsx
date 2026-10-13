@@ -212,7 +212,7 @@ function ServicePage() {
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {[
               "Licensed electrician, REC 30450",
-              "Fully insured with public liability cover",
+              "Fully insured with $5 million public liability cover",
               "Upfront pricing with no surprises on the invoice",
               "The same electrician from first call to finished job",
             ].map((line) => (
