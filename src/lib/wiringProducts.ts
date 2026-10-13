@@ -2228,7 +2228,7 @@ export const wiringProducts: WiringProductGroup[] = [
   },
   {
     "id": "clipsal-metal-stainless-outlet",
-    "title": "Clipsal Metal Plate — Stainless Steel",
+    "title": "Clipsal Metal Plate: Stainless Steel",
     "kind": "outlet",
     "note": "Stainless-steel double outlet examples with white or black inserts.",
     "variants": [
@@ -2254,7 +2254,7 @@ export const wiringProducts: WiringProductGroup[] = [
   },
   {
     "id": "clipsal-metal-brass-outlet",
-    "title": "Clipsal Metal Plate — Polished Brass",
+    "title": "Clipsal Metal Plate: Polished Brass",
     "kind": "outlet",
     "note": "Polished-brass double outlet with white inserts; matching switches can be quoted.",
     "variants": [
@@ -2271,7 +2271,7 @@ export const wiringProducts: WiringProductGroup[] = [
   },
   {
     "id": "clipsal-metal-stainless-switch",
-    "title": "Clipsal Metal Plate — Stainless Steel",
+    "title": "Clipsal Metal Plate: Stainless Steel",
     "kind": "switch",
     "note": "One-gang white and two-gang black examples are shown. The number of switches and matching mechanisms are confirmed in your quote.",
     "variants": [
@@ -2297,7 +2297,7 @@ export const wiringProducts: WiringProductGroup[] = [
   },
   {
     "id": "clipsal-metal-brass-switch",
-    "title": "Clipsal Metal Plate — Polished Brass",
+    "title": "Clipsal Metal Plate: Polished Brass",
     "kind": "switch",
     "note": "Polished-brass switch example with a white rocker. Other layouts are checked before quoting.",
     "variants": [
@@ -2314,7 +2314,7 @@ export const wiringProducts: WiringProductGroup[] = [
   },
   {
     "id": "clipsal-saturn-horizon-legacy-outlet",
-    "title": "Clipsal Saturn / Horizon — Legacy",
+    "title": "Clipsal Saturn / Horizon: Legacy",
     "kind": "outlet",
     "note": "Earlier glass and Horizon finishes for matching existing fittings. This range is discontinued; remaining stock and suitable alternatives must be checked.",
     "variants": [
@@ -2367,7 +2367,7 @@ export const wiringProducts: WiringProductGroup[] = [
   },
   {
     "id": "clipsal-saturn-horizon-legacy-switch",
-    "title": "Clipsal Saturn / Horizon — Legacy",
+    "title": "Clipsal Saturn / Horizon: Legacy",
     "kind": "switch",
     "note": "Earlier glass and Horizon finishes for matching existing fittings. This range is discontinued; remaining stock and suitable alternatives must be checked.",
     "variants": [

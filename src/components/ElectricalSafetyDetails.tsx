@@ -70,9 +70,9 @@ export function ElectricalSafetyDetails() {
         <div className="mt-6 rounded-xl border border-border bg-card p-6">
           <h3 className="font-bold">Official guidance</h3>
           <div className="mt-3 flex flex-col items-start gap-3 text-sm">
-            <a className="text-primary underline underline-offset-4" href="https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/gas-electrical-and-water-safety-standards/rental-providers-gas-and-electrical-safety" target="_blank" rel="noopener noreferrer">Consumer Affairs Victoria — rental electrical safety</a>
-            <a className="text-primary underline underline-offset-4" href="https://www.consumer.vic.gov.au/housing/renting/new-changes-to-the-rental-laws" target="_blank" rel="noopener noreferrer">Consumer Affairs Victoria — changes to rental laws</a>
-            <a className="text-primary underline underline-offset-4" href="https://www.energysafe.vic.gov.au/industry-guidance/electrical/electricians-toolkit/residential-tenancy" target="_blank" rel="noopener noreferrer">Energy Safe Victoria — residential tenancy checks</a>
+            <a className="text-primary underline underline-offset-4" href="https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/gas-electrical-and-water-safety-standards/rental-providers-gas-and-electrical-safety" target="_blank" rel="noopener noreferrer">Consumer Affairs Victoria: rental electrical safety</a>
+            <a className="text-primary underline underline-offset-4" href="https://www.consumer.vic.gov.au/housing/renting/new-changes-to-the-rental-laws" target="_blank" rel="noopener noreferrer">Consumer Affairs Victoria: changes to rental laws</a>
+            <a className="text-primary underline underline-offset-4" href="https://www.energysafe.vic.gov.au/industry-guidance/electrical/electricians-toolkit/residential-tenancy" target="_blank" rel="noopener noreferrer">Energy Safe Victoria: residential tenancy checks</a>
           </div>
         </div>
       </section>

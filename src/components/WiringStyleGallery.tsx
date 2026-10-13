@@ -28,7 +28,7 @@ function ProductCard({ group }: { group: WiringProductGroup }) {
         onKeyDown={(event) => { if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) { event.preventDefault(); choose(event.key === "Home" ? 0 : event.key === "End" ? group.variants.length - 1 : selected + (event.key === "ArrowRight" ? 1 : -1)); } }}
         onTouchStart={(event) => { touchStart.current = event.touches[0].clientX; }}
         onTouchEnd={(event) => { if (touchStart.current !== null) { const distance = event.changedTouches[0].clientX - touchStart.current; if (Math.abs(distance) > 45) choose(selected + (distance < 0 ? 1 : -1)); } touchStart.current = null; }}>
-        <img key={active.id} src={active.image} alt={`${group.title}, ${active.finish}${active.sku ? ` (${active.sku})` : ""} — ${photoLabels[active.photoType]}`}
+        <img key={active.id} src={active.image} alt={`${group.title}, ${active.finish}${active.sku ? ` (${active.sku})` : ""}, ${photoLabels[active.photoType]}`}
           width={800} height={600} loading="lazy" decoding="async" draggable={false} style={active.id === "trader-senoa-simple-switch-white" || active.id === "trader-zimi-senoa-smart-dimmer-dimmer-white" ? { transform: "scale(1.3)" } : undefined} className="h-full w-full object-contain" />
       </div>
       <h3 className="mt-4 text-xl font-bold tracking-tight">{group.title}</h3>

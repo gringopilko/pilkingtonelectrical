@@ -118,7 +118,7 @@ export function PowerPointsDetails() {
           Power where you need it
         </h2>
         <p className="mt-4 leading-relaxed text-muted-foreground">
-          One extra socket or a refresh throughout the property — I install and replace power points
+          One extra socket or a refresh throughout the property. I install and replace power points
           for homes, offices, commercial and rental properties across Bayside and South East
           Melbourne.
         </p>

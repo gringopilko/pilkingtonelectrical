@@ -70,7 +70,7 @@ export function SwitchboardDetails() {
         <div className="mt-6 space-y-3">
           {faqs.map(([q, a]) => <details key={q} className="rounded-xl border border-border bg-card px-6 py-5"><summary className="cursor-pointer font-bold focus-visible:outline-2 focus-visible:outline-primary">{q}</summary><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{a}</p></details>)}
         </div>
-        <a href="https://www.energysafe.vic.gov.au/industry-guidance/electrical/frequently-asked-questions/ensuring-power-until-inspection" target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-sm text-primary underline underline-offset-4">Energy Safe Victoria — inspection before reconnection</a>
+        <a href="https://www.energysafe.vic.gov.au/industry-guidance/electrical/frequently-asked-questions/ensuring-power-until-inspection" target="_blank" rel="noopener noreferrer" className="mt-6 inline-block text-sm text-primary underline underline-offset-4">Energy Safe Victoria: inspection before reconnection</a>
       </section>
     </>
   );
