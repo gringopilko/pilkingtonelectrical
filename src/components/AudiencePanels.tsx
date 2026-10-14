@@ -8,7 +8,7 @@ interface Audience {
   heading: string;
   text: string;
   bullets: string[];
-  image: { file: string; width: number; height: number; focus: string };
+  image: { file: string; width: number; height: number; focus: string; alt: string };
   slug?: string;
   linkLabel: string;
 }
@@ -24,7 +24,7 @@ const audiences: Audience[] = [
       "Switchboard and safety switch upgrades",
       "Lighting, power points and ceiling fans",
     ],
-    image: { file: "rewiring-extensions.webp", width: 1600, height: 640, focus: "88% 50%" },
+    image: { file: "fault-finding-tile.webp", width: 900, height: 600, focus: "62% 50%", alt: "Thermal imager checking switchboard wiring for faults" },
     linkLabel: "See all services",
   },
   {
@@ -37,7 +37,7 @@ const audiences: Audience[] = [
       "The cheapest option, plus a better path where it makes sense",
       "Several properties in one building on the same day",
     ],
-    image: { file: "real-estate-keys.webp", width: 1600, height: 800, focus: "50% 50%" },
+    image: { file: "real-estate-tile.webp", width: 640, height: 427, focus: "50% 55%", alt: "Property manager holding a folder and a house key" },
     slug: "real-estate",
     linkLabel: "Real estate & property managers",
   },
@@ -51,7 +51,7 @@ const audiences: Audience[] = [
       "Switchboard and emergency lighting upkeep",
       "Quotes and reports a committee can approve",
     ],
-    image: { file: "body-corporate.webp", width: 1600, height: 649, focus: "68% 50%" },
+    image: { file: "body-corporate-tile.webp", width: 640, height: 960, focus: "50% 42%", alt: "Apartment building balconies" },
     slug: "body-corporate",
     linkLabel: "Body corporate & strata",
   },
@@ -65,7 +65,7 @@ const audiences: Audience[] = [
       "Fault finding and repairs",
       "Commercial lighting and power",
     ],
-    image: { file: "commercial-electrician.webp", width: 1600, height: 640, focus: "92% 50%" },
+    image: { file: "test-and-tag-tile.webp", width: 904, height: 678, focus: "50% 50%", alt: "Test certified tag attached to an appliance power lead" },
     slug: "commercial-electrician",
     linkLabel: "Commercial electrician",
   },
@@ -157,7 +157,7 @@ export function AudiencePanels() {
             <div className="order-1 aspect-[16/10] overflow-hidden rounded-xl border border-border bg-brand-dark md:order-2 md:aspect-[4/3]">
               <img
                 src={`/img/${a.image.file}`}
-                alt=""
+                alt={a.image.alt}
                 width={a.image.width}
                 height={a.image.height}
                 loading="lazy"

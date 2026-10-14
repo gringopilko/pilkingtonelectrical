@@ -26,10 +26,10 @@ export function BrandsWeUse() {
 
         {/* Phones: one slow scrolling row */}
         <div className="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] sm:hidden">
-          <div className="flex w-max items-center animate-[brand-marquee_30s_linear_infinite] motion-reduce:animate-none">
+          <div className="flex w-max items-center animate-[brand-marquee_30s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none">
             {[...logos, ...logos].map((l, i) => (
               <div key={i} className="flex shrink-0 items-center pr-10" aria-hidden={i >= logos.length ? true : undefined}>
-                <img src={l.src} alt={i >= logos.length ? "" : l.alt} className={`${l.mobile} w-auto opacity-70 grayscale`} loading="lazy" />
+                <img src={l.src} alt={i >= logos.length ? "" : l.alt} className={`${l.mobile} w-auto opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 active:opacity-100 active:grayscale-0`} loading="lazy" />
               </div>
             ))}
           </div>
