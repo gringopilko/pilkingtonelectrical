@@ -13,6 +13,8 @@ export interface Service {
   sections?: { title: string; text: string }[];
   /** Optional banner shown under the page heading. Files live in public/img. */
   image?: { file: string; alt: string; width: number; height: number; focus?: string };
+  /** Optional picture used only on the homepage tiles (falls back to image). */
+  tileImage?: { file: string; width: number; height: number; focus?: string };
 }
 
 export const services: Service[] = [
@@ -129,6 +131,7 @@ export const services: Service[] = [
       height: 640,
       focus: "90% 50%",
     },
+    tileImage: { file: "max9-switchboard.webp", width: 600, height: 400 },
   },
   {
     slug: "body-corporate",

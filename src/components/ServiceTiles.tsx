@@ -15,6 +15,7 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
     <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
       {items.map((s) => {
         const Fallback = s.slug === "test-and-tag" ? Tag : Zap;
+        const pic = s.tileImage ?? s.image;
         return (
           <Link
             key={s.slug}
@@ -23,15 +24,15 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
             className="group flex flex-col overflow-hidden rounded-xl border border-border bg-background transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
           >
             <div className="aspect-[4/3] overflow-hidden bg-brand-dark sm:aspect-[16/10]">
-              {s.image ? (
+              {pic ? (
                 <img
-                  src={`/img/${s.image.file}`}
+                  src={`/img/${pic.file}`}
                   alt=""
-                  width={s.image.width}
-                  height={s.image.height}
+                  width={pic.width}
+                  height={pic.height}
                   loading="lazy"
                   decoding="async"
-                  style={s.image.focus ? { objectPosition: s.image.focus } : undefined}
+                  style={pic.focus ? { objectPosition: pic.focus } : undefined}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
