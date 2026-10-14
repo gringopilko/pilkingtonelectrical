@@ -15,8 +15,10 @@ export const Route = createFileRoute("/suburbs/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const url = `https://pilkingtonelectrical.com.au/suburbs/${loaderData.slug}`;
-    const title = `Electrician in ${loaderData.name}, VIC | Pilkington Electrical`;
-    const description = `Licensed electrician servicing ${loaderData.name}: switchboards, fault finding, lighting, rewiring and more across Melbourne's ${loaderData.area} area. Call 0466 270 949.`;
+    const title = `Electrician ${loaderData.name} | Licensed REC 30450 | Pilkington Electrical`;
+    const description = loaderData.slug === "hampton-east"
+      ? "Local licensed electrician based in Hampton East. Fault finding, switchboards, safety switches, lighting and rental safety checks. Call 0466 270 949 for a quote."
+      : `Licensed electrician (REC 30450) for ${loaderData.name}. Fault finding, switchboards, safety switches, lighting and rental safety checks. Call 0466 270 949 for a quote.`;
     return {
       meta: [
         { title },
