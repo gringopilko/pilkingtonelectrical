@@ -14,7 +14,7 @@ export interface Service {
   /** Optional banner shown under the page heading. Files live in public/img. */
   image?: { file: string; alt: string; width: number; height: number; focus?: string };
   /** Optional picture used only on the homepage tiles (falls back to image). */
-  tileImage?: { file: string; width: number; height: number; focus?: string };
+  tileImage?: { file: string; width: number; height: number; focus?: string; alt?: string };
 }
 
 export const services: Service[] = [
@@ -44,7 +44,7 @@ export const services: Service[] = [
       width: 1600,
       height: 800,
     },
-    tileImage: { file: "safety-inspection-tile.webp", width: 426, height: 640, focus: "50% 72%" },
+    tileImage: { file: "safety-inspection-tile.webp", width: 426, height: 640, focus: "50% 72%", alt: "Electrician working on a switchboard during an electrical safety check" },
   },
   {
     slug: "test-and-tag",
@@ -106,7 +106,7 @@ export const services: Service[] = [
       "width": 1600,
       "height": 646
     },
-    tileImage: { file: "test-and-tag-tile.webp", width: 904, height: 678 },
+    tileImage: { file: "test-and-tag-tile.webp", width: 904, height: 678, alt: "Test certified tag attached to an appliance power lead" },
   },
   {
     slug: "switchboards",
@@ -133,7 +133,7 @@ export const services: Service[] = [
       height: 640,
       focus: "90% 50%",
     },
-    tileImage: { file: "max9-switchboard.webp", width: 600, height: 400 },
+    tileImage: { file: "max9-switchboard.webp", width: 600, height: 400, alt: "Open MAX9 switchboard with two rows of circuit breakers" },
   },
   {
     slug: "body-corporate",
@@ -160,7 +160,7 @@ export const services: Service[] = [
       width: 1600,
       height: 649,
     },
-    tileImage: { file: "body-corporate-tile.webp", width: 640, height: 960, focus: "50% 42%" },
+    tileImage: { file: "body-corporate-tile.webp", width: 640, height: 960, focus: "50% 42%", alt: "Apartment building balconies" },
   },
   {
     slug: "real-estate",
@@ -204,7 +204,7 @@ export const services: Service[] = [
       width: 1600,
       height: 800,
     },
-    tileImage: { file: "real-estate-tile.webp", width: 640, height: 427, focus: "50% 55%" },
+    tileImage: { file: "real-estate-tile.webp", width: 640, height: 427, focus: "50% 55%", alt: "Property manager holding a folder and a house key" },
   },
   {
     slug: "safety-switches",
@@ -256,7 +256,7 @@ export const services: Service[] = [
       width: 1600,
       height: 716,
     },
-    tileImage: { file: "fault-finding-tile.webp", width: 900, height: 600, focus: "62% 50%" },
+    tileImage: { file: "fault-finding-tile.webp", width: 900, height: 600, focus: "62% 50%", alt: "Thermal imager showing a heat image of switchboard wiring" },
   },
   {
     slug: "emergency-electrical",

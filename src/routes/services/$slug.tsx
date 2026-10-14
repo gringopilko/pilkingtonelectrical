@@ -111,7 +111,7 @@ function ServicePage() {
 
       <section className="border-b border-border bg-card">
         <div className={`mx-auto ${service.slug === "commercial-electrician" ? "max-w-7xl" : "max-w-5xl"} px-6 py-16 md:py-20`}>
-          <div className={service.slug === "commercial-electrician" ? "grid items-center gap-10 lg:grid-cols-2" : service.slug === "power-points" ? "grid items-center gap-10 md:grid-cols-2" : ""}>
+          <div className={service.slug === "commercial-electrician" ? "grid items-center gap-10 lg:grid-cols-2" : service.slug === "power-points" || service.tileImage ? "grid items-center gap-10 md:grid-cols-2" : ""}>
           <div>
           <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-foreground">Home</Link>
@@ -147,11 +147,22 @@ function ServicePage() {
           {service.slug === "power-points" && service.image && (
             <img src={`/img/${service.image.file}`} alt={service.image.alt} width={service.image.width} height={service.image.height} decoding="async" className="aspect-[4/3] w-full rounded-2xl border border-border object-cover" />
           )}
+          {service.tileImage && (
+            <img
+              src={`/img/${service.tileImage.file}`}
+              alt={service.tileImage.alt ?? service.title}
+              width={service.tileImage.width}
+              height={service.tileImage.height}
+              decoding="async"
+              style={service.tileImage.focus ? { objectPosition: service.tileImage.focus } : undefined}
+              className="aspect-[16/10] w-full rounded-2xl border border-border object-cover md:aspect-[4/3]"
+            />
+          )}
           </div>
         </div>
       </section>
 
-      {service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.slug !== "commercial-electrician" && service.slug !== "power-points" && service.image && (
+      {service.slug === "emergency-electrical" ? <EmergencyHeroVideo /> : service.slug !== "commercial-electrician" && service.slug !== "power-points" && !service.tileImage && service.image && (
         <div className="mx-auto max-w-5xl px-6 pt-12">
           <img
             src={`/img/${service.image.file}`}
