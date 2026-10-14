@@ -268,7 +268,7 @@ export const guides: Guide[] = [
         heading: "What AS/NZS 3760 is",
         paragraphs: [
           "AS/NZS 3760 is the Australian and New Zealand standard for in-service safety inspection and testing of electrical equipment. It sets out how equipment is inspected and tested, and recommends testing intervals for different types of equipment and environments.",
-          "In practice, a harsher environment or heavily used equipment is tested more often than low risk equipment in a quiet office. The right schedule for your workplace is worked out from the equipment and how it is used, not taken from a single number.",
+          "The Victorian Trades Hall Council OHS Reps site describes the standard's table as running from every 3 months for high use, high risk or hire equipment, up to 5 years for equipment that is not open to abuse or cord flexing. In practice, a harsher environment or heavily used equipment is tested more often than low risk equipment in a quiet office. The right schedule for your workplace is worked out from the equipment and how it is used, not taken from a single number.",
         ],
       },
       {
