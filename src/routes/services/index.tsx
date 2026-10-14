@@ -7,12 +7,15 @@ import { services } from "@/lib/services";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Electrical Services | Pilkington Electrical" },
+      { title: "Electrical Services in Bayside & South East Melbourne" },
       {
         name: "description",
         content:
           "Full range of licensed electrical services across South East Melbourne: switchboards, rewiring, lighting, EV chargers, body corporate work and more.",
       },
+      { property: "og:title", content: "Electrical Services in Bayside & South East Melbourne" },
+      { property: "og:description", content: "Full range of licensed electrical services across South East Melbourne: switchboards, rewiring, lighting, EV chargers, body corporate work and more." },
+      { property: "og:url", content: "https://pilkingtonelectrical.com.au/services" },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/services" }],
     scripts: [

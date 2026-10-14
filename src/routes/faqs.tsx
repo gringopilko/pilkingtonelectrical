@@ -75,12 +75,15 @@ function renderAnswer(faq: (typeof faqs)[number]) {
 export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: [
-      { title: "FAQs | Pilkington Electrical" },
+      { title: "Electrician FAQs | Pilkington Electrical" },
       {
         name: "description",
         content:
           "Common questions about Pilkington Electrical: licensing, service areas, pricing, and working with body corporates across South East Melbourne.",
       },
+      { property: "og:title", content: "Electrician FAQs | Pilkington Electrical" },
+      { property: "og:description", content: "Common questions about Pilkington Electrical: licensing, service areas, pricing, and working with body corporates across South East Melbourne." },
+      { property: "og:url", content: "https://pilkingtonelectrical.com.au/faqs" },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/faqs" }],
     scripts: [

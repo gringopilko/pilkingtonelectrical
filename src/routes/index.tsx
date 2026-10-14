@@ -16,16 +16,16 @@ import { services } from "@/lib/services";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pilkington Electrical | Electrician in South East Melbourne" },
+      { title: "Electrician Bayside & South East Melbourne | Pilkington Electrical" },
       {
         name: "description",
         content:
-          "Pilkington Electrical: licensed electrician covering South East Melbourne & Hampton East. Residential rewires, fault finding, switchboards & more.",
+          "Licensed electrician (REC 30450) in Hampton East, serving Bayside and South East Melbourne. Rental safety checks, test and tag, switchboards and fault finding.",
       },
-      { property: "og:title", content: "Pilkington Electrical | Licensed Electrician Melbourne" },
+      { property: "og:title", content: "Electrician Bayside & South East Melbourne | Pilkington Electrical" },
       {
         property: "og:description",
-        content: "Licensed electrician covering South East Melbourne & Hampton East. Residential rewires, fault finding, switchboards.",
+        content: "Licensed electrician (REC 30450) in Hampton East, serving Bayside and South East Melbourne. Rental safety checks, test and tag, switchboards and fault finding.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

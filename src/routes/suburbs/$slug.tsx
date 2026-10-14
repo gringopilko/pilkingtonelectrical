@@ -26,6 +26,7 @@ export const Route = createFileRoute("/suburbs/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [

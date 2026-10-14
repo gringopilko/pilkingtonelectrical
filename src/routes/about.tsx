@@ -6,12 +6,15 @@ import { Footer } from "@/components/Footer";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About | Pilkington Electrical" },
+      { title: "About Shane Pilkington | Licensed Electrician, Hampton East" },
       {
         name: "description",
         content:
           "Pilkington Electrical is a licensed electrician based in Hampton East, serving South East Melbourne. You deal directly with Shane from quote to completion.",
       },
+      { property: "og:title", content: "About Shane Pilkington | Licensed Electrician, Hampton East" },
+      { property: "og:description", content: "Pilkington Electrical is a licensed electrician based in Hampton East, serving South East Melbourne. You deal directly with Shane from quote to completion." },
+      { property: "og:url", content: "https://pilkingtonelectrical.com.au/about" },
       { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
       { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
     ],
