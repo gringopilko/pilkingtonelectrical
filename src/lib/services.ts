@@ -44,6 +44,7 @@ export const services: Service[] = [
       width: 1600,
       height: 800,
     },
+    tileImage: { file: "safety-inspection-tile.webp", width: 426, height: 640, focus: "50% 72%" },
   },
   {
     slug: "test-and-tag",
