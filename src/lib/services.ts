@@ -142,7 +142,7 @@ export const services: Service[] = [
     pageTitle: "Body Corporate & Strata Electrician Melbourne",
     seoTitle: "Strata & Body Corporate Electrician Melbourne",
     shortDesc: "A dependable trade partner for strata and body corporate common area electrical.",
-    metaDescription: "Strata and body corporate electrician for Melbourne's Bayside and South East. Common-area lighting, fault finding, maintenance, rental safety checks and clear committee reporting. Licensed REC 30450.",
+    metaDescription: "Strata and body corporate electrician for Bayside and South East Melbourne. Common area lighting, maintenance, safety checks and clear committee reports. REC 30450.",
     intro: "I help owners corporations, committees and property managers look after common-area electrical systems across Bayside and South East Melbourne. From a failed stairwell light to planned upgrades, you'll get practical advice, an agreed scope and reporting that makes sense for committee approval.",
     included: [
       "Common area lighting & repairs",
@@ -398,7 +398,7 @@ export const services: Service[] = [
     slug: "power-points",
     title: "Power Points & USB Wall Sockets",
     pageTitle: "Power Point Installation & USB Wall Sockets Melbourne",
-    seoTitle: "Power Point Installation Melbourne | USB Power Points & Upgrades",
+    seoTitle: "Power Point Installation & USB Upgrades Melbourne",
     heroSubtitle: "More power where you need it, with styles to suit your home and budget.",
     shortDesc: "Additional power points, USB outlets and switch upgrades.",
     metaDescription: "Power points, USB wall sockets and switch upgrades across South East Melbourne. Explore Clipsal, Hager, HPM and Legrand styles to suit your home and budget.",

@@ -8,13 +8,13 @@ import { suburbGroups, slugify } from "@/lib/suburbs";
 export const Route = createFileRoute("/suburbs/")({
   head: () => ({
     meta: [
-      { title: "Suburbs Serviced | Electrician Bayside & South East Melbourne" },
+      { title: "Suburbs Serviced | Electrician Bayside & SE Melbourne" },
       {
         name: "description",
         content:
           "Pilkington Electrical services Hampton East, Elwood, St Kilda, Brighton, Bayside, Bentleigh, Malvern, and the greater South East Melbourne region.",
       },
-      { property: "og:title", content: "Suburbs Serviced | Electrician Bayside & South East Melbourne" },
+      { property: "og:title", content: "Suburbs Serviced | Electrician Bayside & SE Melbourne" },
       { property: "og:description", content: "Pilkington Electrical services Hampton East, Elwood, St Kilda, Brighton, Bayside, Bentleigh, Malvern, and the greater South East Melbourne region." },
       { property: "og:url", content: "https://pilkingtonelectrical.com.au/suburbs" },
     ],

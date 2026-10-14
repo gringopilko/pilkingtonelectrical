@@ -95,8 +95,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     { property: "og:image:height", content: "909" },
     { property: "og:image:type", content: "image/png" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Pilkington Electrical | Electrician in South East Melbourne" },
-    { name: "twitter:description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
     { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
   ],
   links: [

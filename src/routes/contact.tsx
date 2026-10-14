@@ -8,13 +8,13 @@ import { QuoteForm } from "@/components/QuoteForm";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Pilkington Electrical | Licensed Electrician Melbourne" },
+      { title: "Contact Pilkington Electrical | Electrician Melbourne" },
       {
         name: "description",
         content:
           "Get in touch with Pilkington Electrical, a licensed electrician serving South East Melbourne. Call, text, or request a free quote.",
       },
-      { property: "og:title", content: "Contact Pilkington Electrical | Licensed Electrician Melbourne" },
+      { property: "og:title", content: "Contact Pilkington Electrical | Electrician Melbourne" },
       { property: "og:description", content: "Get in touch with Pilkington Electrical, a licensed electrician serving South East Melbourne. Call, text, or request a free quote." },
       { property: "og:url", content: "https://pilkingtonelectrical.com.au/contact" },
     ],

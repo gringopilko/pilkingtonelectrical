@@ -18,13 +18,13 @@ import { guides } from "@/lib/guides";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Electrician Bayside & South East Melbourne | Pilkington Electrical" },
+      { title: "Electrician Bayside & SE Melbourne | Pilkington Electrical" },
       {
         name: "description",
         content:
           "Licensed electrician (REC 30450) in Hampton East, serving Bayside and South East Melbourne. Rental safety checks, test and tag, switchboards and fault finding.",
       },
-      { property: "og:title", content: "Electrician Bayside & South East Melbourne | Pilkington Electrical" },
+      { property: "og:title", content: "Electrician Bayside & SE Melbourne | Pilkington Electrical" },
       {
         property: "og:description",
         content: "Licensed electrician (REC 30450) in Hampton East, serving Bayside and South East Melbourne. Rental safety checks, test and tag, switchboards and fault finding.",

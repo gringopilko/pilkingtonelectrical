@@ -11,9 +11,9 @@ const description =
 export const Route = createFileRoute("/guides/")({
   head: () => ({
     meta: [
-      { title: "Electrical Guides for Victorian Homes and Rentals | Pilkington Electrical" },
+      { title: "Victorian Electrical Guides | Pilkington Electrical" },
       { name: "description", content: description },
-      { property: "og:title", content: "Electrical Guides for Victorian Homes and Rentals | Pilkington Electrical" },
+      { property: "og:title", content: "Victorian Electrical Guides | Pilkington Electrical" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },

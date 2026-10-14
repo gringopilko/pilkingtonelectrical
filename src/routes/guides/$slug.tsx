@@ -6,6 +6,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { guides, getGuide } from "@/lib/guides";
 
+import { pageTitle } from "@/lib/seo";
 export const Route = createFileRoute("/guides/$slug")({
   loader: ({ params }) => {
     const guide = getGuide(params.slug);
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/guides/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const url = `https://pilkingtonelectrical.com.au/guides/${loaderData.slug}`;
-    const title = `${loaderData.seoTitle} | Pilkington Electrical`;
+    const title = pageTitle(loaderData.seoTitle);
     return {
       meta: [
         { title },

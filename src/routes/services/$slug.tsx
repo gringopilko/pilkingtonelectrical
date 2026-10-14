@@ -20,6 +20,7 @@ import { CommercialHeroVideo } from "@/components/CommercialHeroVideo";
 import { workPhotos } from "@/lib/workPhotos";
 import { guides } from "@/lib/guides";
 
+import { pageTitle } from "@/lib/seo";
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const service = services.find((s) => s.slug === params.slug);
@@ -31,9 +32,9 @@ export const Route = createFileRoute("/services/$slug")({
     const url = `https://pilkingtonelectrical.com.au/services/${loaderData.slug}`;
     return {
       meta: [
-        { title: `${loaderData.seoTitle ?? loaderData.title} | Pilkington Electrical` },
+        { title: pageTitle(loaderData.seoTitle ?? loaderData.title) },
         { name: "description", content: loaderData.metaDescription },
-        { property: "og:title", content: `${loaderData.seoTitle ?? loaderData.title} | Pilkington Electrical` },
+        { property: "og:title", content: pageTitle(loaderData.seoTitle ?? loaderData.title) },
         { property: "og:description", content: loaderData.metaDescription },
         { property: "og:type", content: "website" },
         { property: "og:url", content: url },
