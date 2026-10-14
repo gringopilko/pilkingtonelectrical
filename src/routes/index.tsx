@@ -82,10 +82,17 @@ function Index() {
             </Link>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm font-medium text-white/85">
-            <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" />Hampton East &amp; South East Melbourne</div>
-            <div className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary" />Prompt, On-Time Service</div>
-            <div className="flex items-center gap-2"><Award className="h-4 w-4 text-primary" />Quality Guaranteed</div>
+          <div className="mt-10 flex flex-wrap gap-2 sm:gap-3">
+            {[
+              { icon: MapPin, text: "Based in Hampton East" },
+              { icon: Clock, text: "Prompt, on-time service" },
+              { icon: Award, text: "Quality guaranteed" },
+            ].map((b) => (
+              <div key={b.text} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-white ring-1 ring-white/20 backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
+                <b.icon className="h-4 w-4 text-primary" aria-hidden="true" />
+                {b.text}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -197,13 +204,19 @@ function Index() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {suburbGroups.map((group) => (
-              <div key={group.area}>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-primary">{group.area}</h3>
-                <div className="mt-3 flex flex-wrap gap-2">
+              <div key={group.area} className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary">
+                    <MapPin className="h-4 w-4" aria-hidden="true" />
+                    {group.area}
+                  </h3>
+                  <span className="shrink-0 text-xs font-medium text-muted-foreground">{group.suburbs.length} suburbs</span>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
                   {group.suburbs.map((suburb) => (
-                    <Link key={suburb} to="/suburbs/$slug" params={{ slug: slugify(suburb) }} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary">{suburb}</Link>
+                    <Link key={suburb} to="/suburbs/$slug" params={{ slug: slugify(suburb) }} className="rounded-full bg-background px-3 py-1.5 text-xs font-medium text-foreground/80 ring-1 ring-border transition-colors hover:text-primary hover:ring-primary/50">{suburb}</Link>
                   ))}
                 </div>
               </div>
@@ -227,9 +240,9 @@ function Index() {
             <p className="mt-4 text-muted-foreground">Need electrical work? Call, text, or email and I'll respond quickly.</p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            <ContactCard icon={<Phone className="h-6 w-6" />} label="Phone" value="0466 270 949" href="tel:0466270949" description="Call or text anytime" />
-            <ContactCard icon={<Mail className="h-6 w-6" />} label="Email" value="contact@pilkingtonelectrical.com.au" href="mailto:contact@pilkingtonelectrical.com.au" description="Send job details & photos" />
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            <ContactCard icon={<Phone className="h-6 w-6" />} label="Phone" value="0466 270 949" href="tel:0466270949" description="Call or text anytime" highlight />
+            <ContactCard icon={<Mail className="h-6 w-6" />} label="Email" value={<>contact@<wbr />pilkingtonelectrical.com.au</>} href="mailto:contact@pilkingtonelectrical.com.au" description="Send job details & photos" />
             <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Hampton East, VIC" href="https://www.google.com/maps/search/?api=1&query=Hampton+East+VIC+Australia" description="Serving South East Melbourne" />
           </div>
 
@@ -249,13 +262,18 @@ function Index() {
   );
 }
 
-function ContactCard({ icon, label, value, href, description }: { icon: React.ReactNode; label: string; value: string; href: string; description: string }) {
+function ContactCard({ icon, label, value, href, description, highlight = false }: { icon: React.ReactNode; label: string; value: React.ReactNode; href: string; description: string; highlight?: boolean }) {
   return (
-    <a href={href} className="group flex flex-col items-center rounded-xl border border-border bg-background p-6 text-center transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
-      <div className="inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">{icon}</div>
-      <span className="mt-4 text-sm font-semibold text-muted-foreground">{label}</span>{" "}
-      <span className="mt-1 text-lg font-bold tracking-tight">{value}</span>{" "}
-      <span className="mt-1 text-xs text-muted-foreground">{description}</span>
+    <a
+      href={href}
+      className={`group flex items-center gap-4 rounded-2xl p-5 text-left transition-all hover:-translate-y-0.5 ${highlight ? "bg-gradient-to-br from-primary to-brand-dark text-white shadow-lg shadow-primary/25" : "border border-border bg-background hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"}`}
+    >
+      <div className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors ${highlight ? "bg-white/15 text-white" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"}`}>{icon}</div>
+      <div className="min-w-0">
+        <span className={`block text-xs font-semibold uppercase tracking-wider ${highlight ? "text-white/75" : "text-muted-foreground"}`}>{label}</span>
+        <span className="mt-0.5 block text-[15px] font-bold tracking-tight [overflow-wrap:anywhere] sm:text-lg">{value}</span>
+        <span className={`mt-0.5 block text-xs ${highlight ? "text-white/80" : "text-muted-foreground"}`}>{description}</span>
+      </div>
     </a>
   );
 }
