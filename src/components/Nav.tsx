@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import logoImg from "@/assets/pilkington-logo-icon.webp";
 import { services } from "@/lib/services";
+import { TrustStrip } from "@/components/TrustStrip";
 
 const supportLinks = [
   { title: "FAQs", href: "/faqs" },
@@ -25,6 +26,8 @@ export function Nav() {
   };
 
   return (
+    <>
+    <TrustStrip />
     <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <Link to="/" className="flex items-center gap-3" onClick={closeAll}>
@@ -210,5 +213,6 @@ export function Nav() {
         </div>
       )}
     </nav>
+    </>
   );
 }
