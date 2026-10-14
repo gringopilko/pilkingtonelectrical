@@ -9,6 +9,7 @@ import { BrandsWeUse } from "@/components/BrandsWeUse";
 import { Testimonials } from "@/components/Testimonials";
 import { WorkGallery } from "@/components/WorkGallery";
 import { ServiceTiles } from "@/components/ServiceTiles";
+import { AudiencePanels } from "@/components/AudiencePanels";
 import { suburbGroups } from "@/lib/suburbs";
 import { services } from "@/lib/services";
 
@@ -122,6 +123,8 @@ function Index() {
       </section>
 
       <BrandsWeUse />
+
+      <AudiencePanels />
 
       {/* About / Why Choose Section */}
       <section id="about" className="mx-auto max-w-7xl px-6 py-20">
