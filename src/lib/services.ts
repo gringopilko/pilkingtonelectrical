@@ -105,6 +105,7 @@ export const services: Service[] = [
       "width": 1600,
       "height": 646
     },
+    tileImage: { file: "test-and-tag-tile.webp", width: 904, height: 678 },
   },
   {
     slug: "switchboards",
