@@ -10,7 +10,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Pilkington Electrical is a licensed electrician based in Hampton East, serving South East Melbourne. No call centres, just direct contact with Shane.",
+          "Pilkington Electrical is a licensed electrician based in Hampton East, serving South East Melbourne. You deal directly with Shane from quote to completion.",
       },
       { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
       { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
@@ -56,7 +56,7 @@ function About() {
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Why I work this way</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               When you call, you speak directly to the person doing the
-              job, not a call centre and not whoever's rostered on that day. The
+              job. The
               person who quotes the work is the person who shows up and does it.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">

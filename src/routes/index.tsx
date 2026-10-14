@@ -132,7 +132,7 @@ function Index() {
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Why Choose Pilkington Electrical?</h2>
             <p className="mt-4 text-muted-foreground">
-              I'm a sole trader, which means when you call, you speak directly to the person doing the job. No call centres, just honest, reliable electrical work from a licensed professional who takes pride in every connection.
+              I'm a sole trader, which means when you call, you speak directly to the person doing the job. Honest, reliable electrical work from a licensed professional who takes pride in every connection.
             </p>
             <Link to="/about" className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">
               More about Pilkington Electrical

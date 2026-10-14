@@ -177,7 +177,7 @@ export const Route = createFileRoute("/electrician-hampton-east")({
       { title: "Electrician Hampton East & Bayside | Pilkington Electrical" },
       {
         name: "description",
-        content: "Licensed electrician servicing Hampton East, Bentleigh, Brighton, Moorabbin and Bayside. Direct contact with Shane, no call centres. Call 0466 270 949.",
+        content: "Licensed electrician servicing Hampton East, Bentleigh, Brighton, Moorabbin and Bayside. Deal directly with Shane. Call 0466 270 949.",
       },
       { name: "robots", content: "noindex, follow" },
     ],
