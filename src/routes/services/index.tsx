@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { ServiceTiles } from "@/components/ServiceTiles";
+import { getServiceGroups } from "@/lib/serviceGroups";
 import { services } from "@/lib/services";
 
 export const Route = createFileRoute("/services/")({
@@ -48,22 +50,16 @@ function ServicesIndex() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <Link
-              key={s.slug}
-              to="/services/$slug"
-              params={{ slug: s.slug }}
-              className="group rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
-            >
-              <h2 className="text-lg font-bold tracking-tight">{s.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.shortDesc}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                Learn more
-                <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </span>
-            </Link>
+      <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
+        <div className="flex flex-col gap-12 md:gap-16">
+          {getServiceGroups().map((group) => (
+            <div key={group.title}>
+              <div className="mb-5 flex items-end justify-between gap-4 border-b border-border pb-3">
+                <h2 className="text-xl font-extrabold tracking-tight md:text-2xl">{group.title}</h2>
+                <span className="text-xs font-medium text-muted-foreground">{group.items.length} services</span>
+              </div>
+              <ServiceTiles slugs={group.items.map((s) => s.slug)} />
+            </div>
           ))}
         </div>
       </section>

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronRight, Tag, Zap } from "lucide-react";
+import { ChevronRight, Tag, Zap, Lightbulb, ToggleRight, Fan, Building2, type LucideIcon } from "lucide-react";
 import { services } from "@/lib/services";
 
 interface ServiceTilesProps {
@@ -14,7 +14,8 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
       {items.map((s) => {
-        const Fallback = s.slug === "test-and-tag" ? Tag : Zap;
+        const fallbackIcons: Record<string, LucideIcon> = { "test-and-tag": Tag, lighting: Lightbulb, "light-switches": ToggleRight, "ceiling-fans": Fan, "commercial-electrician": Building2 };
+        const Fallback = fallbackIcons[s.slug] ?? Zap;
         const pic = s.tileImage ?? s.image;
         return (
           <Link
@@ -36,8 +37,9 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-dark to-primary text-white">
-                  <Fallback className="h-10 w-10 sm:h-14 sm:w-14" aria-hidden="true" />
+                <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-900 via-brand-dark to-primary text-white">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_55%)]" aria-hidden="true" />
+                  <Fallback className="relative h-10 w-10 opacity-90 transition-transform duration-500 group-hover:scale-110 sm:h-14 sm:w-14" strokeWidth={1.5} aria-hidden="true" />
                 </div>
               )}
             </div>
