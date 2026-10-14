@@ -4,6 +4,7 @@ import hpmLogo from "@/assets/hpm-logo.webp";
 import nhpLogo from "@/assets/nhp-logo.webp";
 import voltexLogo from "@/assets/voltex-logo.webp";
 import beaconLogo from "@/assets/beacon-logo.webp";
+import evnexLogo from "@/assets/evnex-logo.webp";
 
 export function BrandsWeUse() {
   return (
@@ -19,6 +20,7 @@ export function BrandsWeUse() {
           <img src={nhpLogo} alt="NHP" className="h-12 w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0" loading="lazy" />
           <img src={voltexLogo} alt="Voltex" className="h-12 w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0" loading="lazy" />
           <img src={beaconLogo} alt="Beacon" className="h-12 w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0" loading="lazy" />
+          <img src={evnexLogo} alt="Evnex" width={333} height={72} className="h-7 w-auto opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0" loading="lazy" />
         </div>
       </div>
     </section>
