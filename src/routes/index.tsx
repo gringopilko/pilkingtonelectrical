@@ -10,6 +10,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { WorkGallery } from "@/components/WorkGallery";
 import { ServiceTiles } from "@/components/ServiceTiles";
 import { AudiencePanels } from "@/components/AudiencePanels";
+import { ContactCard } from "@/components/ContactCard";
 import { suburbGroups, slugify } from "@/lib/suburbs";
 import { services } from "@/lib/services";
 import { guides } from "@/lib/guides";
@@ -251,7 +252,7 @@ function Index() {
             <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Hampton East, VIC" href="https://www.google.com/maps/search/?api=1&query=Hampton+East+VIC+Australia" description="Serving South East Melbourne" />
           </div>
 
-          <div id="quote" className="mt-12 scroll-mt-24 rounded-xl border border-border bg-background p-8 md:p-12">
+          <div id="quote" className="mt-12 scroll-mt-24 rounded-xl border border-border bg-background p-5 sm:p-8 md:p-12">
             <h3 className="text-center text-xl font-bold tracking-tight">Request a Free Quote</h3>
             <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
               Fill in the form and I'll get back to you promptly. If you'd like to include photos of the job, feel free to email directly:{" "}
@@ -264,21 +265,5 @@ function Index() {
 
       <Footer />
     </div>
-  );
-}
-
-function ContactCard({ icon, label, value, href, description, highlight = false }: { icon: React.ReactNode; label: string; value: React.ReactNode; href: string; description: string; highlight?: boolean }) {
-  return (
-    <a
-      href={href}
-      className={`group flex items-center gap-4 rounded-2xl p-5 text-left transition-all hover:-translate-y-0.5 ${highlight ? "bg-gradient-to-br from-primary to-brand-dark text-white shadow-lg shadow-primary/25" : "border border-border bg-background hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"}`}
-    >
-      <div className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors ${highlight ? "bg-white/15 text-white" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"}`}>{icon}</div>
-      <div className="min-w-0">
-        <span className={`block text-xs font-semibold uppercase tracking-wider ${highlight ? "text-white/75" : "text-muted-foreground"}`}>{label}</span>
-        <span className="mt-0.5 block text-[15px] font-bold tracking-tight [overflow-wrap:anywhere] sm:text-lg">{value}</span>
-        <span className={`mt-0.5 block text-xs ${highlight ? "text-white/80" : "text-muted-foreground"}`}>{description}</span>
-      </div>
-    </a>
   );
 }
