@@ -2,15 +2,28 @@ import { useState } from "react";
 import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { trackQuoteRequest } from "@/lib/analytics";
+import { services } from "@/lib/services";
+import { getServiceGroups } from "@/lib/serviceGroups";
 
 const inputClass =
   "rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
 
-export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) {
+export function QuoteForm({
+  defaultMessage = "",
+  defaultService = "",
+}: {
+  defaultMessage?: string;
+  defaultService?: string;
+}) {
+  const initialService = services.find((s) => s.slug === defaultService)?.title ?? "";
+  // The plain "Enquiry: <service>" prefill is now covered by the dropdown, so start the text box empty.
+  const initialMessage = defaultMessage.trim() === `Enquiry: ${initialService}` ? "" : defaultMessage;
+  const serviceGroups = getServiceGroups();
+  const [service, setService] = useState(initialService);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(defaultMessage);
+  const [message, setMessage] = useState(initialMessage);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [submittedPhone, setSubmittedPhone] = useState("");
@@ -34,8 +47,11 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
           name: name.trim(),
           phone: phone.trim(),
           email: email.trim() || "Not provided",
+          service: service || "Not specified",
           message: message.trim() || "No message provided",
-          subject: "New Quote Request - Pilkington Electrical",
+          subject: service
+            ? `New Quote Request: ${service} - Pilkington Electrical`
+            : "New Quote Request - Pilkington Electrical",
         }),
       });
       const data = await response.json();
@@ -54,7 +70,8 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
       setName("");
       setPhone("");
       setEmail("");
-      setMessage(defaultMessage);
+      setService(initialService);
+      setMessage(initialMessage);
     } catch (err) {
       console.error(err);
       toast.error(
@@ -112,6 +129,22 @@ export function QuoteForm({ defaultMessage = "" }: { defaultMessage?: string }) 
           required
           className={inputClass}
         />
+      </label>
+      <label className="grid gap-2 text-sm font-semibold md:col-span-2">
+        What do you need? <span className="font-normal text-muted-foreground">(optional)</span>
+        <select value={service} onChange={(e) => setService(e.target.value)} className={inputClass}>
+          <option value="">Select a service</option>
+          {serviceGroups.map((g) => (
+            <optgroup key={g.title} label={g.title}>
+              {g.items.map((svc) => (
+                <option key={svc.slug} value={svc.title}>
+                  {svc.title}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+          <option value="Something else or not sure">Something else or not sure</option>
+        </select>
       </label>
       <label className="grid gap-2 text-sm font-semibold md:col-span-2">
         Email address (optional)
