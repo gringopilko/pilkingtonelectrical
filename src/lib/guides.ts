@@ -236,6 +236,80 @@ export const guides: Guide[] = [
     ],
     relatedServices: ["safety-switches", "switchboards", "electrical-safety-inspections", "real-estate"],
   },
+  {
+    slug: "test-and-tag-victoria-how-often",
+    title: "Test and Tag in Victoria: How Often and What the Law Says",
+    shortTitle: "Test and tag: how often",
+    seoTitle: "Test and Tag in Victoria: How Often?",
+    metaDescription:
+      "How often test and tag is needed in Victoria, what the law says, what AS/NZS 3760 covers and what records a workplace should keep.",
+    summary:
+      "There is no single fixed interval in Victorian law. What employers must do, how AS/NZS 3760 is used and what records to keep.",
+    updated: "2026-10-14",
+    updatedLabel: "14 October 2026",
+    intro:
+      "Victorian law does not set one fixed test and tag interval for every workplace. Employers have a general duty to keep electrical equipment safe, and WorkSafe Victoria points to AS/NZS 3760 for recommended timeframes. Here is how that works in practice and what to keep on file.",
+    keyPoints: [
+      "WorkSafe Victoria says regular testing and tagging is needed to find faults and deterioration that cannot be seen by eye.",
+      "How often depends on the type of equipment, where it is used and how it is used.",
+      "For recommended timeframes, WorkSafe Victoria refers employers to AS/NZS 3760, the standard for in-service inspection and testing of electrical equipment.",
+      "Employers should keep records of their electrical safety maintenance program, including testing and tagging.",
+      "The person testing needs to be competent. A licensed electrician can also repair faults found during testing.",
+    ],
+    sections: [
+      {
+        heading: "Who decides the interval",
+        paragraphs: [
+          "There is no single government timetable that applies to every workplace. Employers in Victoria have a duty under the Occupational Health and Safety Act 2004 to provide a safe working environment, and keeping portable electrical equipment safe is part of that duty.",
+          "WorkSafe Victoria says the nature and frequency of inspection and testing depends on factors such as the type of electrical equipment, the operating environment and how the equipment is used. For detailed recommended timeframes, it points employers to AS/NZS 3760.",
+        ],
+      },
+      {
+        heading: "What AS/NZS 3760 is",
+        paragraphs: [
+          "AS/NZS 3760 is the Australian and New Zealand standard for in-service safety inspection and testing of electrical equipment. It sets out how equipment is inspected and tested, and recommends testing intervals for different types of equipment and environments.",
+          "In practice, a harsher environment or heavily used equipment is tested more often than low risk equipment in a quiet office. The right schedule for your workplace is worked out from the equipment and how it is used, not taken from a single number.",
+        ],
+      },
+      {
+        heading: "Why testing finds more than a visual check",
+        paragraphs: [
+          "WorkSafe Victoria notes that regular testing and tagging is needed to detect electrical faults and deterioration that cannot be found by visual inspection. A cord can look fine and still have a failing earth connection or damaged insulation inside.",
+          "Equipment can also be damaged between test dates, so staff should know to stop using anything with a damaged plug, cord or casing and report it.",
+        ],
+      },
+      {
+        heading: "Who can do the testing",
+        paragraphs: [
+          "WorkSafe Victoria says employers should consider who is able to inspect and test electrical equipment, for example someone who is suitably trained or a licensed electrician. It also notes that some people are only competent to do a pass or fail test, while a licensed electrician can also repair defects found during testing.",
+          "I'm a licensed electrician (REC 30450), so faults found during testing can be assessed and fixed under the same quote, where you want that.",
+        ],
+      },
+      {
+        heading: "Records to keep",
+        bullets: [
+          "A register of the equipment tested.",
+          "Test results, including anything that failed and what was done about it.",
+          "The date of the last test and the recommended retest date.",
+          "Any repairs or replacements made after a failed test.",
+        ],
+        paragraphs: [
+          "WorkSafe Victoria advises employers to keep records of their electrical safety maintenance programs, including testing and tagging. Good records are also the quickest way to show an inspector, insurer or client that the program is being followed.",
+        ],
+      },
+      {
+        heading: "Safety switches are part of the picture",
+        paragraphs: [
+          "Safety switches (RCDs) protect people from electric shock and need testing too. Portable and fixed RCDs can be included in a test and tag visit, as agreed in the quote.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "WorkSafe Victoria: electrical safety (archived guidance, May 2023)", url: "https://www.worksafe.vic.gov.au/archived-electrical-safety-may-2023" },
+      { label: "Victorian Trades Hall Council OHS Reps: electrical equipment laws and guidelines", url: "https://www.ohsrep.org.au/electrical_equipment" },
+    ],
+    relatedServices: ["test-and-tag", "safety-switches", "commercial-electrician", "body-corporate"],
+  },
 ];
 
 export function getGuide(slug: string) {

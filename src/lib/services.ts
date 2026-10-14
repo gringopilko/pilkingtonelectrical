@@ -140,8 +140,9 @@ export const services: Service[] = [
     title: "Body Corporate & Strata Electrical",
     heroSubtitle: "Shared-property maintenance, with clear communication at every step.",
     pageTitle: "Body Corporate & Strata Electrician Melbourne",
+    seoTitle: "Strata & Body Corporate Electrician Melbourne",
     shortDesc: "A dependable trade partner for strata and body corporate common area electrical.",
-    metaDescription: "Body corporate and strata electrician in Bayside and South East Melbourne. Common-area lighting, fault finding, maintenance and clear committee reporting.",
+    metaDescription: "Strata and body corporate electrician for Melbourne's Bayside and South East. Common-area lighting, fault finding, maintenance, rental safety checks and clear committee reporting. Licensed REC 30450.",
     intro: "I help owners corporations, committees and property managers look after common-area electrical systems across Bayside and South East Melbourne. From a failed stairwell light to planned upgrades, you'll get practical advice, an agreed scope and reporting that makes sense for committee approval.",
     included: [
       "Common area lighting & repairs",
