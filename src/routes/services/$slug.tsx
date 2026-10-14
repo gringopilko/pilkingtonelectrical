@@ -18,6 +18,7 @@ import { RealEstateDetails } from "@/components/RealEstateDetails";
 import { EVChargerDetails } from "@/components/EVChargerDetails";
 import { CommercialHeroVideo } from "@/components/CommercialHeroVideo";
 import { workPhotos } from "@/lib/workPhotos";
+import { guides } from "@/lib/guides";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -104,6 +105,7 @@ function ServicePage() {
     ? preferredSlugs.flatMap((slug) => services.filter((item) => item.slug === slug))
     : services.filter((item) => item.slug !== service.slug).slice(0, 6);
   const servicePhotos = workPhotos.filter((p) => p.services.includes(service.slug));
+  const relatedGuides = guides.filter((g) => g.relatedServices.includes(service.slug));
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -251,6 +253,27 @@ function ServicePage() {
                   className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
                 >
                   {s.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {relatedGuides.length > 0 && (
+        <section className="border-t border-border bg-background">
+          <div className="mx-auto max-w-5xl px-6 py-12">
+            <h2 className="text-xl font-bold tracking-tight">Helpful Guides</h2>
+            <div className="mt-4 flex flex-col gap-2">
+              {relatedGuides.map((g) => (
+                <Link
+                  key={g.slug}
+                  to="/guides/$slug"
+                  params={{ slug: g.slug }}
+                  className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                >
+                  {g.title}
+                  <ChevronRight className="h-4 w-4" />
                 </Link>
               ))}
             </div>

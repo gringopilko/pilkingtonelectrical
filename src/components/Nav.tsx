@@ -7,6 +7,7 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { getServiceGroups } from "@/lib/serviceGroups";
 
 const supportLinks = [
+  { title: "Guides", href: "/guides" },
   { title: "FAQs", href: "/faqs" },
   { title: "Contact Us", href: "/contact" },
 ];

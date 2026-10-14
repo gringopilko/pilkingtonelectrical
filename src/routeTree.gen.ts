@@ -16,6 +16,8 @@ import { Route as ElectricianHamptonEastRouteImport } from './routes/electrician
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as GuidesIndexRouteImport } from './routes/guides/index'
+import { Route as GuidesSlugRouteImport } from './routes/guides/$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
 import { Route as SuburbsIndexRouteImport } from './routes/suburbs/index'
@@ -56,6 +58,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesIndexRoute = GuidesIndexRouteImport.update({
+  id: '/guides/',
+  path: '/guides/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesSlugRoute = GuidesSlugRouteImport.update({
+  id: '/guides/$slug',
+  path: '/guides/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/services/',
   path: '/services/',
@@ -85,8 +97,10 @@ export interface FileRoutesByFullPath {
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
+  '/guides/': typeof GuidesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/suburbs/': typeof SuburbsIndexRoute
 }
@@ -98,8 +112,10 @@ export interface FileRoutesByTo {
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
+  '/guides': typeof GuidesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/suburbs': typeof SuburbsIndexRoute
 }
@@ -112,8 +128,10 @@ export interface FileRoutesById {
   '/faqs': typeof FaqsRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
+  '/guides/': typeof GuidesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/suburbs/': typeof SuburbsIndexRoute
 }
@@ -127,8 +145,10 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/review'
     | '/sitemap.xml'
+    | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
+    | '/guides/'
     | '/services/'
     | '/suburbs/'
   fileRoutesByTo: FileRoutesByTo
@@ -140,8 +160,10 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/review'
     | '/sitemap.xml'
+    | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
+    | '/guides'
     | '/services'
     | '/suburbs'
   id:
@@ -153,8 +175,10 @@ export interface FileRouteTypes {
     | '/faqs'
     | '/review'
     | '/sitemap.xml'
+    | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
+    | '/guides/'
     | '/services/'
     | '/suburbs/'
   fileRoutesById: FileRoutesById
@@ -167,8 +191,10 @@ export interface RootRouteChildren {
   FaqsRoute: typeof FaqsRoute
   ReviewRoute: typeof ReviewRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  GuidesSlugRoute: typeof GuidesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   SuburbsSlugRoute: typeof SuburbsSlugRoute
+  GuidesIndexRoute: typeof GuidesIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
   SuburbsIndexRoute: typeof SuburbsIndexRoute
 }
@@ -224,6 +250,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/': {
+      id: '/guides/'
+      path: '/guides'
+      fullPath: '/guides/'
+      preLoaderRoute: typeof GuidesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides/$slug': {
+      id: '/guides/$slug'
+      path: '/guides/$slug'
+      fullPath: '/guides/$slug'
+      preLoaderRoute: typeof GuidesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/': {
       id: '/services/'
       path: '/services'
@@ -263,8 +303,10 @@ const rootRouteChildren: RootRouteChildren = {
   FaqsRoute: FaqsRoute,
   ReviewRoute: ReviewRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  GuidesSlugRoute: GuidesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   SuburbsSlugRoute: SuburbsSlugRoute,
+  GuidesIndexRoute: GuidesIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
   SuburbsIndexRoute: SuburbsIndexRoute,
 }
