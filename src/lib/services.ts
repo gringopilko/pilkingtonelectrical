@@ -81,7 +81,7 @@ export const services: Service[] = [
       },
       {
         "title": "An Appropriate Retesting Schedule",
-        "text": "Testing frequency depends on the equipment, how it is used and the environment. Moisture, dust, heat, frequent movement and mechanical wear can increase risk. I will recommend intervals suited to your workplace. Construction sites have additional requirements; include any site rules when requesting a quote."
+        "text": "Testing frequency depends on the equipment, how it is used and the environment. AS/NZS 3760 gives indicative intervals, from every 3 months on construction sites and for hire equipment, to every 6 months in factories and workshops, every 12 months where cords are flexed or open to abuse, and up to 5 years for fixed office equipment. Moisture, dust, heat, frequent movement and mechanical wear can increase risk. I will recommend intervals suited to your workplace. Construction sites have additional requirements; include any site rules when requesting a quote. The full breakdown is in the guide linked below."
       },
       {
         "title": "Offices, Retail & Hospitality",
