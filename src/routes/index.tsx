@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Zap, Shield, Wrench, ChevronRight, Check, Clock, Award, ClipboardCheck, Tag } from "lucide-react";
+import { Phone, Mail, MapPin, Zap, Shield, Wrench, ChevronRight, Check, Clock, Award, ClipboardCheck, Tag, ShieldCheck, ReceiptText, Sparkles } from "lucide-react";
 import heroImg from "@/assets/hero-electrician-poster.jpg";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -141,21 +141,23 @@ function Index() {
             </Link>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              { label: "Licensed & Insured", desc: "Full compliance & peace of mind" },
-              { label: "Upfront Pricing", desc: "No hidden fees or surprises" },
-              { label: "Local & Reliable", desc: "South East Melbourne based" },
-              { label: "Tidy Worksite", desc: "I clean up after every job" },
-            ].map((item) => (
-              <div key={item.label} className="rounded-lg border border-border bg-card p-5">
-                <div className="flex items-center gap-2 text-primary">
-                  <Check className="h-4 w-4" />
-                  <span className="font-bold">{item.label}</span>
+          <div className="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-brand-dark p-4 shadow-xl shadow-primary/10 sm:p-6">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {[
+                { icon: ShieldCheck, label: "Licensed & Insured", desc: "REC 30450 and $5M public liability" },
+                { icon: ReceiptText, label: "Upfront Pricing", desc: "A clear quote before work starts" },
+                { icon: MapPin, label: "Local & Reliable", desc: "Based in Hampton East" },
+                { icon: Sparkles, label: "Tidy Worksite", desc: "I clean up after every job" },
+              ].map((item) => (
+                <div key={item.label} className="rounded-xl bg-white/[0.06] p-4 ring-1 ring-white/10 sm:p-5">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white shadow-md shadow-primary/30">
+                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <p className="mt-3 text-sm font-bold leading-snug text-white sm:text-base">{item.label}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-white/70 sm:text-sm">{item.desc}</p>
                 </div>
-                <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
