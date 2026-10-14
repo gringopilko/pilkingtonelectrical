@@ -10,7 +10,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { WorkGallery } from "@/components/WorkGallery";
 import { ServiceTiles } from "@/components/ServiceTiles";
 import { AudiencePanels } from "@/components/AudiencePanels";
-import { suburbGroups } from "@/lib/suburbs";
+import { suburbGroups, slugify } from "@/lib/suburbs";
 import { services } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
@@ -62,12 +62,12 @@ function Index() {
             Fully Licensed &amp; Insured
           </div>
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
-            Residential &amp; Commercial
+            Bayside &amp; South East Melbourne
             <br />
-            <span className="text-primary">Electrical You Can Trust</span>
+            <span className="text-primary">Electrician You Can Trust</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-            Licensed electrician serving homes, body corporates and real estate agents across South East Melbourne. From rewires to switchboard upgrades, done right the first time.
+            Licensed electrician for homes, rentals, body corporates and businesses across Bayside and South East Melbourne. Rental safety checks, test and tag, switchboards and fault finding, done right the first time.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -179,7 +179,7 @@ function Index() {
                 <h3 className="text-sm font-bold uppercase tracking-wider text-primary">{group.area}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {group.suburbs.map((suburb) => (
-                    <span key={suburb} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">{suburb}</span>
+                    <Link key={suburb} to="/suburbs/$slug" params={{ slug: slugify(suburb) }} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary">{suburb}</Link>
                   ))}
                 </div>
               </div>
