@@ -32,8 +32,8 @@ export function QuoteForm({
     e.preventDefault();
     if (submitting) return;
 
-    if (!name.trim() || !phone.trim()) {
-      toast.error("Please enter your name and phone number.");
+    if (!name.trim() || !phone.trim() || !email.trim()) {
+      toast.error("Please enter your name, phone number and email address.");
       return;
     }
 
@@ -46,7 +46,7 @@ export function QuoteForm({
           access_key: "e16f3311-c329-4de2-a6f4-a49b368d309d",
           name: name.trim(),
           phone: phone.trim(),
-          email: email.trim() || "Not provided",
+          email: email.trim(),
           service: service || "Not specified",
           message: message.trim() || "No message provided",
           subject: service
@@ -147,7 +147,7 @@ export function QuoteForm({
         </select>
       </label>
       <label className="grid gap-2 text-sm font-semibold md:col-span-2">
-        Email address (optional)
+        Email address <span className="font-normal text-muted-foreground">(required)</span>
         <input
           type="email"
           autoComplete="email"
@@ -155,6 +155,7 @@ export function QuoteForm({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           maxLength={255}
+          required
           className={inputClass}
         />
       </label>
