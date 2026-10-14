@@ -12,8 +12,8 @@ export const Route = createFileRoute("/about")({
         content:
           "Pilkington Electrical is a licensed electrician based in Hampton East, serving South East Melbourne. No call centres, just direct contact with Shane.",
       },
-      { property: "og:image", content: "https://pilkingtonelectrical.com.au/services-overview-social.jpg" },
-      { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/services-overview-social.jpg" },
+      { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
+      { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
     ],
     links: [{ rel: "canonical", href: "https://pilkingtonelectrical.com.au/about" }],
     scripts: [

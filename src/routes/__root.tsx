@@ -90,14 +90,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://pilkingtonelectrical.com.au/" },
     { property: "og:site_name", content: "Pilkington Electrical" },
-    { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg?v=20261009" },
+    { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
     { property: "og:image:width", content: "1731" },
     { property: "og:image:height", content: "909" },
-    { property: "og:image:type", content: "image/jpeg" },
+    { property: "og:image:type", content: "image/png" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "Pilkington Electrical | Electrician in South East Melbourne" },
     { name: "twitter:description", content: "Licensed electrician serving homes, body corporates & real estate agents across South East Melbourne. Rewires, fault finding, switchboards." },
-    { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image.jpg?v=20261009" },
+    { name: "twitter:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
   ],
   links: [
     { rel: "stylesheet", href: appCss },
@@ -121,10 +121,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         "@type": "ElectricalContractor",
         "name": "Pilkington Electrical",
         "url": "https://pilkingtonelectrical.com.au",
-        "logo": "https://pilkingtonelectrical.com.au/og-image.jpg",
+        "logo": "https://pilkingtonelectrical.com.au/og-image-clean.png",
         "image": [
-          "https://pilkingtonelectrical.com.au/og-image.jpg",
-          "https://pilkingtonelectrical.com.au/services-overview-social.jpg"
+          "https://pilkingtonelectrical.com.au/og-image-clean.png"
         ],
         "telephone": "+61466270949",
         "email": "contact@pilkingtonelectrical.com.au",
