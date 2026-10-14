@@ -42,7 +42,7 @@ export function SwitchboardDetails() {
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's included in your switchboard service</h2>
         <p className="mt-4 leading-relaxed text-muted-foreground">Every board is different. Your quote sets out the work and components required for your property.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {inclusions.map(([title, text]) => <article key={title} className="rounded-xl border border-border bg-card p-6"><Check className="mb-4 h-5 w-5 text-primary" /><h3 className="font-bold tracking-tight">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></article>)}
+          {inclusions.map(([title, text]) => <article key={title} className="rounded-xl border border-border bg-card p-6"><Check className="mb-3 h-8 w-8 rounded-lg bg-primary/10 p-1.5 text-primary" /><h3 className="font-bold tracking-tight">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></article>)}
         </div>
       </section>
       <section className="mt-14">

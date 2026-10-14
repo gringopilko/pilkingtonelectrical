@@ -2,6 +2,9 @@ import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Phone, MapPin, ChevronRight } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { ServiceTiles } from "@/components/ServiceTiles";
+
+const featuredSlugs = ["electrical-safety-inspections", "switchboards", "fault-finding", "safety-switches", "body-corporate", "test-and-tag"];
 import { QuoteForm } from "@/components/QuoteForm";
 import { getSuburbBySlug, slugify } from "@/lib/suburbs";
 import { services } from "@/lib/services";
@@ -116,18 +119,23 @@ function SuburbPage() {
           </div>
         )}
         <h2 className="text-2xl font-bold tracking-tight">Electrical services in {suburb.name}</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {services.map((s) => (
-            <Link
-              key={s.slug}
-              to="/services/$slug"
-              params={{ slug: s.slug }}
-              className="rounded-xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
-            >
-              <h3 className="font-bold tracking-tight">{s.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{s.shortDesc}</p>
-            </Link>
-          ))}
+        <div className="mt-6">
+          <ServiceTiles slugs={featuredSlugs} />
+        </div>
+        <h3 className="mt-10 text-sm font-bold uppercase tracking-wider text-muted-foreground">More services in {suburb.name}</h3>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {services
+            .filter((s) => !featuredSlugs.includes(s.slug))
+            .map((s) => (
+              <Link
+                key={s.slug}
+                to="/services/$slug"
+                params={{ slug: s.slug }}
+                className="rounded-full bg-card px-3.5 py-1.5 text-sm font-medium text-foreground/80 ring-1 ring-border transition-colors hover:text-primary hover:ring-primary/50"
+              >
+                {s.title}
+              </Link>
+            ))}
         </div>
       </section>
 
