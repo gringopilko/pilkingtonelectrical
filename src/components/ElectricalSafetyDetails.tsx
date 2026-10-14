@@ -62,7 +62,7 @@ export function ElectricalSafetyDetails() {
       <section id="requirements" className="mt-14 scroll-mt-28">
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Victorian rental safety requirements</h2>
         <div className="mt-6 space-y-5 leading-relaxed text-muted-foreground">
-          <p>Electrical safety checks are required at least every two years for rental agreements covered by Victoria's safety-check requirements. From 13 October 2026, the requirement extends to all rental agreements, regardless of when they began.</p>
+          <p>Electrical safety checks are required at least every two years for rental agreements covered by Victoria's safety-check requirements. Since 13 October 2026, the requirement covers all rental agreements, regardless of when they began.</p>
           <p>The check must be completed by a licensed electrician. If a required check is overdue when a renter moves in, it must be arranged as soon as practicable.</p>
           <p>Rental properties must have the required circuit breaker and RCD safety switch protection for power outlets and lighting circuits. If your switchboard needs work, I'll explain the findings and quote the required upgrades separately.</p>
           <p>Keep the most recent safety-check record until the next one is created. The report should identify the electrician and licence number, inspection date, findings and repairs or actions taken. A copy must be supplied within seven days of a renter's written request.</p>

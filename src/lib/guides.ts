@@ -31,14 +31,14 @@ export const guides: Guide[] = [
     metaDescription:
       "Two-yearly electrical safety checks apply to all Victorian rentals from 13 October 2026. What they cover, who can do them and what records to keep.",
     summary:
-      "What the two-yearly check involves, what changes on 13 October 2026, who can do it and which records to keep.",
+      "What the two-yearly check involves, what changed on 13 October 2026, who can do it and which records to keep.",
     updated: "2026-10-14",
     updatedLabel: "14 October 2026",
     intro:
-      "From 13 October 2026, every Victorian rental property needs an electrical safety check at least once every two years, whether the rental agreement started before or after 29 March 2021. Here is what the rules say, who can do the check and what records to keep.",
+      "Since 13 October 2026, every Victorian rental property needs an electrical safety check at least once every two years, whether the rental agreement started before or after 29 March 2021. Here is what the rules say, who can do the check and what records to keep.",
     keyPoints: [
       "An electrical safety check is required at least once every 2 years, carried out by a licensed electrician.",
-      "From 13 October 2026 this applies to all Victorian rental agreements, not only those that started after 29 March 2021.",
+      "Since 13 October 2026 this applies to all Victorian rental agreements, not only those that started after 29 March 2021.",
       "Rental providers must keep records of the checks and be able to show them.",
       "Gas safety checks are separate and need a licensed or registered gasfitter.",
       "Annual smoke alarm checks are a separate requirement.",
@@ -52,10 +52,10 @@ export const guides: Guide[] = [
         ],
       },
       {
-        heading: "What changes on 13 October 2026",
+        heading: "What changed on 13 October 2026",
         paragraphs: [
-          "Until now, the two-yearly requirement applied to rental agreements entered into after 29 March 2021. Owners with older agreements were encouraged, but not required, to have periodic electrical checks.",
-          "From 13 October 2026 the requirement extends to all rental agreements. If you manage older tenancies and cannot find a check on record, it is worth booking one now rather than waiting for the next lease event.",
+          "Before 13 October 2026, the two-yearly requirement applied to rental agreements entered into after 29 March 2021. Owners with older agreements were encouraged, but not required, to have periodic electrical checks.",
+          "Since 13 October 2026 the requirement covers all rental agreements. If you manage older tenancies and cannot find a check on record, book one now rather than waiting for the next lease event.",
         ],
       },
       {
