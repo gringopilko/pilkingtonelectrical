@@ -161,6 +161,81 @@ export const guides: Guide[] = [
     ],
     relatedServices: ["smoke-alarms", "electrical-safety-inspections", "real-estate"],
   },
+  {
+    slug: "safety-switches-victorian-homes-rentals",
+    title: "Safety Switches in Victorian Homes and Rentals: Testing, Rules and Upgrades",
+    shortTitle: "Safety switches (RCDs)",
+    seoTitle: "Safety Switch Rules and Testing in Victoria",
+    metaDescription:
+      "How safety switches work, how to test yours, what the Victorian rental minimum standard requires and when to call a licensed electrician.",
+    summary:
+      "What a safety switch does, how to test it, what rental properties must have and when a switchboard upgrade is needed.",
+    updated: "2026-10-14",
+    updatedLabel: "14 October 2026",
+    intro:
+      "A safety switch cuts the power in a fraction of a second when it detects a fault that could shock someone. Energy Safe Victoria asks households to test theirs every year, and rental properties have needed them since 29 March 2023. Here is how to test yours, what the rules require and when to call an electrician.",
+    keyPoints: [
+      "A safety switch monitors the flow of electricity in a circuit and turns the power off when it detects a problem that could be a risk to people.",
+      "Energy Safe Victoria recommends testing safety switches every year, whether you own or rent.",
+      "Since 29 March 2023, Victorian rental properties covered by the minimum standards need a modern switchboard with circuit breakers and safety switches.",
+      "Safety switches are also called residual current devices (RCDs, RCCBs or RCBOs).",
+      "Fitting or replacing them is work for a licensed electrician, and a switchboard replacement must be inspected before it is energised.",
+    ],
+    sections: [
+      {
+        heading: "What a safety switch does",
+        paragraphs: [
+          "Energy Safe Victoria describes a safety switch as a device that monitors the flow of electricity through a circuit and turns the power off when it detects a problem that could put someone at risk, before an incident occurs.",
+          "Safety switches are correctly known as residual current devices, and you may see them labelled RCD, RCCB or RCBO on the switchboard. A circuit breaker protects the wiring from overload. A safety switch protects people from electric shock. They do different jobs, so a switchboard with only circuit breakers or old fuses is not the same protection.",
+        ],
+      },
+      {
+        heading: "How to test your safety switches",
+        bullets: [
+          "Find the safety switches on your switchboard. Each has a test button, usually marked T.",
+          "Press the test button. The switch should trip and the power to the circuits it protects should go off.",
+          "Switch it back on to reset it.",
+          "If the power does not go off when you press the button, the safety switch may have failed and should be checked by a licensed electrician.",
+        ],
+        paragraphs: [
+          "Energy Safe Victoria's Test Reset Protect campaign recommends doing this every year. Testing cuts power to the lights and appliances on that circuit, so save any work on computers first and turn off sensitive equipment.",
+        ],
+      },
+      {
+        heading: "What rental properties must have",
+        paragraphs: [
+          "Energy Safe Victoria advises that under the Residential Tenancies Regulations 2021, rental property switchboards must be fitted with safety switches. The requirement applies to properties covered by the minimum standards from 29 March 2023.",
+          "Safety switches are one part of the two-yearly electrical safety check that now applies to all Victorian rentals. A rental provider who is not sure what is on the switchboard should have it checked rather than assume.",
+        ],
+      },
+      {
+        heading: "Older homes and owner occupied homes",
+        paragraphs: [
+          "Energy Safe Victoria notes that many older properties have not been fitted with safety switches, and says households without them should engage a licensed electrician to install them. The test advice applies whether you own your home or rent.",
+          "Common signs of an older board are ceramic fuses, a board with no safety switch at all, or a safety switch that protects only some of the circuits. A licensed electrician can check which circuits are protected and what an upgrade would involve.",
+        ],
+      },
+      {
+        heading: "When a switchboard replacement is needed",
+        paragraphs: [
+          "If the board is old, damaged or has no room for modern protective devices, replacing the switchboard may be the right fix. Under Victorian law this is prescribed electrical work for a licensed electrician.",
+          "Energy Safe Victoria says a switchboard replacement is classed as high risk and must be inspected by an independent licensed electrical inspector before it is energised. In practice that means planning the inspection before the work starts, and it is why the power may stay off for a short time after the new board is installed.",
+        ],
+      },
+      {
+        heading: "Where I can help",
+        paragraphs: [
+          "I can test and assess safety switches, add or replace them, and quote a switchboard upgrade where the board needs it. For rentals I can include safety switch testing in the electrical safety check, so owners and agents get one written report covering the board.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Energy Safe Victoria: test your safety switches every year", url: "https://energysafe.vic.gov.au/media-centre/news/energy-safe-urges-victorians-test-safety-switches-protect-lives-and-property" },
+      { label: "Energy Safe Victoria: ensuring power until inspection", url: "https://esv.vic.gov.au/industry-guidance/electrical/frequently-asked-questions/ensuring-power-until-inspection" },
+      { label: "Energy Safe Victoria: residential tenancy changes for electricians", url: "https://www.energysafe.vic.gov.au/industry-guidance/electrical/electricians-toolkit/residential-tenancy" },
+    ],
+    relatedServices: ["safety-switches", "switchboards", "electrical-safety-inspections", "real-estate"],
+  },
 ];
 
 export function getGuide(slug: string) {
