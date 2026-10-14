@@ -3,6 +3,7 @@ import { Phone, MapPin, ChevronRight } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ServiceTiles } from "@/components/ServiceTiles";
+import { GuideLinks } from "@/components/GuideLinks";
 
 const featuredSlugs = ["electrical-safety-inspections", "switchboards", "fault-finding", "safety-switches", "body-corporate", "test-and-tag"];
 import { QuoteForm } from "@/components/QuoteForm";
@@ -136,6 +137,12 @@ function SuburbPage() {
                 {s.title}
               </Link>
             ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-5xl px-6 py-12">
+          <GuideLinks heading={`Helpful guides for ${suburb.name} owners and landlords`} />
         </div>
       </section>
 

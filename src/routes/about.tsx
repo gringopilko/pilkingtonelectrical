@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, ChevronRight, Phone } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { QuoteForm } from "@/components/QuoteForm";
+import { GuideLinks } from "@/components/GuideLinks";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -50,6 +52,22 @@ function About() {
             A licensed electrician based in Hampton East, serving homes, body corporates and
             businesses across South East Melbourne.
           </p>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-background">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-px bg-border md:grid-cols-4">
+          {[
+            { big: "REC 30450", small: "Registered Electrical Contractor" },
+            { big: "$5 million", small: "Public liability cover" },
+            { big: "Qualified 2019", small: "Apprenticeship from 2016" },
+            { big: "Hampton East", small: "Serving Bayside and South East" },
+          ].map((s) => (
+            <div key={s.big} className="bg-background px-5 py-6 text-center">
+              <p className="text-lg font-extrabold tracking-tight text-primary sm:text-xl">{s.big}</p>
+              <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{s.small}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -123,6 +141,22 @@ function About() {
             View all services
             <ChevronRight className="h-4 w-4" />
           </Link>
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-5xl px-6 py-14">
+          <GuideLinks heading="Guides for owners, landlords and businesses" />
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-background">
+        <div className="mx-auto max-w-3xl px-6 py-14">
+          <h2 className="text-center text-2xl font-extrabold tracking-tight md:text-3xl">Request a Free Quote</h2>
+          <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">Tell me what you need and I'll get back to you promptly.</p>
+          <div className="mt-6 rounded-xl border border-border bg-card p-5 sm:p-8">
+            <QuoteForm />
+          </div>
         </div>
       </section>
 
