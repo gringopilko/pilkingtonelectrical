@@ -159,6 +159,7 @@ export const services: Service[] = [
       width: 1600,
       height: 649,
     },
+    tileImage: { file: "body-corporate-tile.webp", width: 640, height: 960, focus: "50% 42%" },
   },
   {
     slug: "real-estate",
@@ -202,6 +203,7 @@ export const services: Service[] = [
       width: 1600,
       height: 800,
     },
+    tileImage: { file: "real-estate-tile.webp", width: 640, height: 427, focus: "50% 55%" },
   },
   {
     slug: "safety-switches",
