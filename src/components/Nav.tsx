@@ -4,6 +4,7 @@ import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import logoImg from "@/assets/pilkington-logo-icon.webp";
 import { services } from "@/lib/services";
 import { TrustStrip } from "@/components/TrustStrip";
+import { getServiceGroups } from "@/lib/serviceGroups";
 
 const supportLinks = [
   { title: "FAQs", href: "/faqs" },
@@ -11,6 +12,7 @@ const supportLinks = [
 ];
 
 export function Nav() {
+  const serviceGroups = getServiceGroups();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [electricalOpen, setElectricalOpen] = useState(false);
   const [supportOpen, setSupportOpen] = useState(false);
@@ -68,23 +70,30 @@ export function Nav() {
               <ChevronDown className="h-3.5 w-3.5" />
             </button>
             {electricalOpen && (
-              <div className="absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3">
-                <div className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-background p-4 shadow-xl">
-                  {services.map((s) => (
-                    <Link
-                      key={s.slug}
-                      to="/services/$slug"
-                      params={{ slug: s.slug }}
-                      onClick={closeAll}
-                      className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-                    >
-                      {s.title}
-                    </Link>
+              <div className="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-3">
+                <div className="grid grid-cols-3 gap-x-4 gap-y-3 rounded-xl border border-border bg-background p-4 shadow-xl">
+                  {serviceGroups.map((g) => (
+                    <div key={g.title}>
+                      <p className="mb-1 px-3 text-xs font-bold uppercase tracking-wider text-foreground">{g.title}</p>
+                      <div className="flex flex-col">
+                        {g.items.map((s) => (
+                          <Link
+                            key={s.slug}
+                            to="/services/$slug"
+                            params={{ slug: s.slug }}
+                            onClick={closeAll}
+                            className="rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                          >
+                            {s.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                   <Link
                     to="/services"
                     onClick={closeAll}
-                    className="col-span-2 mt-1 border-t border-border px-3 pt-3 text-sm font-bold text-primary"
+                    className="col-span-3 mt-1 border-t border-border px-3 pt-3 text-sm font-bold text-primary"
                   >
                     View all services →
                   </Link>
@@ -163,16 +172,21 @@ export function Nav() {
             </button>
             {mobileElectricalOpen && (
               <div className="ml-3 flex flex-col gap-1 border-l border-border pl-3">
-                {services.map((s) => (
-                  <Link
-                    key={s.slug}
-                    to="/services/$slug"
-                    params={{ slug: s.slug }}
-                    onClick={closeAll}
-                    className="py-1.5 text-sm text-muted-foreground"
-                  >
-                    {s.title}
-                  </Link>
+                {serviceGroups.map((g) => (
+                  <div key={g.title} className="mb-1">
+                    <p className="pt-1.5 text-xs font-bold uppercase tracking-wider text-foreground">{g.title}</p>
+                    {g.items.map((s) => (
+                      <Link
+                        key={s.slug}
+                        to="/services/$slug"
+                        params={{ slug: s.slug }}
+                        onClick={closeAll}
+                        className="block py-1.5 text-sm text-muted-foreground"
+                      >
+                        {s.title}
+                      </Link>
+                    ))}
+                  </div>
                 ))}
                 <Link to="/services" onClick={closeAll} className="py-1.5 text-sm font-bold text-primary">
                   View all services

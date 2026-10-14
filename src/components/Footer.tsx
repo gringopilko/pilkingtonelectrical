@@ -1,14 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 import logoImg from "@/assets/pilkington-logo-icon.webp";
-import { services } from "@/lib/services";
+import { getServiceGroups } from "@/lib/serviceGroups";
 
 export function Footer() {
+  const groups = getServiceGroups();
+
   return (
     <footer className="border-t border-border bg-background pb-16 md:pb-0">
       <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="lg:col-span-2">
             <img src={logoImg} alt="Pilkington Electrical" width={58} height={72} className="h-14 w-auto" loading="lazy" />
             <p className="mt-4 text-sm text-muted-foreground">
               Licensed electrician serving homes, body corporates and businesses across South East Melbourne.
@@ -16,29 +18,32 @@ export function Footer() {
             <p className="mt-4 text-xs text-muted-foreground">REC 30450 &middot; ABN 16 937 824 485</p>
           </div>
 
+          {groups.map((g) => (
+            <div key={g.title}>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">{g.title}</h3>
+              <div className="mt-4 flex flex-col gap-2">
+                {g.items.map((s) => (
+                  <Link
+                    key={s.slug}
+                    to="/services/$slug"
+                    params={{ slug: s.slug }}
+                    className="text-sm text-muted-foreground hover:text-foreground"
+                  >
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">Company</h3>
             <div className="mt-4 flex flex-col gap-2">
               <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">About</Link>
+              <Link to="/services" className="text-sm text-muted-foreground hover:text-foreground">All services</Link>
               <Link to="/suburbs" className="text-sm text-muted-foreground hover:text-foreground">Suburbs</Link>
               <Link to="/faqs" className="text-sm text-muted-foreground hover:text-foreground">FAQs</Link>
               <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground">Contact</Link>
-            </div>
-          </div>
-
-          <div className="md:col-span-2">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">Services</h3>
-            <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2">
-              {services.map((s) => (
-                <Link
-                  key={s.slug}
-                  to="/services/$slug"
-                  params={{ slug: s.slug }}
-                  className="text-sm text-muted-foreground hover:text-foreground"
-                >
-                  {s.title}
-                </Link>
-              ))}
             </div>
           </div>
         </div>
