@@ -84,7 +84,7 @@ export function AudiencePanels() {
           </p>
         </div>
 
-        <div role="tablist" aria-label="Who I work with" className="mb-8 flex gap-2 overflow-x-auto pb-1">
+        <div role="tablist" aria-label="Who I work with" className="mb-8 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
           {audiences.map((a, i) => (
             <button
               key={a.id}
@@ -93,7 +93,7 @@ export function AudiencePanels() {
               aria-selected={i === active}
               aria-controls={`aud-panel-${a.id}`}
               onClick={() => setActive(i)}
-              className={`whitespace-nowrap rounded-full border px-5 py-2 text-sm font-bold transition-colors ${
+              className={`flex min-h-11 items-center justify-center rounded-xl border px-2 py-2 text-center text-sm font-bold leading-tight transition-colors sm:rounded-full sm:px-5 ${
                 i === active
                   ? "border-primary bg-primary text-primary-foreground"
                   : "border-border bg-background text-muted-foreground hover:text-foreground"

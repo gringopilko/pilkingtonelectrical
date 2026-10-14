@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Zap, Shield, Wrench, ChevronRight, Check, Clock, Award, ClipboardCheck, Tag, ShieldCheck, ReceiptText, Sparkles } from "lucide-react";
+import { Phone, Mail, MapPin, Zap, Shield, Wrench, ChevronRight, Check, Clock, Award, ClipboardCheck, Tag, ShieldCheck, ReceiptText, Sparkles, ChevronDown, BookOpen } from "lucide-react";
 import heroImg from "@/assets/hero-electrician-poster.jpg";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -176,18 +176,20 @@ function Index() {
       <section className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="mb-8 max-w-2xl">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Guides for Owners, Landlords and Businesses</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Helpful Guides</h2>
             <p className="mt-4 text-muted-foreground">Plain-English answers to common questions, with links to the official Victorian sources.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {guides.map((g) => (
-              <Link key={g.slug} to="/guides/$slug" params={{ slug: g.slug }} className="group flex flex-col rounded-xl border border-border bg-background p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
-                <h3 className="font-bold leading-snug tracking-tight">{g.shortTitle}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{g.summary}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary">
-                  Read the guide
-                  <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
+              <Link key={g.slug} to="/guides/$slug" params={{ slug: g.slug }} className="group flex items-center gap-4 rounded-2xl border border-border bg-background p-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 sm:flex-col sm:items-start sm:p-5">
+                <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <BookOpen className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-bold leading-snug tracking-tight">{g.shortTitle}</h3>
+                  <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{g.summary}</p>
+                </div>
+                <ChevronRight className="h-5 w-5 shrink-0 text-primary transition-transform group-hover:translate-x-1 sm:hidden" aria-hidden="true" />
               </Link>
             ))}
           </div>
@@ -206,20 +208,23 @@ function Index() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {suburbGroups.map((group) => (
-              <div key={group.area} className="rounded-2xl border border-border bg-card p-5 shadow-sm">
-                <div className="flex items-center justify-between gap-3">
+              <details key={group.area} className="group rounded-2xl border border-border bg-card shadow-sm open:shadow-md">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-5 [&::-webkit-details-marker]:hidden">
                   <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary">
-                    <MapPin className="h-4 w-4" aria-hidden="true" />
+                    <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
                     {group.area}
                   </h3>
-                  <span className="shrink-0 text-xs font-medium text-muted-foreground">{group.suburbs.length} suburbs</span>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="flex shrink-0 items-center gap-2 text-xs font-medium text-muted-foreground">
+                    {group.suburbs.length} suburbs
+                    <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" aria-hidden="true" />
+                  </span>
+                </summary>
+                <div className="flex flex-wrap gap-2 px-5 pb-5">
                   {group.suburbs.map((suburb) => (
                     <Link key={suburb} to="/suburbs/$slug" params={{ slug: slugify(suburb) }} className="rounded-full bg-background px-3 py-1.5 text-xs font-medium text-foreground/80 ring-1 ring-border transition-colors hover:text-primary hover:ring-primary/50">{suburb}</Link>
                   ))}
                 </div>
-              </div>
+              </details>
             ))}
           </div>
 
