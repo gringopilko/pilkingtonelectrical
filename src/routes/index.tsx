@@ -12,6 +12,7 @@ import { ServiceTiles } from "@/components/ServiceTiles";
 import { AudiencePanels } from "@/components/AudiencePanels";
 import { suburbGroups, slugify } from "@/lib/suburbs";
 import { services } from "@/lib/services";
+import { guides } from "@/lib/guides";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -162,6 +163,27 @@ function Index() {
       <WorkGallery />
 
       <Testimonials />
+      {/* Guides */}
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="mb-8 max-w-2xl">
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Guides for Owners, Landlords and Businesses</h2>
+            <p className="mt-4 text-muted-foreground">Plain-English answers to common questions, with links to the official Victorian sources.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {guides.map((g) => (
+              <Link key={g.slug} to="/guides/$slug" params={{ slug: g.slug }} className="group flex flex-col rounded-xl border border-border bg-background p-5 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+                <h3 className="font-bold leading-snug tracking-tight">{g.shortTitle}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{g.summary}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary">
+                  Read the guide
+                  <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Service Areas: full list */}
       <section className="border-t border-border bg-background">
