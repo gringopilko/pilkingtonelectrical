@@ -311,15 +311,30 @@ export const guides: Guide[] = [
         ],
       },
       {
-        heading: "Safety switches are part of the picture",
+        heading: "Safety switch (RCD) testing intervals",
         paragraphs: [
-          "Safety switches (RCDs) protect people from electric shock and need testing too. Portable and fixed RCDs can be included in a test and tag visit, as agreed in the quote.",
+          "Safety switches (RCDs) protect people from electric shock and have their own testing schedule. There are two kinds of test. The push-button test is the quick test of the test button. The operating time test uses a tester to confirm the device trips fast enough.",
+          "For office type work, WorkSafe Queensland publishes these maximum intervals, and notes that longer intervals may apply under AS/NZS 3760. Factories, workshops and harsher environments are tested more often.",
+        ],
+        bullets: [
+          "Fixed safety switch, push-button test: every 6 months.",
+          "Fixed safety switch, operating time test: every 2 years.",
+          "Portable safety switch, push-button test: every 3 months.",
+          "Portable safety switch, operating time test: every 2 years.",
+        ],
+      },
+      {
+        heading: "Keeping it simple on site",
+        paragraphs: [
+          "Anyone can do a regular visual check for frayed cords, cracked casings and burnt plugs, and should take damaged items out of use straight away. The formal electrical test and tag is done by a competent person, and I can include fixed and portable safety switch testing in the same visit.",
+          "If an office shares space with a workshop, warehouse or commercial kitchen, those areas follow the shorter intervals for their environment, not the office ones.",
         ],
       },
     ],
     sources: [
       { label: "WorkSafe Victoria: electrical safety (archived guidance, May 2023)", url: "https://www.worksafe.vic.gov.au/archived-electrical-safety-may-2023" },
       { label: "Victorian Trades Hall Council OHS Reps: electrical equipment laws and guidelines", url: "https://www.ohsrep.org.au/electrical_equipment" },
+      { label: "WorkSafe Queensland: testing and tagging of electrical equipment (maximum intervals)", url: "https://www.worksafe.qld.gov.au/safety-and-prevention/hazards/electricity/electrical-products-and-equipment/testing-and-tagging-electrical-equipment" },
     ],
     relatedServices: ["test-and-tag", "safety-switches", "commercial-electrician", "body-corporate"],
   },
