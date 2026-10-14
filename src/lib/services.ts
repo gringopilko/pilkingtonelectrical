@@ -253,6 +253,7 @@ export const services: Service[] = [
       width: 1600,
       height: 716,
     },
+    tileImage: { file: "fault-finding-tile.webp", width: 900, height: 600, focus: "62% 50%" },
   },
   {
     slug: "emergency-electrical",
