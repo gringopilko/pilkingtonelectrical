@@ -272,6 +272,19 @@ export const guides: Guide[] = [
         ],
       },
       {
+        heading: "Typical intervals by environment",
+        paragraphs: [
+          "AS/NZS 3760:2022 gives indicative testing intervals by environment. These are a starting point. They can be varied after a documented risk assessment, so equipment that is used harder, moved often or damaged easily may need testing sooner.",
+        ],
+        bullets: [
+          "Every 3 months: construction, building, demolition and mining sites, and hired or leased equipment.",
+          "Every 6 months: factories, warehouses and production or manufacturing workshops, and commercial cleaning equipment.",
+          "Every 12 months: environments where equipment or cords are prone to flexing, abuse or hostile conditions, such as commercial kitchens and schools.",
+          "Every 2 years: residential-type settings such as hotels, boarding houses and motels.",
+          "Every 5 years: stationary equipment in non-hostile environments, such as offices and server rooms, where items are not normally moved or abused.",
+        ],
+      },
+      {
         heading: "Why testing finds more than a visual check",
         paragraphs: [
           "WorkSafe Victoria notes that regular testing and tagging is needed to detect electrical faults and deterioration that cannot be found by visual inspection. A cord can look fine and still have a failing earth connection or damaged insulation inside.",
