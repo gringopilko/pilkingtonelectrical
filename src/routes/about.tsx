@@ -86,7 +86,7 @@ function About() {
 
             <h2 className="mt-10 text-2xl font-extrabold tracking-tight md:text-3xl">Licensed & Insured</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Pilkington Electrical operates under REC 30450, fully licensed and insured for residential
+              Pilkington Electrical operates under REC 30450, fully licensed and insured with $5 million public liability cover, for residential
               and commercial electrical work across Victoria.
             </p>
           </div>
