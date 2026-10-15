@@ -11,6 +11,7 @@ import { WorkGallery } from "@/components/WorkGallery";
 import { ServiceTiles } from "@/components/ServiceTiles";
 import { AudiencePanels } from "@/components/AudiencePanels";
 import { ContactCard } from "@/components/ContactCard";
+import { HeroBackground } from "@/components/HeroBackground";
 import { suburbGroups, slugify } from "@/lib/suburbs";
 import { services } from "@/lib/services";
 import { guides } from "@/lib/guides";
@@ -44,24 +45,12 @@ function Index() {
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh]">
-        <div className="absolute inset-0 overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroImg}
-            className="h-full w-full object-cover"
-          >
-            <source src="/melbourne-hero-compact.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
+        <HeroBackground poster={heroImg} video="/melbourne-hero-compact.mp4" />
 
         <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col items-start justify-center px-6 py-24">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
             <Shield className="h-3.5 w-3.5" />
-            Fully Licensed &amp; Insured
+            Licensed Electrician &middot; REC 30450
           </div>
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
             Bayside &amp; South East Melbourne
@@ -73,14 +62,14 @@ function Index() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="tel:0466270949" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">
+            <a href="tel:0466270949" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-brand-dark">
               <Phone className="h-4 w-4" />
-              Call Now
+              Call 0466 270 949
             </a>
-            <Link to="/services" className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">
-              Services
+            <a href="#quote" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-slate-900">
+              Get a free quote
               <ChevronRight className="h-4 w-4" />
-            </Link>
+            </a>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-2 sm:gap-3">
