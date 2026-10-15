@@ -11,6 +11,7 @@ import { StrataInfographic } from "@/components/StrataInfographic";
 import { RealEstateInfographic } from "@/components/RealEstateInfographic";
 import { EVInfographic } from "@/components/EVInfographic";
 import { FaultFindingInfographic } from "@/components/FaultFindingInfographic";
+import { ProtectionGuide } from "@/components/ProtectionGuide";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
@@ -190,6 +191,7 @@ function ServicePage() {
         {service.slug === "ev-charger-install" ? <><EVInfographic /><EVChargerDetails /></> : service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <><FaultFindingInfographic /><FaultFindingDetails /></> : service.slug === "body-corporate" ? <><StrataInfographic /><BodyCorporateDetails /></> : service.slug === "real-estate" ? <><RealEstateInfographic /><RealEstateDetails /></> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "light-switches" ? <LightSwitchesDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
           <>
         {service.slug === "test-and-tag" && <TestTagInfographic />}
+        {service.slug === "safety-switches" && <ProtectionGuide />}
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {service.included.map((item) => (
