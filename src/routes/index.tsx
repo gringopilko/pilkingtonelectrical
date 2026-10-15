@@ -137,38 +137,40 @@ function Index() {
 
       {/* About / Why Choose Section */}
       <section id="about" className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center md:gap-16">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-primary">Why choose me</p>
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-5xl">Why Choose Pilkington Electrical?</h2>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-              I'm a sole trader, which means when you call, you speak directly to the person doing the job. Honest, reliable electrical work from a licensed professional who takes pride in every connection.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#quote" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark">
-                Get a free quote
-              </a>
-              <Link to="/about" className="inline-flex items-center gap-1 rounded-xl border border-border bg-background px-6 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary">
-                More about me
-                <ChevronRight className="h-4 w-4" />
-              </Link>
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-brand-dark shadow-2xl shadow-primary/10">
+          <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-primary/25 blur-3xl" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-primary/20 blur-3xl" aria-hidden="true" />
+          <div className="relative grid gap-10 p-6 sm:p-10 md:grid-cols-5 md:items-center md:gap-14 md:p-14">
+            <div className="md:col-span-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-sky-300">Why choose me</p>
+              <h2 className="mt-3 text-3xl font-extrabold leading-[1.1] tracking-tight text-white md:text-4xl lg:text-5xl">Why Choose Pilkington Electrical?</h2>
+              <p className="mt-5 text-base leading-relaxed text-white/75 md:text-lg">
+                I'm a sole trader, which means when you call, you speak directly to the person doing the job. Honest, reliable electrical work from a licensed professional who takes pride in every connection.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a href="#quote" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-white hover:text-slate-900">
+                  Get a free quote
+                </a>
+                <Link to="/about" className="inline-flex items-center gap-1 rounded-xl border border-white/25 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10">
+                  More about me
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
-          </div>
 
-          <div className="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-brand-dark p-4 shadow-xl shadow-primary/10 sm:p-6">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 md:col-span-3">
               {[
                 { icon: ShieldCheck, label: "Licensed & Insured", desc: "REC 30450 and $5M public liability" },
                 { icon: ReceiptText, label: "Upfront Pricing", desc: "A clear quote before work starts" },
                 { icon: MapPin, label: "Local & Reliable", desc: "Based in Hampton East" },
                 { icon: Sparkles, label: "Tidy Worksite", desc: "I clean up after every job" },
               ].map((item) => (
-                <div key={item.label} className="rounded-xl bg-white/[0.06] p-4 ring-1 ring-white/10 sm:p-5">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white shadow-md shadow-primary/30">
-                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                <div key={item.label} className="rounded-2xl bg-white/[0.07] p-5 ring-1 ring-white/15 backdrop-blur-sm transition-colors hover:bg-white/[0.11] sm:p-6">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/30">
+                    <item.icon className="h-6 w-6" aria-hidden="true" />
                   </div>
-                  <p className="mt-3 text-sm font-bold leading-snug text-white sm:text-base">{item.label}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-white/70 sm:text-sm">{item.desc}</p>
+                  <p className="mt-4 text-base font-bold leading-snug text-white sm:text-lg">{item.label}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-white/70">{item.desc}</p>
                 </div>
               ))}
             </div>
