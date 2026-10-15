@@ -113,7 +113,7 @@ function SuburbPage() {
             {suburb.commonJobs && (
               <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
                 {suburb.commonJobs.map((job) => (
-                  <li key={job} className="rounded-2xl border border-border bg-card px-4 py-3">{job}</li>
+                  <li key={job} className="rounded-xl border border-border bg-card px-4 py-3">{job}</li>
                 ))}
               </ul>
             )}

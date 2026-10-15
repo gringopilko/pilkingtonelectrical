@@ -184,7 +184,7 @@ function ServicePage() {
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {service.included.map((item) => (
-            <div key={item} className="flex items-start gap-3 rounded-2xl border border-border bg-card px-4 py-3 sm:p-4">
+            <div key={item} className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3 sm:p-4">
               <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
               <span className="text-sm text-muted-foreground">{item}</span>
             </div>

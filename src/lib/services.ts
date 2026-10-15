@@ -380,6 +380,8 @@ export const services: Service[] = [
   {
     slug: "lighting",
     title: "Energy Efficient Lighting",
+    tileImage: { file: "lighting-tile.webp", width: 573, height: 573, focus: "50% 50%", alt: "Warm LED strip lighting above a kitchen splashback" },
+    image: { file: "lighting-tile.webp", alt: "Warm LED strip lighting under a floating shelf in a renovated kitchen", width: 573, height: 573, focus: "50% 50%" },
     shortDesc: "LED upgrades, downlights and outdoor lighting that cut your power bill.",
     metaDescription: "Energy efficient LED lighting installation across South East Melbourne. Downlights, outdoor & security lighting. Licensed electrician.",
     intro: "Switching to LED lighting is one of the simplest ways to cut your power bill while improving how a space looks and feels, inside and out.",
@@ -433,6 +435,8 @@ export const services: Service[] = [
   {
     slug: "ceiling-fans",
     title: "Ceiling Fan Installation",
+    tileImage: { file: "ceiling-fans-tile.webp", width: 800, height: 1067, focus: "50% 20%", alt: "White ceiling fan with light in a bedroom" },
+    image: { file: "ceiling-fans-tile.webp", alt: "White ceiling fan with light in a bedroom with a raked ceiling", width: 800, height: 1067, focus: "50% 20%" },
     shortDesc: "Supply and installation of ceiling fans, or new wiring for your own fan.",
     metaDescription: "Ceiling fan installation across South East Melbourne. Supply and install, or wiring for your own fan. Licensed electrician.",
     intro: "Ceiling fans are a cost-effective way to keep rooms comfortable year-round. I can supply and install, or wire up a fan you've already bought.",

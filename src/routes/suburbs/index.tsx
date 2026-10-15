@@ -62,7 +62,7 @@ function Suburbs() {
                     key={suburb}
                     to="/suburbs/$slug"
                     params={{ slug: slugify(suburb) }}
-                    className="flex items-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 transition-colors hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+                    className="flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
                   >
                     <MapPin className="h-4 w-4 flex-shrink-0 text-primary" />
                     <span className="text-sm font-medium">{suburb}</span>

@@ -131,6 +131,8 @@ function Index() {
         </div>
       </section>
 
+      <WorkGallery />
+
       <BrandsWeUse />
 
       <AudiencePanels />
@@ -177,8 +179,6 @@ function Index() {
           </div>
         </div>
       </section>
-
-      <WorkGallery />
 
       <Testimonials />
       {/* Guides */}

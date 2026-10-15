@@ -138,7 +138,7 @@ export function AudiencePanels() {
                 </a>
                 <Link
                   {...(a.slug ? { to: "/services/$slug" as const, params: { slug: a.slug } } : { to: "/services" as const })}
-                  className="inline-flex items-center gap-1 rounded-2xl border border-border bg-background px-6 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                  className="inline-flex items-center gap-1 rounded-xl border border-border bg-background px-6 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary"
                 >
                   {a.linkLabel}
                   <ChevronRight className="h-4 w-4" aria-hidden="true" />
