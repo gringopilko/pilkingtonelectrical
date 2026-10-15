@@ -6,6 +6,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
 import { Collapsible } from "@/components/Collapsible";
+import { TestTagInfographic } from "@/components/TestTagInfographic";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
@@ -184,6 +185,7 @@ function ServicePage() {
         <div className="min-w-0 lg:col-span-8">
         {service.slug === "ev-charger-install" ? <EVChargerDetails /> : service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <BodyCorporateDetails /> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "light-switches" ? <LightSwitchesDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
           <>
+        {service.slug === "test-and-tag" && <TestTagInfographic />}
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {service.included.map((item) => (
