@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import { Collapsible } from "@/components/Collapsible";
 
 const jobs = [
   ["Power or lighting faults", "Loss of power to your property or individual circuits, dead outlets and lighting faults. Street-wide outages should be reported to your electricity distributor."],
@@ -37,20 +38,20 @@ export function EmergencyElectricalDetails() {
         <a href="https://www.energysafe.vic.gov.au/community-safety/what-do-power-outage" className="mt-4 inline-block text-sm font-semibold text-primary underline underline-offset-4">Energy Safe Victoria: power outage and electrical safety advice</a>
       </section>
 
-      <section id="emergency-jobs" className="mt-14 scroll-mt-28">
-        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Common Electrical Emergencies I Can Help With</h2>
+      <Collapsible id="emergency-jobs" title={<>Common Electrical Emergencies I Can Help With</>} className="">
+        
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {jobs.map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-6"><h3 className="font-bold tracking-tight">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></article>)}
         </div>
-      </section>
+      </Collapsible>
 
-      <section id="emergency-process" className="mt-14 scroll-mt-28">
-        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">One Electrician. Clear Communication. Practical Next Steps.</h2>
+      <Collapsible id="emergency-process" title={<>One Electrician. Clear Communication. Practical Next Steps.</>} className="">
+        
         <p className="mt-4 leading-relaxed text-muted-foreground">I'm Shane, your local licensed A-Grade electrician. You deal directly with me from your first call through to the work, with straightforward advice and pricing explained before the visit.</p>
         <ol className="mt-6 grid gap-4 md:grid-cols-3">
           {[["Call & describe the fault", "Tell me your suburb, what has happened and whether there is any visible damage. I will confirm availability, estimated timing and the applicable charges."], ["Assess & make safe", "I investigate the fault and prioritise safety. Where practical, repairs can be completed during the visit; otherwise the affected circuit or equipment may need to remain isolated."], ["Explain the next steps", "I explain what was found, any remaining limitations and the repair options. Additional work is agreed before proceeding, with electrical safety certification where required."]].map(([title, text], i) => <li key={title} className="rounded-2xl border border-border bg-card p-6"><p className="text-sm font-bold text-primary">0{i + 1}</p><h3 className="mt-3 font-bold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></li>)}
         </ol>
-      </section>
+      </Collapsible>
 
       <div className="mt-12 rounded-xl bg-primary p-6 text-primary-foreground md:p-8">
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Need Urgent Electrical Help?</h2>

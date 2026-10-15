@@ -1,5 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import { WiringStyleGallery } from "@/components/WiringStyleGallery";
+import { Collapsible } from "@/components/Collapsible";
 
 const inclusions = [
   [
@@ -140,9 +141,9 @@ export function PowerPointsDetails() {
         </p>
       </section>
 
-      <section className="mt-16 grid gap-6 md:grid-cols-2">
+      <Collapsible title={<>Renovating? Finish the details</>} className="grid gap-6 md:grid-cols-2">
         <article className="rounded-2xl border border-border bg-card p-6 md:p-8">
-          <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Renovating? Finish the details</h2>
+          
           <p className="mt-4 leading-relaxed text-muted-foreground">
             Replacing yellowed switches and outlets can help bring a new kitchen, bathroom or living
             area together. We can match fittings to cabinetry and splashbacks, coordinate switches
@@ -161,7 +162,7 @@ export function PowerPointsDetails() {
             before proceeding.
           </p>
         </article>
-      </section>
+      </Collapsible>
       <section className="mt-16 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">
           Straightforward advice & upfront pricing
@@ -179,10 +180,8 @@ export function PowerPointsDetails() {
         </p>
       </section>
 
-      <section id="power-point-process" className="mt-16 scroll-mt-28">
-        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">
-          From first idea to finished installation
-        </h2>
+      <Collapsible id="power-point-process" title={<>From first idea to finished installation</>} className="">
+        
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {[
             [
@@ -207,7 +206,7 @@ export function PowerPointsDetails() {
             </article>
           ))}
         </div>
-      </section>
+      </Collapsible>
 
       <section id="power-point-faqs" className="mt-16 scroll-mt-28">
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">

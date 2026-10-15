@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
+import { Collapsible } from "@/components/Collapsible";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
@@ -200,17 +201,16 @@ function ServicePage() {
         ))}
 
         {service.sections && service.sections.length > 0 && (
-          <>
-            <h2 className="mt-14 text-2xl font-extrabold tracking-tight md:text-3xl">{service.slug === "test-and-tag" ? "Professional Test & Tag for Your Business" : "How I Work"}</h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="mt-10">
+            <Collapsible id="how-i-work" title={service.slug === "test-and-tag" ? "Professional Test & Tag for Your Business" : "How I Work"} className="grid gap-4 md:grid-cols-2">
               {service.sections.map((sec) => (
-                <div key={sec.title} className="rounded-2xl border border-border bg-card p-6">
+                <div key={sec.title} className="rounded-2xl border border-border bg-card p-5">
                   <h3 className="font-bold tracking-tight">{sec.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{sec.text}</p>
                 </div>
               ))}
-            </div>
-          </>
+            </Collapsible>
+          </div>
         )}
 
           </>

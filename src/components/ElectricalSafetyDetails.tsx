@@ -1,4 +1,5 @@
 import { Check, ArrowRight } from "lucide-react";
+import { Collapsible } from "@/components/Collapsible";
 
 const inclusions = [
   ["Switchboard & safety switches", "Inspection of the switchboard, circuit protection and earthing, with instrument testing of RCD safety switches and other tests required for the installation."],
@@ -25,8 +26,8 @@ export function ElectricalSafetyDetails() {
         <p className="mt-4 leading-relaxed text-muted-foreground">I'm Shane, your licensed electrician from the first enquiry through to the inspection and report. I carry out checks across Bayside and South-East Melbourne for rental properties, property managers and homeowners, with straightforward communication and upfront pricing.</p>
       </section>
 
-      <section id="inclusions" className="mt-14 scroll-mt-28">
-        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's included in your electrical safety check</h2>
+      <Collapsible id="inclusions" title={<>What's included in your electrical safety check</>} className="">
+        
         <p className="mt-4 leading-relaxed text-muted-foreground">An inspection and testing of the property's electrical installation in accordance with the applicable requirements of AS/NZS 3019.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {inclusions.map(([title, text]) => (
@@ -38,29 +39,29 @@ export function ElectricalSafetyDetails() {
           ))}
         </div>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Please arrange access to the switchboard, outlets, fittings and owner-provided equipment. Any access limitations will be recorded in the report. A brief interruption to power may be needed for testing.</p>
-      </section>
+      </Collapsible>
 
-      <section id="pricing" className="mt-14 scroll-mt-28">
-        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Choose the support your property needs</h2>
+      <Collapsible id="pricing" title={<>Choose the support your property needs</>} className="">
+        
         <p className="mt-4 leading-relaxed text-muted-foreground">Book a standalone electrical check, or combine it with smoke alarm servicing for one convenient visit. I'll confirm the inclusions and a clear quote for your property before you book.</p>
         <div className="mt-6 grid gap-5 md:grid-cols-2">
           <article className="rounded-2xl border border-border bg-card p-6 md:p-8"><p className="text-xs font-bold uppercase tracking-wide text-primary">Electrical safety check</p><h3 className="mt-3 text-2xl font-bold">A thorough check and written report</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Inspection and testing of the accessible electrical installation, clear findings and practical advice on any work needed.</p><a href="#quote" className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-primary px-5 py-3 text-sm font-bold text-primary">Get a tailored quote <ArrowRight className="h-4 w-4" /></a></article>
           <article className="rounded-2xl border border-primary/30 bg-primary/5 p-6 md:p-8"><p className="text-xs font-bold uppercase tracking-wide text-primary">Combined property safety package</p><h3 className="mt-3 text-2xl font-bold">Electrical check + smoke alarm service</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Coordinate the electrical safety check and written report with smoke alarm testing, cleaning, condition and expiry checks, and suitable battery servicing.</p><ul className="mt-4 space-y-2 text-sm text-muted-foreground"><li>✓ One coordinated visit and access arrangement</li><li>✓ Clear electrical and smoke alarm records</li><li>✓ Repair and replacement options explained</li></ul><a href="#quote" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground">Ask about the combined package <ArrowRight className="h-4 w-4" /></a></article>
         </div>
         <p className="mt-5 text-sm leading-relaxed text-muted-foreground">Your quote depends on the property, access and number of alarms. Replacement alarms, parts, repairs and upgrades are agreed and quoted separately. Electrical checks and smoke alarm servicing have different required intervals; combining a visit does not change those intervals. Gas safety checks require a suitably qualified gasfitter.</p>
-      </section>
+      </Collapsible>
 
-      <section className="mt-14">
-        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What happens next?</h2>
+      <Collapsible title={<>What happens next?</>} className="">
+        
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[["01", "Arrange the visit", "Send the property details and any concerns. We'll confirm the scope, pricing and access arrangements with you or your property manager."], ["02", "Inspect & test", "I inspect and test the accessible installation, record the findings and explain any safety issues that need attention."], ["03", "Report & repair options", "You receive a written report. If repairs are needed, I'll explain the options and provide a separate quote. Any immediate hazards are addressed appropriately." ]].map(([n, title, text]) => (
             <article key={n} className="rounded-2xl border border-border bg-card p-6"><p className="text-sm font-bold text-primary">{n}</p><h3 className="mt-3 font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p></article>
           ))}
         </div>
-      </section>
+      </Collapsible>
 
-      <section id="requirements" className="mt-14 scroll-mt-28">
-        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Victorian rental safety requirements</h2>
+      <Collapsible id="requirements" title={<>Victorian rental safety requirements</>} className="">
+        
         <div className="mt-6 space-y-5 leading-relaxed text-muted-foreground">
           <p>Electrical safety checks are required at least every two years for rental agreements covered by Victoria's safety-check requirements. Since 13 October 2026, the requirement covers all rental agreements, regardless of when they began.</p>
           <p>The check must be completed by a licensed electrician. If a required check is overdue when a renter moves in, it must be arranged as soon as practicable.</p>
@@ -75,7 +76,7 @@ export function ElectricalSafetyDetails() {
             <a className="text-primary underline underline-offset-4" href="https://www.energysafe.vic.gov.au/industry-guidance/electrical/electricians-toolkit/residential-tenancy" target="_blank" rel="noopener noreferrer">Energy Safe Victoria: residential tenancy checks</a>
           </div>
         </div>
-      </section>
+      </Collapsible>
     </>
   );
 }

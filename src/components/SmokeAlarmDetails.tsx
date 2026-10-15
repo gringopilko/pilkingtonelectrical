@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import { Collapsible } from "@/components/Collapsible";
 
 const cfa = "https://www.cfa.vic.gov.au/fire-safety/home-fire-safety/smoke-alarms/";
 const cav = "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/keeping-the-property-safe/smoke-alarms-and-fire-safety";
@@ -25,8 +26,8 @@ export function SmokeAlarmDetails() {
       <div className="mt-6 grid gap-3 sm:grid-cols-2">{["New alarms and replacement of faulty or expired units", "Testing, cleaning and battery replacement where suitable", "Hardwired supply and backup-battery checks", "Compatible interconnection and group testing", "Assessment of locations and additional coverage", "Annual rental checks and records of findings"].map(s=><div key={s} className="flex gap-3 rounded-2xl border border-border bg-card p-4 text-sm"><Check className="h-5 w-5 shrink-0 text-primary"/>{s}</div>)}</div>
     </section>
     <section className="mt-14 rounded-2xl border border-primary/25 bg-primary/5 p-6 md:p-8"><p className="text-xs font-bold uppercase tracking-wide text-primary">Combined property safety package</p><h2 className="mt-3 text-2xl font-bold">Smoke alarms and electrical safety, arranged together</h2><p className="mt-4 leading-relaxed text-muted-foreground">Need an electrical safety check too? Combine it with smoke alarm testing, cleaning and suitable battery servicing in one coordinated visit. Get clear records and practical advice, with less access coordination for you or your property manager.</p><p className="mt-3 text-sm leading-relaxed text-muted-foreground">I'll tailor the quote to your property and number of alarms. Replacement alarms and repairs are quoted separately. Annual smoke alarm checks and two-yearly electrical checks keep their own schedules.</p><a href="#quote" className="mt-5 inline-flex rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground">Ask about the combined package</a></section>
-    <section id="alarm-options" className="mt-14 scroll-mt-28">
-      <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Hardwired or battery: what changes?</h2>
+    <Collapsible id="alarm-options" title={<>Hardwired or battery: what changes?</>} className="">
+      
       <p className="mt-4 leading-relaxed text-muted-foreground">The right choice depends on your building's requirements, access and the coverage you want. These are three different power options; photoelectric detection and interconnection can be considered alongside them.</p>
       <figure className="mt-6 flex flex-col items-center gap-6 rounded-2xl border border-border bg-card p-6 sm:flex-row md:p-8">
         <div className="w-full shrink-0 rounded-xl bg-white p-4 sm:w-52"><img src="/img/smoke-alarm-red.webp" alt="Close-up of a white RED smoke alarm with its test and hush button" width={1000} height={1000} loading="lazy" decoding="async" className="aspect-square w-full object-contain" /></div>
@@ -34,16 +35,16 @@ export function SmokeAlarmDetails() {
       </figure>
       <div className="mt-6 grid gap-5 md:grid-cols-3">{options.map(o=><article key={o.title} className="rounded-2xl border border-border bg-card p-6"><p className="text-xs font-bold uppercase tracking-wide text-primary">{o.subtitle}</p><h3 className="mt-3 text-xl font-bold">{o.title}</h3><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{o.text}</p><p className="mt-5 border-t border-border pt-4 text-sm leading-relaxed text-muted-foreground">{o.care}</p></article>)}</div>
       <a href={cfa+"types-of-smoke-alarms"} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-primary underline">CFA: alarm power and connection options</a>
-    </section>
-    <section id="alarm-requirements" className="mt-14 scroll-mt-28 rounded-2xl border border-border bg-card p-6 md:p-8">
-      <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What does a Victorian home need?</h2>
+    </Collapsible>
+    <Collapsible id="alarm-requirements" title={<>What does a Victorian home need?</>} className="">
+      
       <p className="mt-4 leading-relaxed text-muted-foreground">CFA's guidance distinguishes older homes, homes built between 1 August 1997 and 30 April 2014 that need mains-powered alarms with backup, and homes built or significantly renovated after 1 May 2014 that need hardwired, interconnected alarms. I'll check the requirements that apply to your property and proposed work.</p>
       <p className="mt-4 leading-relaxed text-muted-foreground">CFA recommends extra alarms in bedrooms and living rooms, beyond minimum coverage. A suitable location and an alert you can hear matter as much as the power source. If anyone is deaf or hard of hearing, ask about specialist alerting options.</p>
       <a href={cfa+"selecting-a-smoke-alarm"} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-primary underline">CFA: choosing alarms for your home</a>
       <h3 className="mt-7 text-lg font-bold">Rental properties: annual checks</h3>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Since 25 November 2025, annual smoke alarm safety checks apply to all Victorian rental properties. Rental providers must keep alarms correctly installed and working, with tests at least every 12 months following manufacturer instructions. A non-working alarm needs urgent repair. I can coordinate access with your agent and record the checks and any work needed.</p>
       <a href={cav} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-primary underline">Consumer Affairs Victoria: rental smoke alarm duties</a>
-    </section>
+    </Collapsible>
     <section id="alarm-care" className="mt-14 scroll-mt-28">
       <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Maintenance doesn't stop at installation</h2>
       <p className="mt-4 leading-relaxed text-muted-foreground">CFA recommends monthly testing, yearly cleaning and annual replacement of 9V batteries. All smoke alarms need replacement after 10 years, including hardwired units. Follow your model's instructions and arrange attention sooner if a unit fails. A 10-year battery does not mean ten years without checks.</p>

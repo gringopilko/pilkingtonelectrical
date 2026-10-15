@@ -121,3 +121,28 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+/* Plain FAQ-style dropdowns get the same chevron as the rest of the site */
+details:not(.group) > summary {
+  list-style: none;
+  position: relative;
+  padding-right: 2.25rem;
+}
+details:not(.group) > summary::-webkit-details-marker {
+  display: none;
+}
+details:not(.group) > summary::after {
+  content: "";
+  position: absolute;
+  right: 0.35rem;
+  top: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+details[open]:not(.group) > summary::after {
+  transform: translateY(-25%) rotate(225deg);
+}

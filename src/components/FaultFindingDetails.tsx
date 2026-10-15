@@ -1,3 +1,5 @@
+import { Collapsible } from "@/components/Collapsible";
+
 const issues = [
   ["Circuits that keep tripping", "A safety switch, circuit breaker or combined device can trip for different reasons. I test the affected circuit and equipment to distinguish leakage, overloads, short circuits and other faults."],
   ["Flickering or dimming lights", "A lamp, driver, dimmer, connection or supply issue may be involved. Tell me whether it affects one fitting or several rooms, and when it happens."],
@@ -27,16 +29,16 @@ export function FaultFindingDetails() {
       <h2 className="text-lg font-bold">When it needs urgent attention</h2>
       <p className="mt-3 text-sm leading-relaxed">For fire, smoke or immediate danger, move to safety and call 000. Keep away from damaged or wet electrical equipment. For a burning smell, unusual heat or repeated tripping, stop using the affected equipment and call Shane on <a href="tel:0466270949" className="font-semibold underline">0466 270 949</a> to check availability. An online enquiry is not an emergency response service.</p>
     </aside>
-    <section id="fault-process" className="mt-14 scroll-mt-28">
-      <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">A careful diagnosis, then a clear decision</h2>
+    <Collapsible id="fault-process" title={<>A careful diagnosis, then a clear decision</>} className="">
+      
       <div className="mt-6 grid gap-4 md:grid-cols-3">{[["01","Understand the problem","I'll ask what is affected, how often it happens and whether there are any immediate safety concerns. We agree the investigation scope before testing."],["02","Inspect and test","I assess accessible fittings and use appropriate electrical tests to trace the fault. Where needed, I isolate unsafe equipment or circuits and explain the effect on your property."],["03","Explain and repair","You'll hear what I found, the practical repair options and the cost. I seek approval for extra work, test completed repairs and provide the required electrical safety documentation."]].map(([n,title,text])=><article key={n} className="rounded-2xl border border-border bg-card p-6"><p className="text-sm font-bold text-primary">{n}</p><h3 className="mt-3 font-bold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></article>)}</div>
-    </section>
-    <section id="fault-information" className="mt-14 scroll-mt-28 rounded-2xl border border-border bg-card p-6 md:p-8">
-      <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">A few details can make the visit more useful</h2>
+    </Collapsible>
+    <Collapsible id="fault-information" title={<>A few details can make the visit more useful</>} className="">
+      
       <p className="mt-4 leading-relaxed text-muted-foreground">Send your suburb, affected rooms or equipment, when the fault began and whether it follows rain or a particular appliance being used. Mention recent work, any previous repairs, and whether neighbouring properties have also lost power. A wider outage may need your electricity distributor rather than a repair inside your home.</p>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">You don't need to open anything or carry out your own tests. Clear access to the switchboard and affected fittings helps. For rentals or managed buildings, include the authorised contact and access arrangements.</p>
       <a href="https://www.energysafe.vic.gov.au/community-safety/what-do-power-outage" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-primary underline">Energy Safe Victoria: power outages and safety</a>
-    </section>
+    </Collapsible>
     <section id="fault-faqs" className="mt-14 scroll-mt-28"><h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Questions are welcome</h2><div className="mt-5 space-y-3">{questions.map(([q,a])=><details key={q} className="rounded-2xl border border-border bg-card p-5"><summary className="cursor-pointer font-semibold">{q}</summary><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{a}</p></details>)}</div><a href="https://www.energysafe.vic.gov.au/community-safety/energy-safety-guides/home-safety/household-wiring" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-primary underline">Energy Safe Victoria: safety switches and circuit protection</a></section>
   </>;
 }

@@ -59,6 +59,8 @@ function ProductGrid({ kind }: { kind: WiringProductGroup["kind"] }) {
   const groups = wiringProducts.filter((group) => group.kind === kind);
   const brands = [...new Set(groups.map((group) => group.title.split(" ")[0]))];
   const shown = groups.filter((group) => brand === "All brands" || group.title.startsWith(brand));
+  const [expanded, setExpanded] = useState(false);
+  const limit = 6;
   return <>
     <div className="mt-6 flex flex-wrap items-center gap-3">
       <label htmlFor={`brand-${kind}`} className="text-sm font-semibold">Browse by brand</label>
@@ -67,7 +69,14 @@ function ProductGrid({ kind }: { kind: WiringProductGroup["kind"] }) {
       </select>
       <p aria-live="polite" className="text-sm text-muted-foreground">{shown.length} ranges</p>
     </div>
-    <div className="mt-6 grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-3">{shown.map((group) => <ProductCard key={group.id} group={group} />)}</div>
+    <div className="mt-6 grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-3">{shown.map((group, i) => <div key={group.id} className={!expanded && i >= limit ? "hidden" : "flex min-w-0 [&>article]:w-full"}><ProductCard group={group} /></div>)}</div>
+    {shown.length > limit && (
+      <div className="mt-6 text-center">
+        <button type="button" onClick={() => setExpanded((v) => !v)} className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-6 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary">
+          {expanded ? "Show fewer ranges" : `Show all ${shown.length} ranges`}
+        </button>
+      </div>
+    )}
   </>;
 }
 
