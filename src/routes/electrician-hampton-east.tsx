@@ -85,7 +85,7 @@ function ElectricianHamptonEast() {
               <Phone className="h-4 w-4" />
               Call Shane Now
             </a>
-            <a href="#quote" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+            <a href="#quote" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">
               <Send className="h-4 w-4" />
               Request a Quote
             </a>
@@ -111,7 +111,7 @@ function ElectricianHamptonEast() {
           </h2>
           <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3">
             {services.map((s) => (
-              <div key={s.slug} className="flex items-center gap-2 rounded-lg border border-border bg-card p-4 text-sm font-semibold text-foreground">
+              <div key={s.slug} className="flex items-center gap-2 rounded-2xl border border-border bg-card p-4 text-sm font-semibold text-foreground">
                 <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
                 {s.title}
               </div>
@@ -157,7 +157,7 @@ function ElectricianHamptonEast() {
 
       {/* Quote form */}
       <section id="quote" className="scroll-mt-24 px-6 py-16">
-        <div className="mx-auto max-w-2xl rounded-xl border border-border bg-card p-8 md:p-12">
+        <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 md:p-12">
           <h2 className="text-center text-2xl font-extrabold tracking-tight text-foreground">Request a Free Quote</h2>
           <p className="mt-2 text-center text-sm text-muted-foreground">Tell me about the job and I'll get back to you promptly.</p>
           <div className="mt-6">

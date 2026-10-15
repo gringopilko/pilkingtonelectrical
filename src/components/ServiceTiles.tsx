@@ -22,7 +22,7 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
             key={s.slug}
             to="/services/$slug"
             params={{ slug: s.slug }}
-            className="group flex flex-col overflow-hidden rounded-xl border border-border bg-background transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
           >
             <div className="aspect-[4/3] overflow-hidden bg-brand-dark sm:aspect-[16/10]">
               {pic ? (

@@ -77,7 +77,7 @@ function Index() {
               <Phone className="h-4 w-4" />
               Call Now
             </a>
-            <Link to="/services" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+            <Link to="/services" className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20">
               Services
               <ChevronRight className="h-4 w-4" />
             </Link>
@@ -151,7 +151,7 @@ function Index() {
                 <a href="#quote" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-white hover:text-slate-900">
                   Get a free quote
                 </a>
-                <Link to="/about" className="inline-flex items-center gap-1 rounded-xl border border-white/25 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10">
+                <Link to="/about" className="inline-flex items-center gap-1 rounded-2xl border border-white/25 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10">
                   More about me
                   <ChevronRight className="h-4 w-4" />
                 </Link>
@@ -260,7 +260,7 @@ function Index() {
             <ContactCard icon={<MapPin className="h-6 w-6" />} label="Location" value="Hampton East, VIC" href="https://www.google.com/maps/search/?api=1&query=Hampton+East+VIC+Australia" description="Serving South East Melbourne" />
           </div>
 
-          <div id="quote" className="mt-12 scroll-mt-24 rounded-xl border border-border bg-background p-5 sm:p-8 md:p-12">
+          <div id="quote" className="mt-12 scroll-mt-24 rounded-2xl border border-border bg-background p-5 sm:p-8 md:p-12">
             <h3 className="text-center text-xl font-bold tracking-tight">Request a Free Quote</h3>
             <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
               Fill in the form and I'll get back to you promptly. If you'd like to include photos of the job, feel free to email directly:{" "}

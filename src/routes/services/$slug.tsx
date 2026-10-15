@@ -140,7 +140,7 @@ function ServicePage() {
               {service.slug === "emergency-electrical" ? "Call Shane: 0466 270 949" : "Call Now"}
             </a>
             <a href="#quote"
-              className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent"
+              className="inline-flex items-center gap-2 rounded-2xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent"
             >
               {service.slug === "test-and-tag" ? "Request a Free Quote" : service.slug === "emergency-electrical" ? "Non-Urgent Enquiry" : "Request a Quote"}
             </a>
@@ -173,7 +173,7 @@ function ServicePage() {
             width={service.image.width}
             height={service.image.height}
             decoding="async"
-            className={service.slug === "ev-charger-install" ? "mx-auto h-auto max-h-[540px] w-auto max-w-full rounded-xl border border-border object-contain" : "h-auto w-full rounded-xl border border-border"}
+            className={service.slug === "ev-charger-install" ? "mx-auto h-auto max-h-[540px] w-auto max-w-full rounded-2xl border border-border object-contain" : "h-auto w-full rounded-2xl border border-border"}
           />
         </div>
       )}
@@ -184,7 +184,7 @@ function ServicePage() {
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {service.included.map((item) => (
-            <div key={item} className="flex items-start gap-3 rounded-lg border border-border bg-card px-4 py-3 sm:p-4">
+            <div key={item} className="flex items-start gap-3 rounded-2xl border border-border bg-card px-4 py-3 sm:p-4">
               <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
               <span className="text-sm text-muted-foreground">{item}</span>
             </div>
@@ -202,7 +202,7 @@ function ServicePage() {
             <h2 className="mt-14 text-2xl font-extrabold tracking-tight md:text-3xl">{service.slug === "test-and-tag" ? "Professional Test & Tag for Your Business" : "How I Work"}</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {service.sections.map((sec) => (
-                <div key={sec.title} className="rounded-xl border border-border bg-card p-6">
+                <div key={sec.title} className="rounded-2xl border border-border bg-card p-6">
                   <h3 className="font-bold tracking-tight">{sec.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{sec.text}</p>
                 </div>
@@ -215,13 +215,13 @@ function ServicePage() {
         )}
 
         {service.slug === "test-and-tag" && (
-          <div className="mt-10 rounded-xl border border-primary/20 bg-accent p-6 md:p-8">
-            <h2 className="text-2xl font-bold tracking-tight">Make Electrical Testing One Less Thing to Worry About</h2>
+          <div className="mt-10 rounded-2xl border border-primary/20 bg-accent p-6 md:p-8">
+            <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Make Electrical Testing One Less Thing to Worry About</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">Get your equipment checked, your results documented and your next testing dates planned. A test tag records the result at the time of testing; continue checking equipment for damage before use and remove unsafe items from service.</p>
             <a href="#quote" className="mt-5 inline-flex rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-brand-dark">Request a Free Test & Tag Quote</a>
           </div>
         )}
-        <div className="mt-10 rounded-xl border border-border bg-card p-6">
+        <div className="mt-10 rounded-2xl border border-border bg-card p-6">
           <h3 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">Licensed, Insured & Accountable</h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {[
@@ -290,7 +290,7 @@ function ServicePage() {
             </h2>
             <p className="mt-4 text-muted-foreground">{service.slug === "ev-charger-install" ? "Tell me your suburb, vehicle model, parking location and any charger you are considering. Photos of the closed switchboard and proposed charger position are helpful. You do not need to choose a charger before getting in touch." : service.slug === "test-and-tag" ? "Include your suburb, workplace type, approximate number of items, any RCD testing required and preferred timing. I'll get back to you with a clear quote." : service.slug === "emergency-electrical" ? "For urgent faults, call 0466 270 949 to check availability. Use this form for follow-up repairs or general enquiries; it is not monitored as an emergency service." : service.slug === "power-points" ? "Tell me your suburb, how many outlets you need, and any style or budget preferences. Photos of the existing fittings and proposed locations are helpful. Already found a Clipsal, Hager, HPM or Legrand fitting you like? Send a product link and I can look into it." : "Fill in the form and I'll get back to you promptly."}</p>
           </div>
-          <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
+          <div className="mt-12 rounded-2xl border border-border bg-background p-8 md:p-12">
             <QuoteForm key={service.slug} defaultService={service.slug} defaultMessage={service.slug === "ev-charger-install" ? "EV charger enquiry\nSuburb: \nVehicle model: \nHome / rental / shared parking / workplace: \nPreferred charger location: \nCharger model (if known): \nPreferred timing: " : service.slug === "power-points" ? "Power point enquiry\nSuburb: \nNumber of outlets: \nNew outlets or replacements: \nPreferred style / brand: \nBudget: " : service.slug === "test-and-tag" ? "Test & Tag enquiry\nSuburb: \nWorkplace type: \nApproximate number of items: \nRCD testing required: \nPreferred timing: " : `Enquiry: ${service.title}`} />
           </div>
         </div>

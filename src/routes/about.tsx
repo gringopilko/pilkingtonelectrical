@@ -109,7 +109,7 @@ function About() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-border bg-card p-8">
+          <div className="rounded-2xl border border-border bg-card p-8">
             <h3 className="text-xl font-bold tracking-tight">What you get</h3>
             <div className="mt-6 flex flex-col gap-4">
               {[
@@ -154,7 +154,7 @@ function About() {
         <div className="mx-auto max-w-3xl px-6 py-14">
           <h2 className="text-center text-2xl font-extrabold tracking-tight md:text-3xl">Request a Free Quote</h2>
           <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">Tell me what you need and I'll get back to you promptly.</p>
-          <div className="mt-6 rounded-xl border border-border bg-card p-5 sm:p-8">
+          <div className="mt-6 rounded-2xl border border-border bg-card p-5 sm:p-8">
             <QuoteForm />
           </div>
         </div>

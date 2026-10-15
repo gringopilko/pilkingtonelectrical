@@ -108,18 +108,18 @@ function SuburbPage() {
       <section className="mx-auto max-w-5xl px-6 py-16">
         {suburb.localIntro && (
           <div className="mb-12 max-w-3xl">
-            <h2 className="text-2xl font-bold tracking-tight">Your local electrician in {suburb.name}</h2>
+            <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Your local electrician in {suburb.name}</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">{suburb.localIntro}</p>
             {suburb.commonJobs && (
               <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
                 {suburb.commonJobs.map((job) => (
-                  <li key={job} className="rounded-lg border border-border bg-card px-4 py-3">{job}</li>
+                  <li key={job} className="rounded-2xl border border-border bg-card px-4 py-3">{job}</li>
                 ))}
               </ul>
             )}
           </div>
         )}
-        <h2 className="text-2xl font-bold tracking-tight">Electrical services in {suburb.name}</h2>
+        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Electrical services in {suburb.name}</h2>
         <div className="mt-6">
           <ServiceTiles slugs={featuredSlugs} />
         </div>
@@ -173,7 +173,7 @@ function SuburbPage() {
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Request a Free Quote</h2>
             <p className="mt-4 text-muted-foreground">Servicing {suburb.name}. Fill in the form and I'll get back to you promptly.</p>
           </div>
-          <div id="quote" className="mt-12 scroll-mt-24 rounded-xl border border-border bg-background p-8 md:p-12">
+          <div id="quote" className="mt-12 scroll-mt-24 rounded-2xl border border-border bg-background p-8 md:p-12">
             <QuoteForm />
           </div>
         </div>

@@ -30,7 +30,7 @@ export function WorkGallery({ photos = workPhotos, compact = false }: WorkGaller
         </div>
         <div className={`flex flex-wrap justify-center ${gridClass}`}>
           {photos.map((p) => (
-            <div key={p.file} className={`${tileClass} aspect-square shrink-0 grow-0 overflow-hidden rounded-lg border border-border bg-background`}>
+            <div key={p.file} className={`${tileClass} aspect-square shrink-0 grow-0 overflow-hidden rounded-2xl border border-border bg-background`}>
               <img
                 src={`/work/${p.file}`}
                 alt={p.alt}
@@ -50,7 +50,7 @@ export function WorkGallery({ photos = workPhotos, compact = false }: WorkGaller
               href="https://www.instagram.com/pilkingtonelectrical"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-5 py-3 text-sm font-bold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-2xl border border-border bg-background px-5 py-3 text-sm font-bold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
             >
               <Instagram className="h-4 w-4" />
               See more recent jobs on Instagram

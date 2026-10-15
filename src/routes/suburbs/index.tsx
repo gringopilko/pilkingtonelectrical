@@ -62,7 +62,7 @@ function Suburbs() {
                     key={suburb}
                     to="/suburbs/$slug"
                     params={{ slug: slugify(suburb) }}
-                    className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 transition-colors hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+                    className="flex items-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 transition-colors hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
                   >
                     <MapPin className="h-4 w-4 flex-shrink-0 text-primary" />
                     <span className="text-sm font-medium">{suburb}</span>
@@ -73,7 +73,7 @@ function Suburbs() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-xl border border-border bg-card p-8 text-center">
+        <div className="mt-12 rounded-2xl border border-border bg-card p-8 text-center">
           <p className="text-muted-foreground">Just outside these suburbs? Call and ask, service area boundaries aren't always exact.</p>
           <a href="tel:0466270949" className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark">
             <Phone className="h-4 w-4" />
@@ -88,7 +88,7 @@ function Suburbs() {
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Request a Free Quote</h2>
             <p className="mt-4 text-muted-foreground">Fill in the form and I'll get back to you promptly.</p>
           </div>
-          <div className="mt-12 rounded-xl border border-border bg-background p-8 md:p-12">
+          <div className="mt-12 rounded-2xl border border-border bg-background p-8 md:p-12">
             <QuoteForm />
           </div>
         </div>

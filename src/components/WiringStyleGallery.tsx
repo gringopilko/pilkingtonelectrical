@@ -62,7 +62,7 @@ function ProductGrid({ kind }: { kind: WiringProductGroup["kind"] }) {
   return <>
     <div className="mt-6 flex flex-wrap items-center gap-3">
       <label htmlFor={`brand-${kind}`} className="text-sm font-semibold">Browse by brand</label>
-      <select id={`brand-${kind}`} value={brand} onChange={(event) => setBrand(event.target.value)} className="max-w-full rounded-lg border border-border bg-background px-4 py-2 text-sm">
+      <select id={`brand-${kind}`} value={brand} onChange={(event) => setBrand(event.target.value)} className="max-w-full rounded-2xl border border-border bg-background px-4 py-2 text-sm">
         {["All brands", ...brands].map((name) => <option key={name}>{name}</option>)}
       </select>
       <p aria-live="polite" className="text-sm text-muted-foreground">{shown.length} ranges</p>

@@ -24,7 +24,7 @@ export function EmergencyHeroVideo() {
 
   return (
     <div className="mx-auto w-full max-w-5xl px-6 pt-12">
-      <div className="relative mx-auto w-full overflow-hidden rounded-xl border border-border bg-black" style={{ aspectRatio: "16 / 9" }}>
+      <div className="relative mx-auto w-full overflow-hidden rounded-2xl border border-border bg-black" style={{ aspectRatio: "16 / 9" }}>
         <img src="/img/emergency-video-poster.webp" alt="Electrician examining a switchboard by torchlight" width={960} height={540} decoding="async" className="absolute inset-0 block h-full w-full object-contain object-center" />
         {allowVideo && (
           <video width={960} height={540} ref={videoRef} src="/emergency-hero.mp4" poster="/img/emergency-video-poster.webp" autoPlay muted loop playsInline preload="none" aria-hidden="true" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setAllowVideo(false)} className="absolute inset-0 block h-full w-full object-contain object-center">

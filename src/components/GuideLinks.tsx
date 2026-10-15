@@ -6,7 +6,7 @@ export function GuideLinks({ heading = "Helpful guides", slugs }: { heading?: st
   const list = slugs ? guides.filter((g) => slugs.includes(g.slug)) : guides;
   return (
     <div>
-      <h2 className="text-2xl font-bold tracking-tight">{heading}</h2>
+      <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{heading}</h2>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {list.map((g) => (
           <Link

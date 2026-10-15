@@ -90,7 +90,7 @@ function GuidePage() {
         </section>
 
         <section className="mx-auto max-w-3xl px-6 py-12">
-          <div className="rounded-xl border border-border bg-card p-6">
+          <div className="rounded-2xl border border-border bg-card p-6">
             <h2 className="text-lg font-bold tracking-tight">At a glance</h2>
             <ul className="mt-4 space-y-3">
               {guide.keyPoints.map((point) => (
@@ -104,7 +104,7 @@ function GuidePage() {
 
           {guide.sections.map((sec) => (
             <div key={sec.heading} className="mt-10">
-              <h2 className="text-2xl font-extrabold tracking-tight">{sec.heading}</h2>
+              <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{sec.heading}</h2>
               {sec.paragraphs?.map((p) => (
                 <p key={p} className="mt-4 leading-relaxed text-muted-foreground">{p}</p>
               ))}
@@ -121,7 +121,7 @@ function GuidePage() {
             </div>
           ))}
 
-          <div className="mt-12 rounded-xl border border-border bg-card p-6">
+          <div className="mt-12 rounded-2xl border border-border bg-card p-6">
             <h2 className="text-lg font-bold tracking-tight">Official sources</h2>
             <ul className="mt-3 space-y-2 text-sm">
               {guide.sources.map((s) => (

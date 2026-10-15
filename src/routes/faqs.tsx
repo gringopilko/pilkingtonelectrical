@@ -137,7 +137,7 @@ function Faqs() {
       <section className="mx-auto max-w-3xl px-6 py-16">
         <div className="flex flex-col gap-3">
           {faqs.map((faq) => (
-            <details key={faq.q} className="group rounded-lg border border-border bg-card open:pb-4">
+            <details key={faq.q} className="group rounded-2xl border border-border bg-card open:pb-4">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left">
                 <span className="font-bold">{faq.q}</span>
                 <ChevronDown className="h-4 w-4 flex-shrink-0 text-primary transition-transform group-open:rotate-180" />
@@ -149,7 +149,7 @@ function Faqs() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-xl border border-border bg-card p-8 text-center">
+        <div className="mt-12 rounded-2xl border border-border bg-card p-8 text-center">
           <p className="text-muted-foreground">Didn't find what you're after? Call or send an enquiry directly.</p>
           <a href="tel:0466270949"
             className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"

@@ -57,7 +57,7 @@ function GuidesIndex() {
               key={g.slug}
               to="/guides/$slug"
               params={{ slug: g.slug }}
-              className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+              className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
             >
               <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Updated {g.updatedLabel}</p>
               <h2 className="mt-2 text-xl font-bold leading-snug tracking-tight">{g.title}</h2>

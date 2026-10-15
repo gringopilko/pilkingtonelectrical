@@ -124,7 +124,7 @@ export function PowerPointsDetails() {
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {inclusions.map(([title, text]) => (
-            <article key={title} className="rounded-xl border border-border bg-card p-6">
+            <article key={title} className="rounded-2xl border border-border bg-card p-6">
               <h3 className="flex items-start gap-3 font-bold">
                 <Check aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 {title}
@@ -142,7 +142,7 @@ export function PowerPointsDetails() {
 
       <section className="mt-16 grid gap-6 md:grid-cols-2">
         <article className="rounded-2xl border border-border bg-card p-6 md:p-8">
-          <h2 className="text-2xl font-extrabold tracking-tight">Renovating? Finish the details</h2>
+          <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Renovating? Finish the details</h2>
           <p className="mt-4 leading-relaxed text-muted-foreground">
             Replacing yellowed switches and outlets can help bring a new kitchen, bathroom or living
             area together. We can match fittings to cabinetry and splashbacks, coordinate switches
@@ -151,7 +151,7 @@ export function PowerPointsDetails() {
           </p>
         </article>
         <article className="rounded-2xl border border-border bg-card p-6 md:p-8">
-          <h2 className="text-2xl font-extrabold tracking-tight">
+          <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">
             Practical options for older homes
           </h2>
           <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -163,7 +163,7 @@ export function PowerPointsDetails() {
         </article>
       </section>
       <section className="mt-16 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
-        <h2 className="text-2xl font-extrabold tracking-tight">
+        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">
           Straightforward advice & upfront pricing
         </h2>
         <p className="mt-4 leading-relaxed text-muted-foreground">
@@ -213,7 +213,7 @@ export function PowerPointsDetails() {
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">
           Your power point questions, answered
         </h2>
-        <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-card px-6">
+        <div className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card px-6">
           {faqs.map(([question, answer]) => (
             <details key={question} className="group py-5">
               <summary className="cursor-pointer font-bold marker:text-primary">{question}</summary>

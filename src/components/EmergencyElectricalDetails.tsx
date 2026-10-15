@@ -40,7 +40,7 @@ export function EmergencyElectricalDetails() {
       <section id="emergency-jobs" className="mt-14 scroll-mt-28">
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Common Electrical Emergencies I Can Help With</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {jobs.map(([title, text]) => <article key={title} className="rounded-xl border border-border bg-card p-6"><h3 className="font-bold tracking-tight">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></article>)}
+          {jobs.map(([title, text]) => <article key={title} className="rounded-2xl border border-border bg-card p-6"><h3 className="font-bold tracking-tight">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></article>)}
         </div>
       </section>
 
@@ -48,19 +48,19 @@ export function EmergencyElectricalDetails() {
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">One Electrician. Clear Communication. Practical Next Steps.</h2>
         <p className="mt-4 leading-relaxed text-muted-foreground">I'm Shane, your local licensed A-Grade electrician. You deal directly with me from your first call through to the work, with straightforward advice and pricing explained before the visit.</p>
         <ol className="mt-6 grid gap-4 md:grid-cols-3">
-          {[["Call & describe the fault", "Tell me your suburb, what has happened and whether there is any visible damage. I will confirm availability, estimated timing and the applicable charges."], ["Assess & make safe", "I investigate the fault and prioritise safety. Where practical, repairs can be completed during the visit; otherwise the affected circuit or equipment may need to remain isolated."], ["Explain the next steps", "I explain what was found, any remaining limitations and the repair options. Additional work is agreed before proceeding, with electrical safety certification where required."]].map(([title, text], i) => <li key={title} className="rounded-xl border border-border bg-card p-6"><p className="text-sm font-bold text-primary">0{i + 1}</p><h3 className="mt-3 font-bold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></li>)}
+          {[["Call & describe the fault", "Tell me your suburb, what has happened and whether there is any visible damage. I will confirm availability, estimated timing and the applicable charges."], ["Assess & make safe", "I investigate the fault and prioritise safety. Where practical, repairs can be completed during the visit; otherwise the affected circuit or equipment may need to remain isolated."], ["Explain the next steps", "I explain what was found, any remaining limitations and the repair options. Additional work is agreed before proceeding, with electrical safety certification where required."]].map(([title, text], i) => <li key={title} className="rounded-2xl border border-border bg-card p-6"><p className="text-sm font-bold text-primary">0{i + 1}</p><h3 className="mt-3 font-bold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p></li>)}
         </ol>
       </section>
 
       <div className="mt-12 rounded-xl bg-primary p-6 text-primary-foreground md:p-8">
-        <h2 className="text-2xl font-bold">Need Urgent Electrical Help?</h2>
+        <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Need Urgent Electrical Help?</h2>
         <p className="mt-3 leading-relaxed">Call to discuss the fault and check availability across Bayside and South East Melbourne. For an active emergency, please phone rather than submitting the quote form.</p>
         <a href="tel:0466270949" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-foreground"><Phone className="h-4 w-4" />Call Shane: 0466 270 949</a>
       </div>
 
       <section id="emergency-faqs" className="mt-14 scroll-mt-28">
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Frequently Asked Questions</h2>
-        <div className="mt-6 space-y-3">{faqs.map(([question, answer]) => <details key={question} className="rounded-xl border border-border bg-card p-5"><summary className="cursor-pointer font-bold">{question}</summary><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{answer}</p></details>)}</div>
+        <div className="mt-6 space-y-3">{faqs.map(([question, answer]) => <details key={question} className="rounded-2xl border border-border bg-card p-5"><summary className="cursor-pointer font-bold">{question}</summary><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{answer}</p></details>)}</div>
       </section>
     </>
   );

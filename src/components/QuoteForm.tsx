@@ -6,7 +6,7 @@ import { services } from "@/lib/services";
 import { getServiceGroups } from "@/lib/serviceGroups";
 
 const inputClass =
-  "rounded-md border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
+  "rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
 
 export function QuoteForm({
   defaultMessage = "",
@@ -84,7 +84,7 @@ export function QuoteForm({
 
   if (done) {
     return (
-      <div className="mt-8 rounded-lg border border-primary/30 bg-primary/5 p-8 text-center">
+      <div className="mt-8 rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center">
         <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
           <Check className="h-6 w-6" />
         </div>

@@ -72,7 +72,7 @@ export function Nav() {
             </button>
             {electricalOpen && (
               <div className="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-3">
-                <div className="grid grid-cols-3 gap-x-4 gap-y-3 rounded-xl border border-border bg-background p-4 shadow-xl">
+                <div className="grid grid-cols-3 gap-x-4 gap-y-3 rounded-2xl border border-border bg-background p-4 shadow-xl">
                   {serviceGroups.map((g) => (
                     <div key={g.title}>
                       <p className="mb-1 px-3 text-xs font-bold uppercase tracking-wider text-foreground">{g.title}</p>
@@ -83,7 +83,7 @@ export function Nav() {
                             to="/services/$slug"
                             params={{ slug: s.slug }}
                             onClick={closeAll}
-                            className="rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                            className="rounded-xl px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                           >
                             {s.title}
                           </Link>
@@ -126,13 +126,13 @@ export function Nav() {
             </button>
             {supportOpen && (
               <div className="absolute left-1/2 top-full w-48 -translate-x-1/2 pt-3">
-                <div className="flex flex-col gap-1 rounded-xl border border-border bg-background p-2 shadow-xl">
+                <div className="flex flex-col gap-1 rounded-2xl border border-border bg-background p-2 shadow-xl">
                   {supportLinks.map((s) => (
                     <Link
                       key={s.href}
                       to={s.href}
                       onClick={closeAll}
-                      className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                      className="rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                     >
                       {s.title}
                     </Link>
@@ -144,7 +144,7 @@ export function Nav() {
 
           
             <a href="tel:0466270949"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
             >
               <Phone className="h-4 w-4" />
               0466 270 949
@@ -219,7 +219,7 @@ export function Nav() {
 
             
               <a href="tel:0466270949"
-              className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
             >
               <Phone className="h-4 w-4" />
               0466 270 949
