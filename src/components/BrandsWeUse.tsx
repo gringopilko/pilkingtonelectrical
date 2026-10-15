@@ -7,14 +7,17 @@ import beaconLogo from "@/assets/beacon-logo.webp";
 import evnexLogo from "@/assets/evnex-logo.webp";
 
 const logos = [
-  { src: clipsalLogo, alt: "Clipsal", desktop: "h-16", mobile: "h-12" },
-  { src: hagerLogo, alt: "Hager", desktop: "h-12", mobile: "h-9" },
-  { src: hpmLogo, alt: "HPM", desktop: "h-12", mobile: "h-9" },
-  { src: nhpLogo, alt: "NHP", desktop: "h-12", mobile: "h-9" },
-  { src: voltexLogo, alt: "Voltex", desktop: "h-12", mobile: "h-9" },
-  { src: beaconLogo, alt: "Beacon", desktop: "h-12", mobile: "h-9" },
-  { src: evnexLogo, alt: "Evnex", desktop: "h-7", mobile: "h-5" },
+  { src: clipsalLogo, alt: "Clipsal", size: "h-12 sm:h-16" },
+  { src: hagerLogo, alt: "Hager", size: "h-9 sm:h-12" },
+  { src: hpmLogo, alt: "HPM", size: "h-9 sm:h-12" },
+  { src: nhpLogo, alt: "NHP", size: "h-9 sm:h-12" },
+  { src: voltexLogo, alt: "Voltex", size: "h-9 sm:h-12" },
+  { src: beaconLogo, alt: "Beacon", size: "h-9 sm:h-12" },
+  { src: evnexLogo, alt: "Evnex", size: "h-5 sm:h-7" },
 ];
+
+// Four copies, moving by half the track, so the loop is seamless even on very wide screens.
+const track = [...logos, ...logos, ...logos, ...logos];
 
 export function BrandsWeUse() {
   return (
@@ -24,22 +27,19 @@ export function BrandsWeUse() {
           Brands We Use &amp; Trust
         </p>
 
-        {/* Phones: one slow scrolling row */}
-        <div className="relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] sm:hidden">
-          <div className="flex w-max items-center animate-[brand-marquee_30s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none">
-            {[...logos, ...logos].map((l, i) => (
-              <div key={i} className="flex shrink-0 items-center pr-10" aria-hidden={i >= logos.length ? true : undefined}>
-                <img src={l.src} alt={i >= logos.length ? "" : l.alt} className={`${l.mobile} w-auto opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 active:opacity-100 active:grayscale-0`} loading="lazy" />
+        <div className="relative mt-6 overflow-hidden sm:mt-8 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex w-max items-center animate-[brand-marquee_45s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none">
+            {track.map((l, i) => (
+              <div key={i} className="flex shrink-0 items-center pr-10 sm:pr-16" aria-hidden={i >= logos.length ? true : undefined}>
+                <img
+                  src={l.src}
+                  alt={i >= logos.length ? "" : l.alt}
+                  className={`${l.size} w-auto opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 active:opacity-100 active:grayscale-0`}
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Tablet and desktop: full row */}
-        <div className="mt-8 hidden flex-wrap items-center justify-center gap-x-14 gap-y-8 sm:flex">
-          {logos.map((l) => (
-            <img key={l.alt} src={l.src} alt={l.alt} className={`${l.desktop} w-auto opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0`} loading="lazy" />
-          ))}
         </div>
       </div>
     </section>
