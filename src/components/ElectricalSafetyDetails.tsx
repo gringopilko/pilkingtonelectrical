@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Download } from "lucide-react";
 import { Collapsible } from "@/components/Collapsible";
 import logoImg from "@/assets/pilkington-logo-icon.webp";
 
@@ -7,31 +7,36 @@ const visualChecks = [
   ["Switchboards", "Enclosure, covers, labelling, signs of heat, moisture or damage, and safe access."],
   ["Circuit protection", "Circuit breakers or fuses suit the circuits they protect, with no unsafe substitutes."],
   ["Safety switches (RCDs)", "Fitted where required and in good condition."],
-  ["Main earthing", "The earth electrode and earthing conductor are present, connected and protected."],
+  ["Exposed earth electrode", "The earth stake and its connection are present, connected and protected."],
   ["Water pipe bonding", "The bond to metallic water pipes is in place where one is needed."],
   ["Installation wiring", "Visible cables for damage, deterioration, overheating and unsafe joins."],
   ["Power points", "Damage, scorching, loose fittings and missing covers."],
   ["Light fittings", "Condition, heat damage, broken diffusers and correct mounting."],
   ["Cooking equipment", "Oven, cooktop and rangehood supplied with the property."],
-  ["Dishwasher and laundry", "Connections for the dishwasher, washing machine and dryer where provided."],
+  ["Dishwasher, washer and dryer", "Connections for appliances supplied with the property."],
+  ["Electric water heater", "Condition, connection and signs of water damage near electrical parts."],
+  ["Air conditioners", "Isolators, cabling and connections for split systems and other units."],
   ["Space heaters", "Fixed heaters supplied with the property, for condition and safe connection."],
   ["Exhaust and ceiling fans", "Mounting, condition and signs of overheating."],
-  ["Solar and batteries", "Visible condition of solar and other renewable systems connected to the switchboard."],
+  ["Solar and batteries", "Visible condition of solar and other renewable systems."],
+  ["Swimming pool equipment", "Pumps, heaters and lighting connected to the installation."],
+  ["Vehicle chargers", "EV charger condition, cabling and protection."],
 ];
 
 const testChecks = [
-  ["Earthing system", "Continuity of the main earthing system and the earth connections it relies on."],
-  ["Safety switch testing", "Each RCD tested with an instrument to confirm it trips within the required time."],
-  ["Polarity and connections", "Power points and circuits connected the right way around."],
-  ["Insulation resistance", "Checks that the wiring insulation is sound, where it is practical to test."],
-  ["Fixed appliances", "Testing of appliances such as cooking equipment, where practical."],
-  ["Laundry and living areas", "Circuits in the laundry and living areas, tested as far as practicable."],
+  ["Polarity and correct connections", "Consumer mains, circuit protection, safety switches, power points and light fittings are connected the right way around."],
+  ["Earth continuity", "The main earth conductor, switchboard enclosure, water pipe bond, power points, light fittings and fans are properly earthed."],
+  ["Fixed appliances", "Water heater, air conditioners, cooking equipment, dishwasher, solar, pool equipment and vehicle chargers, tested for polarity and earthing."],
+  ["Safety switch push button test", "Every RCD is operated with its test button to confirm it trips."],
+  ["Safety switch trip time test", "Every RCD is tested with an instrument to confirm it trips fast enough."],
+  ["Smoke alarms", "Correctly installed, in working order and tested to the manufacturer's instructions."],
 ];
 
 const reportItems = [
-  "What was inspected and tested, and anything that could not be accessed",
+  "Which rooms and parts of the property were included, and anything that could not be accessed",
   "Every defect found, with a clear recommendation",
-  "Safety switch test results",
+  "Safety switch results for every circuit tested",
+  "Smoke alarm result and when the next alarm check is due",
   "My licence details, REC 30450",
   "The inspection date and when the next check is due",
 ];
@@ -64,7 +69,7 @@ export function ElectricalSafetyDetails() {
       <section id="checklist" className="mt-14 scroll-mt-28">
         <p className="text-sm font-bold uppercase tracking-wide text-primary">Exactly what I check</p>
         <h2 className="mt-2 text-2xl font-extrabold tracking-tight md:text-3xl">The full electrical safety checklist</h2>
-        <p className="mt-4 leading-relaxed text-muted-foreground">Every check follows the same checklist, so nothing is missed and every report is consistent. The installation is inspected and tested as far as practicable under AS/NZS 3019, the Australian Standard for checking existing electrical installations.</p>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Every check follows the same checklist, so nothing is missed and every report is consistent. You can download a blank copy below to see exactly what is covered. The installation is inspected and tested as far as practicable under AS/NZS 3019, the Australian Standard for checking existing electrical installations.</p>
 
         <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-background shadow-xl shadow-slate-900/5">
           <div className="flex items-center gap-4 bg-gradient-to-br from-slate-950 via-slate-900 to-brand-dark px-5 py-5 text-white sm:px-8">
@@ -121,7 +126,13 @@ export function ElectricalSafetyDetails() {
               ))}
             </ul>
 
-            <p className="mt-8 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">Checklist items are based on Energy Safe Victoria's electrical safety check report for rental properties and AS/NZS 3019. Repairs found during the check are quoted separately, so the owner can approve them before any work starts.</p>
+            <div className="mt-8 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-xs leading-relaxed text-muted-foreground sm:max-w-md">Items match Energy Safe Victoria's electrical safety check report for rentals and AS/NZS 3019. Repairs found during the check are quoted separately, so the owner can approve them before any work starts.</p>
+              <a href="/downloads/electrical-safety-check-report.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-brand-dark">
+                <Download className="h-4 w-4" aria-hidden="true" />
+                Download the checklist (PDF)
+              </a>
+            </div>
           </div>
         </div>
       </section>
