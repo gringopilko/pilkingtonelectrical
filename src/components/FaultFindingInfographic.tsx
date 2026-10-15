@@ -50,6 +50,7 @@ const columns = [
       "Old cable with brittle or damaged insulation",
       "A faulty appliance leaking to earth",
       "Loose connections, or circuits sharing a neutral in older homes",
+      "A broken neutral on the supply, even one shared with a neighbour",
     ],
   },
   {
@@ -195,6 +196,51 @@ export function FaultFindingInfographic() {
           </div>
           <div className="bg-[#eef6fe] px-5 py-4 text-sm font-medium leading-relaxed sm:px-6">
             The tripping is the new protection doing its job. It has found an existing fault that was a shock or fire risk all along.
+          </div>
+        </div>
+
+        {/* Broken neutral */}
+        <div className="mt-8 overflow-hidden rounded-2xl border-2 border-amber-400">
+          <div className="flex items-center gap-4 bg-amber-50 px-5 py-4 sm:px-6">
+            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-400 text-slate-900">
+              <AlertTriangle className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <div>
+              <p className="text-lg font-extrabold leading-tight tracking-tight sm:text-xl">It might not be your wiring at all</p>
+              <p className="mt-0.5 text-sm text-slate-700">A broken neutral on the supply can come from the street, or even a neighbour's connection.</p>
+            </div>
+          </div>
+          <div className="grid gap-5 bg-card p-5 sm:p-6 md:grid-cols-2">
+            <div>
+              <p className="font-bold tracking-tight">What it is</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                The neutral is the return path for the power you use. If it breaks or works loose in the supply cable, the pit, the pole or a supply shared with a neighbour, voltages in your home can swing up and down. Units, townhouses and older streets with shared supplies are more exposed.
+              </p>
+              <p className="mt-3 font-bold tracking-tight">Signs to look for</p>
+              <Dotted
+                items={[
+                  "Lights getting brighter and dimmer as appliances switch on and off",
+                  "Flickering right across the house, not just one circuit",
+                  "Appliances failing or behaving strangely",
+                  "Similar problems next door at the same time",
+                  "A tingle from a tap, shower or metal fitting",
+                ]}
+              />
+            </div>
+            <div className="flex flex-col gap-4">
+              <div className="rounded-xl bg-red-50 p-4 ring-1 ring-red-200">
+                <p className="font-extrabold tracking-tight text-red-700">Feel a tingle from a tap or shower?</p>
+                <p className="mt-1 text-sm leading-relaxed text-red-900/80">
+                  Stop using water, keep everyone away and call your electricity distributor's faults line straight away. It can be a sign of a dangerous supply fault.
+                </p>
+              </div>
+              <div className="rounded-xl bg-background p-4 ring-1 ring-border">
+                <p className="font-bold tracking-tight">How I help</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  I test your installation to confirm whether the fault is inside the property or on the supply side. If it is on the network, your electricity distributor is responsible for the repair, and I can tell you what to report so it gets sorted quickly. If it is a private supply cable shared with a neighbour, I can repair it once the owners have agreed.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
