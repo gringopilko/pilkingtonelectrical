@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import {
   Building2,
   Cable,
+  ExternalLink,
   Car,
   ClipboardCheck,
   ClipboardList,
@@ -295,7 +296,32 @@ export function EVInfographic() {
               </p>
             </div>
           </div>
-          <p className="mt-3 text-center text-xs text-muted-foreground">Models and features change over time. I'll confirm the current range and what suits your building when I quote.</p>
+          <div className="mt-4 rounded-2xl border border-border bg-card p-5 sm:p-6">
+            <p className="text-sm font-extrabold tracking-tight">Please note: a general guide only</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Product ranges, features and specifications change often, and not every model suits every building or supply. This section is a summary to help you compare options, not a full specification or a quote. Please check each manufacturer's current information before deciding, and talk to me about what suits your property. Brand and product names belong to their owners.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[
+                ["Evnex chargers", "https://www.evnex.com/au"],
+                ["Evnex FAQs", "https://www.evnex.com/au/faq"],
+                ["EVSE Australia apartment charging", "https://evse.com.au/apartment-ev-charging/"],
+                ["Exploren software", "https://evse.com.au/ocpp-chargepoint-software/"],
+                ["Ocular chargers", "https://ocularcharging.com.au/"],
+              ].map(([label, href]) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-background px-3.5 py-1.5 text-xs font-bold text-primary ring-1 ring-border transition-colors hover:ring-primary/50"
+                >
+                  {label}
+                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* CTA */}
