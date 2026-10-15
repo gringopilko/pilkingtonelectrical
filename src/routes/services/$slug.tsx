@@ -178,7 +178,9 @@ function ServicePage() {
         </div>
       )}
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-12">
+        <div className="min-w-0 lg:col-span-8">
         {service.slug === "ev-charger-install" ? <EVChargerDetails /> : service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <BodyCorporateDetails /> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "light-switches" ? <LightSwitchesDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
           <>
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
@@ -221,7 +223,7 @@ function ServicePage() {
             <a href="#quote" className="mt-5 inline-flex rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-brand-dark">Request a Free Test & Tag Quote</a>
           </div>
         )}
-        <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+        <div className="mt-10 rounded-2xl border border-border bg-card p-6 lg:hidden">
           <h3 className="text-sm font-bold uppercase tracking-wide text-muted-foreground">Licensed, Insured & Accountable</h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {[
@@ -236,6 +238,46 @@ function ServicePage() {
               </div>
             ))}
           </div>
+        </div>
+        </div>
+        <aside className="hidden lg:col-span-4 lg:block">
+          <div className="sticky top-28 space-y-4">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-brand-dark p-6 text-white shadow-xl shadow-primary/10">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-primary/30 blur-3xl" aria-hidden="true" />
+              <p className="relative text-xs font-bold uppercase tracking-wider text-sky-300">{service.title}</p>
+              <p className="relative mt-2 text-2xl font-extrabold leading-snug tracking-tight">Get a free quote</p>
+              <p className="relative mt-2 text-sm leading-relaxed text-white/75">Call, text or send the form. You get a clear quote before any work starts.</p>
+              <div className="relative mt-5 space-y-2">
+                <a href="tel:0466270949" className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-white hover:text-slate-900">
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  0466 270 949
+                </a>
+                <a href="#quote" className="flex w-full items-center justify-center rounded-xl border border-white/25 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10">
+                  Request a quote
+                </a>
+              </div>
+              <ul className="relative mt-5 space-y-2 border-t border-white/10 pt-5">
+                {["Licensed electrician, REC 30450", "$5 million public liability cover", "Based in Hampton East"].map((line) => (
+                  <li key={line} className="flex items-start gap-2 text-sm text-white/80">
+                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-300" aria-hidden="true" />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {relatedGuides.length > 0 && (
+              <Link
+                to="/guides/$slug"
+                params={{ slug: relatedGuides[0].slug }}
+                className="group flex items-center gap-3 rounded-2xl border border-border bg-card p-4 transition-all hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+              >
+                <span className="text-xs font-bold uppercase tracking-wider text-primary">Guide</span>
+                <span className="min-w-0 flex-1 text-sm font-bold leading-snug">{relatedGuides[0].shortTitle}</span>
+                <ChevronRight className="h-4 w-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+            )}
+          </div>
+        </aside>
         </div>
       </section>
 
