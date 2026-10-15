@@ -1,5 +1,14 @@
+import { Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
+  Cable,
+  Car,
+  Gauge,
+  Layers,
+  PlugZap,
+  Receipt,
+  Route,
+  Scale,
   BookOpen,
   Building2,
   CalendarClock,
@@ -15,6 +24,7 @@ import {
   ShieldCheck,
   Users,
   Wrench,
+  Zap,
 } from "lucide-react";
 
 const highlights = [
@@ -83,6 +93,26 @@ const tiers = [
   { tier: "Tier 3", lots: "10 to 50 lots", plan: "Optional" },
   { tier: "Tier 4", lots: "3 to 9 lots", plan: "Optional" },
   { tier: "Tier 5", lots: "2 lots or services only", plan: "Optional" },
+];
+
+const evProblems = [
+  { icon: Gauge, title: "Limited supply", text: "Most buildings were not designed for dozens of cars charging at once." },
+  { icon: Receipt, title: "Who pays?", text: "Power used in a shared car park has to be billed fairly to the right person." },
+  { icon: Route, title: "Cable routes", text: "Cables cross common property, so routes, fire separation and looks all matter." },
+  { icon: Scale, title: "Approvals", text: "Changes to common property need owners corporation approval, which stalls without a clear proposal." },
+];
+
+const evSolutions = [
+  { icon: Gauge, title: "Capacity check first", text: "I assess the building's supply and spare capacity before anything is promised." },
+  { icon: Zap, title: "Load management", text: "Smart chargers share the available power between cars, so the main supply is not overloaded." },
+  { icon: Receipt, title: "Fair billing", text: "Charging from the owner's own supply, or smart chargers that track each user's energy so costs can be recharged." },
+  { icon: Cable, title: "Neat, compliant installs", text: "Planned cable routes, suitable protection, testing and a certificate of electrical safety." },
+];
+
+const evOptions = [
+  { icon: Car, title: "One owner, one charger", text: "A charger for a single car space, usually supplied from that owner's own meter or switchboard." },
+  { icon: Layers, title: "EV-ready building", text: "Install the backbone cabling once, then add chargers as residents need them." },
+  { icon: PlugZap, title: "Shared charging", text: "A managed system for the whole car park, with load management and user billing." },
 ];
 
 const steps = [
@@ -209,6 +239,73 @@ export function StrataInfographic() {
             ))}
           </div>
           <p className="mt-3 text-xs text-muted-foreground">Electrical items such as common lighting, switchboards and emergency lighting belong in the plan, so they can be budgeted for rather than fixed in a hurry.</p>
+        </div>
+
+        {/* EV charging in apartment buildings */}
+        <div id="strata-ev" className="mt-10 scroll-mt-28 overflow-hidden rounded-2xl border border-border">
+          <div className="flex items-center gap-4 bg-gradient-to-br from-slate-950 via-slate-900 to-brand-dark px-5 py-5 text-white sm:px-6">
+            <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/30">
+              <PlugZap className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <div>
+              <p className="text-xl font-extrabold leading-tight tracking-tight sm:text-2xl">EV Charging in Apartment Buildings</p>
+              <p className="mt-1 text-sm text-white/75">More residents want to charge at home. Here is how to do it safely, fairly and without overloading the building.</p>
+            </div>
+          </div>
+
+          <div className="grid gap-px bg-border md:grid-cols-2">
+            <div className="bg-card p-5 sm:p-6">
+              <p className="text-sm font-extrabold uppercase tracking-wide text-muted-foreground">The challenges</p>
+              <div className="mt-4 space-y-4">
+                {evProblems.map((p) => (
+                  <div key={p.title} className="flex gap-3">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-900/5 text-slate-700">
+                      <p.icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="font-bold tracking-tight">{p.title}</p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[#eef6fe] p-5 sm:p-6">
+              <p className="text-sm font-extrabold uppercase tracking-wide text-primary">How I solve them</p>
+              <div className="mt-4 space-y-4">
+                {evSolutions.map((p) => (
+                  <div key={p.title} className="flex gap-3">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-md shadow-primary/25">
+                      <p.icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="font-bold tracking-tight">{p.title}</p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-background p-5 sm:p-6">
+            <p className="text-sm font-extrabold uppercase tracking-wide text-muted-foreground">Three ways to set it up</p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              {evOptions.map((o) => (
+                <div key={o.title} className="rounded-xl bg-card p-4 ring-1 ring-border">
+                  <o.icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                  <p className="mt-2 font-bold tracking-tight">{o.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{o.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 flex flex-col gap-4 rounded-xl bg-slate-900 p-4 text-white sm:flex-row sm:items-center sm:justify-between sm:p-5">
+              <p className="text-sm font-bold leading-snug sm:text-base">I can prepare a proposal for the committee: capacity, options, cable routes and who pays, so owners can vote on something clear.</p>
+              <Link to="/services/$slug" params={{ slug: "ev-charger-install" }} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-white hover:text-slate-900">
+                EV charger installation
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Process */}
