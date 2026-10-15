@@ -1,5 +1,40 @@
 import { Check, ArrowRight } from "lucide-react";
 import { Collapsible } from "@/components/Collapsible";
+import logoImg from "@/assets/pilkington-logo-icon.webp";
+
+const visualChecks = [
+  ["Consumer mains", "The supply cables from the street or pit into the switchboard, for damage and secure fixing."],
+  ["Switchboards", "Enclosure, covers, labelling, signs of heat, moisture or damage, and safe access."],
+  ["Circuit protection", "Circuit breakers or fuses suit the circuits they protect, with no unsafe substitutes."],
+  ["Safety switches (RCDs)", "Fitted where required and in good condition."],
+  ["Main earthing", "The earth electrode and earthing conductor are present, connected and protected."],
+  ["Water pipe bonding", "The bond to metallic water pipes is in place where one is needed."],
+  ["Installation wiring", "Visible cables for damage, deterioration, overheating and unsafe joins."],
+  ["Power points", "Damage, scorching, loose fittings and missing covers."],
+  ["Light fittings", "Condition, heat damage, broken diffusers and correct mounting."],
+  ["Cooking equipment", "Oven, cooktop and rangehood supplied with the property."],
+  ["Dishwasher and laundry", "Connections for the dishwasher, washing machine and dryer where provided."],
+  ["Space heaters", "Fixed heaters supplied with the property, for condition and safe connection."],
+  ["Exhaust and ceiling fans", "Mounting, condition and signs of overheating."],
+  ["Solar and batteries", "Visible condition of solar and other renewable systems connected to the switchboard."],
+];
+
+const testChecks = [
+  ["Earthing system", "Continuity of the main earthing system and the earth connections it relies on."],
+  ["Safety switch testing", "Each RCD tested with an instrument to confirm it trips within the required time."],
+  ["Polarity and connections", "Power points and circuits connected the right way around."],
+  ["Insulation resistance", "Checks that the wiring insulation is sound, where it is practical to test."],
+  ["Fixed appliances", "Testing of appliances such as cooking equipment, where practical."],
+  ["Laundry and living areas", "Circuits in the laundry and living areas, tested as far as practicable."],
+];
+
+const reportItems = [
+  "What was inspected and tested, and anything that could not be accessed",
+  "Every defect found, with a clear recommendation",
+  "Safety switch test results",
+  "My licence details, REC 30450",
+  "The inspection date and when the next check is due",
+];
 
 const inclusions = [
   ["Switchboard & safety switches", "Inspection of the switchboard, circuit protection and earthing, with instrument testing of RCD safety switches and other tests required for the installation."],
@@ -14,7 +49,7 @@ export function ElectricalSafetyDetails() {
   return (
     <>
       <nav aria-label="Electrical safety page sections" className="mb-12 flex flex-wrap gap-2">
-        {[["About", "about-service"], ["Inclusions", "inclusions"], ["Service packages", "pricing"], ["Rental requirements", "requirements"], ["Book a Check", "quote"]].map(([label, id]) => (
+        {[["About", "about-service"], ["Full checklist", "checklist"], ["Inclusions", "inclusions"], ["Service packages", "pricing"], ["Rental requirements", "requirements"], ["Book a Check", "quote"]].map(([label, id]) => (
           <a key={id} href={`#${id}`} className="rounded-full border border-border px-4 py-2 text-sm font-semibold transition-colors hover:border-primary hover:text-primary">{label}</a>
         ))}
       </nav>
@@ -24,6 +59,71 @@ export function ElectricalSafetyDetails() {
         <h2 className="mt-3 text-2xl font-extrabold tracking-tight md:text-3xl">A thorough check. A clear report. A safer property.</h2>
         <p className="mt-5 leading-relaxed text-muted-foreground">Damaged wiring, faulty fittings and inadequate circuit protection can create a risk of electric shock or fire. A proper electrical safety check helps identify these issues and gives owners and property managers a clear picture of what needs attention.</p>
         <p className="mt-4 leading-relaxed text-muted-foreground">I'm Shane, your licensed electrician from the first enquiry through to the inspection and report. I carry out checks across Bayside and South-East Melbourne for rental properties, property managers and homeowners, with straightforward communication and upfront pricing.</p>
+      </section>
+
+      <section id="checklist" className="mt-14 scroll-mt-28">
+        <p className="text-sm font-bold uppercase tracking-wide text-primary">Exactly what I check</p>
+        <h2 className="mt-2 text-2xl font-extrabold tracking-tight md:text-3xl">The full electrical safety checklist</h2>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Every check follows the same checklist, so nothing is missed and every report is consistent. The installation is inspected and tested as far as practicable under AS/NZS 3019, the Australian Standard for checking existing electrical installations.</p>
+
+        <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-background shadow-xl shadow-slate-900/5">
+          <div className="flex items-center gap-4 bg-gradient-to-br from-slate-950 via-slate-900 to-brand-dark px-5 py-5 text-white sm:px-8">
+            <img src={logoImg} alt="Pilkington Electrical" width={58} height={72} className="h-11 w-auto" />
+            <div className="min-w-0">
+              <p className="text-lg font-extrabold leading-tight tracking-tight sm:text-xl">Electrical Safety Check Checklist</p>
+              <p className="mt-0.5 text-xs text-white/70 sm:text-sm">Pilkington Electrical &middot; Licensed electrician REC 30450</p>
+            </div>
+          </div>
+
+          <div className="p-5 sm:p-8">
+            <h3 className="flex items-center gap-3 text-lg font-bold tracking-tight">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-extrabold text-primary-foreground">1</span>
+              Visual inspection
+            </h3>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {visualChecks.map(([title, text]) => (
+                <div key={title} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                  <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border-2 border-primary text-primary"><Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden="true" /></span>
+                  <div>
+                    <p className="text-sm font-bold">{title}</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <h3 className="mt-10 flex items-center gap-3 text-lg font-bold tracking-tight">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-extrabold text-primary-foreground">2</span>
+              Testing with instruments
+            </h3>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {testChecks.map(([title, text]) => (
+                <div key={title} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                  <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border-2 border-primary text-primary"><Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden="true" /></span>
+                  <div>
+                    <p className="text-sm font-bold">{title}</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <h3 className="mt-10 flex items-center gap-3 text-lg font-bold tracking-tight">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-extrabold text-primary-foreground">3</span>
+              Your written report
+            </h3>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {reportItems.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-8 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">Checklist items are based on Energy Safe Victoria's electrical safety check report for rental properties and AS/NZS 3019. Repairs found during the check are quoted separately, so the owner can approve them before any work starts.</p>
+          </div>
+        </div>
       </section>
 
       <Collapsible id="inclusions" title={<>What's included in your electrical safety check</>} className="">
