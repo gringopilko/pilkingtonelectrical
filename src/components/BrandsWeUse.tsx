@@ -23,9 +23,11 @@ export function BrandsWeUse() {
   return (
     <section className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-6 py-10 sm:py-12">
-        <p className="text-center text-xs font-bold uppercase tracking-wider text-muted-foreground">
-          Brands We Use &amp; Trust
-        </p>
+        <div className="flex items-center gap-4">
+          <span className="h-px flex-1 bg-border" aria-hidden="true" />
+          <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Brands We Use &amp; Trust</p>
+          <span className="h-px flex-1 bg-border" aria-hidden="true" />
+        </div>
 
         <div className="relative mt-6 overflow-hidden sm:mt-8 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex w-max items-center animate-[brand-marquee_45s_linear_infinite] hover:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none">

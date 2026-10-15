@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Check, ChevronRight, Phone } from "lucide-react";
+import { Check, ChevronRight, Phone, ShieldCheck } from "lucide-react";
 
 interface Audience {
   id: string;
@@ -76,15 +76,16 @@ export function AudiencePanels() {
 
   return (
     <section className="border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl px-6 py-20">
-        <div className="mb-8 max-w-2xl">
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Who I Work With</h2>
-          <p className="mt-4 text-muted-foreground">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+        <div className="mb-10 max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-wider text-primary">Who I Work With</p>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-5xl">Work done properly, whatever the property</h2>
+          <p className="mt-4 text-base text-muted-foreground md:text-lg">
             Homes, rentals, apartment buildings and workplaces. Pick the one that fits.
           </p>
         </div>
 
-        <div role="tablist" aria-label="Who I work with" className="mb-8 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+        <div role="tablist" aria-label="Who I work with" className="mb-6 grid grid-cols-2 gap-2 sm:inline-flex sm:rounded-full sm:bg-muted sm:p-1">
           {audiences.map((a, i) => (
             <button
               key={a.id}
@@ -93,10 +94,10 @@ export function AudiencePanels() {
               aria-selected={i === active}
               aria-controls={`aud-panel-${a.id}`}
               onClick={() => setActive(i)}
-              className={`flex min-h-11 items-center justify-center rounded-xl border px-2 py-2 text-center text-sm font-bold leading-tight transition-colors sm:rounded-full sm:px-5 ${
+              className={`flex min-h-11 items-center justify-center rounded-xl border px-2 py-2 text-center text-sm font-bold leading-tight transition-all sm:rounded-full sm:border-transparent sm:px-6 ${
                 i === active
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-background text-muted-foreground hover:text-foreground"
+                  ? "border-primary bg-primary text-primary-foreground shadow-md shadow-primary/25"
+                  : "border-border bg-background text-muted-foreground hover:text-foreground sm:bg-transparent"
               }`}
             >
               {a.label}
@@ -112,49 +113,40 @@ export function AudiencePanels() {
             id={`aud-panel-${a.id}`}
             aria-labelledby={`aud-tab-${a.id}`}
             hidden={i !== active}
-            className={`items-center gap-8 md:grid-cols-2 md:gap-12 ${i === active ? "grid" : "hidden"}`}
+            className={`overflow-hidden rounded-3xl border border-border bg-background shadow-xl shadow-slate-900/5 ${i === active ? "grid md:grid-cols-2" : "hidden"}`}
           >
-            <div className="order-2 md:order-1">
-              <h3 className="text-2xl font-extrabold tracking-tight">{a.heading}</h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">{a.text}</p>
-              <ul className="mt-5 space-y-2">
+            <div className="order-2 flex flex-col justify-center p-6 sm:p-8 md:order-1 md:p-12">
+              <h3 className="text-2xl font-extrabold tracking-tight md:text-3xl">{a.heading}</h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground md:text-lg">{a.text}</p>
+              <ul className="mt-6 space-y-3">
                 {a.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" aria-hidden="true" />
+                  <li key={b} className="flex items-start gap-3 text-sm font-medium md:text-base">
+                    <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
                     {b}
                   </li>
                 ))}
               </ul>
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="tel:0466270949"
-                  className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
                   0466 270 949
                 </a>
-                {a.slug ? (
-                  <Link
-                    to="/services/$slug"
-                    params={{ slug: a.slug }}
-                    className="inline-flex items-center gap-1 rounded-md border border-border bg-background px-5 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                  >
-                    {a.linkLabel}
-                    <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                ) : (
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center gap-1 rounded-md border border-border bg-background px-5 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                  >
-                    {a.linkLabel}
-                    <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
-                )}
+                <Link
+                  {...(a.slug ? { to: "/services/$slug" as const, params: { slug: a.slug } } : { to: "/services" as const })}
+                  className="inline-flex items-center gap-1 rounded-xl border border-border bg-background px-6 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                >
+                  {a.linkLabel}
+                  <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
               </div>
             </div>
 
-            <div className="order-1 aspect-[16/10] overflow-hidden rounded-xl border border-border bg-brand-dark md:order-2 md:aspect-[4/3]">
+            <div className="relative order-1 aspect-[16/10] md:order-2 md:aspect-auto md:min-h-[440px]">
               <img
                 src={`/img/${a.image.file}`}
                 alt={a.image.alt}
@@ -163,8 +155,13 @@ export function AudiencePanels() {
                 loading="lazy"
                 decoding="async"
                 style={{ objectPosition: a.image.focus }}
-                className="h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/45 via-transparent to-transparent" aria-hidden="true" />
+              <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-1.5 text-xs font-bold text-slate-900 shadow-md backdrop-blur-sm">
+                <ShieldCheck className="h-4 w-4 text-primary" aria-hidden="true" />
+                Licensed electrician, REC 30450
+              </span>
             </div>
           </div>
         ))}

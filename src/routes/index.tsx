@@ -136,17 +136,23 @@ function Index() {
       <AudiencePanels />
 
       {/* About / Why Choose Section */}
-      <section id="about" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center">
+      <section id="about" className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+        <div className="grid gap-12 md:grid-cols-2 md:items-center md:gap-16">
           <div>
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Why Choose Pilkington Electrical?</h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="text-xs font-bold uppercase tracking-wider text-primary">Why choose me</p>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-5xl">Why Choose Pilkington Electrical?</h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
               I'm a sole trader, which means when you call, you speak directly to the person doing the job. Honest, reliable electrical work from a licensed professional who takes pride in every connection.
             </p>
-            <Link to="/about" className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">
-              More about Pilkington Electrical
-              <ChevronRight className="h-4 w-4" />
-            </Link>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#quote" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-brand-dark">
+                Get a free quote
+              </a>
+              <Link to="/about" className="inline-flex items-center gap-1 rounded-xl border border-border bg-background px-6 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary/40 hover:text-primary">
+                More about me
+                <ChevronRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
 
           <div className="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-brand-dark p-4 shadow-xl shadow-primary/10 sm:p-6">
