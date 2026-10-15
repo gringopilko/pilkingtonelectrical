@@ -40,7 +40,8 @@ export function Testimonials() {
     return () => { cancelled = true; };
   }, []);
 
-  if (loading || error || !data || !data.reviews?.length) {
+  // Show the section once there are at least three reviews, so it never looks thin.
+  if (loading || error || !data || !data.reviews || data.reviews.length < 3) {
     return null;
   }
 

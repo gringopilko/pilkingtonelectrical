@@ -180,6 +180,33 @@ function Index() {
         </div>
       </section>
 
+      {/* How it works */}
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+          <div className="mb-10 max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-wider text-primary">How it works</p>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl">Simple from first call to finished job</h2>
+          </div>
+          <ol className="relative grid gap-4 md:grid-cols-4 md:gap-6">
+            <span className="absolute left-6 right-[24%] top-6 hidden h-px bg-border md:block" aria-hidden="true" />
+            {[
+              { t: "Get in touch", d: "Call, text or send the form with your suburb and what you need. Photos help." },
+              { t: "We talk it through", d: "I confirm the details and arrange a visit if the job needs one." },
+              { t: "Clear quote", d: "You get a written quote with the scope and price before any work starts." },
+              { t: "Job done properly", d: "Work completed, tested and cleaned up, with the paperwork you need." },
+            ].map((x, i) => (
+              <li key={x.t} className="relative flex gap-4 rounded-2xl border border-border bg-background p-5 md:flex-col md:gap-0 md:border-0 md:bg-transparent md:p-0">
+                <span className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-extrabold text-primary-foreground shadow-lg shadow-primary/25 ring-8 ring-card">{i + 1}</span>
+                <div className="md:mt-5">
+                  <p className="text-lg font-bold tracking-tight">{x.t}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{x.d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <Testimonials />
       {/* Guides */}
       <section className="border-t border-border bg-card">
