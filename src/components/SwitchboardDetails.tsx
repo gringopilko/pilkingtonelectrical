@@ -24,7 +24,7 @@ export function SwitchboardDetails() {
   return (
     <>
       <nav aria-label="Switchboard page sections" className="mb-12 flex flex-wrap gap-2">
-        {[["About", "about-switchboards"], ["What's Included", "switchboard-inclusions"], ["Pricing", "switchboard-pricing"], ["FAQs", "switchboard-faqs"], ["Request a Quote", "quote"]].map(([label, id]) => (
+        {[["About", "about-switchboards"], ["What's Included", "switchboard-inclusions"], ["Upgrade Options", "switchboard-options"], ["Pricing", "switchboard-pricing"], ["FAQs", "switchboard-faqs"], ["Request a Quote", "quote"]].map(([label, id]) => (
           <a key={id} href={`#${id}`} className="rounded-full border border-border px-4 py-2 text-sm font-semibold transition-colors hover:border-primary hover:text-primary">{label}</a>
         ))}
       </nav>
@@ -37,6 +37,48 @@ export function SwitchboardDetails() {
           <h3 className="font-bold">Is your rental switchboard compliant?</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Victorian rental properties require circuit breaker and RCD safety switch protection for power outlets and lighting circuits. An RCBO combines these functions. I'll assess the existing protection and explain whether upgrades or a replacement board are needed.</p>
           <a href="https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/gas-electrical-and-water-safety-standards/rental-providers-gas-and-electrical-safety" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm text-primary underline underline-offset-4">Read Consumer Affairs Victoria's electrical safety requirements</a>
+        </div>
+      </section>
+
+      <section id="switchboard-options" className="mt-14 scroll-mt-28">
+        <p className="text-sm font-bold uppercase tracking-wide text-primary">Options for every budget</p>
+        <h2 className="mt-2 text-2xl font-extrabold tracking-tight md:text-3xl">Switchboard upgrades to suit your budget</h2>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Every property and budget is different, so I offer a few levels of upgrade. I'll always recommend a premium board, because it gives the best protection and the most room for the future, but you choose what suits you. Every option is done properly and certified.</p>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {[
+            { name: "Essential", text: "Make the existing board safe. Replace faulty or outdated parts and add the safety switch protection your property needs." },
+            { name: "Full replacement", text: "A new switchboard with modern circuit breakers and safety switches, clearly labelled, with space to add circuits later." },
+          ].map((o) => (
+            <div key={o.name} className="rounded-2xl border border-border bg-card p-6">
+              <p className="text-lg font-bold tracking-tight">{o.name}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{o.text}</p>
+            </div>
+          ))}
+          <div className="relative rounded-2xl border-2 border-primary bg-primary/5 p-6 shadow-lg shadow-primary/10">
+            <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Recommended</span>
+            <p className="text-lg font-bold tracking-tight">Premium</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">A premium system such as Hager onekonekt or Clipsal MAX9. Individual circuit protection, so one fault does not take out the whole house, a neater layout and room for solar, a battery or an EV charger later.</p>
+          </div>
+        </div>
+        <div className="mt-8 grid items-center gap-6 rounded-2xl border border-border bg-card p-5 sm:p-6 md:grid-cols-2">
+          <img src="/img/hager-premium-switchboard.webp" alt="Neatly laid out Hager switchboard with modern circuit protection" width={800} height={800} loading="lazy" decoding="async" className="mx-auto w-full max-w-sm rounded-xl bg-white" />
+          <div>
+            <p className="text-xl font-bold tracking-tight">Why I recommend premium</p>
+            <ul className="mt-4 space-y-3">
+              {[
+                "Each circuit can have its own safety switch, so a fault only turns off that circuit",
+                "Quality brands like Hager and Clipsal, built to last",
+                "Tidy, clearly labelled layout that is easier to fault find and add to",
+                "Ready for future upgrades like solar, batteries and EV charging",
+              ].map((line) => (
+                <li key={line} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" aria-hidden="true" />
+                  {line}
+                </li>
+              ))}
+            </ul>
+            <a href="#quote" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-brand-dark">Ask about upgrade options</a>
+          </div>
         </div>
       </section>
       <Collapsible id="switchboard-inclusions" title={<>What's included in your switchboard service</>} className="">
