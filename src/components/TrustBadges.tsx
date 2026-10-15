@@ -23,16 +23,13 @@ const chips = [
 export function TrustBadges() {
   return (
     <section className="border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl px-6 py-12 md:py-14">
-        <div className="mb-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-wider text-primary">Credentials</p>
-          <h2 className="mt-1 text-2xl font-extrabold tracking-tight md:text-3xl">Licensed, qualified and insured</h2>
-        </div>
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <p className="text-center text-xs font-bold uppercase tracking-wider text-muted-foreground">Licensed, qualified and insured</p>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-x-0 lg:divide-x lg:divide-border">
           {logos.map((l) => (
-            <div key={l.title} className="flex flex-col items-center rounded-2xl bg-background p-4 text-center ring-1 ring-border sm:p-5">
-              <div className="flex h-16 w-full items-center justify-center">
+            <div key={l.title} className="flex flex-col items-center px-2 text-center lg:px-6">
+              <div className="flex h-16 items-center justify-center">
                 <img src={l.src} alt={l.alt} width={l.w} height={l.h} className={`${l.size} w-auto max-w-full object-contain`} loading="lazy" />
               </div>
               <p className="mt-3 text-sm font-bold leading-snug">{l.title}</p>
@@ -41,9 +38,9 @@ export function TrustBadges() {
           ))}
         </div>
 
-        <div className="mt-5 flex flex-wrap justify-center gap-2">
+        <div className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-x-6 gap-y-3 border-t border-border pt-6">
           {chips.map((c) => (
-            <span key={c.text} className="inline-flex items-center gap-1.5 rounded-full bg-background px-3 py-1.5 text-xs font-semibold text-foreground ring-1 ring-border sm:text-sm">
+            <span key={c.text} className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground sm:text-sm">
               <c.icon className="h-4 w-4 text-primary" aria-hidden="true" />
               {c.text}
             </span>
