@@ -7,6 +7,7 @@ import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
 import { Collapsible } from "@/components/Collapsible";
 import { TestTagInfographic } from "@/components/TestTagInfographic";
+import { StrataInfographic } from "@/components/StrataInfographic";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
@@ -183,7 +184,7 @@ function ServicePage() {
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="lg:grid lg:grid-cols-12 lg:gap-12">
         <div className="min-w-0 lg:col-span-8">
-        {service.slug === "ev-charger-install" ? <EVChargerDetails /> : service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <BodyCorporateDetails /> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "light-switches" ? <LightSwitchesDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
+        {service.slug === "ev-charger-install" ? <EVChargerDetails /> : service.slug === "smoke-alarms" ? <SmokeAlarmDetails /> : service.slug === "fault-finding" ? <FaultFindingDetails /> : service.slug === "body-corporate" ? <><StrataInfographic /><BodyCorporateDetails /></> : service.slug === "real-estate" ? <RealEstateDetails /> : service.slug === "power-points" ? <PowerPointsDetails /> : service.slug === "light-switches" ? <LightSwitchesDetails /> : service.slug === "electrical-safety-inspections" ? <ElectricalSafetyDetails /> : service.slug === "switchboards" ? <SwitchboardDetails /> : service.slug === "emergency-electrical" ? <EmergencyElectricalDetails /> : (
           <>
         {service.slug === "test-and-tag" && <TestTagInfographic />}
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
