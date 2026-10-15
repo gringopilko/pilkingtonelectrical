@@ -146,3 +146,26 @@ details:not(.group) > summary::after {
 details[open]:not(.group) > summary::after {
   transform: translateY(-25%) rotate(225deg);
 }
+
+/* ------------------------------------------------------------------
+   Surfaces instead of outlines.
+   Cards no longer get a hard border. White cards lift off the page with
+   a soft shadow, tinted cards sit on white sections as soft panels.
+   Buttons, inputs and pills keep their outlines.
+   ------------------------------------------------------------------ */
+:where(div, a, li, details, article, aside, section, ol, ul, label).rounded-2xl.border.border-border,
+:where(div, a, li, details, article, aside, section).rounded-3xl.border.border-border {
+  border-color: transparent;
+}
+:where(div, a, li, details, article, aside).rounded-2xl.border.border-border.bg-background,
+:where(div, a, li).rounded-xl.ring-1.ring-border.bg-background,
+:where(div, a, li).rounded-xl.ring-1.ring-border.bg-white {
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04), 0 14px 34px -16px rgb(15 23 42 / 0.18);
+}
+:where(div, a, li, details, article, aside).rounded-2xl.border.border-border.bg-card:not([open]),
+:where(div, a, li).rounded-xl.ring-1.ring-border.bg-card {
+  background-color: oklch(0.972 0.007 250);
+}
+:where(div, a, li).rounded-xl.ring-1.ring-border {
+  --tw-ring-color: transparent;
+}
