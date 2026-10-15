@@ -226,6 +226,78 @@ export function EVInfographic() {
           </div>
         </div>
 
+        {/* Apartment hardware */}
+        <div id="ev-apartment-systems" className="mt-10 scroll-mt-28">
+          <p className="text-center text-xl font-extrabold uppercase tracking-tight md:text-2xl">Apartment Charging Systems I Recommend</p>
+          <p className="mx-auto mt-2 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+            Apartment charging needs more than a charger. Each resident needs an RFID card or app login, the building needs a load controller, and the owners corporation needs software that tracks and bills each user. These are the two systems I work with.
+          </p>
+
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            <div className="flex flex-col rounded-2xl border-2 border-primary bg-card p-5 shadow-lg shadow-primary/10 sm:p-6">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-xl font-extrabold tracking-tight">Ocular + Exploren</p>
+                <span className="rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">My pick for apartments</span>
+              </div>
+              <p className="mt-1 text-sm text-muted-foreground">Ocular chargers and the Exploren platform, both from EVSE Australia.</p>
+              <ul className="mt-4 space-y-3">
+                {[
+                  ["Ocular IQ Mini", "A compact charger designed for apartment car spaces, with RFID access and optional 4G for underground car parks."],
+                  ["Ocular IQ Wallbox", "7 kW or 22 kW, with RFID, a touchscreen and load management."],
+                  ["Ocular IQ Dual Port Tower", "Charges two cars at once. Suits shared or visitor bays."],
+                  ["Ocular Flexi Load Controller", "Load manages up to 250 chargers in one building."],
+                  ["Exploren software", "Resident access by app or RFID, automatic billing, and the energy cost paid back to the owners corporation. It works with over 40 OCPP charger brands."],
+                ].map(([name, text]) => (
+                  <li key={name} className="text-sm leading-relaxed text-muted-foreground">
+                    <span className="font-bold text-foreground">{name}: </span>
+                    {text}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-auto pt-4 text-sm font-semibold text-primary">Best for: medium and large buildings that want one managed system with automatic billing.</p>
+            </div>
+
+            <div className="flex flex-col rounded-2xl border border-border bg-card p-5 sm:p-6">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-xl font-extrabold tracking-tight">Evnex</p>
+                <span className="rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">My pick for houses</span>
+              </div>
+              <p className="mt-1 text-sm text-muted-foreground">Designed and made in New Zealand, with the CP Link cloud platform.</p>
+              <ul className="mt-4 space-y-3">
+                {[
+                  ["E2 Core", "7.4 kW single phase with solar charging built in, and able to join a multi-charger setup."],
+                  ["E2 Plus", "Adds Wi-Fi and 4G and a longer 8\u00a0m cable. Handy for car parks with weak Wi-Fi."],
+                  ["X22", "22 kW three phase, with RFID access control and commercial load management."],
+                  ["CP Link", "Cloud dashboard and app to manage a group of chargers, lock or unlock them remotely and recover charging costs."],
+                  ["E2 Flex", "The budget home model. It cannot join a multi-charger system, so it is not one for apartments."],
+                ].map(([name, text]) => (
+                  <li key={name} className="text-sm leading-relaxed text-muted-foreground">
+                    <span className="font-bold text-foreground">{name}: </span>
+                    {text}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-auto pt-4 text-sm font-semibold text-primary">Best for: houses and townhouses, especially with solar, and smaller buildings.</p>
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl bg-slate-900 p-5 text-white sm:p-6">
+              <p className="text-lg font-extrabold tracking-tight">What are RFID cards?</p>
+              <p className="mt-2 text-sm leading-relaxed text-white/80">
+                A card or key fob each resident taps on the charger to start charging, just like a building access fob. The system knows who is charging, so it can stop anyone else using the charger and record every kWh against the right person for billing. A lost card is cancelled in the app and a new one issued.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-[#eef6fe] p-5 sm:p-6">
+              <p className="text-lg font-extrabold tracking-tight">Why I recommend Ocular for apartments</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                It is built for strata from the ground up: a compact RFID charger for each bay, one controller for the whole building, and billing that pays the owners corporation back automatically. It runs on OCPP, the open standard, so the building is not locked into one brand. Whichever system a building chooses, every resident should connect to the same one, so load management and billing work for everyone.
+              </p>
+            </div>
+          </div>
+          <p className="mt-3 text-center text-xs text-muted-foreground">Models and features change over time. I'll confirm the current range and what suits your building when I quote.</p>
+        </div>
+
         {/* CTA */}
         <div className="mt-8 grid overflow-hidden rounded-2xl sm:grid-cols-3">
           <div className="bg-slate-900 p-6 text-white">
