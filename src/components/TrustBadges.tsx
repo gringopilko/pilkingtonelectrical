@@ -14,7 +14,7 @@ const logos = [
 const chips = [
   { icon: BadgeCheck, text: "A-grade electrical licence" },
   { icon: ShieldCheck, text: "$5M public liability" },
-  { icon: HeartPulse, text: "Low voltage rescue and CPR trained" },
+  { icon: HeartPulse, text: "First aid, CPR and low voltage rescue" },
   { icon: HardHat, text: "Working at heights trained" },
   { icon: Users, text: "Working with Children Check" },
   { icon: UserCheck, text: "Police checked" },

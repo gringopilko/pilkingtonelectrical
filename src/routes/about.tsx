@@ -60,7 +60,7 @@ function About() {
           {[
             { big: "REC 30450", small: "Registered Electrical Contractor" },
             { big: "$5 million", small: "Public liability cover" },
-            { big: "Qualified 2019", small: "Apprenticeship from 2016" },
+            { big: "Qualified 2019", small: "Apprenticeship from 2015" },
             { big: "Hampton East", small: "Serving Bayside and South East" },
           ].map((s) => (
             <div key={s.big} className="bg-background px-5 py-6 text-center">
@@ -89,7 +89,7 @@ function About() {
 
             <h2 className="mt-10 text-2xl font-extrabold tracking-tight md:text-3xl">My background</h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              I started my apprenticeship in 2016 and qualified in 2019, and spent the years since
+              I started my apprenticeship in late 2015 and qualified in 2019, and spent the years since
               working across large-scale commercial and institutional builds: hospitals, correctional
               facilities, and multi-storey apartment developments. That's where I learned to work to a
               standard where mistakes aren't an option: compliance, documentation, and getting it right
