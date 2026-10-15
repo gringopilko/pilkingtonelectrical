@@ -1,10 +1,9 @@
 import { Link } from "@tanstack/react-router";
+import { EvApartmentOptions } from "@/components/EvApartmentOptions";
 import {
   AlertTriangle,
   Cable,
-  Car,
   Gauge,
-  Layers,
   PlugZap,
   Receipt,
   Route,
@@ -107,44 +106,6 @@ const evSolutions = [
   { icon: Zap, title: "Load management", text: "Smart chargers share the available power between cars, so the main supply is not overloaded." },
   { icon: Receipt, title: "Fair billing", text: "Charging from the owner's own supply, or smart chargers that track each user's energy so costs can be recharged." },
   { icon: Cable, title: "Neat, compliant installs", text: "Planned cable routes, suitable protection, testing and a certificate of electrical safety." },
-];
-
-const evOptions = [
-  {
-    icon: Car,
-    title: "One owner, one charger",
-    text: "A charger for a single car space, usually supplied from that owner's own meter or switchboard.",
-    steps: [
-      "I check the owner's supply and the route from their switchboard or meter to the car space.",
-      "The owners corporation approves the cable route through common property.",
-      "A dedicated circuit with its own protection runs to a wall mounted charger at the bay.",
-      "The power is on the owner's own bill, so there is nothing to recharge.",
-    ],
-  },
-  {
-    icon: Layers,
-    title: "EV-ready building",
-    text: "Install the backbone cabling once, then add chargers as residents need them.",
-    steps: [
-      "I assess the building's maximum demand to see how much spare capacity there is for charging.",
-      "A dedicated EV board is installed off the main switchboard, sized for the plan agreed by the committee.",
-      "A main cable or busway runs through the car park, with a connection point near each bay.",
-      "When an owner wants to charge, their charger connects to the nearest point with its own protection. A short, quick job.",
-      "A load management controller keeps the total charging within the capacity set aside for it.",
-    ],
-  },
-  {
-    icon: PlugZap,
-    title: "Shared charging",
-    text: "A managed system for the whole car park, with load management and user billing.",
-    steps: [
-      "Networked smart chargers are installed in allocated or shared bays and linked to a management app.",
-      "A meter at the main switchboard watches the building's load in real time.",
-      "Load management shares the spare power between the cars charging and slows them at peak times.",
-      "Residents start a session with an app or card, and every session is recorded.",
-      "Usage reports, or automatic billing through the app, let the owners corporation recharge each user for their power.",
-    ],
-  },
 ];
 
 const steps = [
@@ -322,30 +283,13 @@ export function StrataInfographic() {
 
           <div className="bg-background p-5 sm:p-6">
             <p className="text-sm font-extrabold uppercase tracking-wide text-muted-foreground">Three ways to set it up</p>
-            <div className="mt-4 grid items-start gap-3 sm:grid-cols-3">
-              {evOptions.map((o) => (
-                <div key={o.title} className="flex flex-col rounded-xl bg-card p-4 ring-1 ring-border">
-                  <o.icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                  <p className="mt-2 font-bold tracking-tight">{o.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{o.text}</p>
-                  <details className="mt-3 border-t border-border pt-3">
-                    <summary className="cursor-pointer text-sm font-bold text-primary">How it works</summary>
-                    <ol className="mt-3 space-y-2.5">
-                      {o.steps.map((st, i) => (
-                        <li key={st} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground">
-                          <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-extrabold text-primary-foreground">{i + 1}</span>
-                          {st}
-                        </li>
-                      ))}
-                    </ol>
-                  </details>
-                </div>
-              ))}
+            <div className="mt-4">
+              <EvApartmentOptions />
             </div>
             <div className="mt-5 flex flex-col gap-4 rounded-xl bg-slate-900 p-4 text-white sm:flex-row sm:items-center sm:justify-between sm:p-5">
               <p className="text-sm font-bold leading-snug sm:text-base">I can prepare a proposal for the committee: capacity, options, cable routes and who pays, so owners can vote on something clear.</p>
-              <Link to="/services/$slug" params={{ slug: "ev-charger-install" }} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-white hover:text-slate-900">
-                EV charger installation
+              <Link to="/services/$slug" params={{ slug: "ev-charger-install" }} hash="ev-apartments" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-white hover:text-slate-900">
+                Full EV charging details
               </Link>
             </div>
           </div>
