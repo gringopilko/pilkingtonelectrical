@@ -69,7 +69,7 @@ export function ElectricalSafetyDetails() {
       <section id="checklist" className="mt-14 scroll-mt-28">
         <p className="text-sm font-bold uppercase tracking-wide text-primary">Exactly what I check</p>
         <h2 className="mt-2 text-2xl font-extrabold tracking-tight md:text-3xl">The full electrical safety checklist</h2>
-        <p className="mt-4 leading-relaxed text-muted-foreground">Every check follows the same checklist, so nothing is missed and every report is consistent. You can download a blank copy below to see exactly what is covered. The installation is inspected and tested as far as practicable under AS/NZS 3019, the Australian Standard for checking existing electrical installations.</p>
+        <p className="mt-4 leading-relaxed text-muted-foreground">Every check follows the same checklist under AS/NZS 3019, the Australian Standard for checking existing electrical installations, so nothing is missed. A blank copy is available to download below.</p>
 
         <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-background shadow-xl shadow-slate-900/5">
           <div className="flex items-center gap-4 bg-gradient-to-br from-slate-950 via-slate-900 to-brand-dark px-5 py-5 text-white sm:px-8">
@@ -85,13 +85,14 @@ export function ElectricalSafetyDetails() {
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-extrabold text-primary-foreground">1</span>
               Visual inspection
             </h3>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <p className="mt-2 text-sm text-muted-foreground sm:hidden">Each item below is inspected for damage, deterioration and safe connection.</p>
+            <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-3">
               {visualChecks.map(([title, text]) => (
-                <div key={title} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-                  <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border-2 border-primary text-primary"><Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden="true" /></span>
-                  <div>
-                    <p className="text-sm font-bold">{title}</p>
-                    <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                <div key={title} className="flex items-start gap-2 rounded-xl bg-card p-3 ring-1 ring-border sm:gap-3 sm:p-4">
+                  <span className="mt-0.5 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded border-2 border-primary text-primary sm:h-5 sm:w-5"><Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={3} aria-hidden="true" /></span>
+                  <div className="min-w-0">
+                    <p className="text-[13px] font-bold leading-snug sm:text-sm">{title}</p>
+                    <p className="mt-0.5 hidden text-sm leading-relaxed text-muted-foreground sm:block">{text}</p>
                   </div>
                 </div>
               ))}
@@ -101,13 +102,13 @@ export function ElectricalSafetyDetails() {
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-extrabold text-primary-foreground">2</span>
               Testing with instruments
             </h3>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="mt-4 divide-y divide-border rounded-xl bg-card ring-1 ring-border sm:grid sm:grid-cols-2 sm:gap-3 sm:divide-y-0 sm:bg-transparent sm:ring-0">
               {testChecks.map(([title, text]) => (
-                <div key={title} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-                  <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border-2 border-primary text-primary"><Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden="true" /></span>
-                  <div>
-                    <p className="text-sm font-bold">{title}</p>
-                    <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                <div key={title} className="flex items-start gap-3 p-3.5 sm:rounded-xl sm:bg-card sm:p-4 sm:ring-1 sm:ring-border">
+                  <span className="mt-0.5 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded border-2 border-primary text-primary sm:h-5 sm:w-5"><Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={3} aria-hidden="true" /></span>
+                  <div className="min-w-0">
+                    <p className="text-sm font-bold leading-snug">{title}</p>
+                    <p className="mt-0.5 text-[13px] leading-relaxed text-muted-foreground sm:text-sm">{text}</p>
                   </div>
                 </div>
               ))}
