@@ -89,10 +89,9 @@ function About() {
             </div>
             <blockquote className="mt-8 border-l-4 border-primary pl-5">
               <p className="text-lg font-bold leading-snug text-foreground md:text-xl">
-                Today I bring all of it to every job: an analyst's eye for detail, a rescuer's calm, and a genuine love for the work.
+                These days it's simple. I turn up when I say I will, do the job properly, explain it in plain English and leave the place tidy.
               </p>
-              <p className="mt-3 text-sm text-muted-foreground">When you invite me into your home, I treat it with the same care I'd want in mine.</p>
-              <p className="mt-3 text-sm font-bold text-foreground">Shane Pilkington</p>
+              <p className="mt-3 text-sm font-bold text-foreground">Shane</p>
             </blockquote>
           </div>
 
