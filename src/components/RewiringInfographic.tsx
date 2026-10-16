@@ -45,6 +45,7 @@ const finishes = [
     text: "Cables are hidden inside the wall for the cleanest result. In brick and masonry I chase the wall in house with a professional Metabo twin blade wall chaser, cutting clean, straight channels at a set depth, then set the cable in ready for your plasterer to make good. It is the finish I recommend, and with the right tools it is better value than most people expect.",
     best: "Best for: anyone who wants a clean, built-in look in any room.",
     highlight: true,
+    image: { src: "/img/metabo-wall-chaser.webp", alt: "Metabo wall chaser cutting a clean channel in a brick wall", w: 452, h: 364 },
   },
   {
     icon: Box,
@@ -197,9 +198,13 @@ export function RewiringInfographic() {
           <div className="mt-6 grid items-start gap-4 md:grid-cols-3">
             {finishes.map((f) => (
               <div key={f.name} className={`flex h-full flex-col rounded-2xl p-5 ${f.highlight ? "border-2 border-primary bg-[#eef6fe] shadow-lg shadow-primary/10" : "border border-border bg-card"}`}>
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md shadow-primary/25">
-                  <f.icon className="h-6 w-6" aria-hidden="true" />
-                </span>
+                {"image" in f && f.image ? (
+                  <img src={f.image.src} alt={f.image.alt} width={f.image.w} height={f.image.h} loading="lazy" decoding="async" className="-mx-1 -mt-1 mb-1 aspect-[4/3] w-[calc(100%+0.5rem)] rounded-xl object-cover" />
+                ) : (
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md shadow-primary/25">
+                    <f.icon className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                )}
                 <span className="mt-4 inline-flex w-fit rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">{f.tag}</span>
                 <p className="mt-2 text-lg font-extrabold tracking-tight">{f.name}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
