@@ -194,22 +194,35 @@ export function RewiringInfographic() {
         <div className="mt-10">
           <p className="text-center text-xl font-extrabold uppercase tracking-tight md:text-2xl">Three Ways to Run New Cables</p>
           <p className="mt-1 text-center text-sm font-bold uppercase tracking-wide text-primary">From the best finish to the most budget friendly</p>
-          <div className="mt-6 grid items-start gap-4 md:grid-cols-3">
-            {finishes.map((f) => (
-              <div key={f.name} className={`flex h-full flex-col rounded-2xl p-5 ${f.highlight ? "border-2 border-primary bg-[#eef6fe] shadow-lg shadow-primary/10" : "border border-border bg-card"}`}>
-                {"image" in f && f.image ? (
-                  <img src={f.image.src} alt={f.image.alt} width={f.image.w} height={f.image.h} loading="lazy" decoding="async" className="-mx-1 -mt-1 mb-1 aspect-[4/3] w-[calc(100%+0.5rem)] rounded-xl object-cover" />
-                ) : (
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md shadow-primary/25">
-                    <f.icon className="h-6 w-6" aria-hidden="true" />
-                  </span>
-                )}
-                <span className="mt-4 inline-flex w-fit rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">{f.tag}</span>
-                <p className="mt-2 text-lg font-extrabold tracking-tight">{f.name}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
-                <p className="mt-auto pt-3 text-sm font-semibold text-primary">{f.best}</p>
+          <div className="mt-6 space-y-4">
+            {finishes.filter((f) => f.highlight).map((f) => (
+              <div key={f.name} className="grid gap-5 rounded-2xl border-2 border-primary bg-[#eef6fe] p-5 shadow-lg shadow-primary/10 sm:grid-cols-[auto_1fr] sm:p-7">
+                <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md shadow-primary/25">
+                  <f.icon className="h-7 w-7" aria-hidden="true" />
+                </span>
+                <div>
+                  <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">{f.tag}</span>
+                  <p className="mt-3 text-xl font-extrabold tracking-tight md:text-2xl">{f.name}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">{f.text}</p>
+                  <p className="mt-3 text-sm font-semibold text-primary">{f.best}</p>
+                </div>
               </div>
             ))}
+            <div className="grid gap-4 sm:grid-cols-2">
+              {finishes.filter((f) => !f.highlight).map((f) => (
+                <div key={f.name} className="rounded-2xl border border-border bg-card p-5">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <f.icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">{f.tag}</span>
+                  </div>
+                  <p className="mt-3 text-lg font-extrabold tracking-tight">{f.name}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{f.text}</p>
+                  <p className="mt-3 text-sm font-semibold text-primary">{f.best}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
