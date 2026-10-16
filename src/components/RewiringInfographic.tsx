@@ -39,9 +39,14 @@ const signs = [
 const finishes = [
   {
     icon: Hammer,
-    tag: "Best finish, my recommendation",
+    tag: "Premium finish, my recommendation",
     name: "Concealed in the wall",
-    text: "Cables are hidden inside the wall for the cleanest result. In brick and masonry I chase the wall in house with a professional Metabo twin blade wall chaser connected to an H-class dust extractor, cutting clean, straight channels at a set depth with the dust captured at the blade. The cable is then set in, ready for your plasterer to make good. It is the finish I recommend, and with the right tools it is better value than most people expect.",
+    text: "Cables are hidden inside the wall for the cleanest result. In brick and masonry I chase the wall in house with a professional Metabo twin blade wall chaser connected to an H-class dust extractor, with the dust captured at the blade. The cables run in conduit and every switch and power point sits in a recessed flush wall box, ready for your plasterer to make good. It is the finish I recommend, and with the right tools it is better value than most people expect.",
+    specs: [
+      ["Conduit", "20 or 25 mm conduit, so cables can be replaced later without chasing again"],
+      ["Chase depth", "Usually 25 to 35 mm, deep enough for the conduit plus render over the top. The chaser cuts anywhere from 10 to 40 mm"],
+      ["Flush wall boxes", "Recessed into the brick so switch and power point plates sit flat against the wall"],
+    ],
     best: "Best for: anyone who wants a clean, built-in look in any room.",
     highlight: true,
   },
@@ -193,6 +198,16 @@ export function RewiringInfographic() {
                   <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">{f.tag}</span>
                   <p className="mt-3 text-xl font-extrabold tracking-tight md:text-2xl">{f.name}</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">{f.text}</p>
+                  {"specs" in f && f.specs && (
+                    <dl className="mt-4 grid gap-3 sm:grid-cols-3">
+                      {f.specs.map(([term, detail]) => (
+                        <div key={term} className="rounded-xl bg-white/70 p-3">
+                          <dt className="text-xs font-bold uppercase tracking-wide text-primary">{term}</dt>
+                          <dd className="mt-1 text-sm leading-snug text-foreground">{detail}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
                   <p className="mt-3 text-sm font-semibold text-primary">{f.best}</p>
                 </div>
               </div>
@@ -247,7 +262,7 @@ export function RewiringInfographic() {
               <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Best finish</span>
               <p className="mt-3 text-lg font-extrabold tracking-tight">Chasing solid brick and concrete</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                I chase solid walls in house with a professional Metabo twin blade wall chaser and an H-class dust extractor, which cuts clean, straight channels at a set depth in one pass and captures the dust at the blade, so it stays out of your home. With the right tools on hand, hidden cables in solid walls are better value than most people expect. The chase is then ready for your plasterer to make good.
+                I chase solid walls in house with a professional Metabo twin blade wall chaser and an H-class dust extractor, which cuts clean, straight channels at a set depth in one pass and captures the dust at the blade, so it stays out of your home. Cables run in conduit with recessed flush wall boxes, so the plates sit flat and cables can be replaced later. With the right tools on hand, hidden cables in solid walls are better value than most people expect. The chase is then ready for your plasterer to make good.
               </p>
             </div>
           </div>
