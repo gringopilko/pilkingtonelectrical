@@ -87,16 +87,16 @@ function About() {
                 Through all of it, one thing kept pulling me back: a fascination with science, physics and the work of Nikola Tesla. I wanted to truly understand electricity, not just use it. So I came home and became an electrician.
               </p>
               <p>
-                Near the end of my apprenticeship I thought I knew it all. I told the A-grade I was working with that a job couldn't be done, and he looked at me and said:
+                At the end of my apprenticeship I thought I knew it all. I told my A-grade a job couldn't be done, and he said:
               </p>
               <figure className="my-2 rounded-2xl bg-background px-6 py-5 shadow-sm">
                 <blockquote className="text-xl font-extrabold leading-snug tracking-tight text-foreground md:text-2xl">
                   &ldquo;We&apos;re tradesmen. We can do anything.&rdquo;
                 </blockquote>
-                <figcaption className="mt-2 text-sm font-semibold text-primary">Y, the A-grade who set me straight</figcaption>
+                <figcaption className="mt-2 text-sm font-semibold text-primary">Y, my A-grade</figcaption>
               </figure>
               <p>
-                It knocked the ego right out of me, and it has stuck with me ever since. If there&apos;s a way to do a job properly, I&apos;ll find it.
+                That set my mindset for the future.
               </p>
             </div>
             <blockquote className="mt-8 border-l-4 border-primary pl-5">
