@@ -86,6 +86,9 @@ function About() {
               <p>
                 Through all of it, one thing kept pulling me back: a fascination with science, physics and the work of Nikola Tesla. I wanted to truly understand electricity, not just use it. So I came home and became an electrician.
               </p>
+              <p>
+                Near the end of my apprenticeship I thought I knew it all. I told an older tradesman a job couldn't be done, and he looked at me and said, "We're tradesmen. We can do anything." It knocked the ego right out of me, and it has stuck with me ever since. If there's a way to do a job properly, I'll find it.
+              </p>
             </div>
             <blockquote className="mt-8 border-l-4 border-primary pl-5">
               <p className="text-lg font-bold leading-snug text-foreground md:text-xl">
