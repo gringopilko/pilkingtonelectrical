@@ -13,6 +13,7 @@ import { EVInfographic } from "@/components/EVInfographic";
 import { FaultFindingInfographic } from "@/components/FaultFindingInfographic";
 import { ProtectionGuide } from "@/components/ProtectionGuide";
 import { RewiringInfographic } from "@/components/RewiringInfographic";
+import { LightingComparison } from "@/components/LightingComparison";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
@@ -209,6 +210,8 @@ function ServicePage() {
             {para}
           </p>
         ))}
+
+        {service.slug === "lighting" && <LightingComparison />}
 
         {service.sections && service.sections.length > 0 && (
           <div className="mt-10">
