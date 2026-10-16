@@ -209,6 +209,38 @@ export function RewiringInfographic() {
           </div>
         </div>
 
+        {/* Solid brick and art deco */}
+        <div id="solid-brick" className="mt-10 scroll-mt-28 overflow-hidden rounded-2xl">
+          <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-dark px-5 py-6 text-white sm:px-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-sky-300">Solid brick and concrete walls</p>
+            <p className="mt-2 text-xl font-extrabold leading-tight tracking-tight sm:text-2xl">Art deco apartments and older homes</p>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-white/75">
+              Many art deco apartments and older homes around St Kilda, Elwood and Elsternwick have solid brick or concrete walls, so there is no cavity to feed new cables through. That leaves two good options, and I offer both.
+            </p>
+          </div>
+          <div className="grid gap-4 bg-card p-5 sm:p-6 md:grid-cols-2">
+            <div className="rounded-2xl bg-background p-5 shadow-sm">
+              <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Usually the best value</span>
+              <p className="mt-3 text-lg font-extrabold tracking-tight">Sleek surface ducting</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Low-profile ducting runs neatly along the wall or cornice, finished with standard or premium Clipsal and Hager mounting to suit the room. It is the quickest to install, with minimal dust and nothing to make good afterwards, which is why it is usually the most affordable choice for art deco apartments.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-background p-5 shadow-sm">
+              <span className="inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">Fully concealed</span>
+              <p className="mt-3 text-lg font-extrabold tracking-tight">Chasing solid brick and concrete</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                I chase solid walls in house with a professional Metabo twin blade wall chaser, which cuts clean, straight channels at a set depth in one pass. With the right tools on hand, hidden cables in solid walls are better value than most people expect. The chase is then ready for your plasterer to make good.
+              </p>
+            </div>
+          </div>
+          <div className="bg-card px-5 pb-5 sm:px-6 sm:pb-6">
+            <p className="rounded-xl bg-[#eef6fe] p-4 text-sm font-medium leading-relaxed">
+              Not sure which suits your place? I'll show you both on site and quote each one, so you can choose between the best value and a fully hidden finish.
+            </p>
+          </div>
+        </div>
+
         {/* Access */}
         <div className="mt-10 overflow-hidden rounded-2xl border border-border">
           <div className="bg-slate-900 px-5 py-4 text-white sm:px-6">
