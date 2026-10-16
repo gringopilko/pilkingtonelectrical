@@ -42,7 +42,7 @@ const finishes = [
     icon: Hammer,
     tag: "Best finish, my recommendation",
     name: "Concealed in the wall",
-    text: "Cables are hidden inside the wall for the cleanest result. In brick and masonry I chase the wall in house, cutting clean, straight channels at a set depth, then set the cable in ready for your plasterer to make good. It is the finish I recommend, and with the right tools it is better value than most people expect.",
+    text: "Cables are hidden inside the wall for the cleanest result. In brick and masonry I chase the wall in house with a professional Metabo twin blade wall chaser connected to an H-class dust extractor, cutting clean, straight channels at a set depth with the dust captured at the blade. The cable is then set in, ready for your plasterer to make good. It is the finish I recommend, and with the right tools it is better value than most people expect.",
     best: "Best for: anyone who wants a clean, built-in look in any room.",
     highlight: true,
   },
@@ -196,10 +196,8 @@ export function RewiringInfographic() {
           <p className="mt-1 text-center text-sm font-bold uppercase tracking-wide text-primary">From the best finish to the most budget friendly</p>
           <div className="mt-6 space-y-4">
             {finishes.filter((f) => f.highlight).map((f) => (
-              <div key={f.name} className="grid gap-5 rounded-2xl border-2 border-primary bg-[#eef6fe] p-5 shadow-lg shadow-primary/10 sm:grid-cols-[auto_1fr] sm:p-7">
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md shadow-primary/25">
-                  <f.icon className="h-7 w-7" aria-hidden="true" />
-                </span>
+              <div key={f.name} className="grid gap-5 rounded-2xl border-2 border-primary bg-[#eef6fe] p-5 shadow-lg shadow-primary/10 sm:grid-cols-[minmax(0,240px)_1fr] sm:items-center sm:p-7">
+                <img src="/img/metabo-wall-chaser.webp" alt="Metabo wall chaser cutting a clean channel in a brick wall" width={452} height={364} loading="lazy" decoding="async" className="aspect-[4/3] w-full rounded-xl object-cover" />
                 <div>
                   <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">{f.tag}</span>
                   <p className="mt-3 text-xl font-extrabold tracking-tight md:text-2xl">{f.name}</p>
@@ -247,7 +245,7 @@ export function RewiringInfographic() {
               <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Best finish</span>
               <p className="mt-3 text-lg font-extrabold tracking-tight">Chasing solid brick and concrete</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                I chase solid walls in house, cutting clean, straight channels at a set depth for a fully hidden finish. With the right tools on hand, hidden cables in solid walls are better value than most people expect. The chase is then ready for your plasterer to make good.
+                I chase solid walls in house with a professional Metabo twin blade wall chaser and an H-class dust extractor, which cuts clean, straight channels at a set depth in one pass and captures the dust at the blade, so it stays out of your home. With the right tools on hand, hidden cables in solid walls are better value than most people expect. The chase is then ready for your plasterer to make good.
               </p>
             </div>
           </div>
