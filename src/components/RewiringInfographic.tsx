@@ -212,6 +212,17 @@ export function RewiringInfographic() {
                 </div>
               ))}
             </div>
+            <div className="flex flex-col gap-4 rounded-2xl bg-slate-900 p-5 text-white sm:flex-row sm:items-center sm:justify-between sm:p-6">
+              <div>
+                <p className="text-lg font-extrabold tracking-tight">Ask for a comparison quote</p>
+                <p className="mt-1 text-sm leading-relaxed text-white/80">
+                  My chasing is second to none, done with premium tools, and the gap between chasing and ducting is often smaller than people expect. Hidden cables are also worth it long term: nothing on the walls to knock, discolour or paint around, and a finish that suits a renovation or a sale.
+                </p>
+              </div>
+              <a href="#quote" className="inline-flex shrink-0 items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-white hover:text-slate-900">
+                Get both quoted
+              </a>
+            </div>
           </div>
         </div>
 
@@ -242,7 +253,7 @@ export function RewiringInfographic() {
           </div>
           <div className="bg-card px-5 pb-5 sm:px-6 sm:pb-6">
             <p className="rounded-xl bg-[#eef6fe] p-4 text-sm font-medium leading-relaxed">
-              Not sure which suits your place? I'll show you both on site and quote each one, so you can choose between the best value and a fully hidden finish.
+              Not sure which suits your place? Ask for a comparison quote. I'll price both on site, and you may be surprised how close they are, especially when you weigh up the long term finish.
             </p>
           </div>
         </div>
