@@ -162,6 +162,39 @@ export function CeilingFanInfographic() {
           </div>
         </div>
 
+        {/* Recommended fan */}
+        <div className="mt-8 grid gap-5 rounded-2xl border-2 border-primary bg-[#eef6fe] p-5 shadow-lg shadow-primary/10 sm:grid-cols-[minmax(0,260px)_1fr] sm:items-center sm:p-7">
+          <img
+            src="/img/kyber-ceiling-fan-outdoor.webp"
+            alt="White Lucci Air Kyber DC ceiling fan in a covered outdoor entertaining area"
+            width={800}
+            height={600}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[4/3] w-full rounded-xl object-cover"
+          />
+          <div>
+            <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">The fan I recommend</span>
+            <p className="mt-3 text-xl font-extrabold tracking-tight md:text-2xl">Lucci Air Kyber 137 cm DC</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
+              Available from Beacon Lighting. Three sculpted blades make it a real feature in a living room or main bedroom, and the energy efficient DC motor gives strong airflow while staying quiet. It comes with a 7 speed remote.
+            </p>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {[
+                "White, white with ash, black, or black with koa blades",
+                "With or without a light",
+                "Close to ceiling version for lower ceilings",
+                "Suits covered outdoor areas too",
+              ].map((pt) => (
+                <li key={pt} className="flex items-start gap-2 text-sm leading-snug">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  {pt}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         {/* Mounting */}
         <div className="mt-8">
           <p className="text-lg font-extrabold tracking-tight">Ceiling height and mounting</p>
