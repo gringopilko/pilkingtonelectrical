@@ -14,6 +14,7 @@ import { FaultFindingInfographic } from "@/components/FaultFindingInfographic";
 import { ProtectionGuide } from "@/components/ProtectionGuide";
 import { RewiringInfographic } from "@/components/RewiringInfographic";
 import { LightingComparison } from "@/components/LightingComparison";
+import { CeilingFanInfographic } from "@/components/CeilingFanInfographic";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
@@ -195,6 +196,7 @@ function ServicePage() {
         {service.slug === "test-and-tag" && <TestTagInfographic />}
         {service.slug === "safety-switches" && <ProtectionGuide />}
         {service.slug === "rewiring-extensions" && <RewiringInfographic />}
+        {service.slug === "ceiling-fans" && <CeilingFanInfographic />}
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {service.included.map((item) => (
