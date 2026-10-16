@@ -42,10 +42,9 @@ const finishes = [
     icon: Hammer,
     tag: "Best finish, my recommendation",
     name: "Concealed in the wall",
-    text: "Cables are hidden inside the wall for the cleanest result. In brick and masonry I chase the wall in house with a professional Metabo twin blade wall chaser connected to an H-class dust extractor, cutting clean, straight channels at a set depth with the dust captured at the blade. The cable is then set in, ready for your plasterer to make good. It is the finish I recommend, and with the right tools it is better value than most people expect.",
+    text: "Cables are hidden inside the wall for the cleanest result. In brick and masonry I chase the wall in house, cutting clean, straight channels at a set depth, then set the cable in ready for your plasterer to make good. It is the finish I recommend, and with the right tools it is better value than most people expect.",
     best: "Best for: anyone who wants a clean, built-in look in any room.",
     highlight: true,
-    image: { src: "/img/metabo-wall-chaser.webp", alt: "Metabo wall chaser cutting a clean channel in a brick wall", w: 452, h: 364 },
   },
   {
     icon: Box,
@@ -235,7 +234,7 @@ export function RewiringInfographic() {
               <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Best finish</span>
               <p className="mt-3 text-lg font-extrabold tracking-tight">Chasing solid brick and concrete</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                I chase solid walls in house with a professional Metabo twin blade wall chaser and an H-class dust extractor, which cuts clean, straight channels at a set depth in one pass and captures the dust at the blade, so it stays out of your home. With the right tools on hand, hidden cables in solid walls are better value than most people expect. The chase is then ready for your plasterer to make good.
+                I chase solid walls in house, cutting clean, straight channels at a set depth for a fully hidden finish. With the right tools on hand, hidden cables in solid walls are better value than most people expect. The chase is then ready for your plasterer to make good.
               </p>
             </div>
           </div>
