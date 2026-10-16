@@ -86,20 +86,8 @@ function About() {
               <p>
                 Through all of it, one thing kept pulling me back: a fascination with science, physics and the work of Nikola Tesla. I wanted to truly understand electricity, not just use it. So I came home and became an electrician.
               </p>
-              <p>
-                At the end of my apprenticeship I thought I knew it all. I told my A-grade a job couldn't be done, and he said:
-              </p>
-              <figure className="my-2 rounded-2xl bg-background px-6 py-5 shadow-sm">
-                <blockquote className="text-xl font-extrabold leading-snug tracking-tight text-foreground md:text-2xl">
-                  &ldquo;We&apos;re tradesmen. We can do anything.&rdquo;
-                </blockquote>
-                <figcaption className="mt-2 text-sm font-semibold text-primary">Y, my A-grade</figcaption>
-              </figure>
-              <p>
-                That set my mindset for the future.
-              </p>
             </div>
-            <blockquote className="mt-8 border-l-4 border-primary pl-5">
+            <blockquote className="mt-12 border-l-4 border-primary py-1 pl-6 md:mt-14">
               <p className="text-lg font-bold leading-snug text-foreground md:text-xl">
                 Three things matter most in my work: safety, workmanship and honesty.
               </p>
@@ -107,7 +95,7 @@ function About() {
             </blockquote>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="mt-4 border-t border-border pt-10 md:col-span-2 md:mt-0 md:border-0 md:pt-0">
             <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">The road here</p>
             <ol className="relative mt-6 space-y-7 border-l-2 border-primary/25 pl-6">
               {[
