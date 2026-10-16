@@ -71,6 +71,53 @@ function About() {
         </div>
       </section>
 
+      <section className="border-b border-border bg-card">
+        <div className="mx-auto grid max-w-5xl gap-12 px-6 py-16 md:grid-cols-5 md:gap-14 md:py-20">
+          <div className="md:col-span-3">
+            <p className="text-xs font-bold uppercase tracking-wider text-primary">My story</p>
+            <h2 className="mt-2 text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">From the trading floor to the switchboard</h2>
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p>
+                My career didn't start with a toolbox. It started in finance, analysing listed companies and writing research, where every number had to be right and every detail had to stand up to scrutiny.
+              </p>
+              <p>
+                Then I traded the desk for a few years chasing an endless winter. I worked ski patrol in the Canadian Rockies, on avalanche control and search and rescue, followed by seasons in New Zealand and a stint behind a busy London bar. Those years taught me to stay calm when things go wrong, and to look after the people around me.
+              </p>
+              <p>
+                Through all of it, one thing kept pulling me back: a fascination with science, physics and the work of Nikola Tesla. I wanted to truly understand electricity, not just use it. So I came home and became an electrician.
+              </p>
+            </div>
+            <blockquote className="mt-8 border-l-4 border-primary pl-5">
+              <p className="text-lg font-bold leading-snug text-foreground md:text-xl">
+                Today I bring all of it to every job: an analyst's eye for detail, a rescuer's calm, and a genuine love for the work.
+              </p>
+              <p className="mt-3 text-sm text-muted-foreground">When you invite me into your home, I treat it with the same care I'd want in mine.</p>
+              <p className="mt-3 text-sm font-bold text-foreground">Shane Pilkington</p>
+            </blockquote>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">The road here</p>
+            <ol className="relative mt-6 space-y-7 border-l-2 border-primary/25 pl-6">
+              {[
+                { when: "The early years", what: "Finance and equities research" },
+                { when: "The winters", what: "Ski patrol, avalanche control and search and rescue in Canada, then New Zealand and London" },
+                { when: "2015", what: "Started my electrical apprenticeship" },
+                { when: "2019", what: "Qualified as an A-grade electrician" },
+                { when: "2020", what: "Registered Electrical Contractor, REC 30450" },
+                { when: "Today", what: "Pilkington Electrical, looking after homes, rentals and buildings across Bayside and South East Melbourne" },
+              ].map((step) => (
+                <li key={step.when} className="relative">
+                  <span className="absolute -left-[33px] top-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-card" aria-hidden="true" />
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary">{step.when}</p>
+                  <p className="mt-1 text-sm font-semibold leading-snug text-foreground">{step.what}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 md:items-start">
           <div>
