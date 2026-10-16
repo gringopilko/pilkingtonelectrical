@@ -1,6 +1,5 @@
 import {
   AlertTriangle,
-  Box,
   Brush,
   Building2,
   ClipboardCheck,
@@ -47,19 +46,11 @@ const finishes = [
     highlight: true,
   },
   {
-    icon: Box,
-    tag: "Most affordable",
-    name: "Surface ducting, standard",
-    text: "Slim plastic ducting runs neatly along the wall or skirting, with standard white mounting blocks behind switches and power points. Quick to install with no cutting into walls.",
-    best: "Best for: brick walls, garages, sheds, rentals and tight budgets.",
-    highlight: false,
-  },
-  {
     icon: Sparkles,
-    tag: "Premium surface",
-    name: "Surface ducting, premium",
-    text: "Premium surface mounting boxes and brackets from Clipsal and Hager, designed to match their switch and power point ranges. A tidier, more built-in look without chasing the walls.",
-    best: "Best for: living areas where you want a tidy finish without chasing the walls.",
+    tag: "Great value, no chasing",
+    name: "Premium surface ducting",
+    text: "Slim, low-profile ducting with premium Clipsal and Hager surface mounting boxes and brackets, designed to match their switch and power point ranges. A tidy, built-in look with no cutting into walls, and quicker to install than chasing.",
+    best: "Best for: solid brick walls, art deco apartments, rentals and tighter budgets.",
     highlight: false,
   },
 ];
@@ -100,7 +91,7 @@ const costFactors = [
   "Wall type: plasterboard, brick veneer or double brick",
   "Ceiling and roof access, and the roof type",
   "Insulation in the ceiling or walls that has to be worked around",
-  "The finish you choose: chased, standard ducting or premium",
+  "The finish you choose: chased or premium surface ducting",
   "Furniture, fitted cabinetry and contents in the way",
   "Whether the switchboard also needs upgrading",
 ];
@@ -192,8 +183,8 @@ export function RewiringInfographic() {
 
         {/* Finishes */}
         <div className="mt-10">
-          <p className="text-center text-xl font-extrabold uppercase tracking-tight md:text-2xl">Three Ways to Run New Cables</p>
-          <p className="mt-1 text-center text-sm font-bold uppercase tracking-wide text-primary">From the best finish to the most budget friendly</p>
+          <p className="text-center text-xl font-extrabold uppercase tracking-tight md:text-2xl">Two Ways to Run New Cables</p>
+          <p className="mt-1 text-center text-sm font-bold uppercase tracking-wide text-primary">The best finish, or the best value</p>
           <div className="mt-6 space-y-4">
             {finishes.filter((f) => f.highlight).map((f) => (
               <div key={f.name} className="grid gap-5 rounded-2xl border-2 border-primary bg-[#eef6fe] p-5 shadow-lg shadow-primary/10 sm:grid-cols-[minmax(0,240px)_1fr] sm:items-center sm:p-7">
@@ -206,7 +197,7 @@ export function RewiringInfographic() {
                 </div>
               </div>
             ))}
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4">
               {finishes.filter((f) => !f.highlight).map((f) => (
                 <div key={f.name} className="rounded-2xl border border-border bg-card p-5">
                   <div className="flex items-center gap-3">
@@ -238,7 +229,7 @@ export function RewiringInfographic() {
               <span className="inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">Budget friendly</span>
               <p className="mt-3 text-lg font-extrabold tracking-tight">Sleek surface ducting</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Low-profile ducting runs neatly along the wall or cornice, finished with standard or premium Clipsal and Hager mounting to suit the room. It is the quickest to install, with minimal dust and nothing to make good afterwards, which is why it is usually the most affordable choice for art deco apartments.
+                Low-profile ducting runs neatly along the wall or cornice, finished with premium Clipsal and Hager surface mounting boxes and brackets. It is the quickest to install, with minimal dust and nothing to make good afterwards, which is why it is usually the most affordable choice for art deco apartments.
               </p>
             </div>
             <div className="rounded-2xl bg-background p-5 shadow-sm">
