@@ -40,11 +40,11 @@ const signs = [
 const finishes = [
   {
     icon: Hammer,
-    tag: "Neatest, costs the most",
+    tag: "Best finish, my recommendation",
     name: "Concealed in the wall",
-    text: "Cables are hidden inside the wall. In brick and masonry the wall is chased, meaning a groove is cut, the cable is set in and the wall is made good afterwards by a plasterer. It is the cleanest look, but the extra labour makes it the most expensive option.",
-    best: "Best for: renovations, feature walls and anywhere looks matter most.",
-    highlight: false,
+    text: "Cables are hidden inside the wall for the cleanest result. In brick and masonry I chase the wall in house with a professional Metabo twin blade wall chaser, cutting clean, straight channels at a set depth, then set the cable in ready for your plasterer to make good. It is the finish I recommend, and with the right tools it is better value than most people expect.",
+    best: "Best for: anyone who wants a clean, built-in look in any room.",
+    highlight: true,
   },
   {
     icon: Box,
@@ -59,8 +59,8 @@ const finishes = [
     tag: "Premium surface",
     name: "Surface ducting, premium",
     text: "Premium surface mounting boxes and brackets from Clipsal and Hager, designed to match their switch and power point ranges. A tidier, more built-in look without chasing the walls.",
-    best: "Best for: living areas where you want a clean finish without the cost of chasing.",
-    highlight: true,
+    best: "Best for: living areas where you want a tidy finish without chasing the walls.",
+    highlight: false,
   },
 ];
 
@@ -193,7 +193,7 @@ export function RewiringInfographic() {
         {/* Finishes */}
         <div className="mt-10">
           <p className="text-center text-xl font-extrabold uppercase tracking-tight md:text-2xl">Three Ways to Run New Cables</p>
-          <p className="mt-1 text-center text-sm font-bold uppercase tracking-wide text-primary">From most hidden to most affordable</p>
+          <p className="mt-1 text-center text-sm font-bold uppercase tracking-wide text-primary">From the best finish to the most budget friendly</p>
           <div className="mt-6 grid items-start gap-4 md:grid-cols-3">
             {finishes.map((f) => (
               <div key={f.name} className={`flex h-full flex-col rounded-2xl p-5 ${f.highlight ? "border-2 border-primary bg-[#eef6fe] shadow-lg shadow-primary/10" : "border border-border bg-card"}`}>
@@ -220,14 +220,14 @@ export function RewiringInfographic() {
           </div>
           <div className="grid gap-4 bg-card p-5 sm:p-6 md:grid-cols-2">
             <div className="rounded-2xl bg-background p-5 shadow-sm">
-              <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Usually the best value</span>
+              <span className="inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">Budget friendly</span>
               <p className="mt-3 text-lg font-extrabold tracking-tight">Sleek surface ducting</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 Low-profile ducting runs neatly along the wall or cornice, finished with standard or premium Clipsal and Hager mounting to suit the room. It is the quickest to install, with minimal dust and nothing to make good afterwards, which is why it is usually the most affordable choice for art deco apartments.
               </p>
             </div>
             <div className="rounded-2xl bg-background p-5 shadow-sm">
-              <span className="inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-bold text-white">Fully concealed</span>
+              <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">Best finish</span>
               <p className="mt-3 text-lg font-extrabold tracking-tight">Chasing solid brick and concrete</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 I chase solid walls in house with a professional Metabo twin blade wall chaser, which cuts clean, straight channels at a set depth in one pass. With the right tools on hand, hidden cables in solid walls are better value than most people expect. The chase is then ready for your plasterer to make good.
