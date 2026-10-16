@@ -136,7 +136,7 @@ function Index() {
               <p className="text-xs font-bold uppercase tracking-wider text-sky-300">Why choose me</p>
               <h2 className="mt-3 text-3xl font-extrabold leading-[1.1] tracking-tight text-white md:text-4xl lg:text-5xl">Why Choose Pilkington Electrical?</h2>
               <p className="mt-5 text-base leading-relaxed text-white/75 md:text-lg">
-                I'm a sole trader, which means when you call, you speak directly to the person doing the job. Honest, reliable electrical work from a licensed professional who takes pride in every connection.
+                I'm a sole trader, which means when you call, you speak directly to the person doing the job. Honest, reliable electrical work from a licensed electrician with more than a decade on the tools.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a href="#quote" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-white hover:text-slate-900">

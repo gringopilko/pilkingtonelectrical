@@ -60,7 +60,7 @@ function About() {
           {[
             { big: "REC 30450", small: "Registered Electrical Contractor" },
             { big: "$5 million", small: "Public liability cover" },
-            { big: "Qualified 2019", small: "Apprenticeship from 2015" },
+            { big: "10+ years", small: "On the tools since 2015" },
             { big: "Hampton East", small: "Serving Bayside and South East" },
           ].map((s) => (
             <div key={s.big} className="bg-background px-5 py-6 text-center">
@@ -143,7 +143,7 @@ function About() {
               the first time.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Pilkington Electrical is a new business, but it's backed by nearly a decade of hands-on
+              Pilkington Electrical is a new business, but it's backed by more than a decade of hands-on
               experience. I bring that same commercial-grade discipline to residential jobs and body
               corporate work across Bayside, which is part of why strata managers and owners
               corporations find it straightforward to work with me.
