@@ -11,13 +11,13 @@ interface Photo {
 const fittings: { title: string; caption: string; photo: Photo }[] = [
   {
     title: "Pancake (flat panel)",
-    caption: "Cheap and quick to fit, but the whole face is a bright white disc.",
-    photo: { src: undefined, width: 800, height: 600, alt: "Flat white ultra-slim LED panel light on a ceiling" },
+    caption: "An option. Cheap and quick to fit, but the bright white face glares.",
+    photo: { src: "/img/pancake-downlight.webp", width: 800, height: 600, alt: "Flat white LED pancake downlight with a bright face" },
   },
   {
-    title: "Low-glare (black baffle)",
-    caption: "The LED sits deep in the fitting, so you see a small dark hole.",
-    photo: { src: undefined, width: 800, height: 600, alt: "Deep-recessed LED downlight with black baffle trim" },
+    title: "Recessed downlight (my recommendation)",
+    caption: "The LED sits up inside the fitting, so it is much easier on the eyes.",
+    photo: { src: "/img/recessed-downlight.webp", width: 800, height: 600, alt: "Recessed LED downlight with the LED set deep inside the fitting" },
   },
 ];
 
@@ -43,7 +43,7 @@ function PhotoSlot({ photo }: { photo: Photo }) {
         height={photo.height}
         loading="lazy"
         decoding="async"
-        className="aspect-[4/3] w-full rounded-xl object-cover"
+        className="aspect-[4/3] w-full rounded-xl bg-white object-contain"
       />
     );
   }
@@ -60,13 +60,13 @@ function PhotoSlot({ photo }: { photo: Photo }) {
 
 export function LightingComparison() {
   return (
-    <section id="pancake-vs-low-glare" className="mt-14 scroll-mt-28">
-      <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Pancake lights vs low-glare downlights</h2>
+    <section id="pancake-vs-recessed" className="mt-14 scroll-mt-28">
+      <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Pancake lights vs recessed downlights</h2>
       <p className="mt-4 leading-relaxed text-muted-foreground">
         Slim &ldquo;pancake&rdquo; panels are cheap and quick to fit, but the whole face is a bright white disc. You see the light source straight on, so it glares, especially in bedrooms and living areas where you&rsquo;re looking up from a couch or bed.
       </p>
       <p className="mt-4 leading-relaxed text-muted-foreground">
-        A low-glare downlight with a black baffle sets the LED deep in the fitting. From across the room you see a small dark hole, not a bright disc. It looks cleaner and more intentional on the ceiling. The trade-off is that the light on the floor and walls is a bit spottier, with distinct pools of light instead of one even wash. Most people prefer that look, but it&rsquo;s worth knowing before you choose.
+        Pancake lights are still an option, but I recommend recessed downlights. The LED sits further up inside the fitting, so it is much easier on the eyes and looks cleaner on the ceiling.
       </p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
