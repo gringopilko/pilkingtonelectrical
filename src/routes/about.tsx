@@ -89,7 +89,7 @@ function About() {
             </div>
             <blockquote className="mt-8 border-l-4 border-primary pl-5">
               <p className="text-lg font-bold leading-snug text-foreground md:text-xl">
-                These days it's simple. I turn up when I say I will, do the job properly, explain it in plain English and leave the place tidy.
+                Three things matter most in my work: safety, workmanship and honesty.
               </p>
               <p className="mt-3 text-sm font-bold text-foreground">Shane</p>
             </blockquote>
