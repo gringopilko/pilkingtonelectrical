@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { BadgeCheck, HardHat, HeartPulse, ShieldCheck, UserCheck, Users } from "lucide-react";
 import acrsLogo from "@/assets/acrs-master-cabler.webp";
 import esvLogo from "@/assets/energy-safe-victoria.webp";
@@ -33,7 +34,11 @@ export function TrustBadges() {
                 <img src={l.src} alt={l.alt} width={l.w} height={l.h} className={`${l.size} w-auto max-w-full object-contain`} loading="lazy" />
               </div>
               <p className="mt-3 text-sm font-bold leading-snug">{l.title}</p>
-              <p className="mt-0.5 text-xs leading-snug text-muted-foreground">{l.sub}</p>
+              {l.title === "Lifetime labour guarantee" ? (
+                <Link to="/guarantee" className="mt-0.5 text-xs font-semibold leading-snug text-primary hover:underline">See what it covers</Link>
+              ) : (
+                <p className="mt-0.5 text-xs leading-snug text-muted-foreground">{l.sub}</p>
+              )}
             </div>
           ))}
         </div>

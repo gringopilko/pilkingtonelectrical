@@ -70,7 +70,12 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-8 text-center text-xs text-white/50 md:flex-row md:justify-between md:text-left">
           <p>&copy; {new Date().getFullYear()} Pilkington Electrical. All rights reserved.</p>
-          <p>Licensed electrician REC 30450 &middot; ABN 16 937 824 485</p>
+          <p className="flex flex-wrap justify-center gap-x-4 gap-y-1 md:justify-end">
+            <Link to="/guarantee" className="hover:text-white">Labour guarantee</Link>
+            <Link to="/privacy" className="hover:text-white">Privacy</Link>
+            <Link to="/terms" className="hover:text-white">Terms</Link>
+            <span>REC 30450 &middot; ABN 16 937 824 485</span>
+          </p>
         </div>
       </div>
     </footer>

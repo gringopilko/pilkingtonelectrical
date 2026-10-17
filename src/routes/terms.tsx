@@ -1,0 +1,82 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { LegalPage, type LegalSection } from "@/components/LegalPage";
+
+const url = "https://pilkingtonelectrical.com.au/terms";
+const title = "Website Terms of Use | Pilkington Electrical";
+const description = "The terms that apply when you use the Pilkington Electrical website, including general information, quotes, links and liability.";
+
+export const Route = createFileRoute("/terms")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: url },
+    ],
+    links: [{ rel: "canonical", href: url }],
+  }),
+  component: TermsPage,
+});
+
+const sections: LegalSection[] = [
+  {
+    heading: "Using this website",
+    paragraphs: [
+      "This website is run by Pilkington Electrical (ABN 16 937 824 485, REC 30450). By using it, you agree to these terms. If you do not agree, please do not use the website.",
+    ],
+  },
+  {
+    heading: "General information only",
+    paragraphs: [
+      "The guides, articles and service pages are general information to help you understand electrical work. They are not advice for your specific property. Electrical work must only be carried out by a licensed electrician, and rules and products change over time, so please check with me or the relevant authority before relying on anything here.",
+    ],
+  },
+  {
+    heading: "Quotes",
+    paragraphs: [
+      "Nothing on this website is a quote or an offer. Every job is quoted after I have assessed it, and the written quote sets out the scope, price and terms that apply to that job.",
+    ],
+  },
+  {
+    heading: "Products and brands",
+    paragraphs: [
+      "Product names, brands, logos and product photos shown on this website belong to their owners and are used to describe products I install. Product ranges and specifications change, so please check the manufacturer's current information.",
+    ],
+  },
+  {
+    heading: "Links to other websites",
+    paragraphs: [
+      "This website links to other websites, such as government and manufacturer sites, for your convenience. I am not responsible for their content or availability.",
+    ],
+  },
+  {
+    heading: "Copyright",
+    paragraphs: [
+      "The text, design and my own photos on this website belong to Pilkington Electrical. Please do not copy them for commercial use without permission.",
+    ],
+  },
+  {
+    heading: "Liability",
+    paragraphs: [
+      "To the extent permitted by law, I am not liable for any loss arising from your use of the information on this website. Nothing in these terms limits your rights under the Australian Consumer Law.",
+    ],
+  },
+  {
+    heading: "Changes and governing law",
+    paragraphs: [
+      "These terms may be updated from time to time, and the current version will always be on this page. These terms are governed by the laws of Victoria, Australia.",
+    ],
+  },
+];
+
+function TermsPage() {
+  return (
+    <LegalPage
+      title="Website Terms of Use"
+      intro="The plain-English terms that apply when you use this website."
+      updated="16 October 2026"
+      sections={sections}
+    />
+  );
+}

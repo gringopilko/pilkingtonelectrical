@@ -14,8 +14,11 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ElectricianHamptonEastRouteImport } from './routes/electrician-hampton-east'
 import { Route as FaqsRouteImport } from './routes/faqs'
+import { Route as GuaranteeRouteImport } from './routes/guarantee'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as GuidesSlugRouteImport } from './routes/guides/$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
@@ -48,6 +51,16 @@ const FaqsRoute = FaqsRouteImport.update({
   path: '/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuaranteeRoute = GuaranteeRouteImport.update({
+  id: '/guarantee',
+  path: '/guarantee',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReviewRoute = ReviewRouteImport.update({
   id: '/review',
   path: '/review',
@@ -56,6 +69,11 @@ const ReviewRoute = ReviewRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidesIndexRoute = GuidesIndexRouteImport.update({
@@ -95,8 +113,11 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
+  '/guarantee': typeof GuaranteeRoute
+  '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
@@ -110,8 +131,11 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
+  '/guarantee': typeof GuaranteeRoute
+  '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
@@ -126,8 +150,11 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/electrician-hampton-east': typeof ElectricianHamptonEastRoute
   '/faqs': typeof FaqsRoute
+  '/guarantee': typeof GuaranteeRoute
+  '/privacy': typeof PrivacyRoute
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
@@ -143,8 +170,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/electrician-hampton-east'
     | '/faqs'
+    | '/guarantee'
+    | '/privacy'
     | '/review'
     | '/sitemap.xml'
+    | '/terms'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
@@ -158,8 +188,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/electrician-hampton-east'
     | '/faqs'
+    | '/guarantee'
+    | '/privacy'
     | '/review'
     | '/sitemap.xml'
+    | '/terms'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
@@ -173,8 +206,11 @@ export interface FileRouteTypes {
     | '/contact'
     | '/electrician-hampton-east'
     | '/faqs'
+    | '/guarantee'
+    | '/privacy'
     | '/review'
     | '/sitemap.xml'
+    | '/terms'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
@@ -189,8 +225,11 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ElectricianHamptonEastRoute: typeof ElectricianHamptonEastRoute
   FaqsRoute: typeof FaqsRoute
+  GuaranteeRoute: typeof GuaranteeRoute
+  PrivacyRoute: typeof PrivacyRoute
   ReviewRoute: typeof ReviewRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   GuidesSlugRoute: typeof GuidesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   SuburbsSlugRoute: typeof SuburbsSlugRoute
@@ -236,6 +275,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guarantee': {
+      id: '/guarantee'
+      path: '/guarantee'
+      fullPath: '/guarantee'
+      preLoaderRoute: typeof GuaranteeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/review': {
       id: '/review'
       path: '/review'
@@ -248,6 +301,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides/': {
@@ -301,8 +361,11 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ElectricianHamptonEastRoute: ElectricianHamptonEastRoute,
   FaqsRoute: FaqsRoute,
+  GuaranteeRoute: GuaranteeRoute,
+  PrivacyRoute: PrivacyRoute,
   ReviewRoute: ReviewRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   GuidesSlugRoute: GuidesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   SuburbsSlugRoute: SuburbsSlugRoute,
