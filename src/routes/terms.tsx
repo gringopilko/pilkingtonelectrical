@@ -39,6 +39,18 @@ const sections: LegalSection[] = [
     ],
   },
   {
+    heading: "When I work for you",
+    paragraphs: ["Your written quote sets out the terms for your job. As a general guide:"],
+    bullets: [
+      "Quotes are valid for the period stated on the quote, and payment terms are set out on your quote or invoice.",
+      "Any extra work is explained and agreed with you before it is done, and added to the job as a variation.",
+      "If I find something that could not reasonably be seen when quoting, such as damaged wiring inside a wall, I will stop, explain what I found and quote before continuing.",
+      "I do not disturb or remove asbestos. If it is found, a licensed asbestos removalist is needed before work in that area continues.",
+      "Please keep children and pets clear of the work area, give safe access to the switchboard and roof space, and expect the power to be off for parts of the job.",
+      "Products are covered by the manufacturer's warranty, and my workmanship is covered by my lifetime labour guarantee.",
+    ],
+  },
+  {
     heading: "Products and brands",
     paragraphs: [
       "Product names, brands, logos and product photos shown on this website belong to their owners and are used to describe products I install. Product ranges and specifications change, so please check the manufacturer's current information.",
