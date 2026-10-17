@@ -30,14 +30,14 @@ const faults = [
 ];
 
 const steps = [
-  { icon: Search, text: "Find the fault and check the circuit" },
-  { icon: ClipboardList, text: "Quote to repair or replace" },
-  { icon: Power, text: "Isolate the power at the switchboard" },
-  { icon: Droplets, text: "Turn off the water and drain as needed" },
-  { icon: Wrench, text: "Change over the element, thermostat or unit" },
-  { icon: Zap, text: "Reconnect and secure the wiring" },
-  { icon: RefreshCw, text: "Refill fully before the power goes back on" },
-  { icon: FileCheck2, text: "Test, check the temperature and clean up" },
+  { icon: Search, title: "Find the fault", text: "I test the element, thermostat and circuit to find the real cause, so you only pay for what actually needs fixing." },
+  { icon: ClipboardList, title: "Clear quote", text: "Repair or replace, with the options explained and a price agreed before any work starts." },
+  { icon: Power, title: "Isolate the power", text: "Power is switched off and locked off at the switchboard, then tested dead before I touch the unit." },
+  { icon: Droplets, title: "Water off and drain", text: "The cold water is turned off and the tank drained as far as the job needs. Towels go down to catch spills." },
+  { icon: Wrench, title: "Change over", text: "The faulty element or thermostat is replaced, or the old unit is changed over for the new one." },
+  { icon: Zap, title: "Reconnect the wiring", text: "Connections are made, tightened and secured, and every cover goes back on." },
+  { icon: RefreshCw, title: "Refill before power", text: "The tank is refilled and air is bled from the taps before the power goes back on." },
+  { icon: FileCheck2, title: "Test and clean up", text: "Power back on, water temperature checked, safety switch tested and the area left tidy." },
 ];
 
 function Dotted({ items }: { items: string[] }) {
@@ -124,20 +124,23 @@ export function HotWaterInfographic() {
         </div>
 
         {/* Process */}
-        <div className="mt-10">
+        <div id="hot-water-steps" className="mt-10 scroll-mt-28">
           <p className="text-center text-xl font-extrabold uppercase tracking-tight md:text-2xl">How a Changeover Runs</p>
           <p className="mt-1 text-center text-sm font-bold uppercase tracking-wide text-primary">Step by step, safely isolated</p>
-          <ol className="mt-6 grid grid-cols-2 gap-x-3 gap-y-7 sm:grid-cols-4">
+          <ol className="mt-8 grid gap-x-8 gap-y-6 md:grid-cols-2">
             {steps.map((st, i) => (
-              <li key={st.text} className="relative flex flex-col items-center text-center">
-                {i % 4 !== 3 && (
-                  <span className="absolute left-[calc(50%+2.25rem)] right-[-0.6rem] top-8 hidden border-t-2 border-dotted border-primary/40 sm:block" aria-hidden="true" />
-                )}
-                <span className="absolute -top-2 left-1/2 z-10 inline-flex h-6 w-6 -translate-x-[2.4rem] items-center justify-center rounded-full bg-primary text-xs font-extrabold text-primary-foreground ring-4 ring-background">{i + 1}</span>
-                <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-card text-slate-800 ring-1 ring-border">
-                  <st.icon className="h-7 w-7" aria-hidden="true" />
-                </span>
-                <p className="mt-3 text-xs font-medium leading-snug sm:text-sm">{st.text}</p>
+              <li key={st.title} className="relative flex gap-4">
+                <div className="flex flex-col items-center">
+                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-base font-extrabold text-primary-foreground shadow-md shadow-primary/25">{i + 1}</span>
+                  {i !== steps.length - 1 && <span className="mt-2 w-0.5 flex-1 rounded-full bg-primary/20 md:hidden" aria-hidden="true" />}
+                </div>
+                <div className="pb-2">
+                  <div className="flex items-center gap-2">
+                    <st.icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                    <p className="font-extrabold tracking-tight">{st.title}</p>
+                  </div>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{st.text}</p>
+                </div>
               </li>
             ))}
           </ol>
