@@ -19,6 +19,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TermsOfTradeRouteImport } from './routes/terms-of-trade'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as GuidesSlugRouteImport } from './routes/guides/$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
@@ -76,6 +77,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsOfTradeRoute = TermsOfTradeRouteImport.update({
+  id: '/terms-of-trade',
+  path: '/terms-of-trade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuidesIndexRoute = GuidesIndexRouteImport.update({
   id: '/guides/',
   path: '/guides/',
@@ -118,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/terms-of-trade': typeof TermsOfTradeRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/terms-of-trade': typeof TermsOfTradeRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/review': typeof ReviewRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/terms-of-trade': typeof TermsOfTradeRoute
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
     | '/review'
     | '/sitemap.xml'
     | '/terms'
+    | '/terms-of-trade'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
@@ -193,6 +203,7 @@ export interface FileRouteTypes {
     | '/review'
     | '/sitemap.xml'
     | '/terms'
+    | '/terms-of-trade'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
@@ -211,6 +222,7 @@ export interface FileRouteTypes {
     | '/review'
     | '/sitemap.xml'
     | '/terms'
+    | '/terms-of-trade'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
@@ -230,6 +242,7 @@ export interface RootRouteChildren {
   ReviewRoute: typeof ReviewRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  TermsOfTradeRoute: typeof TermsOfTradeRoute
   GuidesSlugRoute: typeof GuidesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   SuburbsSlugRoute: typeof SuburbsSlugRoute
@@ -310,6 +323,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms-of-trade': {
+      id: '/terms-of-trade'
+      path: '/terms-of-trade'
+      fullPath: '/terms-of-trade'
+      preLoaderRoute: typeof TermsOfTradeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides/': {
       id: '/guides/'
       path: '/guides'
@@ -366,6 +386,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReviewRoute: ReviewRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  TermsOfTradeRoute: TermsOfTradeRoute,
   GuidesSlugRoute: GuidesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   SuburbsSlugRoute: SuburbsSlugRoute,

@@ -40,9 +40,9 @@ const sections: LegalSection[] = [
   },
   {
     heading: "When I work for you",
-    paragraphs: ["Your written quote sets out the terms for your job. As a general guide:"],
+    paragraphs: ["Your written quote and my terms of trade set out the terms for your job. As a general guide:"],
     bullets: [
-      "Quotes are valid for the period stated on the quote, and payment terms are set out on your quote or invoice.",
+      "Quotes are valid for 30 days, payment is due on completion, and bigger jobs may need a deposit for materials.",
       "Any extra work is explained and agreed with you before it is done, and added to the job as a variation.",
       "If I find something that could not reasonably be seen when quoting, such as damaged wiring inside a wall, I will stop, explain what I found and quote before continuing.",
       "I do not disturb or remove asbestos. If it is found, a licensed asbestos removalist is needed before work in that area continues.",

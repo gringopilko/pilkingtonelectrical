@@ -73,7 +73,8 @@ export function Footer() {
           <p className="flex flex-wrap justify-center gap-x-4 gap-y-1 md:justify-end">
             <Link to="/guarantee" className="hover:text-white">Labour guarantee</Link>
             <Link to="/privacy" className="hover:text-white">Privacy</Link>
-            <Link to="/terms" className="hover:text-white">Terms</Link>
+            <Link to="/terms-of-trade" className="hover:text-white">Terms of trade</Link>
+            <Link to="/terms" className="hover:text-white">Website terms</Link>
             <span>REC 30450 &middot; ABN 16 937 824 485</span>
           </p>
         </div>
