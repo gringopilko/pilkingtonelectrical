@@ -3,67 +3,69 @@ import { MousePointerClick } from "lucide-react";
 
 type Kind = "main" | "spd" | "afdd" | "rcbo";
 
-const modules: { id: string; kind: Kind; label: string; width: number }[] = [
-  { id: "main", kind: "main", label: "MAIN", width: 2 },
-  { id: "spd", kind: "spd", label: "SURGE", width: 1 },
-  { id: "afdd", kind: "afdd", label: "BEDS", width: 1 },
-  { id: "lights", kind: "rcbo", label: "LIGHTS", width: 1 },
-  { id: "power", kind: "rcbo", label: "POWER", width: 1 },
-  { id: "oven", kind: "rcbo", label: "OVEN", width: 1 },
-  { id: "hws", kind: "rcbo", label: "HWS", width: 1 },
-  { id: "ac", kind: "rcbo", label: "A/C", width: 1 },
-];
+interface Device {
+  id: string;
+  kind: Kind;
+  circuit: string;
+  rating: string;
+  wide?: boolean;
+  title: string;
+  detail: string;
+}
 
-const info: Record<Kind, { title: string; text: string }> = {
-  main: {
-    title: "Main switch",
-    text: "Turns off the power to the whole switchboard at once. It usually has a red toggle so it can be found fast in an emergency.",
-  },
-  spd: {
-    title: "Surge protection",
-    text: "Limits voltage spikes from lightning or the network to help protect your TV, computers and appliances. The window shows when it needs replacing.",
-  },
-  afdd: {
-    title: "Arc fault detection device",
-    text: "Watches for dangerous arcing from damaged cables or loose connections, which can start a fire without tripping anything else. Recommended for bedroom and living area circuits.",
-  },
-  rcbo: {
-    title: "RCBO: breaker and safety switch in one",
-    text: "Protects one circuit from overload and protects people from electric shock. If this circuit has a fault, only this circuit turns off and the rest of the home stays on.",
-  },
+const kindText: Record<Kind, string> = {
+  main: "Turns off the power to the whole switchboard at once. It usually has a red toggle so it can be found fast in an emergency.",
+  spd: "Limits voltage spikes from lightning or the network to help protect TVs, computers and appliances. It is rated by the surge it can handle, not in amps like a breaker.",
+  afdd: "An arc fault detection device combined with an RCBO. It watches for dangerous arcing from damaged cables or loose connections, as well as overloads and earth leakage.",
+  rcbo: "A circuit breaker and safety switch in one. It protects this circuit from overload and protects people from electric shock. A fault here only turns off this circuit.",
 };
 
-function Module({ kind, label, selected }: { kind: Kind; label: string; selected: boolean }) {
-  const toggle = kind === "main" ? "bg-red-500" : "bg-slate-600";
+const devices: Device[] = [
+  { id: "main", kind: "main", circuit: "MAIN", rating: "63A", wide: true, title: "Main switch, usually 63 A or 80 A", detail: "Sized to match the home's supply." },
+  { id: "spd", kind: "spd", circuit: "SURGE", rating: "40kA", title: "Surge protection device", detail: "The window shows green when it is working and red when it needs replacing." },
+  { id: "beds", kind: "afdd", circuit: "BEDS", rating: "C16", title: "AFDD and RCBO, usually 16 A", detail: "Fitted to bedroom power circuits, where people sleep." },
+  { id: "lights", kind: "rcbo", circuit: "LIGHTS", rating: "C10", title: "RCBO, usually 10 A: lights", detail: "Lighting circuits draw little current, so they use a smaller rating." },
+  { id: "power", kind: "rcbo", circuit: "POWER", rating: "C20", title: "RCBO, usually 20 A: power points", detail: "General power point circuits for the kitchen, living areas and laundry." },
+  { id: "oven", kind: "rcbo", circuit: "OVEN", rating: "C32", title: "RCBO, usually 32 A: oven or cooktop", detail: "Cooking appliances draw a lot of current, so they get their own larger circuit." },
+  { id: "hws", kind: "rcbo", circuit: "HWS", rating: "C20", title: "RCBO, usually 20 A: hot water", detail: "Electric storage hot water, often on an off-peak supply." },
+  { id: "ac", kind: "rcbo", circuit: "A/C", rating: "C20", title: "RCBO, usually 20 to 32 A: air conditioner", detail: "The rating depends on the size of the unit." },
+];
+
+const typeTag: Record<Kind, string> = { main: "MAIN SW", spd: "SPD", afdd: "AFDD", rcbo: "RCBO" };
+
+function Module({ d, selected }: { d: Device; selected: boolean }) {
   return (
-    <span className={`flex h-36 w-full flex-col items-center justify-between rounded-md bg-gradient-to-b from-white to-slate-100 py-2 ring-1 transition sm:h-44 ${selected ? "ring-2 ring-primary shadow-lg shadow-primary/30" : "ring-slate-300"}`}>
+    <span className={`flex h-44 w-full flex-col items-center justify-between rounded-md bg-gradient-to-b from-white to-slate-100 px-1 py-2 ring-1 transition sm:h-48 ${selected ? "ring-2 ring-primary shadow-lg shadow-primary/30" : "ring-slate-300"}`}>
       <span className="flex gap-1" aria-hidden="true">
         <span className="h-2.5 w-2.5 rounded-full bg-slate-300 ring-1 ring-slate-400" />
-        {kind === "main" && <span className="h-2.5 w-2.5 rounded-full bg-slate-300 ring-1 ring-slate-400" />}
+        {d.wide && <span className="h-2.5 w-2.5 rounded-full bg-slate-300 ring-1 ring-slate-400" />}
       </span>
-      <span className="text-[8px] font-extrabold tracking-wide text-slate-500 sm:text-[9px]">{label}</span>
-      {kind === "spd" ? (
-        <span className="h-6 w-[60%] rounded-sm bg-green-500/80 ring-1 ring-green-700/40" aria-hidden="true" />
+      <span className="rounded bg-slate-800 px-1.5 py-0.5 text-[10px] font-extrabold leading-none text-white">{d.rating}</span>
+      {d.kind === "spd" ? (
+        <span className="h-7 w-[58%] rounded-sm bg-green-500/85 ring-1 ring-green-700/40" aria-hidden="true" />
       ) : (
-        <span className={`flex h-9 w-[64%] flex-col items-center justify-start rounded-sm ${toggle} pt-1 shadow-inner sm:h-11`} aria-hidden="true">
+        <span className={`flex h-9 w-[58%] max-w-10 flex-col items-center rounded-sm pt-1 shadow-inner ${d.kind === "main" ? "bg-red-500" : "bg-slate-600"}`} aria-hidden="true">
           <span className="h-1 w-3 rounded-full bg-white/70" />
         </span>
       )}
-      {kind === "rcbo" && <span className="h-3 w-3 rounded-sm bg-primary text-[7px] font-bold leading-3 text-white" aria-hidden="true">T</span>}
-      {kind === "afdd" && <span className="h-3 w-3 rounded-sm bg-amber-400" aria-hidden="true" />}
-      {(kind === "main" || kind === "spd") && <span className="h-3" aria-hidden="true" />}
-      <span className="flex gap-1" aria-hidden="true">
-        <span className="h-2.5 w-2.5 rounded-full bg-slate-300 ring-1 ring-slate-400" />
-        {kind === "main" && <span className="h-2.5 w-2.5 rounded-full bg-slate-300 ring-1 ring-slate-400" />}
+      <span className="flex h-4 items-center" aria-hidden="true">
+        {d.kind === "rcbo" && <span className="flex h-4 w-4 items-center justify-center rounded-sm bg-primary text-[9px] font-extrabold text-white">T</span>}
+        {d.kind === "afdd" && (
+          <span className="flex gap-1">
+            <span className="flex h-4 w-4 items-center justify-center rounded-sm bg-primary text-[9px] font-extrabold text-white">T</span>
+            <span className="h-4 w-4 rounded-sm bg-amber-400" />
+          </span>
+        )}
       </span>
+      <span className="text-[8px] font-extrabold tracking-wide text-primary">{typeTag[d.kind]}</span>
+      <span className="w-full truncate rounded-sm bg-white px-0.5 py-0.5 text-center text-[9px] font-extrabold tracking-wide text-slate-700 ring-1 ring-slate-200">{d.circuit}</span>
     </span>
   );
 }
 
 export function SwitchboardExplorer() {
   const [selected, setSelected] = useState("main");
-  const current = modules.find((m) => m.id === selected) ?? modules[0];
-  const detail = info[current.kind];
+  const d = devices.find((x) => x.id === selected) ?? devices[0];
 
   return (
     <div className="rounded-2xl bg-slate-900 p-4 text-white sm:p-6">
@@ -72,34 +74,45 @@ export function SwitchboardExplorer() {
         Tap a device to see what it does
       </div>
 
-      <div className="mt-4 overflow-x-auto pb-1">
-        <div className="mx-auto w-fit rounded-xl bg-slate-200 p-3 [--mod:36px] sm:p-4 sm:[--mod:54px]">
-          <div className="relative">
-            <span className="absolute inset-x-0 top-1/2 h-5 -translate-y-1/2 rounded bg-slate-400/70" aria-hidden="true" />
-            <div className="relative flex gap-0.5">
-              {modules.map((m) => (
-                <button
-                  key={m.id}
-                  type="button"
-                  onClick={() => setSelected(m.id)}
-                  aria-pressed={selected === m.id}
-                  aria-label={`${info[m.kind].title}${m.kind === "rcbo" ? `, ${m.label.toLowerCase()} circuit` : ""}`}
-                  style={{ width: `calc(var(--mod) * ${m.width})` }}
-                  className="rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
-                >
-                  <Module kind={m.kind} label={m.label} selected={selected === m.id} />
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="mt-2 h-2.5 rounded-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600" aria-hidden="true" />
+      <div className="mt-4 rounded-xl bg-slate-200 p-2.5 sm:p-4">
+        <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-9 sm:gap-1">
+          {devices.map((x) => (
+            <button
+              key={x.id}
+              type="button"
+              onClick={() => setSelected(x.id)}
+              aria-pressed={selected === x.id}
+              aria-label={x.title}
+              className={`rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 ${x.wide ? "col-span-2" : ""}`}
+            >
+              <Module d={x} selected={selected === x.id} />
+            </button>
+          ))}
         </div>
+        <div className="mt-2 h-2.5 rounded-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600" aria-hidden="true" />
       </div>
 
-      <div className="mt-5 rounded-xl bg-white/10 p-4 ring-1 ring-white/10" aria-live="polite">
-        <p className="text-lg font-extrabold tracking-tight">{detail.title}</p>
-        <p className="mt-1 text-sm leading-relaxed text-white/80">{detail.text}</p>
+      <ul className="mt-4 grid gap-2 text-xs text-white/80 sm:grid-cols-3 sm:text-sm">
+        <li className="flex items-center gap-2">
+          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-sm bg-primary text-[10px] font-extrabold text-white" aria-hidden="true">T</span>
+          Test button: press it to check the safety switch trips
+        </li>
+        <li className="flex items-center gap-2">
+          <span className="h-5 w-5 shrink-0 rounded-sm bg-amber-400" aria-hidden="true" />
+          Arc fault test button on the AFDD
+        </li>
+        <li className="flex items-center gap-2">
+          <span className="h-5 w-5 shrink-0 rounded-sm bg-green-500" aria-hidden="true" />
+          Surge window: green is working, red means replace
+        </li>
+      </ul>
+
+      <div className="mt-4 rounded-xl bg-white/10 p-4 ring-1 ring-white/10" aria-live="polite">
+        <p className="text-lg font-extrabold tracking-tight">{d.title}</p>
+        <p className="mt-1 text-sm leading-relaxed text-white/80">{kindText[d.kind]}</p>
+        <p className="mt-2 text-sm font-semibold leading-relaxed text-sky-300">{d.detail}</p>
       </div>
+      <p className="mt-3 text-xs text-white/55">Ratings shown are typical for a home. C means the breaker is a C curve, the standard type for household circuits. Your board may differ.</p>
     </div>
   );
 }
