@@ -1,4 +1,5 @@
 import { Lightbulb } from "lucide-react";
+import { LightingDesignerDemo } from "@/components/LightingDesignerDemo";
 
 interface Photo {
   /** WebP file in /public/img, e.g. "/img/pancake-light.webp". Leave undefined to show the placeholder. */
@@ -84,6 +85,7 @@ export function LightingComparison() {
       </div>
 
       <h3 className="mt-12 text-xl font-extrabold tracking-tight md:text-2xl">Two ways to light a room</h3>
+      <LightingDesignerDemo />
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         {approaches.map((a) => (
           <div key={a.title} className="rounded-2xl border border-border bg-card p-5">

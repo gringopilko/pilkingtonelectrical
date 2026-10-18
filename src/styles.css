@@ -169,3 +169,86 @@ details[open]:not(.group) > summary::after {
 :where(div, a, li).rounded-xl.ring-1.ring-border {
   --tw-ring-color: transparent;
 }
+
+/* ------------------------------------------------------------------
+   Visual effects
+   ------------------------------------------------------------------ */
+/* Scroll reveals: only once JS has marked the page ready, so content is visible without JS */
+.reveal-ready .reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal-ready .reveal-item.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Cursor glow on dark panels (desktop) */
+.glow-host {
+  position: relative;
+}
+.glow-host::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), rgb(56 189 248 / 0.16), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.glow-host:hover::before {
+  opacity: 1;
+}
+.glow-host > :not([class*="absolute"]) {
+  position: relative;
+}
+
+/* Electric current running along step connectors */
+.current-line {
+  clip-path: inset(-6px 0 -6px 0);
+}
+.current-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: var(--current-top, -2px);
+  height: 3px;
+  width: 32%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #7dd3fc, #008cf0, transparent);
+  box-shadow: 0 0 10px rgb(56 189 248 / 0.75);
+  animation: current-flow 2.8s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+li:nth-child(2) > .current-line::after,
+li:nth-child(6) > .current-line::after {
+  animation-delay: 0.7s;
+}
+li:nth-child(3) > .current-line::after,
+li:nth-child(7) > .current-line::after {
+  animation-delay: 1.4s;
+}
+@keyframes current-flow {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(340%); }
+}
+
+/* Hero lights-on flicker */
+@keyframes lights-on {
+  0% { opacity: 0; }
+  12% { opacity: 0.75; }
+  22% { opacity: 0.15; }
+  38% { opacity: 0.95; }
+  48% { opacity: 0.55; }
+  100% { opacity: 1; }
+}
+.lights-on {
+  animation: lights-on 0.9s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal-item { opacity: 1; transform: none; transition: none; }
+  .current-line::after { display: none; }
+  .lights-on { animation: none; }
+}

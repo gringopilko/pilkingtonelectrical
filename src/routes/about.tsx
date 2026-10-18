@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 import { GuideLinks } from "@/components/GuideLinks";
+import { CountUp } from "@/components/CountUp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -59,11 +60,11 @@ function About() {
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-px bg-border md:grid-cols-4">
           {[
             { big: "REC 30450", small: "Registered Electrical Contractor" },
-            { big: "$5 million", small: "Public liability cover" },
-            { big: "10+ years", small: "On the tools since 2015" },
+            { big: <CountUp to={5} prefix="$" suffix=" million" />, small: "Public liability cover" },
+            { big: <CountUp to={10} suffix="+ years" />, small: "On the tools since 2015" },
             { big: "Hampton East", small: "Serving Bayside and South East" },
           ].map((s) => (
-            <div key={s.big} className="bg-background px-5 py-6 text-center">
+            <div key={s.small} className="bg-background px-5 py-6 text-center">
               <p className="text-lg font-extrabold tracking-tight text-primary sm:text-xl">{s.big}</p>
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{s.small}</p>
             </div>

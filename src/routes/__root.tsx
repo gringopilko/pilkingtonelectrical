@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { trackContactClick } from "@/lib/analytics";
 import { MobileCallBar } from "@/components/MobileCallBar";
+import { SiteEffects } from "@/components/SiteEffects";
 import { services } from "@/lib/services";
 import { getAllSuburbs } from "@/lib/suburbs";
 
@@ -240,6 +241,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Toaster richColors position="top-center" />
       <MobileCallBar />
+      <SiteEffects />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

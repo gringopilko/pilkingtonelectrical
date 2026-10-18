@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { SwitchboardExplorer } from "@/components/SwitchboardExplorer";
 import { Link } from "@tanstack/react-router";
 import {
   AlertTriangle,
@@ -190,8 +191,10 @@ export function ProtectionGuide() {
       </div>
 
       <div className="p-5 sm:p-8">
+        <SwitchboardExplorer />
+
         {/* Devices */}
-        <p className="text-xl font-extrabold tracking-tight md:text-2xl">What&apos;s in a modern switchboard</p>
+        <p className="mt-10 text-xl font-extrabold tracking-tight md:text-2xl">What&apos;s in a modern switchboard</p>
         <p className="mt-1 text-sm text-muted-foreground">Each device protects against something different. A good board uses the right mix.</p>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {devices.map((d) => (

@@ -12,6 +12,7 @@ import { ServiceTiles } from "@/components/ServiceTiles";
 import { AudiencePanels } from "@/components/AudiencePanels";
 import { ContactCard } from "@/components/ContactCard";
 import { HeroBackground } from "@/components/HeroBackground";
+import { HeroLightSwitch, useHeroLights } from "@/components/HeroLightSwitch";
 import { suburbGroups, slugify } from "@/lib/suburbs";
 import { services } from "@/lib/services";
 import { guides } from "@/lib/guides";
@@ -39,13 +40,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [lit, setLit] = useHeroLights();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh]">
-        <HeroBackground poster={heroImg} video="/melbourne-hero-compact.mp4" />
+        <HeroBackground poster={heroImg} video="/melbourne-hero-compact.mp4" lit={lit} />
 
         <div className="relative mx-auto flex min-h-[70vh] max-w-7xl flex-col items-start justify-center px-6 py-24">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
@@ -83,6 +85,7 @@ function Index() {
                 {b.text}
               </div>
             ))}
+            <HeroLightSwitch lit={lit} onToggle={() => setLit(!lit)} />
           </div>
         </div>
       </section>
@@ -177,7 +180,7 @@ function Index() {
             <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl">Simple from first call to finished job</h2>
           </div>
           <ol className="relative grid gap-4 md:grid-cols-4 md:gap-6">
-            <span className="absolute left-6 right-[24%] top-6 hidden h-px bg-border md:block" aria-hidden="true" />
+            <span className="current-line absolute left-6 right-[24%] top-6 hidden h-px bg-border md:block" style={{ ["--current-top" as string]: "-1px" }} aria-hidden="true" />
             {[
               { t: "Get in touch", d: "Call, text or send the form with your suburb and what you need. Photos help." },
               { t: "We talk it through", d: "I confirm the details and arrange a visit if the job needs one." },
