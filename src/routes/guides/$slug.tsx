@@ -73,6 +73,7 @@ function GuidePage() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
 
+      <div className="reading-progress" aria-hidden="true" />
       <article>
         <section className="border-b border-border bg-card">
           <div className="mx-auto max-w-3xl px-6 py-14 md:py-16">
@@ -102,8 +103,24 @@ function GuidePage() {
             </ul>
           </div>
 
+          {guide.sections.length > 3 && (
+            <nav aria-label="On this page" className="mt-8 rounded-2xl border border-border bg-card p-5">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">On this page</p>
+              <ol className="mt-3 space-y-1.5">
+                {guide.sections.map((sec, n) => (
+                  <li key={sec.heading}>
+                    <a href={`#${slugify(sec.heading)}`} className="group flex items-baseline gap-3 text-sm font-semibold text-foreground hover:text-primary">
+                      <span className="w-5 shrink-0 text-xs font-bold text-primary">{String(n + 1).padStart(2, "0")}</span>
+                      <span className="group-hover:underline">{sec.heading}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+
           {guide.sections.map((sec) => (
-            <div key={sec.heading} className="mt-10">
+            <div key={sec.heading} id={slugify(sec.heading)} className="mt-10 scroll-mt-28">
               <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{sec.heading}</h2>
               {sec.paragraphs?.map((p) => (
                 <p key={p} className="mt-4 leading-relaxed text-muted-foreground">{p}</p>
@@ -195,4 +212,8 @@ function GuidePage() {
       <Footer />
     </div>
   );
+}
+
+function slugify(text: string) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }

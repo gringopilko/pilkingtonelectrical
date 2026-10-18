@@ -252,3 +252,76 @@ li:nth-child(7) > .current-line::after {
   .current-line::after { display: none; }
   .lights-on { animation: none; }
 }
+
+/* ------------------------------------------------------------------
+   Page transitions (View Transitions API)
+   ------------------------------------------------------------------ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+}
+.site-nav {
+  view-transition-name: site-nav;
+}
+::view-transition-group(*) {
+  animation-duration: 0.45s;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Hero heading: one light sweep after the lights come on */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .text-shimmer {
+    background-image: linear-gradient(110deg, #008cf0 0%, #008cf0 38%, #bfe9ff 50%, #008cf0 62%, #008cf0 100%);
+    background-size: 260% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shimmer 1.8s ease-in-out 1.4s 1 both;
+  }
+}
+@keyframes text-shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: 0% 0; }
+}
+
+/* Reading progress bar on guides (scroll-driven, where supported) */
+.reading-progress {
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  .reading-progress {
+    display: block;
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 3px;
+    z-index: 60;
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, #008cf0, #38bdf8);
+    animation: reading-grow linear both;
+    animation-timeline: scroll(root);
+  }
+  /* Nav gains a soft shadow once the page is scrolled */
+  .site-nav {
+    animation: nav-shadow linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 120px;
+  }
+}
+@keyframes reading-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes nav-shadow {
+  from { box-shadow: 0 0 0 rgb(15 23 42 / 0); }
+  to { box-shadow: 0 8px 24px -12px rgb(15 23 42 / 0.25); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+  .text-shimmer { animation: none; background-position: 0 0; }
+}

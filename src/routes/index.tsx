@@ -57,7 +57,7 @@ function Index() {
           <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
             Bayside &amp; South East Melbourne
             <br />
-            <span className="text-primary">Electrician You Can Trust</span>
+            <span className="text-shimmer text-primary">Electrician You Can Trust</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
             Licensed electrician for homes, rentals, body corporates and businesses across Bayside and South East Melbourne. Rental safety checks, test and tag, switchboards and fault finding, done right the first time.

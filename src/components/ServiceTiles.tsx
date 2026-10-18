@@ -33,7 +33,7 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
                   height={pic.height}
                   loading="lazy"
                   decoding="async"
-                  style={pic.focus ? { objectPosition: pic.focus } : undefined}
+                  style={{ ...(pic.focus ? { objectPosition: pic.focus } : {}), viewTransitionName: `svc-${s.slug}` }}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (

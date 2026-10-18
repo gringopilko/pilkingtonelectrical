@@ -159,7 +159,7 @@ function ServicePage() {
           </div>
           {service.slug === "commercial-electrician" && <CommercialHeroVideo />}
           {service.slug === "power-points" && service.image && (
-            <img src={`/img/${service.image.file}`} alt={service.image.alt} width={service.image.width} height={service.image.height} decoding="async" className="aspect-[4/3] w-full rounded-2xl border border-border object-cover" />
+            <img src={`/img/${service.image.file}`} alt={service.image.alt} width={service.image.width} height={service.image.height} decoding="async" style={service.tileImage ? undefined : { viewTransitionName: `svc-${service.slug}` }} className="aspect-[4/3] w-full rounded-2xl border border-border object-cover" />
           )}
           {service.tileImage && (
             <img
@@ -168,7 +168,7 @@ function ServicePage() {
               width={service.tileImage.width}
               height={service.tileImage.height}
               decoding="async"
-              style={service.tileImage.focus ? { objectPosition: service.tileImage.focus } : undefined}
+              style={{ ...(service.tileImage.focus ? { objectPosition: service.tileImage.focus } : {}), viewTransitionName: `svc-${service.slug}` }}
               className="aspect-[16/10] w-full rounded-2xl border border-border object-cover md:aspect-[4/3]"
             />
           )}
@@ -184,6 +184,7 @@ function ServicePage() {
             width={service.image.width}
             height={service.image.height}
             decoding="async"
+            style={{ viewTransitionName: `svc-${service.slug}` }}
             className={service.slug === "ev-charger-install" ? "mx-auto h-auto max-h-[540px] w-auto max-w-full rounded-2xl border border-border object-contain" : "h-auto w-full rounded-2xl border border-border"}
           />
         </div>
