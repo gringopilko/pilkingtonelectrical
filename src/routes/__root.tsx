@@ -117,6 +117,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "ElectricalContractor",
+        "@id": "https://pilkingtonelectrical.com.au/#business",
         "name": "Pilkington Electrical",
         "url": "https://pilkingtonelectrical.com.au",
         "logo": "https://pilkingtonelectrical.com.au/og-image-clean.png",
@@ -154,7 +155,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           },
           "identifier": "REC-30450",
         },
+        "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJU6XvSn1p1moROAWfH_eN1rw",
         "sameAs": [
+          "https://www.google.com/maps/place/?q=place_id:ChIJU6XvSn1p1moROAWfH_eN1rw",
           "https://www.facebook.com/pilkingtonelectrical",
           "https://www.instagram.com/pilkingtonelectrical",
         ],
