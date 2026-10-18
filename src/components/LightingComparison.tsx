@@ -12,7 +12,7 @@ interface Photo {
 const fittings: { title: string; caption: string; photo: Photo }[] = [
   {
     title: "Pancake (flat panel)",
-    caption: "An option. Cheap and quick to fit, but the bright white face glares.",
+    caption: "An option. Cheap and quick to fit, but depending on the quality of the light, the bright white face can glare.",
     photo: { src: "/img/pancake-downlight.webp", width: 800, height: 600, alt: "Flat white LED pancake downlight with a bright face" },
   },
   {
@@ -64,7 +64,7 @@ export function LightingComparison() {
     <section id="pancake-vs-recessed" className="mt-14 scroll-mt-28">
       <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Pancake lights vs recessed downlights</h2>
       <p className="mt-4 leading-relaxed text-muted-foreground">
-        Slim &ldquo;pancake&rdquo; panels are cheap and quick to fit, but the whole face is a bright white disc. You see the light source straight on, so it glares, especially in bedrooms and living areas where you&rsquo;re looking up from a couch or bed.
+        Slim &ldquo;pancake&rdquo; panels are cheap and quick to fit, but the whole face is a bright white disc. You see the light source straight on, so depending on the quality of the light it can glare, especially in bedrooms and living areas where you&rsquo;re looking up from a couch or bed.
       </p>
       <p className="mt-4 leading-relaxed text-muted-foreground">
         Pancake lights are still an option, but I recommend recessed downlights. The LED sits further up inside the fitting, so it is much easier on the eyes and looks cleaner on the ceiling.
