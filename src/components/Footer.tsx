@@ -72,7 +72,7 @@ export function Footer() {
           <p>&copy; {new Date().getFullYear()} Pilkington Electrical. All rights reserved.</p>
           <p className="flex flex-wrap justify-center gap-x-4 gap-y-1 md:justify-end">
             <a href="https://www.google.com/maps/place/?q=place_id:ChIJU6XvSn1p1moROAWfH_eN1rw" target="_blank" rel="noopener noreferrer" className="hover:text-white">Find me on Google</a>
-            <a href="/review" className="hover:text-white">Leave a review</a>
+            <a href="https://g.page/r/CTgFnx_3jda8EBM/review" target="_blank" rel="noopener noreferrer" className="hover:text-white">Leave a review</a>
             <Link to="/guarantee" className="hover:text-white">Labour guarantee</Link>
             <Link to="/privacy" className="hover:text-white">Privacy</Link>
             <Link to="/terms-of-trade" className="hover:text-white">Terms of trade</Link>
