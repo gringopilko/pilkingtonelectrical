@@ -338,6 +338,248 @@ export const guides: Guide[] = [
     ],
     relatedServices: ["test-and-tag", "safety-switches", "commercial-electrician", "body-corporate"],
   },
+  {
+    slug: "safety-switch-keeps-tripping",
+    title: "Why Does My Safety Switch Keep Tripping? A Step by Step Check",
+    shortTitle: "Safety switch keeps tripping",
+    seoTitle: "Why Does My Safety Switch Keep Tripping?",
+    metaDescription:
+      "A safety switch that keeps tripping is protecting you. How to find the cause safely, what you can check yourself and when to call an electrician.",
+    summary:
+      "How to find what is tripping your safety switch, the common causes, and when it is time to call an electrician.",
+    updated: "2026-10-16",
+    updatedLabel: "16 October 2026",
+    intro:
+      "A tripping safety switch is annoying, but it is doing its job. It has detected electricity leaking where it should not and cut the power in a fraction of a second. The cause is usually a faulty appliance, water getting into an outdoor fitting, or damaged wiring. Here is how to narrow it down safely.",
+    keyPoints: [
+      "A safety switch trips when it detects current leaking to earth. It is protecting you, so never hold it on or bypass it.",
+      "The most common cause is a faulty appliance, which you can usually find yourself by unplugging everything and testing one item at a time.",
+      "Tripping after rain points to water in an outdoor light, power point or garden fitting.",
+      "If it trips with everything unplugged, the fault is in the fixed wiring or a hard-wired appliance and needs an electrician.",
+      "A burning smell, scorch marks or a tingle from a tap or appliance means turn off the main switch and call straight away.",
+    ],
+    sections: [
+      {
+        heading: "Safety switch or circuit breaker?",
+        paragraphs: [
+          "Safety switches, also called RCDs or RCBOs, usually have a test button marked T or Test. Circuit breakers do not. A circuit breaker trips when a circuit is overloaded or short circuited, for example when too many heaters run on one circuit. A safety switch trips when it detects current leaking to earth, which can happen through a damaged appliance, water or a person.",
+        ],
+      },
+      {
+        heading: "Step by step: find the cause",
+        bullets: [
+          "Unplug everything on the circuits that lost power. Pull the plugs out, as switching off at the power point is not enough.",
+          "Reset the safety switch by pushing it back up to on.",
+          "If it stays on, plug appliances back in one at a time and switch each one on. When the safety switch trips again, you have found the faulty appliance.",
+          "Leave that appliance unplugged and have it repaired or replaced before using it again.",
+          "If the safety switch trips again with everything unplugged, stop there. The fault is in the fixed wiring, a light fitting or a hard-wired appliance such as an oven, hot water unit or air conditioner, and needs an electrician.",
+        ],
+      },
+      {
+        heading: "Common causes",
+        bullets: [
+          "Faulty appliances, often kettles, toasters, washing machines, fridges and heaters.",
+          "Water in outdoor lights, power points and garden lighting, especially after rain.",
+          "Cables damaged by screws, nails or rodents.",
+          "Old wiring with insulation that has broken down over time.",
+          "A failing hot water element or oven element.",
+          "Several appliances each leaking a little, which adds up enough to trip the switch.",
+          "Circuits that share a neutral, which modern safety switches pick up, often straight after a switchboard upgrade.",
+          "Occasionally, the safety switch itself has failed.",
+        ],
+      },
+      {
+        heading: "If it only trips sometimes",
+        paragraphs: [
+          "Intermittent tripping is the hardest kind to track down. Keep a note of when it happens: after rain, overnight when the hot water heats, when a particular appliance runs, or at random. Those notes save a lot of time when the circuits are tested.",
+        ],
+      },
+      {
+        heading: "What not to do",
+        bullets: [
+          "Do not hold the switch on, tape it up or try to bypass it.",
+          "Do not keep resetting it over and over. If it trips straight away, there is a fault to find.",
+          "Do not open the switchboard, power points or appliances to look for the problem.",
+        ],
+      },
+      {
+        heading: "When to call an electrician",
+        bullets: [
+          "It trips with nothing plugged in.",
+          "It trips straight after you reset it.",
+          "It trips whenever it rains.",
+          "It trips at random and you cannot link it to an appliance.",
+          "There is a burning smell, scorch marks or a tingle from a tap or appliance. Turn off the main switch first, then call.",
+        ],
+      },
+      {
+        heading: "Where I can help",
+        paragraphs: [
+          "I test each circuit with an insulation resistance tester to find where current is leaking, then repair the fault or explain the options before any further work. If your switchboard has only one or two safety switches for the whole home, I can also talk you through upgrading to a safety switch on every circuit, so one fault does not black out the whole house.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Energy Safe Victoria: test your safety switches every year", url: "https://energysafe.vic.gov.au/media-centre/news/energy-safe-urges-victorians-test-safety-switches-protect-lives-and-property" },
+    ],
+    relatedServices: ["fault-finding", "safety-switches", "switchboards"],
+  },
+  {
+    slug: "signs-switchboard-needs-upgrading",
+    title: "Signs Your Switchboard Needs Upgrading",
+    shortTitle: "Signs your switchboard needs upgrading",
+    seoTitle: "Signs Your Switchboard Needs Upgrading",
+    metaDescription:
+      "Old fuses, no safety switches, scorch marks or a board that keeps tripping? The signs your switchboard needs upgrading, and what an upgrade involves.",
+    summary:
+      "The warning signs of an old or overloaded switchboard, what the rules say for rentals, and what an upgrade involves.",
+    updated: "2026-10-16",
+    updatedLabel: "16 October 2026",
+    intro:
+      "Your switchboard is where every circuit in your home is controlled and protected. Many homes around Bayside still have boards installed decades ago, long before today's appliances, solar panels and EV chargers. Here are the signs it is time for an upgrade, and what one involves.",
+    keyPoints: [
+      "Old ceramic fuses and boards without safety switches give little or no protection against electric shock.",
+      "Scorch marks, buzzing, a burning smell or a warm board are warning signs to act on quickly.",
+      "Victorian rentals must have circuit breakers and safety switches protecting the power and lighting circuits.",
+      "Older boards can have a backing panel that contains asbestos, which must be handled by a licensed removalist.",
+      "Adding solar, a battery, an EV charger or a heat pump often means the board needs more space or capacity.",
+    ],
+    sections: [
+      {
+        heading: "Warning signs",
+        bullets: [
+          "Ceramic fuses that are rewired with fuse wire when they blow.",
+          "No safety switches, or only one or two covering the whole house.",
+          "Fuses blowing or breakers tripping regularly.",
+          "Scorch marks, melted plastic, a burning smell, buzzing or crackling.",
+          "A switchboard that feels warm to touch.",
+          "Lights that flicker or dim when appliances start.",
+          "No spare room for new circuits.",
+          "Loose or broken parts, or an old timber or fibre backing panel.",
+        ],
+        paragraphs: [
+          "If you notice scorch marks, a burning smell or buzzing, turn off the main switch if it is safe to do so and call an electrician.",
+        ],
+      },
+      {
+        heading: "Fuses, circuit breakers and safety switches",
+        paragraphs: [
+          "Old fuses and circuit breakers protect the cables from overheating. Neither protects people from electric shock. That is the job of a safety switch, which detects current leaking to earth and cuts the power in a fraction of a second. A modern board has both, and the best setup is a combined breaker and safety switch on every circuit, so a fault only turns off its own circuit.",
+        ],
+      },
+      {
+        heading: "Rental properties",
+        paragraphs: [
+          "Victorian rental properties must have the power outlets and lighting circuits connected to circuit breakers and safety switches. A board that only has fuses, or circuits without safety switch protection, needs an upgrade to meet the standard.",
+        ],
+      },
+      {
+        heading: "Asbestos in older switchboards",
+        paragraphs: [
+          "Older switchboards often have a backing panel that may contain asbestos. It is generally safe if left alone, but it must not be drilled, cut or broken. When a board like this is replaced, the panel needs to be removed by someone licensed to handle asbestos. I will tell you if your board needs this and what is involved before any work starts.",
+        ],
+      },
+      {
+        heading: "Planning for solar, batteries and EV chargers",
+        paragraphs: [
+          "New circuits need space on the board, and big loads like EV chargers and heat pumps need enough capacity in your supply. Upgrading the board before adding them means everything is protected properly, labelled clearly and ready for what you add next.",
+        ],
+      },
+      {
+        heading: "What an upgrade involves",
+        bullets: [
+          "Assessing your existing board, circuits and supply.",
+          "A new switchboard with a main switch and protection for every circuit.",
+          "Type A safety switches, ideally a combined breaker and safety switch on each circuit.",
+          "Surge protection, and arc fault devices on bedroom and living area circuits where recommended.",
+          "Every circuit clearly labelled, with room to grow.",
+          "Full testing, and a certificate of electrical safety.",
+        ],
+      },
+      {
+        heading: "Where I can help",
+        paragraphs: [
+          "I offer switchboard upgrades at different levels to suit your budget, and always recommend a premium board such as Hager onekonekt or Clipsal MAX9 for the best protection and room for the future. Every option is done properly, tested and certified.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Consumer Affairs Victoria: rental providers, gas and electrical safety", url: "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/gas-electrical-and-water-safety-standards/rental-providers-gas-and-electrical-safety" },
+      { label: "Energy Safe Victoria: test your safety switches every year", url: "https://energysafe.vic.gov.au/media-centre/news/energy-safe-urges-victorians-test-safety-switches-protect-lives-and-property" },
+    ],
+    relatedServices: ["switchboards", "safety-switches", "electrical-safety-inspections"],
+  },
+  {
+    slug: "ev-charging-apartment-buildings-victoria",
+    title: "EV Charging in Apartment Buildings: A Guide for Victorian Owners Corporations",
+    shortTitle: "EV charging in apartment buildings",
+    seoTitle: "EV Charging in Victorian Apartment Buildings",
+    metaDescription:
+      "How Victorian owners corporations can plan EV charging: approvals, building capacity, charging options, load management and billing, in plain English.",
+    summary:
+      "How owners corporations can plan EV charging fairly: approvals, building capacity, the main options and how costs are shared.",
+    updated: "2026-10-16",
+    updatedLabel: "16 October 2026",
+    intro:
+      "More apartment owners are buying electric vehicles, and most want to charge at home. In a shared building that means working through approvals, the building's electrical capacity and how the costs are shared. In August 2026 the Victorian Government published an EV-ready guide for owners corporations. This page sums up the practical side.",
+    keyPoints: [
+      "Charging work that touches common property, such as switchboards, cable trays or the car park, needs owners corporation approval.",
+      "The Victorian Government recommends owners corporations agree an EV strategy, so decisions are fair and consistent.",
+      "The building's spare electrical capacity decides how many chargers can run at once, which is why load management matters.",
+      "Apartment charging is typically around 7 kW, which comfortably covers daily driving overnight.",
+      "An EV-ready backbone, paid for once, makes it cheaper and simpler for each owner to connect later.",
+    ],
+    sections: [
+      {
+        heading: "Start with an EV strategy",
+        paragraphs: [
+          "The Victorian Government's guide recommends that owners corporations agree an EV strategy: an agreed approach to deciding when and how EV charging is provided. It helps the committee handle requests consistently, rather than deciding each one from scratch.",
+          "A short survey of owners is a good first step. It shows how many already have an EV, how many plan to buy one and what they drive each week, which tells you how much charging the building really needs.",
+        ],
+      },
+      {
+        heading: "Approvals and sharing the costs",
+        paragraphs: [
+          "Any charging work that uses common property, including the main switchboard, cable trays and shared car park walls, needs approval from the owners corporation. The guide suggests costs generally follow who benefits: shared infrastructure that serves everyone can be shared, while an owner's own charger and connection is paid for by that owner.",
+        ],
+      },
+      {
+        heading: "Check the building's capacity",
+        paragraphs: [
+          "Before chargers go in, an electrician should assess the building's maximum demand: how much power the building uses at its busiest and how much is left over. If capacity is tight, load management lets many chargers share what is available, slowing charging slightly at peak times instead of needing an expensive supply upgrade.",
+        ],
+      },
+      {
+        heading: "Three common options",
+        bullets: [
+          "One owner, one charger: a dedicated circuit from the owner's supply to their car space, approved by the owners corporation and paid for by the owner.",
+          "EV-ready building: the owners corporation installs a dedicated EV board and a cable backbone through the car park once, and each owner connects a charger to it when they need one.",
+          "Shared charging: networked chargers in common bays, with access by app or RFID card and each user billed for the energy they use.",
+        ],
+      },
+      {
+        heading: "Charger features worth insisting on",
+        bullets: [
+          "OCPP, the open standard that lets chargers work with different management software, so the building is not locked into one brand.",
+          "Load management across the whole building.",
+          "Access control by RFID card or app.",
+          "Metering for each user, so energy can be billed or recovered fairly.",
+          "Type 2 connectors, the standard for AC charging in Australia.",
+        ],
+      },
+      {
+        heading: "Where I can help",
+        paragraphs: [
+          "I can assess your building's capacity, talk your committee through the options and install everything from a single owner's charger to a full EV-ready backbone with load management. See my EV charger installation page for the systems I recommend for apartments.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Victorian Government: EV-ready buildings", url: "https://www.energy.vic.gov.au/renewable-energy/zero-emission-vehicles/ev-ready-buildings" },
+      { label: "Victorian Government: EV-ready guide for owners corporations (August 2026)", url: "https://www.energy.vic.gov.au/__data/assets/pdf_file/0028/750565/EV-ready-guide-for-owners-corporations.pdf" },
+    ],
+    relatedServices: ["ev-charger-install", "body-corporate"],
+  },
 ];
 
 export function getGuide(slug: string) {

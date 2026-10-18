@@ -205,7 +205,7 @@ function Index() {
             <p className="mt-4 text-muted-foreground">Plain-English answers to common questions, with links to the official Victorian sources.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {guides.map((g) => (
+            {guides.slice(0, 4).map((g) => (
               <Link key={g.slug} to="/guides/$slug" params={{ slug: g.slug }} className="group flex items-center gap-4 rounded-2xl border border-border bg-background p-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 sm:flex-col sm:items-start sm:p-5">
                 <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <BookOpen className="h-5 w-5" aria-hidden="true" />
@@ -218,6 +218,10 @@ function Index() {
               </Link>
             ))}
           </div>
+          <Link to="/guides" className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline">
+            See all {guides.length} guides
+            <ChevronRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
