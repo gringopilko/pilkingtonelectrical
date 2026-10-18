@@ -9,13 +9,14 @@ export interface LegalSection {
   after?: ReactNode[];
 }
 
-export function LegalPage({ title, intro, updated, sections, children }: { title: string; intro: string; updated: string; sections: LegalSection[]; children?: ReactNode }) {
+export function LegalPage({ title, intro, updated, sections, children, meta }: { title: string; intro: string; updated: string; sections: LegalSection[]; children?: ReactNode; meta?: string }) {
   return (
     <div className="min-h-screen">
       <Nav />
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-3xl px-6 py-16">
           <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">{title}</h1>
+          {meta && <p className="mt-3 text-sm font-semibold text-foreground">{meta}</p>}
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{intro}</p>
           <p className="mt-4 text-sm font-medium text-muted-foreground">Last updated {updated}</p>
         </div>
