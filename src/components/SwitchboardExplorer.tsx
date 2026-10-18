@@ -23,12 +23,12 @@ const kindText: Record<Kind, string> = {
 const devices: Device[] = [
   { id: "main", kind: "main", circuit: "MAIN", rating: "63A", wide: true, title: "Main switch, usually 63 A or 80 A", detail: "Sized to match the home's supply." },
   { id: "spd", kind: "spd", circuit: "SURGE", rating: "40kA", title: "Surge protection device", detail: "The window shows green when it is working and red when it needs replacing." },
+  { id: "oven", kind: "rcbo", circuit: "OVEN", rating: "C32", title: "RCBO, usually 32 A: oven or cooktop", detail: "Cooking appliances draw a lot of current, so they get their own larger circuit." },
+  { id: "ac", kind: "rcbo", circuit: "A/C", rating: "C20", title: "RCBO, usually 20 to 32 A: air conditioner", detail: "The rating depends on the size of the unit." },
+  { id: "hws", kind: "rcbo", circuit: "HWS", rating: "C20", title: "RCBO, usually 20 A: hot water", detail: "Electric storage hot water, often on an off-peak supply." },
+  { id: "power", kind: "rcbo", circuit: "POWER", rating: "C20", title: "RCBO, usually 20 A: power points", detail: "General power point circuits for the kitchen, living areas and laundry." },
   { id: "beds", kind: "afdd", circuit: "BEDS", rating: "C16", title: "AFDD and RCBO, usually 16 A", detail: "Fitted to bedroom power circuits, where people sleep." },
   { id: "lights", kind: "rcbo", circuit: "LIGHTS", rating: "C10", title: "RCBO, usually 10 A: lights", detail: "Lighting circuits draw little current, so they use a smaller rating." },
-  { id: "power", kind: "rcbo", circuit: "POWER", rating: "C20", title: "RCBO, usually 20 A: power points", detail: "General power point circuits for the kitchen, living areas and laundry." },
-  { id: "oven", kind: "rcbo", circuit: "OVEN", rating: "C32", title: "RCBO, usually 32 A: oven or cooktop", detail: "Cooking appliances draw a lot of current, so they get their own larger circuit." },
-  { id: "hws", kind: "rcbo", circuit: "HWS", rating: "C20", title: "RCBO, usually 20 A: hot water", detail: "Electric storage hot water, often on an off-peak supply." },
-  { id: "ac", kind: "rcbo", circuit: "A/C", rating: "C20", title: "RCBO, usually 20 to 32 A: air conditioner", detail: "The rating depends on the size of the unit." },
 ];
 
 const typeTag: Record<Kind, string> = { main: "MAIN SW", spd: "SPD", afdd: "AFDD", rcbo: "RCBO" };
