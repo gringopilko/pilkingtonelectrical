@@ -325,3 +325,78 @@ li:nth-child(7) > .current-line::after {
   }
   .text-shimmer { animation: none; background-position: 0 0; }
 }
+
+/* ------------------------------------------------------------------
+   Dark mode: follows the device setting, or the sun and moon toggle
+   ------------------------------------------------------------------ */
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.165 0.02 262);
+  --foreground: oklch(0.96 0.006 250);
+  --card: oklch(0.2 0.022 262);
+  --card-foreground: oklch(0.96 0.006 250);
+  --popover: oklch(0.2 0.022 262);
+  --popover-foreground: oklch(0.96 0.006 250);
+  --primary: oklch(0.66 0.17 248);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.26 0.02 262);
+  --secondary-foreground: oklch(0.96 0.006 250);
+  --muted: oklch(0.26 0.02 262);
+  --muted-foreground: oklch(0.75 0.02 255);
+  --accent: oklch(0.27 0.03 255);
+  --accent-foreground: oklch(0.96 0.006 250);
+  --border: oklch(0.3 0.02 262);
+  --input: oklch(0.33 0.02 262);
+  --ring: oklch(0.66 0.17 248);
+}
+
+/* Card surfaces */
+.dark :where(div, a, li, details, article, aside).rounded-2xl.border.border-border.bg-card:not([open]),
+.dark :where(div, a, li).rounded-xl.ring-1.ring-border.bg-card {
+  background-color: oklch(0.225 0.022 262);
+}
+.dark :where(div, a, li, details, article, aside).rounded-2xl.border.border-border.bg-background,
+.dark :where(div, a, li).rounded-xl.ring-1.ring-border.bg-background {
+  background-color: oklch(0.21 0.022 262);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 14px 34px -16px rgb(0 0 0 / 0.6);
+}
+
+/* Light tints that need dark versions */
+.dark .bg-\[\#eef6fe\] { background-color: rgb(0 140 240 / 0.14); }
+.dark .bg-white\/70 { background-color: rgb(255 255 255 / 0.06); }
+.dark .bg-amber-50 { background-color: rgb(251 191 36 / 0.1); }
+.dark .bg-red-50 { background-color: rgb(248 113 113 / 0.12); }
+.dark .ring-red-200 { --tw-ring-color: rgb(248 113 113 / 0.35); }
+.dark .text-red-700 { color: rgb(252 165 165); }
+.dark .text-red-900\/80 { color: rgb(254 202 202 / 0.85); }
+.dark .bg-green-100 { background-color: rgb(34 197 94 / 0.18); }
+.dark .text-green-800 { color: rgb(134 239 172); }
+.dark .bg-amber-100 { background-color: rgb(251 191 36 / 0.18); }
+.dark .text-amber-900 { color: rgb(253 224 71); }
+.dark .text-slate-700:not(.bg-white) { color: rgb(203 213 225); }
+.dark .text-slate-800:not(.bg-white) { color: rgb(226 232 240); }
+
+/* Dark panels sit slightly lighter than the page so they still stand out */
+.dark .bg-slate-900 { background-color: oklch(0.235 0.03 262); }
+
+/* Logos that are dark ink on a transparent background */
+.dark .logo-backing img {
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px 8px;
+  box-sizing: content-box;
+}
+.dark .brand-logo {
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px 9px;
+  box-sizing: content-box;
+}
+
+/* Light buttons and amber notes written for light mode */
+.dark .bg-white.text-foreground {
+  background-color: var(--card);
+}
+.dark .bg-amber-50.text-slate-900 {
+  color: rgb(254 243 199);
+}

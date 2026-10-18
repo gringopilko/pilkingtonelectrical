@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import logoImg from "@/assets/pilkington-logo-icon.webp";
 import { services } from "@/lib/services";
 import { TrustStrip } from "@/components/TrustStrip";
@@ -142,7 +143,7 @@ export function Nav() {
             )}
           </div>
 
-          
+          <ThemeToggle />
             <a href="tel:0466270949"
               className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
             >
@@ -151,9 +152,12 @@ export function Nav() {
             </a>
         </div>
 
-        <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (

@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { trackContactClick } from "@/lib/analytics";
 import { MobileCallBar } from "@/components/MobileCallBar";
 import { SiteEffects } from "@/components/SiteEffects";
+import { themeScript } from "@/components/ThemeToggle";
 import { services } from "@/lib/services";
 import { getAllSuburbs } from "@/lib/suburbs";
 
@@ -212,8 +213,9 @@ window.gtag('config', '${import.meta.env.VITE_GA_MEASUREMENT_ID}');`,
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-AU">
+    <html lang="en-AU" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <HeadContent />
       </head>
       <body>

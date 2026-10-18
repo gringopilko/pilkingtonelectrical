@@ -36,7 +36,7 @@ export function BrandsWeUse() {
                 <img
                   src={l.src}
                   alt={i >= logos.length ? "" : l.alt}
-                  className={`${l.size} w-auto opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 active:opacity-100 active:grayscale-0`}
+                  className={`brand-logo ${l.size} w-auto opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 active:opacity-100 active:grayscale-0`}
                   loading="lazy"
                 />
               </div>

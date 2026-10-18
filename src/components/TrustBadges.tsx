@@ -30,7 +30,7 @@ export function TrustBadges() {
         <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-x-0 lg:divide-x lg:divide-border">
           {logos.map((l) => (
             <div key={l.title} className="flex flex-col items-center px-2 text-center lg:px-6">
-              <div className="flex h-16 items-center justify-center">
+              <div className="logo-backing flex h-16 items-center justify-center">
                 <img src={l.src} alt={l.alt} width={l.w} height={l.h} className={`${l.size} w-auto max-w-full object-contain`} loading="lazy" />
               </div>
               <p className="mt-3 text-sm font-bold leading-snug">{l.title}</p>
