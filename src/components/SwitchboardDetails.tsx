@@ -80,6 +80,54 @@ export function SwitchboardDetails() {
             <a href="#quote" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-brand-dark">Ask about upgrade options</a>
           </div>
         </div>
+        <div id="premium-ranges" className="mt-8 scroll-mt-28">
+          <p className="text-xl font-bold tracking-tight">What makes onekonekt and MAX9 premium</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Both are excellent. I recommend one or the other based on your board, your supply and what you plan to add later.</p>
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            {[
+              {
+                name: "Hager onekonekt",
+                img: "/img/hager-golf-board-installed.webp",
+                alt: "Hager onekonekt switchboard with main switch and RCBOs on one busbar",
+                points: [
+                  "One busbar for everything: the main switch, RCBOs, safety switches and breakers all connect to the same single or three phase busbar.",
+                  "Single module RCBO with a switched neutral, Type A protection and 6 kA breaking capacity, so more circuits fit in a compact board.",
+                  "Insulation resistance testing without disconnecting the outgoing cables, which makes future fault finding quicker.",
+                  "On the AC side of a solar inverter, the RCBO detects fault current from the grid or the inverter.",
+                  "Finger-safe busbar and end caps, so there is no direct contact with live parts even with the board open.",
+                  "A single device can be removed without disturbing the devices or wiring beside it.",
+                ],
+              },
+              {
+                name: "Clipsal MAX9",
+                img: "/img/max9-switchboard.webp",
+                alt: "Clipsal MAX9 switchboard",
+                points: [
+                  "MAXBAR busbar feeds active and neutral from the main switch straight to every RCBO and AFDD, with no feed cables, for a cleaner board.",
+                  "A 100 A rated system, type tested to AS/NZS 61439-3.",
+                  "Every RCBO and safety switch in the range is Type A, ready for modern electronics, solar and EV charging.",
+                  "Slim single module RCBOs that switch both active and neutral, with 6 kA breaking capacity.",
+                  "Arc fault detection devices that fit the same system.",
+                  "Backed by a 7 year Clipsal warranty.",
+                ],
+              },
+            ].map((r) => (
+              <div key={r.name} className="rounded-2xl border border-border bg-card p-5 sm:p-6">
+                <img src={r.img} alt={r.alt} width={800} height={600} loading="lazy" decoding="async" className="aspect-[4/3] w-full rounded-xl bg-white object-contain" />
+                <p className="mt-4 text-lg font-bold tracking-tight">{r.name}</p>
+                <ul className="mt-3 space-y-2.5">
+                  {r.points.map((pt) => (
+                    <li key={pt} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" aria-hidden="true" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-muted-foreground">Features summarised from Hager and Clipsal product information. Ranges change over time, so I confirm current products when I quote.</p>
+        </div>
       </section>
       <Collapsible id="switchboard-inclusions" title={<>What's included in your switchboard service</>} className="">
         
