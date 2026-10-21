@@ -1,7 +1,19 @@
 import { createServerFn } from "@tanstack/react-start";
 import { env } from "cloudflare:workers";
 
-const CACHE_KEY = "google-reviews-v2";
+const CACHE_KEY = "google-reviews-v3";
+
+/** Genuine Google reviews pinned to the top, copied word for word from the Google Business Profile. */
+const PINNED_REVIEWS = [
+  {
+    authorName: "Luke Lalor",
+    authorPhoto: null,
+    rating: 5,
+    text: "Shane was amazing he looked after my mother and made her very comfortable and was punctual and very affordable.\nHighly recommend him\nThanks for looking after my mum Shane.\nLuke and Gina",
+    relativeTime: "October 2026",
+    publishTime: "2026-10-20T00:00:00Z",
+  },
+];
 const CACHE_TTL_SECONDS = 60 * 60 * 6;
 
 export const getReviews = createServerFn({ method: "GET" }).handler(async () => {
@@ -32,6 +44,9 @@ export const getReviews = createServerFn({ method: "GET" }).handler(async () => 
       .sort((a: { publishTime: string }, b: { publishTime: string }) => (b.publishTime || "").localeCompare(a.publishTime || "")),
     fetchedAt: new Date().toISOString(),
   };
+
+  const pinnedNames = new Set(PINNED_REVIEWS.map((r) => r.authorName.toLowerCase()));
+  payload.reviews = [...PINNED_REVIEWS, ...payload.reviews.filter((r: { authorName: string }) => !pinnedNames.has(r.authorName.toLowerCase()))];
 
   await env.REVIEWS_CACHE.put(CACHE_KEY, JSON.stringify(payload), { expirationTtl: CACHE_TTL_SECONDS });
 

@@ -60,7 +60,7 @@ export function Testimonials() {
           {data.reviews.slice(0, 6).map((review, i) => (
             <div key={i} className="flex flex-col rounded-2xl border border-border bg-background p-6">
               <StarRow rating={review.rating} />
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">"{review.text}"</p>
+              <p className="mt-4 flex-1 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">"{review.text}"</p>
               <div className="mt-6 flex items-center gap-3">
                 {review.authorPhoto ? (
                   <img src={review.authorPhoto} alt={review.authorName} className="h-10 w-10 rounded-full object-cover" loading="lazy" />
