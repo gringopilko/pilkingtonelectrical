@@ -57,7 +57,7 @@ export function Testimonials() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {data.reviews.slice(0, 3).map((review, i) => (
+          {data.reviews.slice(0, 6).map((review, i) => (
             <div key={i} className="flex flex-col rounded-2xl border border-border bg-background p-6">
               <StarRow rating={review.rating} />
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">"{review.text}"</p>

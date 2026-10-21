@@ -1,8 +1,8 @@
 import { createServerFn } from "@tanstack/react-start";
 import { env } from "cloudflare:workers";
 
-const CACHE_KEY = "google-reviews";
-const CACHE_TTL_SECONDS = 60 * 60 * 24;
+const CACHE_KEY = "google-reviews-v2";
+const CACHE_TTL_SECONDS = 60 * 60 * 6;
 
 export const getReviews = createServerFn({ method: "GET" }).handler(async () => {
   const cached = await env.REVIEWS_CACHE.get(CACHE_KEY, "json");
@@ -19,13 +19,17 @@ export const getReviews = createServerFn({ method: "GET" }).handler(async () => 
   const payload = {
     rating: data.rating ?? null,
     userRatingCount: data.userRatingCount ?? null,
-    reviews: (data.reviews ?? []).map((r: any) => ({
-      authorName: r.authorAttribution?.displayName ?? "Google user",
-      authorPhoto: r.authorAttribution?.photoUri ?? null,
-      rating: r.rating,
-      text: r.text?.text ?? "",
-      relativeTime: r.relativePublishTimeDescription ?? "",
-    })),
+    // Google returns up to five reviews it picks as most relevant; show the newest first
+    reviews: (data.reviews ?? [])
+      .map((r: any) => ({
+        authorName: r.authorAttribution?.displayName ?? "Google user",
+        authorPhoto: r.authorAttribution?.photoUri ?? null,
+        rating: r.rating,
+        text: r.text?.text ?? r.originalText?.text ?? "",
+        relativeTime: r.relativePublishTimeDescription ?? "",
+        publishTime: r.publishTime ?? "",
+      }))
+      .sort((a: { publishTime: string }, b: { publishTime: string }) => (b.publishTime || "").localeCompare(a.publishTime || "")),
     fetchedAt: new Date().toISOString(),
   };
 
