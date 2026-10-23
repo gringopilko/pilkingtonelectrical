@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Pause, Play } from "lucide-react";
 
 export function EmergencyHeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -15,12 +14,6 @@ export function EmergencyHeroVideo() {
     return () => preference.removeEventListener("change", update);
   }, []);
 
-  const togglePlayback = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) void video.play().catch(() => setPlaying(false));
-    else video.pause();
-  };
 
   return (
     <div className="mx-auto w-full max-w-5xl px-6 pt-12">
@@ -30,12 +23,6 @@ export function EmergencyHeroVideo() {
           <video width={960} height={540} ref={videoRef} src="/emergency-hero.mp4" poster="/img/emergency-video-poster.webp" autoPlay muted loop playsInline preload="none" aria-hidden="true" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setAllowVideo(false)} className="absolute inset-0 block h-full w-full object-contain object-center">
             Your browser does not support video.
           </video>
-        )}
-        {allowVideo && (
-          <button type="button" onClick={togglePlayback} aria-label={playing ? "Pause background video" : "Play background video"} className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/65 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-            {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-            {playing ? "Pause" : "Play"}
-          </button>
         )}
       </div>
     </div>

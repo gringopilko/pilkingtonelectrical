@@ -154,7 +154,7 @@ function ServicePage() {
               {service.slug === "emergency-electrical" ? "Call Shane: 0466 270 949" : "Call Now"}
             </a>
             <a href="#quote"
-              className="inline-flex items-center gap-2 rounded-2xl border border-border bg-white px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-accent"
+              className="inline-flex items-center gap-2 rounded-2xl bg-primary/10 px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/15"
             >
               {service.slug === "test-and-tag" ? "Request a Free Quote" : service.slug === "emergency-electrical" ? "Non-Urgent Enquiry" : "Request a Quote"}
             </a>
@@ -204,14 +204,16 @@ function ServicePage() {
         {service.slug === "ceiling-fans" && <CeilingFanInfographic />}
         {service.slug === "hot-water" && <HotWaterInfographic />}
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
           {service.included.map((item) => (
-            <div key={item} className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3 sm:p-4">
-              <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-              <span className="text-sm text-muted-foreground">{item}</span>
-            </div>
+            <li key={item} className="flex items-start gap-3 border-b border-border/60 pb-3">
+              <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
+                <Check className="h-3.5 w-3.5 text-primary" />
+              </span>
+              <span className="text-sm text-foreground">{item}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {service.body.map((para, i) => (
           <p key={i} className="mt-6 leading-relaxed text-muted-foreground">
