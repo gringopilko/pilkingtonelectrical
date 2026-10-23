@@ -79,7 +79,7 @@ function About() {
             <h2 className="mt-2 text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">From the trading floor to the switchboard</h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
-                My career didn't start with a toolbox. It started in finance, analysing listed companies and writing research, where every number had to be right and every detail had to stand up to scrutiny.
+                My career didn't start with a toolbox. It started in finance, including time at UBS, Citigroup and Goldman Sachs, analysing listed companies and writing research, where every number had to be right and every detail had to stand up to scrutiny.
               </p>
               <p>
                 Then I traded the desk for a few years chasing an endless winter. I worked ski patrol in the Canadian Rockies, on avalanche control and search and rescue, followed by seasons in New Zealand and a stint behind a busy London bar. Those years taught me to stay calm when things go wrong, and to look after the people around me.
