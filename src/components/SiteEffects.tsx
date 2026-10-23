@@ -41,6 +41,35 @@ export function SiteEffects() {
     };
   }, [pathname]);
 
+  // Phones: the menu slides away while scrolling down and comes back when scrolling up
+  useEffect(() => {
+    const root = document.documentElement;
+    let last = window.scrollY;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const delta = y - last;
+      last = y;
+      const phone = window.matchMedia("(max-width: 767px)").matches;
+      const menuOpen = !!document.querySelector("[data-mobile-menu]");
+      if (!phone || menuOpen || y < 140) root.classList.remove("nav-hidden");
+      else if (delta > 6) root.classList.add("nav-hidden");
+      else if (delta < -6) root.classList.remove("nav-hidden");
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      root.classList.remove("nav-hidden");
+    };
+  }, [pathname]);
+
   // Cursor glow on dark panels
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return;

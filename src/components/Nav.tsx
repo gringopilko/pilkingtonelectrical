@@ -161,7 +161,7 @@ export function Nav() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border px-6 py-4 md:hidden">
+        <div data-mobile-menu className="border-t border-border px-6 py-4 md:hidden">
           <div className="flex flex-col gap-1">
             <Link to="/about" onClick={closeAll} className="py-2 text-sm font-semibold text-muted-foreground">
               About

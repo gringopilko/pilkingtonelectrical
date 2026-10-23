@@ -132,7 +132,7 @@ export function QuoteForm({
       </label>
       <label className="grid gap-2 text-sm font-semibold md:col-span-2">
         <span>What do you need? <span className="font-normal text-muted-foreground">(optional)</span></span>
-        <select value={service} onChange={(e) => setService(e.target.value)} className={`${inputClass} w-full min-w-0`}>
+        <select value={service} onChange={(e) => setService(e.target.value)} className={`pe-select ${inputClass} w-full min-w-0`}>
           <option value="">Select a service</option>
           {serviceGroups.map((g) => (
             <optgroup key={g.title} label={g.title}>

@@ -1,3 +1,4 @@
+import { Glossed } from "@/components/Term";
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Check, ChevronRight, Phone } from "lucide-react";
 import { Nav } from "@/components/Nav";
@@ -64,6 +65,7 @@ export const Route = createFileRoute("/guides/$slug")({
 
 function GuidePage() {
   const guide = Route.useLoaderData();
+  const seen = new Set<string>();
   const related = guide.relatedServices
     .map((slug) => services.find((s) => s.slug === slug))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
@@ -123,14 +125,14 @@ function GuidePage() {
             <div key={sec.heading} id={slugify(sec.heading)} className="mt-10 scroll-mt-28">
               <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">{sec.heading}</h2>
               {sec.paragraphs?.map((p) => (
-                <p key={p} className="mt-4 leading-relaxed text-muted-foreground">{p}</p>
+                <p key={p} className="mt-4 leading-relaxed text-muted-foreground"><Glossed text={p} seen={seen} /></p>
               ))}
               {sec.bullets && (
                 <ul className="mt-4 space-y-2">
                   {sec.bullets.map((b) => (
                     <li key={b} className="flex items-start gap-3 text-muted-foreground">
                       <Check className="mt-1 h-4 w-4 flex-shrink-0 text-primary" aria-hidden="true" />
-                      {b}
+                      <span><Glossed text={b} seen={seen} /></span>
                     </li>
                   ))}
                 </ul>

@@ -400,3 +400,216 @@ li:nth-child(7) > .current-line::after {
 .dark .bg-amber-50.text-slate-900 {
   color: rgb(254 243 199);
 }
+
+/* ------------------------------------------------------------------
+   2026 polish: smooth accordions, hide-on-scroll menu, jargon bubbles,
+   self-drawing timeline, squircle corners, balanced text, styled select
+   ------------------------------------------------------------------ */
+
+/* Tap-to-open sections glide open and closed */
+@supports (interpolate-size: allow-keywords) and selector(::details-content) {
+  :root { interpolate-size: allow-keywords; }
+  details::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow-y: clip;
+    transition: block-size 0.38s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease, content-visibility 0.38s allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
+/* Phones: menu slides out of the way while reading */
+.site-nav {
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.nav-hidden .site-nav {
+  transform: translateY(-100%);
+}
+
+/* Jargon bubbles */
+.term {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: help;
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in oklab, var(--primary) 70%, transparent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.term:hover,
+.term:focus-visible {
+  color: var(--primary);
+}
+.term-pop {
+  margin: auto;
+  width: max-content;
+  max-width: min(300px, 88vw);
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  box-shadow: 0 18px 40px -14px rgb(15 23 42 / 0.55);
+}
+.term-pop strong {
+  color: #7dd3fc;
+  font-weight: 700;
+}
+.dark .term-pop {
+  background: #f8fafc;
+  color: #0f172a;
+}
+.dark .term-pop strong {
+  color: #0369a1;
+}
+@supports (anchor-name: --a) {
+  .term-pop {
+    inset: auto;
+    margin: 0 0 8px;
+    position-area: top;
+    justify-self: anchor-center;
+    position-try-fallbacks: flip-block;
+  }
+  @media (max-width: 640px) {
+    .term-pop {
+      position-area: top span-all;
+      justify-self: center;
+    }
+  }
+}
+
+/* About timeline draws itself as you scroll */
+.timeline-fill {
+  display: none;
+}
+@supports (animation-timeline: view()) {
+  .timeline-fill {
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--primary);
+    transform-origin: top;
+    animation: timeline-draw linear both;
+    animation-timeline: view();
+    animation-range: entry 30% cover 55%;
+  }
+  .timeline-dot {
+    animation: timeline-dot linear both;
+    animation-timeline: view();
+    animation-range: entry 60% cover 42%;
+  }
+}
+@keyframes timeline-draw {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes timeline-dot {
+  from { transform: scale(0.6); background-color: oklch(0.8 0.02 255); }
+  to { transform: scale(1); background-color: var(--primary); }
+}
+
+/* Smoother, squircle corners where supported */
+@supports (corner-shape: squircle) {
+  .rounded-xl { corner-shape: squircle; border-radius: 1.2rem; }
+  .rounded-2xl { corner-shape: squircle; border-radius: 1.6rem; }
+  .rounded-3xl { corner-shape: squircle; border-radius: 2.2rem; }
+}
+
+/* Balanced headings, no lonely last words in paragraphs */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+p, li, figcaption, blockquote {
+  text-wrap: pretty;
+}
+
+/* Styled service dropdown on the quote form */
+@supports (appearance: base-select) {
+  .pe-select,
+  .pe-select::picker(select) {
+    appearance: base-select;
+  }
+  .pe-select::picker(select) {
+    margin-top: 6px;
+    padding: 6px;
+    max-height: 380px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--card);
+    color: var(--foreground);
+    box-shadow: 0 22px 44px -18px rgb(15 23 42 / 0.4);
+  }
+  .pe-select option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--foreground);
+  }
+  .pe-select option::before {
+    content: "";
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    background: var(--primary);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .pe-select option[value=""]::before {
+    display: none;
+  }
+  .pe-select option:hover,
+  .pe-select option:focus-visible {
+    background: color-mix(in oklab, var(--primary) 12%, transparent);
+  }
+  .pe-select option:checked {
+    font-weight: 700;
+  }
+  .pe-select option::checkmark {
+    order: 2;
+    margin-left: auto;
+    color: var(--primary);
+  }
+  .pe-select optgroup {
+    padding-top: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+  .pe-select::picker-icon {
+    color: var(--muted-foreground);
+    transition: rotate 0.2s ease;
+  }
+  .pe-select:open::picker-icon {
+    rotate: 180deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details::details-content { transition: none !important; }
+  .site-nav { transition: none; }
+  .timeline-fill, .timeline-dot { animation: none !important; }
+  .timeline-fill { transform: none; }
+}

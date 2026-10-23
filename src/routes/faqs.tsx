@@ -1,3 +1,4 @@
+import { Glossed } from "@/components/Term";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronDown, Phone } from "lucide-react";
 import { Nav } from "@/components/Nav";
@@ -63,15 +64,15 @@ const faqs = [
 ];
 
 function renderAnswer(faq: (typeof faqs)[number]) {
-  if (!faq.linkTo || !faq.linkText) return faq.a;
+  if (!faq.linkTo || !faq.linkText) return <Glossed text={faq.a} />;
   const parts = faq.a.split(faq.linkText);
   return (
     <>
-      {parts[0]}
+      <Glossed text={parts[0]} />
       <Link to={faq.linkTo} className="font-semibold text-primary hover:underline">
         {faq.linkText}
       </Link>
-      {parts[1]}
+      <Glossed text={parts[1] ?? ""} />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { Glossed } from "@/components/Term";
 import { Check, ArrowRight } from "lucide-react";
 import { Collapsible } from "@/components/Collapsible";
 
@@ -21,6 +22,7 @@ const faqs = [
 ];
 
 export function SwitchboardDetails() {
+  const seen = new Set<string>();
   return (
     <>
       <nav aria-label="Switchboard page sections" className="mb-12 flex flex-wrap gap-2">
@@ -125,7 +127,7 @@ export function SwitchboardDetails() {
                   {r.points.map((pt) => (
                     <li key={pt} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
                       <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" aria-hidden="true" />
-                      {pt}
+                      <span><Glossed text={pt} seen={seen} /></span>
                     </li>
                   ))}
                 </ul>

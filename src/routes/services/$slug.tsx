@@ -17,6 +17,7 @@ import { LightingComparison } from "@/components/LightingComparison";
 import { CeilingFanInfographic } from "@/components/CeilingFanInfographic";
 import { HotWaterInfographic } from "@/components/HotWaterInfographic";
 import { NoPatchingNotice } from "@/components/NoPatchingNotice";
+import { Glossed } from "@/components/Term";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
@@ -103,6 +104,7 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServicePage() {
   const service = Route.useLoaderData();
+  const glossSeen = new Set<string>();
   const relatedSlugs: Record<string, string[]> = {
     "power-points": ["rewiring-extensions", "switchboards", "safety-switches", "lighting", "fault-finding", "commercial-electrician"],
     "smoke-alarms": ["electrical-safety-inspections", "real-estate", "body-corporate", "safety-switches"],
@@ -213,7 +215,7 @@ function ServicePage() {
 
         {service.body.map((para, i) => (
           <p key={i} className="mt-6 leading-relaxed text-muted-foreground">
-            {para}
+            <Glossed text={para} seen={glossSeen} />
           </p>
         ))}
 

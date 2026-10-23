@@ -1,3 +1,4 @@
+import { Glossed } from "@/components/Term";
 import { Link } from "@tanstack/react-router";
 import {
   Building2,
@@ -53,6 +54,7 @@ const apartmentChallenges = [
 ];
 
 export function EVInfographic() {
+  const seen = new Set<string>();
   return (
     <section id="ev-guide" className="mb-14 scroll-mt-28 overflow-hidden rounded-3xl border border-border bg-background shadow-xl shadow-slate-900/5">
       {/* Title band */}
@@ -139,7 +141,7 @@ export function EVInfographic() {
               ].map((pt) => (
                 <li key={pt} className="flex items-start gap-2 text-sm leading-snug text-muted-foreground">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                  {pt}
+                  <span><Glossed text={pt} seen={seen} /></span>
                 </li>
               ))}
             </ul>
@@ -158,7 +160,7 @@ export function EVInfographic() {
               ].map((pt) => (
                 <li key={pt} className="flex items-start gap-2 text-sm leading-snug text-muted-foreground">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                  {pt}
+                  <span><Glossed text={pt} seen={seen} /></span>
                 </li>
               ))}
             </ul>
@@ -251,7 +253,7 @@ export function EVInfographic() {
                 ].map(([name, text]) => (
                   <li key={name} className="text-sm leading-relaxed text-muted-foreground">
                     <span className="font-bold text-foreground">{name}: </span>
-                    {text}
+                    <Glossed text={text} seen={seen} />
                   </li>
                 ))}
               </ul>
@@ -274,7 +276,7 @@ export function EVInfographic() {
                 ].map(([name, text]) => (
                   <li key={name} className="text-sm leading-relaxed text-muted-foreground">
                     <span className="font-bold text-foreground">{name}: </span>
-                    {text}
+                    <Glossed text={text} seen={seen} />
                   </li>
                 ))}
               </ul>

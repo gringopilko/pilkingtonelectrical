@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Glossed } from "@/components/Term";
 import { SwitchboardExplorer } from "@/components/SwitchboardExplorer";
 import { Link } from "@tanstack/react-router";
 import {
@@ -169,6 +170,7 @@ const links = [
 ];
 
 export function ProtectionGuide() {
+  const seen = new Set<string>();
   return (
     <section id="protection-guide" className="mb-14 scroll-mt-28 overflow-hidden rounded-3xl border border-border bg-background shadow-xl shadow-slate-900/5">
       {/* Title band */}
@@ -204,8 +206,8 @@ export function ProtectionGuide() {
                 <p className="text-lg font-extrabold tracking-tight">{d.name}</p>
                 <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-bold text-primary">{d.abbr}</span>
               </div>
-              <p className="mt-2 text-sm leading-relaxed"><span className="font-bold">What it does: </span><span className="text-muted-foreground">{d.does}</span></p>
-              <p className="mt-1.5 text-sm leading-relaxed"><span className="font-bold">Why it matters: </span><span className="text-muted-foreground">{d.why}</span></p>
+              <p className="mt-2 text-sm leading-relaxed"><span className="font-bold">What it does: </span><span className="text-muted-foreground"><Glossed text={d.does} seen={seen} /></span></p>
+              <p className="mt-1.5 text-sm leading-relaxed"><span className="font-bold">Why it matters: </span><span className="text-muted-foreground"><Glossed text={d.why} seen={seen} /></span></p>
               <p className="mt-auto pt-3 text-xs font-semibold text-primary">{d.brands}</p>
             </div>
           ))}

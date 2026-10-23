@@ -1,3 +1,4 @@
+import { Glossed } from "@/components/Term";
 import {
   AlertTriangle,
   Brush,
@@ -126,6 +127,7 @@ function Dotted({ items }: { items: string[] }) {
 }
 
 export function RewiringInfographic() {
+  const seen = new Set<string>();
   return (
     <section id="rewiring-guide" className="mb-14 scroll-mt-28 overflow-hidden rounded-3xl border border-border bg-background shadow-xl shadow-slate-900/5">
       {/* Title band */}
@@ -289,7 +291,7 @@ export function RewiringInfographic() {
                   <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${a.tone === "good" ? "bg-green-100 text-green-800" : "bg-amber-100 text-amber-900"}`}>{a.level}</span>
                 </div>
                 <p className="mt-3 font-extrabold tracking-tight">{a.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{a.text}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground"><Glossed text={a.text} seen={seen} /></p>
               </div>
             ))}
           </div>

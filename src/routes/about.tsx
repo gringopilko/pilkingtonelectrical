@@ -98,7 +98,8 @@ function About() {
 
           <div className="mt-4 border-t border-border pt-10 md:col-span-2 md:mt-0 md:border-0 md:pt-0">
             <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">The road here</p>
-            <ol className="relative mt-6 space-y-7 border-l-2 border-primary/25 pl-6">
+            <ol className="timeline relative mt-6 space-y-7 border-l-2 border-primary/25 pl-6">
+              <span className="timeline-fill" aria-hidden="true" />
               {[
                 { when: "The early years", what: "Finance and equities research" },
                 { when: "The winters", what: "Trail crew in Canada, including avalanche control and search and rescue, then New Zealand and London" },
@@ -109,7 +110,7 @@ function About() {
                 { when: "Today", what: "Looking after homes, rentals and businesses across Bayside and South East Melbourne" },
               ].map((step) => (
                 <li key={step.when} className="relative">
-                  <span className="absolute -left-[33px] top-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-card" aria-hidden="true" />
+                  <span className="timeline-dot absolute -left-[33px] top-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-card" aria-hidden="true" />
                   <p className="text-xs font-bold uppercase tracking-wider text-primary">{step.when}</p>
                   <p className="mt-1 text-sm font-semibold leading-snug text-foreground">{step.what}</p>
                 </li>
