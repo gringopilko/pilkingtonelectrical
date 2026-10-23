@@ -16,6 +16,7 @@ import { RewiringInfographic } from "@/components/RewiringInfographic";
 import { LightingComparison } from "@/components/LightingComparison";
 import { CeilingFanInfographic } from "@/components/CeilingFanInfographic";
 import { HotWaterInfographic } from "@/components/HotWaterInfographic";
+import { NoPatchingNotice } from "@/components/NoPatchingNotice";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
 import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
@@ -298,6 +299,8 @@ function ServicePage() {
         </aside>
         </div>
       </section>
+
+      {["power-points", "lighting", "light-switches", "ceiling-fans", "smoke-alarms", "ev-charger-install", "switchboards", "fault-finding", "commercial-electrician"].includes(service.slug) && <NoPatchingNotice />}
 
       {servicePhotos.length > 0 && <WorkGallery photos={servicePhotos} compact />}
 

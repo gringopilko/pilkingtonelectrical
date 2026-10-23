@@ -19,6 +19,10 @@ const faqs = [
     linkText: "Suburbs page",
   },
   {
+    q: "Do you patch and paint after the work?",
+    a: "No. If a job needs holes cut in plaster or walls chased, I keep them as small and neat as possible and show you where they will be before I start, but patching and painting are not included. You will need to hire a plasterer to make good afterwards, and a painter if the area needs repainting.",
+  },
+  {
     q: "Do you provide upfront pricing?",
     a: "Yes. I'll assess the job in person or over the phone and give you a clear, itemised price before any work starts, with no surprises on the invoice and no billing by the hour after you've already said yes.",
   },
