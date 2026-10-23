@@ -77,6 +77,12 @@ export function SwitchboardDetails() {
                 </li>
               ))}
             </ul>
+            <div className="mt-5 rounded-xl bg-[#eef6fe] p-4">
+              <p className="text-sm font-bold tracking-tight">It saves you money long term</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                A premium board is quicker for any electrician to work on. Each circuit has its own protection and a clear label, so faults are found faster, and there is room to add circuits later without rebuilding the board. Less time on every future job means smaller bills for years to come.
+              </p>
+            </div>
             <a href="#quote" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-brand-dark">Ask about upgrade options</a>
           </div>
         </div>
