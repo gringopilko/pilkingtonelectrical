@@ -106,7 +106,7 @@ function About() {
                 { when: "2019", what: "Qualified as an A-grade electrician" },
                 { when: "2020", what: "Became a Registered Electrical Contractor, REC 30450. When COVID hit, I went back into large-scale construction: hospitals, correctional facilities, apartments, schools and office buildings" },
                 { when: "June 2026", what: "Started Pilkington Electrical" },
-                { when: "Today", what: "Looking after homes, rentals and buildings across Bayside and South East Melbourne" },
+                { when: "Today", what: "Looking after homes, rentals and businesses across Bayside and South East Melbourne" },
               ].map((step) => (
                 <li key={step.when} className="relative">
                   <span className="absolute -left-[33px] top-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-card" aria-hidden="true" />
