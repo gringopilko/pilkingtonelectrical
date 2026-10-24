@@ -147,14 +147,14 @@ function ServicePage() {
             {service.intro}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="tel:0466270949"
+            <a href="tel:0466270949" data-magnetic
               className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:bg-brand-dark"
             >
               <Phone className="h-4 w-4" />
               {service.slug === "emergency-electrical" ? "Call Shane: 0466 270 949" : "Call Now"}
             </a>
             <a href="#quote"
-              className="inline-flex items-center gap-2 rounded-2xl bg-primary/10 px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/15"
+              data-magnetic className="inline-flex items-center gap-2 rounded-2xl bg-primary/10 px-6 py-3 text-sm font-bold text-primary transition-colors hover:bg-primary/15"
             >
               {service.slug === "test-and-tag" ? "Request a Free Quote" : service.slug === "emergency-electrical" ? "Non-Urgent Enquiry" : "Request a Quote"}
             </a>

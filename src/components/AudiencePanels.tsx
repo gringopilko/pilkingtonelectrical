@@ -1,3 +1,4 @@
+import { WordReveal } from "@/components/WordReveal";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronRight, Phone, ShieldCheck } from "lucide-react";
@@ -79,7 +80,7 @@ export function AudiencePanels() {
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
         <div className="mb-10 max-w-2xl">
           <p className="text-xs font-bold uppercase tracking-wider text-primary">Who I Work With</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl">Work done properly, whatever the property</h2>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl"><WordReveal text="Work done properly, whatever the property" /></h2>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
             Homes, rentals, apartment buildings and workplaces. Pick the one that fits.
           </p>

@@ -144,7 +144,7 @@ export function Nav() {
           </div>
 
           <ThemeToggle />
-            <a href="tel:0466270949"
+            <a href="tel:0466270949" data-magnetic
               className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:bg-brand-dark"
             >
               <Phone className="h-4 w-4" />

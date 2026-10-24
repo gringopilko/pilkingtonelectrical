@@ -70,6 +70,62 @@ export function SiteEffects() {
     };
   }, [pathname]);
 
+  // Headings slide up word by word as they come into view
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll<HTMLElement>("[data-word-reveal]"));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.3 },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [pathname]);
+
+  // Desktop: call and quote buttons gently pull towards the mouse
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    let px = -9999;
+    let py = -9999;
+    const apply = () => {
+      raf = 0;
+      document.querySelectorAll<HTMLElement>("[data-magnetic]").forEach((el) => {
+        const r = el.getBoundingClientRect();
+        const dx = px - (r.left + r.width / 2);
+        const dy = py - (r.top + r.height / 2);
+        const reach = Math.max(r.width, r.height) / 2 + 40;
+        const dist = Math.hypot(dx, dy);
+        if (dist < reach) {
+          const pull = 1 - dist / reach;
+          el.style.transform = `translate(${(dx * 0.22 * pull).toFixed(1)}px, ${(dy * 0.32 * pull).toFixed(1)}px)`;
+        } else if (el.style.transform) {
+          el.style.transform = "";
+        }
+      });
+    };
+    const onMove = (e: PointerEvent) => {
+      px = e.clientX;
+      py = e.clientY;
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+    document.addEventListener("pointermove", onMove, { passive: true });
+    return () => {
+      document.removeEventListener("pointermove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, [pathname]);
+
   // Cursor glow on dark panels
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return;

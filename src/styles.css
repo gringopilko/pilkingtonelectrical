@@ -613,3 +613,142 @@ p, li, figcaption, blockquote {
   .timeline-fill, .timeline-dot { animation: none !important; }
   .timeline-fill { transform: none; }
 }
+
+/* ------------------------------------------------------------------
+   Award-site touches: word reveals, ticker, stacked cards,
+   sideways gallery, magnetic buttons, grain
+   ------------------------------------------------------------------ */
+
+/* Headings slide up word by word */
+.wr-w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+.wr-i {
+  display: inline-block;
+  transition: transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(var(--wr, 0) * 70ms);
+}
+.reveal-ready [data-word-reveal]:not(.in) .wr-i {
+  transform: translateY(110%);
+}
+
+/* Big scrolling ticker */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-move 42s linear infinite;
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.25rem;
+  padding-right: 2.25rem;
+  font-size: clamp(2.1rem, 6.5vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.ticker-item:nth-child(even) {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgb(255 255 255 / 0.65);
+}
+.ticker-bolt {
+  width: 0.55em;
+  height: 0.55em;
+  color: var(--primary);
+  fill: var(--primary);
+}
+@keyframes ticker-move {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Phones: How it works cards stack on top of each other as you scroll */
+@media (max-width: 767px) {
+  .stack-card {
+    position: sticky;
+    top: calc(5.5rem + var(--stack, 0) * 0.85rem);
+    box-shadow: 0 -6px 24px -12px rgb(15 23 42 / 0.25), 0 14px 34px -16px rgb(15 23 42 / 0.3);
+  }
+}
+
+/* Recent work slides sideways like a film strip as you scroll down */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hgal {
+      view-timeline-name: --hgal;
+      height: 300vh;
+    }
+    .hgal-sticky {
+      position: sticky;
+      top: 0;
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    .hgal-track {
+      display: flex !important;
+      width: max-content;
+      gap: 0.75rem;
+      animation: hgal-x linear both;
+      animation-timeline: --hgal;
+      animation-range: contain 0% contain 100%;
+    }
+    .hgal-track > * {
+      width: 64vw;
+      flex: none;
+    }
+    @media (min-width: 1024px) {
+      .hgal-track { gap: 1rem; }
+      .hgal-track > * { width: 23vw; }
+    }
+  }
+}
+@keyframes hgal-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% + min(100vw, 80rem) - 3rem)); }
+}
+
+/* Magnetic buttons */
+[data-magnetic] {
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+/* Fine film grain on dark panels */
+.from-slate-950,
+footer,
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.from-slate-950::after,
+footer::after,
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.22;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+  .wr-i { transition: none; }
+  .reveal-ready [data-word-reveal]:not(.in) .wr-i { transform: none; }
+  .stack-card { position: relative; top: auto; }
+}

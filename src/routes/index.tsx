@@ -13,6 +13,8 @@ import { AudiencePanels } from "@/components/AudiencePanels";
 import { ContactCard } from "@/components/ContactCard";
 import { HeroBackground } from "@/components/HeroBackground";
 import { HeroLightSwitch, useHeroLights } from "@/components/HeroLightSwitch";
+import { WordReveal } from "@/components/WordReveal";
+import { BigTicker } from "@/components/BigTicker";
 import { suburbGroups, slugify } from "@/lib/suburbs";
 import { services } from "@/lib/services";
 import { guides } from "@/lib/guides";
@@ -64,11 +66,11 @@ function Index() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="tel:0466270949" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-brand-dark">
+            <a href="tel:0466270949" data-magnetic className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-brand-dark">
               <Phone className="h-4 w-4" />
               Call 0466 270 949
             </a>
-            <a href="#quote" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-slate-900">
+            <a href="#quote" data-magnetic className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-slate-900">
               Get a free quote
               <ChevronRight className="h-4 w-4" />
             </a>
@@ -96,7 +98,7 @@ function Index() {
       <section id="services" className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mb-12 max-w-2xl">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Services</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl"><WordReveal text="Services" /></h2>
             <p className="mt-4 text-muted-foreground">
               Residential and commercial work, from fault finding and switchboard upgrades to ongoing maintenance for{" "}
               <Link to="/services/$slug" params={{ slug: "body-corporate" }} className="font-semibold text-primary hover:underline">
@@ -137,15 +139,15 @@ function Index() {
           <div className="relative grid gap-10 p-6 sm:p-10 md:grid-cols-5 md:items-center md:gap-14 md:p-14">
             <div className="md:col-span-2">
               <p className="text-xs font-bold uppercase tracking-wider text-sky-300">Why choose me</p>
-              <h2 className="mt-3 text-3xl font-extrabold leading-[1.1] tracking-tight text-white md:text-4xl lg:text-5xl">Why Choose Pilkington Electrical?</h2>
+              <h2 className="mt-3 text-3xl font-extrabold leading-[1.1] tracking-tight text-white md:text-4xl lg:text-5xl"><WordReveal text="Why Choose Pilkington Electrical?" /></h2>
               <p className="mt-5 text-base leading-relaxed text-white/75 md:text-lg">
                 I'm a sole trader, which means when you call, you speak directly to the person doing the job. Honest, reliable electrical work from a licensed electrician with more than a decade on the tools.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a href="#quote" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-white hover:text-slate-900">
+                <a href="#quote" data-magnetic className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:bg-white hover:text-slate-900">
                   Get a free quote
                 </a>
-                <Link to="/about" className="inline-flex items-center gap-1 rounded-2xl border border-white/25 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10">
+                <Link to="/about" data-magnetic className="inline-flex items-center gap-1 rounded-2xl border border-white/25 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10">
                   More about me
                   <ChevronRight className="h-4 w-4" />
                 </Link>
@@ -172,14 +174,16 @@ function Index() {
         </div>
       </section>
 
+      <BigTicker />
+
       {/* How it works */}
       <section className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
           <div className="mb-10 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-wider text-primary">How it works</p>
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl">Simple from first call to finished job</h2>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl"><WordReveal text="Simple from first call to finished job" /></h2>
           </div>
-          <ol className="relative grid gap-4 md:grid-cols-4 md:gap-6">
+          <ol className="relative grid gap-[10vh] pb-[4vh] md:grid-cols-4 md:gap-6 md:pb-0">
             <span className="current-line absolute left-6 right-[24%] top-6 hidden h-px bg-border md:block" style={{ ["--current-top" as string]: "-1px" }} aria-hidden="true" />
             {[
               { t: "Get in touch", d: "Call, text or send the form with your suburb and what you need. Photos help." },
@@ -187,7 +191,7 @@ function Index() {
               { t: "Clear quote", d: "You get a written quote with the scope and price before any work starts." },
               { t: "Job done properly", d: "Work completed, tested and cleaned up, with the paperwork you need." },
             ].map((x, i) => (
-              <li key={x.t} className="relative flex gap-4 rounded-2xl border border-border bg-background p-5 md:flex-col md:gap-0 md:border-0 md:bg-transparent md:p-0">
+              <li key={x.t} style={{ ["--stack" as string]: i }} className="stack-card relative flex gap-4 rounded-2xl border border-border bg-background p-5 md:flex-col md:gap-0 md:border-0 md:bg-transparent md:p-0">
                 <span className="relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-extrabold text-primary-foreground shadow-lg shadow-primary/25 ring-8 ring-card">{i + 1}</span>
                 <div className="md:mt-5">
                   <p className="text-lg font-bold tracking-tight">{x.t}</p>
@@ -204,7 +208,7 @@ function Index() {
       <section className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="mb-8 max-w-2xl">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Helpful Guides</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl"><WordReveal text="Helpful Guides" /></h2>
             <p className="mt-4 text-muted-foreground">Plain-English answers to common questions, with links to the official Victorian sources.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -232,7 +236,7 @@ function Index() {
       <section className="border-t border-border bg-background">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mb-12 max-w-2xl">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Areas We Service</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl"><WordReveal text="Areas We Service" /></h2>
             <p className="mt-4 text-muted-foreground">
               Based in Hampton East, covering Bayside, Stonnington, Boroondara and the greater South East Melbourne region.
             </p>
@@ -273,7 +277,7 @@ function Index() {
       <section id="contact" className="border-t border-border bg-card">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Get In Touch</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl"><WordReveal text="Get In Touch" /></h2>
             <p className="mt-4 text-muted-foreground">Need electrical work? Call, text, or email and I'll respond quickly.</p>
           </div>
 

@@ -1,3 +1,4 @@
+import { WordReveal } from "@/components/WordReveal";
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Instagram, X } from "lucide-react";
 import { workPhotos, type WorkPhoto } from "@/lib/workPhotos";
@@ -39,13 +40,13 @@ export function WorkGallery({ photos = workPhotos, compact = false }: WorkGaller
     : "grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4";
 
   return (
-    <section className="border-t border-border bg-card">
-      <div className={`mx-auto px-6 ${compact ? "max-w-5xl py-16" : "max-w-7xl py-16 md:py-24"}`}>
+    <section className={`border-t border-border bg-card ${compact ? "" : "hgal"}`}>
+      <div className={`mx-auto px-6 ${compact ? "max-w-5xl py-16" : "hgal-sticky max-w-7xl py-16 md:py-24"}`}>
         <div className={`${compact ? "mb-6" : "mb-10"} flex flex-wrap items-end justify-between gap-4`}>
           <div className="max-w-2xl">
             {!compact && <p className="text-xs font-bold uppercase tracking-wider text-primary">Recent work</p>}
             <h2 className={compact ? "text-2xl font-extrabold tracking-tight md:text-3xl" : "mt-2 text-3xl font-extrabold tracking-tight md:text-4xl"}>
-              {compact ? "Recent Work" : "Jobs I've done lately"}
+              {compact ? "Recent Work" : <WordReveal text="Jobs I've done lately" />}
             </h2>
             {!compact && <p className="mt-4 text-muted-foreground md:text-lg">Lighting, fans and kitchen work from recent jobs. Tap a photo to see it bigger.</p>}
           </div>
@@ -62,7 +63,7 @@ export function WorkGallery({ photos = workPhotos, compact = false }: WorkGaller
           )}
         </div>
 
-        <div className={gridClass}>
+        <div className={`${gridClass} ${compact ? "" : "hgal-track"}`}>
           {shown.map((p, i) => (
             <button
               key={p.file}
