@@ -172,7 +172,7 @@ function ServicePage() {
               height={service.tileImage.height}
               decoding="async"
               style={{ ...(service.tileImage.focus ? { objectPosition: service.tileImage.focus } : {}), viewTransitionName: `svc-${service.slug}` }}
-              className="aspect-[16/10] w-full rounded-2xl border border-border object-cover md:aspect-[4/3]"
+              className="aspect-[16/10] w-full rounded-2xl border border-border bg-gradient-to-br from-sky-100 via-sky-50 to-sky-300 object-cover md:aspect-[4/3]"
             />
           )}
           </div>
