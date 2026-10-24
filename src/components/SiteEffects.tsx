@@ -129,13 +129,28 @@ export function SiteEffects() {
   // Cursor glow on dark panels
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return;
+    let lastCard: HTMLElement | null = null;
     const onMove = (e: PointerEvent) => {
-      const host = (e.target as HTMLElement | null)?.closest?.(".from-slate-950") as HTMLElement | null;
-      if (!host) return;
-      host.classList.add("glow-host");
-      const r = host.getBoundingClientRect();
-      host.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      host.style.setProperty("--my", `${e.clientY - r.top}px`);
+      const target = e.target as HTMLElement | null;
+      // Dark panels
+      const host = target?.closest?.(".from-slate-950") as HTMLElement | null;
+      if (host) {
+        host.classList.add("glow-host");
+        const r = host.getBoundingClientRect();
+        host.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        host.style.setProperty("--my", `${e.clientY - r.top}px`);
+      }
+      // Clickable cards: a soft spotlight follows the cursor and the edge lights up
+      const found = target?.closest?.("a.rounded-2xl, details.rounded-2xl, details.rounded-xl, [data-glow]") as HTMLElement | null;
+      const card = found && !found.matches(".bg-primary, .from-slate-950") ? found : null;
+      if (lastCard && lastCard !== card) lastCard.classList.remove("glow-card");
+      if (card) {
+        card.classList.add("glow-card");
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        card.style.setProperty("--my", `${e.clientY - r.top}px`);
+      }
+      lastCard = card;
     };
     document.addEventListener("pointermove", onMove, { passive: true });
     return () => document.removeEventListener("pointermove", onMove);
