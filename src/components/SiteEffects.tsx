@@ -23,13 +23,14 @@ export function SiteEffects() {
           }
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.06 },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 },
     );
     const timer = window.setTimeout(() => {
       const fold = window.innerHeight * 0.92;
       document.querySelectorAll<HTMLElement>("section, [data-reveal]").forEach((el) => {
         if (el.closest("footer") || el.classList.contains("reveal-item")) return;
         if (el.getBoundingClientRect().top < fold) return; // never hide what is already on screen
+        if (el.offsetHeight > window.innerHeight * 1.5) return; // very long sections just show, so nothing can stay hidden
         el.classList.add("reveal-item");
         io.observe(el);
       });
