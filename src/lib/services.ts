@@ -133,7 +133,7 @@ export const services: Service[] = [
       height: 640,
       focus: "90% 50%",
     },
-    tileImage: { file: "max9-switchboard.webp", width: 600, height: 400, alt: "Open MAX9 switchboard with two rows of circuit breakers" },
+    tileImage: { file: "hager-premium-switchboard.webp", width: 800, height: 800, alt: "Premium Hager switchboard with RCBOs and a main switch", focus: "50% 45%" },
   },
   {
     slug: "body-corporate",

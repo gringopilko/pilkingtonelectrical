@@ -34,7 +34,7 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
                   loading="lazy"
                   decoding="async"
                   style={{ ...(pic.focus ? { objectPosition: pic.focus } : {}), viewTransitionName: `svc-${s.slug}` }}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full bg-gradient-to-br from-sky-100 via-sky-50 to-sky-300 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
                 <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-900 via-brand-dark to-primary text-white">

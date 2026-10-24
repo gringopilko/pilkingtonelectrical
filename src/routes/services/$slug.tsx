@@ -162,7 +162,7 @@ function ServicePage() {
           </div>
           {service.slug === "commercial-electrician" && <CommercialHeroVideo />}
           {service.slug === "power-points" && service.image && (
-            <img src={`/img/${service.image.file}`} alt={service.image.alt} width={service.image.width} height={service.image.height} decoding="async" style={service.tileImage ? undefined : { viewTransitionName: `svc-${service.slug}` }} className="aspect-[4/3] w-full rounded-2xl border border-border object-cover" />
+            <img src={`/img/${service.image.file}`} alt={service.image.alt} width={service.image.width} height={service.image.height} decoding="async" style={service.tileImage ? undefined : { viewTransitionName: `svc-${service.slug}` }} className="aspect-[4/3] w-full rounded-2xl border border-border object-cover bg-gradient-to-br from-sky-100 via-sky-50 to-sky-300" />
           )}
           {service.tileImage && (
             <img
