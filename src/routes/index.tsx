@@ -77,7 +77,7 @@ function Index() {
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-2 sm:gap-3">
+          <div className="mt-10 flex flex-wrap gap-2 sm:gap-3 items-center">
             {[
               { icon: MapPin, text: "Based in Hampton East" },
               { icon: Clock, text: "Prompt, on-time service" },

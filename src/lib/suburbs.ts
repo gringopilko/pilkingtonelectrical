@@ -1,8 +1,8 @@
 export const suburbGroups = [
   {
     area: "Inner Bayside",
-    blurb: "Elwood and the surrounding beachside suburbs, a mix of character homes, apartment blocks and busy commercial strips close to the city.",
-    suburbs: ["Elwood", "St Kilda", "St Kilda East", "St Kilda West", "Balaclava", "Windsor", "Prahran", "South Yarra", "Albert Park", "Middle Park", "South Melbourne", "Port Melbourne"],
+    blurb: "Elwood and the surrounding beachside suburbs through to the Melbourne CBD, a mix of character homes, apartment blocks, offices and busy commercial strips.",
+    suburbs: ["Melbourne CBD", "Elwood", "St Kilda", "St Kilda East", "St Kilda West", "Balaclava", "Windsor", "Prahran", "South Yarra", "Albert Park", "Middle Park", "South Melbourne", "Port Melbourne"],
   },
   {
     area: "Bayside",
@@ -48,6 +48,10 @@ export interface SuburbEntry {
 }
 
 const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs">> = {
+  "Melbourne CBD": {
+    localIntro: "Pilkington Electrical works across the Melbourne CBD for offices, shops, cafes, apartment buildings and owners corporations, from fit-outs and lighting upgrades to test and tag and fault finding, with work planned around your business hours where possible.",
+    commonJobs: ["Office and retail fit-outs", "Test and tag for workplaces", "Commercial lighting and LED upgrades", "Apartment, body corporate and common area electrical"],
+  },
   "Hampton East": {
     localIntro: "Based locally in Hampton East, Pilkington Electrical provides direct, owner-operated service for houses, townhouses, units and local businesses throughout 3188 and nearby Bayside suburbs.",
     commonJobs: ["Switchboard and safety-switch upgrades", "Fault finding and electrical repairs", "Lighting, power points and ceiling fans", "EV charger and dedicated circuit installation"],

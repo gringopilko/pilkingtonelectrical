@@ -93,7 +93,7 @@ function SuburbPage() {
             Electrician in {suburb.name}, VIC
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Licensed residential and commercial electrical work in {suburb.name}, part of Melbourne's {suburb.area} area. {suburb.blurb}
+            {suburb.slug === "melbourne-cbd" ? "Licensed commercial and residential electrical work across the Melbourne CBD, from offices, shops and cafes to apartment buildings and owners corporations." : <>Licensed residential and commercial electrical work in {suburb.name}, part of Melbourne's {suburb.area} area. {suburb.blurb}</>}
           </p>
           <a
             href="tel:0466270949"
