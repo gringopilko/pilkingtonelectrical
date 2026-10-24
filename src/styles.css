@@ -762,3 +762,18 @@ footer::after,
   background-image: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgb(56 189 248 / 0.14), transparent 70%);
   outline-color: rgb(56 189 248 / 0.45);
 }
+
+/* Phones: cards light up and press in slightly when tapped */
+@media (hover: none) {
+  a.rounded-2xl,
+  details.rounded-2xl {
+    transition: transform 0.15s ease, outline-color 0.15s ease;
+  }
+  a.rounded-2xl:active,
+  details.rounded-2xl:has(> summary:active) {
+    transform: scale(0.985);
+    outline: 1px solid rgb(0 140 240 / 0.45);
+    outline-offset: -1px;
+    background-image: radial-gradient(circle at 50% 50%, rgb(0 140 240 / 0.1), transparent 75%);
+  }
+}

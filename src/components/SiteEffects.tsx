@@ -126,6 +126,13 @@ export function SiteEffects() {
     };
   }, [pathname]);
 
+  // Lets phones show the pressed state on cards (iOS needs a touch listener for :active)
+  useEffect(() => {
+    const noop = () => {};
+    document.addEventListener("touchstart", noop, { passive: true });
+    return () => document.removeEventListener("touchstart", noop);
+  }, []);
+
   // Cursor glow on dark panels
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return;

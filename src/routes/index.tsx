@@ -14,6 +14,7 @@ import { ContactCard } from "@/components/ContactCard";
 import { HeroBackground } from "@/components/HeroBackground";
 import { HeroLightSwitch, useHeroLights } from "@/components/HeroLightSwitch";
 import { WordReveal } from "@/components/WordReveal";
+import { GuideIcon } from "@/components/GuideIcon";
 import { BigTicker } from "@/components/BigTicker";
 import { suburbGroups, slugify } from "@/lib/suburbs";
 import { services } from "@/lib/services";
@@ -215,11 +216,11 @@ function Index() {
             {guides.slice(0, 4).map((g) => (
               <Link key={g.slug} to="/guides/$slug" params={{ slug: g.slug }} className="group flex items-center gap-4 rounded-2xl border border-border bg-background p-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 sm:flex-col sm:items-start sm:p-5">
                 <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <BookOpen className="h-5 w-5" aria-hidden="true" />
+                  <GuideIcon slug={g.slug} />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="font-bold leading-snug tracking-tight">{g.shortTitle}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{g.summary}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{g.summary}</p>
                 </div>
                 <ChevronRight className="h-5 w-5 shrink-0 text-primary transition-transform group-hover:translate-x-1 sm:hidden" aria-hidden="true" />
               </Link>

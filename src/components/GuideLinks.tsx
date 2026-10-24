@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { BookOpen, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { GuideIcon } from "@/components/GuideIcon";
 import { guides } from "@/lib/guides";
 
 export function GuideLinks({ heading = "Helpful guides", slugs }: { heading?: string; slugs?: string[] }) {
@@ -16,7 +17,7 @@ export function GuideLinks({ heading = "Helpful guides", slugs }: { heading?: st
             className="group flex items-center gap-4 rounded-2xl border border-border bg-background p-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
           >
             <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-              <BookOpen className="h-5 w-5" aria-hidden="true" />
+              <GuideIcon slug={g.slug} />
             </div>
             <div className="min-w-0 flex-1">
               <p className="font-bold leading-snug tracking-tight">{g.shortTitle}</p>
