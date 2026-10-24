@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { QuoteForm } from "@/components/QuoteForm";
 import { GuideLinks } from "@/components/GuideLinks";
 import { CountUp } from "@/components/CountUp";
+import { CanadaCollage } from "@/components/CanadaCollage";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -84,6 +85,7 @@ function About() {
               <p>
                 Then I traded the desk for a few years chasing an endless winter. I worked on the trail crew in the Canadian Rockies, keeping the mountain running in minus 30 degrees and assisting ski patrol with avalanche control and search and rescue, followed by seasons in New Zealand and a stint behind a busy London bar. Those years taught me to stay calm when things go wrong, and to look after the people around me.
               </p>
+              <CanadaCollage />
               <p>
                 Through all of it, one thing kept pulling me back: a fascination with science, physics and the work of Nikola Tesla. I wanted to truly understand electricity, not just use it. So I came home and became an electrician.
               </p>
