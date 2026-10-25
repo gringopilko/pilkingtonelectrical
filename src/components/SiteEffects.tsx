@@ -150,7 +150,7 @@ export function SiteEffects() {
       }
       // Clickable cards: a soft spotlight follows the cursor and the edge lights up
       const found = target?.closest?.("a.rounded-2xl, details.rounded-2xl, details.rounded-xl, [data-glow]") as HTMLElement | null;
-      const card = found && !found.matches(".bg-primary, .from-slate-950") ? found : null;
+      const card = found && !found.matches('.bg-primary, .from-slate-950, [class*="bg-gradient"], [class*="bg-[url"]') ? found : null;
       if (lastCard && lastCard !== card) lastCard.classList.remove("glow-card");
       if (card) {
         card.classList.add("glow-card");
