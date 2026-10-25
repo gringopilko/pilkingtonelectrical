@@ -83,7 +83,7 @@ function About() {
                 My career didn't start with a toolbox. It started in finance, including time at UBS, Citigroup and Goldman Sachs, analysing listed companies and writing research, where every number had to be right and every detail had to stand up to scrutiny.
               </p>
               <p>
-                Then I traded the desk for a few years chasing an endless winter. I worked on the trail crew in the Canadian Rockies, keeping the mountain running in minus 30 degrees and assisting ski patrol with avalanche control and search and rescue, followed by seasons in New Zealand and a stint behind a busy London bar. Those years taught me to stay calm when things go wrong, and to look after the people around me.
+                Then I traded the desk for a few years chasing an endless winter. I went ski bumming in Austria and worked on the trail crew in the Canadian Rockies, keeping the mountain running in minus 30 degrees and assisting ski patrol with avalanche control and search and rescue, followed by seasons in New Zealand and a stint behind a busy London bar. Those years taught me to stay calm when things go wrong, and to look after the people around me.
               </p>
               <CanadaCollage />
               <p>
@@ -104,7 +104,7 @@ function About() {
               <span className="timeline-fill" aria-hidden="true" />
               {[
                 { when: "The early years", what: "Finance and equities research" },
-                { when: "The winters", what: "Trail crew in Canada, including avalanche control and search and rescue, then New Zealand and London" },
+                { when: "The winters", what: "Ski bumming in Austria, trail crew in Canada with avalanche control and search and rescue, then New Zealand and London" },
                 { when: "2015", what: "Started my electrical apprenticeship" },
                 { when: "2019", what: "Qualified as an A-grade electrician" },
                 { when: "2020", what: "Became a Registered Electrical Contractor, REC 30450. When COVID hit, I went back into large-scale construction: hospitals, correctional facilities, apartments, schools and office buildings" },
