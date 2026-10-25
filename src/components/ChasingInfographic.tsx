@@ -66,10 +66,10 @@ export function ChasingInfographic() {
         {/* Photo + highlights */}
         <div className="grid gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:items-center">
           <img
-            src="/img/metabo-wall-chaser.webp"
-            alt="Metabo wall chaser cutting a clean channel in a brick wall"
-            width={452}
-            height={364}
+            src="/img/wall-chasing-job.webp"
+            alt="Brick wall chased for new cables during a renovation, with the chases cut straight and level"
+            width={1080}
+            height={840}
             loading="lazy"
             decoding="async"
             className="aspect-[4/3] w-full rounded-2xl object-cover"
