@@ -67,7 +67,7 @@ export function ChasingInfographic() {
         <div className="grid gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:items-center">
           <img
             src="/img/wall-chasing-job.webp"
-            alt="Brick wall chased for new cables during a renovation, with the chases cut straight and level"
+            alt="Brick wall freshly chased, straight and level, ready for conduit, with the existing cables still in place"
             width={1080}
             height={840}
             loading="lazy"
