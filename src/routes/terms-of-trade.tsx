@@ -159,6 +159,7 @@ const sections: LegalSection[] = [
       "If these conditions affect safety, compliance or the proposed work, I will explain what has been found and the available options.",
       "Additional rectification work is not included unless specified in your quotation or otherwise agreed. I will obtain approval for additional chargeable work where required before proceeding.",
       "I am not responsible for unrelated pre-existing defects merely because I attend the property. This does not exclude responsibility for damage or loss caused by my own failure to exercise reasonable care or meet my legal obligations.",
+      "To the extent permitted by law, I am not responsible for damage to concealed services, such as pipes or cables inside walls, floors or ceilings, that were not disclosed to me and could not reasonably have been detected before the work.",
     ],
   },
   {
@@ -173,6 +174,7 @@ const sections: LegalSection[] = [
       "Children, pets and other occupants are kept clear of active work areas.",
       "Known hazards, restricted access and relevant site conditions are disclosed before work begins.",
       "Any required permission from the property owner, body corporate, tenant or managing agent has been obtained.",
+      "Known concealed services, such as water, gas or heating pipes and data or electrical cables, are disclosed before any chasing, drilling or cutting into walls, floors or ceilings.",
       "Access is available for any material deliveries arranged for the job.",
       "You advise me in advance about equipment or circumstances requiring special consideration, including medical equipment that must remain powered.",
     ],

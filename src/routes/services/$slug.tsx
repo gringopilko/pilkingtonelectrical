@@ -16,6 +16,7 @@ import { RewiringInfographic } from "@/components/RewiringInfographic";
 import { LightingComparison } from "@/components/LightingComparison";
 import { CeilingFanInfographic } from "@/components/CeilingFanInfographic";
 import { HotWaterInfographic } from "@/components/HotWaterInfographic";
+import { ChasingInfographic } from "@/components/ChasingInfographic";
 import { NoPatchingNotice } from "@/components/NoPatchingNotice";
 import { Glossed } from "@/components/Term";
 import { SwitchboardDetails } from "@/components/SwitchboardDetails";
@@ -203,6 +204,7 @@ function ServicePage() {
         {service.slug === "rewiring-extensions" && <RewiringInfographic />}
         {service.slug === "ceiling-fans" && <CeilingFanInfographic />}
         {service.slug === "hot-water" && <HotWaterInfographic />}
+        {service.slug === "wall-chasing" && <ChasingInfographic />}
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">What's Included</h2>
         <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
           {service.included.map((item) => (

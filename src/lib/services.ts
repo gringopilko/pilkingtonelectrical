@@ -310,6 +310,27 @@ export const services: Service[] = [
     },
   },
   {
+    slug: "wall-chasing",
+    title: "Wall Chasing & Concealed Wiring",
+    shortDesc: "Brick, concrete and masonry chasing with every cable in conduit, for a clean, built-in finish.",
+    metaDescription: "Specialist wall chasing across Melbourne. Cables hidden in 25 mm conduit in brick, concrete and masonry, cut with H-class dust extraction. Licensed electrician.",
+    seoTitle: "Wall Chasing Melbourne | Concealed Wiring in Brick",
+    intro: "I specialise in chasing brick, concrete and masonry walls so new power points, switches and lights can be fully concealed. Every cable runs in conduit, so it can be replaced later without chasing the wall again.",
+    included: [
+      "Chasing brick, concrete and masonry walls",
+      "25 mm conduit in every chase",
+      "Recessed flush wall boxes",
+      "Concealed power, lighting and data runs",
+      "H-class on-tool dust extraction",
+      "Testing and a certificate of electrical safety",
+    ],
+    body: [
+      "Chasing gives the cleanest finish in solid walls, with no ducting on the surface to knock, discolour or paint around.",
+      "Every chase is left neat and ready for your plasterer, who makes good the wall afterwards.",
+    ],
+    tileImage: { file: "metabo-wall-chaser.webp", width: 452, height: 364, alt: "Metabo wall chaser cutting a clean channel in a brick wall" },
+  },
+  {
     slug: "commercial-electrician",
     title: "Commercial Electrician",
     heroSubtitle: "We design practical electrical layouts and estimate the work before you commit.",

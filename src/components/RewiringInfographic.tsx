@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Glossed } from "@/components/Term";
 import {
   AlertTriangle,
@@ -211,6 +212,9 @@ export function RewiringInfographic() {
                     </dl>
                   )}
                   <p className="mt-3 text-sm font-semibold text-primary">{f.best}</p>
+                  <Link to="/services/$slug" params={{ slug: "wall-chasing" }} className="mt-2 inline-flex text-sm font-bold text-primary hover:underline">
+                    More about how I chase walls
+                  </Link>
                 </div>
               </div>
             ))}

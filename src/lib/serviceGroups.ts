@@ -15,6 +15,7 @@ const defined: GroupDef[] = [
       "switchboards",
       "safety-switches",
       "rewiring-extensions",
+      "wall-chasing",
       "lighting",
       "power-points",
       "light-switches",
