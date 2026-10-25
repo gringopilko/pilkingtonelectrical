@@ -755,8 +755,6 @@ footer::after,
 /* Clickable cards light up under the cursor (desktop) */
 .glow-card {
   background-image: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgb(0 140 240 / 0.09), transparent 70%);
-  outline: 1px solid rgb(0 140 240 / 0.35);
-  outline-offset: -1px;
 }
 .dark .glow-card {
   background-image: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgb(56 189 248 / 0.14), transparent 70%);
