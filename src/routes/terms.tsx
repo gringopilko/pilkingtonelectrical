@@ -65,7 +65,10 @@ const sections: LegalSection[] = [
   {
     heading: "Copyright",
     paragraphs: [
-      "The text, design and my own photos on this website belong to Pilkington Electrical. Please do not copy them for commercial use without permission.",
+      "Copyright in this website belongs to Pilkington Electrical. That includes the text, guides, infographics, interactive tools, page designs, layouts, logo, graphics and my own photos. Under the Copyright Act 1968 (Cth) this material is protected automatically.",
+      "You must not copy, reproduce, adapt, republish or distribute any of it, in whole or in part, for commercial use without my written permission. You are welcome to share a link to any page.",
+      "Product photos, brand names and logos of manufacturers belong to their owners.",
+      "If you believe your copyright has been used on this website, please contact me and I will look into it promptly.",
     ],
   },
   {

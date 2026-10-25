@@ -18,13 +18,13 @@ import {
 
 const highlights = [
   { icon: Hammer, title: "Specialist chasing", text: "Brick, concrete and masonry walls cut cleanly with a professional Metabo twin blade wall chaser." },
-  { icon: Cable, title: "25 mm conduit every time", text: "Every cable runs in conduit, so it can be replaced or added to later without chasing the wall again." },
+  { icon: Cable, title: "25 mm conduit wherever possible", text: "Where the wall allows, cables run in conduit, so they can be replaced or added to later without chasing the wall again." },
   { icon: Wind, title: "Dust captured at the blade", text: "The chaser runs with an H-class dust extractor, so dust stays out of your home." },
   { icon: Box, title: "Flush wall boxes", text: "Switch and power point boxes are recessed into the wall, so plates sit flat and neat." },
 ];
 
 const specs = [
-  ["Conduit", "25 mm conduit in every chase"],
+  ["Conduit", "25 mm conduit is ideal, used wherever the wall allows"],
   ["Chase depth", "Usually 30 to 35 mm, deep enough for conduit plus render"],
   ["Wall boxes", "Recessed flush boxes, so plates sit flat"],
 ];
@@ -34,8 +34,8 @@ const steps = [
   { icon: Search, text: "Confirm any hidden services in the walls" },
   { icon: Ruler, text: "Mark out straight, level chase lines" },
   { icon: Hammer, text: "Cut the chases with dust extraction" },
-  { icon: Box, text: "Fit 25 mm conduit and flush wall boxes" },
-  { icon: Cable, text: "Pull the cables through the conduit" },
+  { icon: Box, text: "Fit conduit where possible and flush wall boxes" },
+  { icon: Cable, text: "Run the new cables" },
   { icon: FileCheck2, text: "Fit off, test and certify" },
   { icon: Brush, text: "Clean up, ready for your plasterer" },
 ];
@@ -93,7 +93,7 @@ export function ChasingInfographic() {
         <div className="mt-8 rounded-2xl border-2 border-primary bg-[#eef6fe] p-5 sm:p-6">
           <p className="text-lg font-extrabold tracking-tight">Why conduit makes it future proof</p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Cables chased straight into a wall are there for good. Because every chase I cut carries 25 mm conduit, old cables can be pulled out and new ones pulled through later, whether that is an upgrade, an extra circuit or data cabling, without cutting into the wall again.
+            Cables chased straight into a wall are there for good. That is why 25 mm conduit is the ideal: with conduit in the chase, old cables can be pulled out and new ones pulled through later, whether that is an upgrade, an extra circuit or data cabling, without cutting into the wall again. I use it wherever the wall allows. Sometimes a thin wall, a shallow render or what is already in the wall means it cannot fit, and I will tell you before I start.
           </p>
           <dl className="mt-4 grid gap-3 sm:grid-cols-3">
             {specs.map(([term, detail]) => (

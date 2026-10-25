@@ -312,13 +312,13 @@ export const services: Service[] = [
   {
     slug: "wall-chasing",
     title: "Wall Chasing & Concealed Wiring",
-    shortDesc: "Brick, concrete and masonry chasing with every cable in conduit, for a clean, built-in finish.",
-    metaDescription: "Specialist wall chasing across Melbourne. Cables hidden in 25 mm conduit in brick, concrete and masonry, cut with H-class dust extraction. Licensed electrician.",
+    shortDesc: "Brick, concrete and masonry chasing with cables in conduit wherever possible, for a clean, built-in finish.",
+    metaDescription: "Specialist wall chasing in Melbourne. Cables hidden in brick, concrete and masonry, in 25 mm conduit where possible, with H-class dust extraction.",
     seoTitle: "Wall Chasing Melbourne | Concealed Wiring in Brick",
-    intro: "I specialise in chasing brick, concrete and masonry walls so new power points, switches and lights can be fully concealed. Every cable runs in conduit, so it can be replaced later without chasing the wall again.",
+    intro: "I specialise in chasing brick, concrete and masonry walls so new power points, switches and lights can be fully concealed. Wherever possible, cables run in 25 mm conduit, so they can be replaced later without chasing the wall again.",
     included: [
       "Chasing brick, concrete and masonry walls",
-      "25 mm conduit in every chase",
+      "25 mm conduit wherever possible",
       "Recessed flush wall boxes",
       "Concealed power, lighting and data runs",
       "H-class on-tool dust extraction",
