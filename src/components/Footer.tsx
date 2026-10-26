@@ -69,7 +69,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-8 text-center text-xs text-white/50 md:flex-row md:justify-between md:text-left">
-          <p>&copy; {new Date().getFullYear()} Pilkington Electrical. All rights reserved. Content, photos and designs may not be copied without permission.</p>
+          <p>&copy; {new Date().getFullYear()} Pilkington Electrical. All rights reserved.</p>
           <p className="flex flex-wrap justify-center gap-x-4 gap-y-1 md:justify-end">
             <a href="https://www.google.com/maps/place/?q=place_id:ChIJU6XvSn1p1moROAWfH_eN1rw" target="_blank" rel="noopener noreferrer" className="hover:text-white">Find me on Google</a>
             <a href="https://g.page/r/CTgFnx_3jda8EBM/review" target="_blank" rel="noopener noreferrer" className="hover:text-white">Leave a review</a>
