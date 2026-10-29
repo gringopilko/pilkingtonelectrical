@@ -55,6 +55,7 @@ const sections: LegalSection[] = [
       "Agents, owners corporations or property managers who arranged the work, where the job is for a rental or shared property.",
     ],
     after: [
+      "Photos you add to a quote request are stored privately with Cloudflare, the service that hosts this website, and are deleted automatically after 90 days. They can only be viewed through the private link sent to me with your request.",
       "Some of these providers, such as Google, may store information on servers outside Australia.",
     ],
   },

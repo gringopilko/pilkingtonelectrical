@@ -20,12 +20,14 @@ import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TermsOfTradeRouteImport } from './routes/terms-of-trade'
+import { Route as ApiQuotePhotoRouteImport } from './routes/api.quote-photo'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as GuidesSlugRouteImport } from './routes/guides/$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
 import { Route as SuburbsIndexRouteImport } from './routes/suburbs/index'
 import { Route as SuburbsSlugRouteImport } from './routes/suburbs/$slug'
+import { Route as ApiQuotePhotoIdRouteImport } from './routes/api.quote-photo.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -82,6 +84,11 @@ const TermsOfTradeRoute = TermsOfTradeRouteImport.update({
   path: '/terms-of-trade',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiQuotePhotoRoute = ApiQuotePhotoRouteImport.update({
+  id: '/api/quote-photo',
+  path: '/api/quote-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuidesIndexRoute = GuidesIndexRouteImport.update({
   id: '/guides/',
   path: '/guides/',
@@ -112,6 +119,11 @@ const SuburbsSlugRoute = SuburbsSlugRouteImport.update({
   path: '/suburbs/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiQuotePhotoIdRoute = ApiQuotePhotoIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiQuotePhotoRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -125,12 +137,14 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/terms-of-trade': typeof TermsOfTradeRoute
+  '/api/quote-photo': typeof ApiQuotePhotoRouteWithChildren
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
   '/guides/': typeof GuidesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/suburbs/': typeof SuburbsIndexRoute
+  '/api/quote-photo/$id': typeof ApiQuotePhotoIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -144,12 +158,14 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/terms-of-trade': typeof TermsOfTradeRoute
+  '/api/quote-photo': typeof ApiQuotePhotoRouteWithChildren
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
   '/guides': typeof GuidesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/suburbs': typeof SuburbsIndexRoute
+  '/api/quote-photo/$id': typeof ApiQuotePhotoIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -164,12 +180,14 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/terms-of-trade': typeof TermsOfTradeRoute
+  '/api/quote-photo': typeof ApiQuotePhotoRouteWithChildren
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/suburbs/$slug': typeof SuburbsSlugRoute
   '/guides/': typeof GuidesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/suburbs/': typeof SuburbsIndexRoute
+  '/api/quote-photo/$id': typeof ApiQuotePhotoIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -185,12 +203,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/terms-of-trade'
+    | '/api/quote-photo'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
     | '/guides/'
     | '/services/'
     | '/suburbs/'
+    | '/api/quote-photo/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -204,12 +224,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/terms-of-trade'
+    | '/api/quote-photo'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
     | '/guides'
     | '/services'
     | '/suburbs'
+    | '/api/quote-photo/$id'
   id:
     | '__root__'
     | '/'
@@ -223,12 +245,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/terms-of-trade'
+    | '/api/quote-photo'
     | '/guides/$slug'
     | '/services/$slug'
     | '/suburbs/$slug'
     | '/guides/'
     | '/services/'
     | '/suburbs/'
+    | '/api/quote-photo/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -243,6 +267,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   TermsOfTradeRoute: typeof TermsOfTradeRoute
+  ApiQuotePhotoRoute: typeof ApiQuotePhotoRouteWithChildren
   GuidesSlugRoute: typeof GuidesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   SuburbsSlugRoute: typeof SuburbsSlugRoute
@@ -330,6 +355,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsOfTradeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/quote-photo': {
+      id: '/api/quote-photo'
+      path: '/api/quote-photo'
+      fullPath: '/api/quote-photo'
+      preLoaderRoute: typeof ApiQuotePhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides/': {
       id: '/guides/'
       path: '/guides'
@@ -372,8 +404,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SuburbsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/quote-photo/$id': {
+      id: '/api/quote-photo/$id'
+      path: '/$id'
+      fullPath: '/api/quote-photo/$id'
+      preLoaderRoute: typeof ApiQuotePhotoIdRouteImport
+      parentRoute: typeof ApiQuotePhotoRoute
+    }
   }
 }
+
+interface ApiQuotePhotoRouteChildren {
+  ApiQuotePhotoIdRoute: typeof ApiQuotePhotoIdRoute
+}
+
+const ApiQuotePhotoRouteChildren: ApiQuotePhotoRouteChildren = {
+  ApiQuotePhotoIdRoute: ApiQuotePhotoIdRoute,
+}
+
+const ApiQuotePhotoRouteWithChildren = ApiQuotePhotoRoute._addFileChildren(
+  ApiQuotePhotoRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -387,6 +438,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   TermsOfTradeRoute: TermsOfTradeRoute,
+  ApiQuotePhotoRoute: ApiQuotePhotoRouteWithChildren,
   GuidesSlugRoute: GuidesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   SuburbsSlugRoute: SuburbsSlugRoute,

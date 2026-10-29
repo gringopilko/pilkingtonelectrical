@@ -79,11 +79,7 @@ function Contact() {
         <div className="mt-12 rounded-2xl border border-border bg-card p-5 sm:p-8 md:p-12">
           <h2 className="text-center text-xl font-bold tracking-tight">Request a Free Quote</h2>
           <p className="mx-auto mt-2 max-w-md text-center text-sm text-muted-foreground">
-            Fill in the form and I'll get back to you promptly. If you'd like to include photos of the
-            job, feel free to email directly:{" "}
-            <a href="mailto:contact@pilkingtonelectrical.com.au" className="text-primary hover:underline">
-              contact@pilkingtonelectrical.com.au
-            </a>
+            Fill in the form and I'll get back to you promptly. Add a few photos of the job if you can, they help me quote accurately.
           </p>
           <QuoteForm />
         </div>

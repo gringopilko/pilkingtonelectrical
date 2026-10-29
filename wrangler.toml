@@ -13,6 +13,10 @@ directory = ".output/public"
 binding = "REVIEWS_CACHE"
 id = "e747af2b614f4d5d990edab2e3a9d847"
 
+[[kv_namespaces]]
+binding = "QUOTE_PHOTOS"
+id = "06b8b597999c454caf75ed523704ec2e"
+
 [[routes]]
 pattern = "pilkingtonelectrical.com.au"
 custom_domain = true

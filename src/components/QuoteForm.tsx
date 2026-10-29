@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Check, Loader2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Camera, Check, Loader2, X } from "lucide-react";
+import { MAX_PHOTO_BYTES, MAX_PHOTOS, PHOTO_TYPES } from "@/lib/quote-photos";
 import { toast } from "sonner";
 import { trackQuoteRequest } from "@/lib/analytics";
 import { services } from "@/lib/services";
@@ -7,6 +8,41 @@ import { getServiceGroups } from "@/lib/serviceGroups";
 
 const inputClass =
   "rounded-xl border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
+
+
+interface PickedPhoto {
+  file: File;
+  preview: string;
+}
+
+/** Shrinks a photo on the customer's device before upload: longest side 2000 px, JPEG. Falls back to the original. */
+async function shrinkPhoto(file: File): Promise<Blob> {
+  try {
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(1, 2000 / Math.max(bitmap.width, bitmap.height));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(bitmap.width * scale);
+    canvas.height = Math.round(bitmap.height * scale);
+    canvas.getContext("2d")?.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    bitmap.close?.();
+    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.82));
+    if (blob && blob.size > 0) return blob;
+  } catch {
+    /* the browser could not read it (for example HEIC on some browsers): send the original */
+  }
+  return file;
+}
+
+async function uploadPhoto(file: File): Promise<string> {
+  const blob = await shrinkPhoto(file);
+  const type = blob.type || file.type;
+  if (!PHOTO_TYPES[type]) throw new Error("unsupported");
+  if (blob.size > MAX_PHOTO_BYTES) throw new Error("too-large");
+  const res = await fetch("/api/quote-photo", { method: "POST", headers: { "content-type": type }, body: blob });
+  const data = (await res.json().catch(() => null)) as { url?: string } | null;
+  if (!res.ok || !data?.url) throw new Error("upload-failed");
+  return data.url;
+}
 
 export function QuoteForm({
   defaultMessage = "",
@@ -27,6 +63,29 @@ export function QuoteForm({
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [submittedPhone, setSubmittedPhone] = useState("");
+  const [photos, setPhotos] = useState<PickedPhoto[]>([]);
+  const [uploadStatus, setUploadStatus] = useState("");
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  useEffect(() => () => photos.forEach((p) => URL.revokeObjectURL(p.preview)), [photos]);
+
+  const addPhotos = (list: FileList | null) => {
+    if (!list) return;
+    const incoming = Array.from(list).filter((f) => f.type.startsWith("image/") || /\.(heic|heif)$/i.test(f.name));
+    if (incoming.length < list.length) toast.error("Only photos can be added.");
+    const room = MAX_PHOTOS - photos.length;
+    if (incoming.length > room) toast.error(`You can add up to ${MAX_PHOTOS} photos.`);
+    const next = incoming.slice(0, Math.max(0, room)).map((file) => ({ file, preview: URL.createObjectURL(file) }));
+    setPhotos((prev) => [...prev, ...next]);
+    if (fileInput.current) fileInput.current.value = "";
+  };
+
+  const removePhoto = (index: number) => {
+    setPhotos((prev) => {
+      URL.revokeObjectURL(prev[index].preview);
+      return prev.filter((_, i) => i !== index);
+    });
+  };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,6 +98,25 @@ export function QuoteForm({
 
     setSubmitting(true);
     try {
+      const photoLinks: string[] = [];
+      let skipped = 0;
+      for (let i = 0; i < photos.length; i++) {
+        setUploadStatus(`Uploading photo ${i + 1} of ${photos.length}...`);
+        try {
+          photoLinks.push(await uploadPhoto(photos[i].file));
+        } catch {
+          skipped++;
+        }
+      }
+      setUploadStatus("");
+      if (skipped > 0) {
+        toast.error(
+          skipped === photos.length
+            ? "Your photos couldn't be uploaded, so your request will be sent without them."
+            : `${skipped} photo${skipped > 1 ? "s" : ""} couldn't be uploaded and will be left out.`,
+        );
+      }
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,6 +127,7 @@ export function QuoteForm({
           email: email.trim(),
           service: service || "Not specified",
           message: message.trim() || "No message provided",
+          photos: photoLinks.length ? photoLinks.join("\n") : "No photos added",
           subject: service
             ? `New Quote Request: ${service} - Pilkington Electrical`
             : "New Quote Request - Pilkington Electrical",
@@ -72,6 +151,7 @@ export function QuoteForm({
       setEmail("");
       setService(initialService);
       setMessage(initialMessage);
+      setPhotos([]);
     } catch (err) {
       console.error(err);
       toast.error(
@@ -79,6 +159,7 @@ export function QuoteForm({
       );
     } finally {
       setSubmitting(false);
+      setUploadStatus("");
     }
   };
 
@@ -170,6 +251,49 @@ export function QuoteForm({
           className={inputClass}
         />
       </label>
+      <div className="grid gap-2 text-sm font-semibold md:col-span-2">
+        <span>
+          Photos of the job <span className="font-normal text-muted-foreground">(optional, up to {MAX_PHOTOS})</span>
+        </span>
+        <input
+          ref={fileInput}
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={(e) => addPhotos(e.target.files)}
+          className="sr-only"
+          id="quote-photos"
+          disabled={submitting}
+        />
+        <div className="flex flex-wrap gap-3">
+          {photos.map((p, i) => (
+            <div key={p.preview} className="relative h-20 w-20 overflow-hidden rounded-xl bg-muted ring-1 ring-border">
+              <img src={p.preview} alt={`Photo ${i + 1}`} className="h-full w-full object-cover" />
+              <button
+                type="button"
+                onClick={() => removePhoto(i)}
+                disabled={submitting}
+                aria-label={`Remove photo ${i + 1}`}
+                className="absolute right-1 top-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/75 text-white"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          ))}
+          {photos.length < MAX_PHOTOS && (
+            <label
+              htmlFor="quote-photos"
+              className="inline-flex h-20 min-w-20 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed border-primary/40 px-4 text-xs font-bold text-primary transition-colors hover:bg-primary/5"
+            >
+              <Camera className="h-5 w-5" aria-hidden="true" />
+              Add photos
+            </label>
+          )}
+        </div>
+        <span className="text-xs font-normal text-muted-foreground">
+          The switchboard, the area you want work done and any fault are the most useful. Photos are kept privately and deleted after 90 days.
+        </span>
+      </div>
       <div className="md:col-span-2">
         <button
           type="submit"
@@ -178,7 +302,7 @@ export function QuoteForm({
         >
           {submitting ? (
             <>
-              <Loader2 className="h-4 w-4 animate-spin" /> Sending...
+              <Loader2 className="h-4 w-4 animate-spin" /> {uploadStatus || "Sending..."}
             </>
           ) : (
             "Send Request"
