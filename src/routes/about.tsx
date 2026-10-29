@@ -10,13 +10,13 @@ import { CanadaCollage } from "@/components/CanadaCollage";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Shane Pilkington | Licensed Electrician, Hampton East" },
+      { title: "About | Pilkington Electrical" },
       {
         name: "description",
         content:
           "Pilkington Electrical is a licensed electrician based in Hampton East, serving South East Melbourne. You deal directly with Shane from quote to completion.",
       },
-      { property: "og:title", content: "About Shane Pilkington | Licensed Electrician, Hampton East" },
+      { property: "og:title", content: "About | Pilkington Electrical" },
       { property: "og:description", content: "Pilkington Electrical is a licensed electrician based in Hampton East, serving South East Melbourne. You deal directly with Shane from quote to completion." },
       { property: "og:url", content: "https://pilkingtonelectrical.com.au/about" },
       { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
