@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Your invoice</title>
+<style>
+  :root { --ink:#0f172a; --mute:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#fff; --accent:#0ea5e9; --ok:#059669; --warn:#b45309; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#f1f5f9; --mute:#94a3b8; --line:#334155; --bg:#0b1220; --card:#111c2f; --accent:#38bdf8; --ok:#34d399; --warn:#fbbf24; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+  .wrap { max-width:640px; margin:0 auto; padding:16px 14px 40px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; margin-top:14px; }
+  h1 { font-size:20px; margin:0; } h2 { font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--mute); margin:0 0 10px; }
+  .biz { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap; }
+  .mute { color:var(--mute); font-size:14px; }
+  .big { font-size:30px; font-weight:700; letter-spacing:-.01em; }
+  table { width:100%; border-collapse:collapse; font-size:15px; }
+  th { text-align:left; font-size:12px; color:var(--mute); font-weight:600; padding:6px 0; border-bottom:1px solid var(--line); }
+  td { padding:9px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+  th.r, td.r { text-align:right; white-space:nowrap; padding-left:10px; }
+  .tot td { border:0; padding:4px 0; } .tot .strong td { font-weight:700; font-size:17px; padding-top:8px; }
+  .banner { border-radius:10px; padding:12px 14px; font-size:15px; margin-top:14px; border:1px solid; }
+  .banner.paid { background:rgba(5,150,105,.1); border-color:var(--ok); color:var(--ok); }
+  .banner.claim { background:rgba(180,83,9,.1); border-color:var(--warn); color:var(--warn); }
+  .row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 0; border-bottom:1px solid var(--line); }
+  .row:last-child { border-bottom:0; }
+  .row .k { color:var(--mute); font-size:13px; } .row .v { font-weight:600; word-break:break-all; }
+  button { font:inherit; cursor:pointer; border-radius:9px; border:1px solid var(--line); background:var(--card); color:var(--ink); padding:8px 12px; }
+  button.copy { font-size:13px; padding:5px 10px; flex-shrink:0; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#04263a; font-weight:700; width:100%; padding:13px; font-size:16px; }
+  button:disabled { opacity:.5; cursor:default; }
+  textarea { width:100%; font:inherit; color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:9px; padding:9px; margin:10px 0 12px; }
+  .center { text-align:center; padding:40px 10px; }
+  .note { font-size:13px; color:var(--mute); margin-top:12px; }
+  .noprint {}
+  @media print { body { background:#fff; color:#000; } .card { border:0; padding:0; } .noprint { display:none !important; } :root { --ink:#000; --mute:#555; --line:#ccc; } }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><div class="center mute">Loading your invoice…</div></div>
+<script>
+(function () {
+  // The invoice service. This is the only place the page talks to.
+  var API = 'https://plcuidyfhyonsqeofkdy.supabase.co/functions/v1/invoice';
+  var app = document.getElementById('app');
+  var money = function (n) { return new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD' }).format(Number(n) || 0); };
+  var dmy = function (iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }); };
+  function el(tag, attrs, kids) {
+    var e = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) { if (k === 'text') e.textContent = attrs[k]; else if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]); });
+    (kids || []).forEach(function (c) { if (c) e.appendChild(c); });
+    return e;
+  }
+  function token() {
+    var h = (location.hash || '').replace(/^#/, '');
+    var q = new URLSearchParams(location.search).get('t');
+    return (h || q || '').trim();
+  }
+  function post(t, body) {
+    body.t = t;
+    return fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body), keepalive: true }).then(function (r) { return r.json(); });
+  }
+  function fail(msg, phone) {
+    app.textContent = '';
+    app.appendChild(el('div', { class: 'card center' }, [el('h1', { text: 'This link isn’t working' }), el('p', { class: 'mute', text: msg }), phone ? el('p', { text: 'Call ' + phone }) : null]));
+  }
+  function copyRow(label, value, key) {
+    var btn = el('button', { class: 'copy noprint', type: 'button', text: 'Copy' });
+    btn.addEventListener('click', function () {
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(String(value)).then(done, function () { window.prompt('Copy this', value); });
+      else window.prompt('Copy this', value);
+    });
+    return el('div', { class: 'row', 'data-row': key || label }, [el('div', {}, [el('div', { class: 'k', text: label }), el('div', { class: 'v', text: value })]), btn]);
+  }
+  function render(data, t) {
+    var s = data.snapshot || {}; var b = s.business || {}; var inv = s.invoice || {}; var pay = s.pay || {};
+    var paid = inv.status === 'paid' || Number(inv.balance) <= 0.005;
+    var claimed = !!data.paid_claimed_at;
+    document.title = (inv.number ? inv.number + ' · ' : '') + (b.name || 'Invoice');
+    app.textContent = '';
+    var head = el('div', { class: 'card' }, [
+      el('div', { class: 'biz' }, [
+        el('div', {}, [el('h1', { text: b.name || '' }), el('div', { class: 'mute', text: [b.licence, b.abn ? 'ABN ' + b.abn : ''].filter(Boolean).join(' · ') }), el('div', { class: 'mute', text: [b.phone, b.email, b.website].filter(Boolean).join(' · ') })]),
+        el('div', { style: 'text-align:right' }, [el('div', { class: 'mute', text: 'TAX INVOICE' }), el('div', { style: 'font-weight:700', text: inv.number || '' })]),
+      ]),
+    ]);
+    app.appendChild(head);
+    if (paid) app.appendChild(el('div', { class: 'banner paid', text: 'Paid. Thank you.' }));
+    else if (claimed) app.appendChild(el('div', { class: 'banner claim', text: 'Thanks, you’ve told us this is paid. We’ll confirm once it shows in our account.' }));
+    var amount = el('div', { class: 'card' }, [
+      el('h2', { text: paid ? 'Invoice total' : 'Amount due' }),
+      el('div', { class: 'big', text: money(paid ? inv.total : inv.balance) }),
+      el('div', { class: 'mute', text: [inv.title, inv.due && !paid ? 'Due ' + dmy(inv.due) : '', s.client && s.client.name ? 'For ' + s.client.name : ''].filter(Boolean).join(' · ') }),
+    ]);
+    app.appendChild(amount);
+    var rows = (inv.lines || []).map(function (l) {
+      return el('tr', {}, [el('td', { text: l.description || '' }), el('td', { class: 'r', text: String(l.qty) }), el('td', { class: 'r', text: money(l.total) })]);
+    });
+    var table = el('table', {}, [el('thead', {}, [el('tr', {}, [el('th', { text: 'Description' }), el('th', { class: 'r', text: 'Qty' }), el('th', { class: 'r', text: 'Total' })])]), el('tbody', {}, rows)]);
+    var totals = el('table', { class: 'tot' }, [el('tbody', {}, [
+      el('tr', {}, [el('td', { class: 'mute', text: 'Subtotal (ex GST)' }), el('td', { class: 'r', text: money(inv.subtotalEx) })]),
+      el('tr', {}, [el('td', { class: 'mute', text: 'GST' }), el('td', { class: 'r', text: money(inv.gst) })]),
+      el('tr', {}, [el('td', { class: 'mute', text: 'Total (GST inclusive)' }), el('td', { class: 'r', text: money(inv.total) })]),
+      Number(inv.paid) > 0 ? el('tr', {}, [el('td', { class: 'mute', text: 'Paid so far' }), el('td', { class: 'r', text: '-' + money(inv.paid) })]) : null,
+      el('tr', { class: 'strong' }, [el('td', { text: 'Balance' }), el('td', { class: 'r', text: money(inv.balance) })]),
+    ].filter(Boolean))]);
+    app.appendChild(el('div', { class: 'card' }, [el('h2', { text: 'Invoice' }), el('div', { class: 'mute', style: 'margin-bottom:8px', text: [inv.date ? 'Issued ' + dmy(inv.date) : ''].filter(Boolean).join('') }), table, totals, inv.notes ? el('p', { class: 'note', text: inv.notes }) : null]));
+    if (!paid) {
+      var rowsPay = [];
+      if (pay.payId) rowsPay.push(copyRow('PayID', pay.payId, 'payid'));
+      if (pay.bsb) rowsPay.push(copyRow('BSB', pay.bsb, 'bsb'));
+      if (pay.accountNumber) rowsPay.push(copyRow('Account number', pay.accountNumber, 'acc'));
+      if (pay.accountName) rowsPay.push(copyRow('Account name', pay.accountName, 'name'));
+      rowsPay.push(copyRow('Reference', pay.reference || inv.number || '', 'ref'));
+      rowsPay.push(copyRow('Amount', Number(inv.balance).toFixed(2), 'amt'));
+      var paidBox = el('div', { class: 'noprint' });
+      if (!claimed) {
+        var note = el('textarea', { rows: '2', placeholder: 'Optional note, e.g. paid by PayID this morning', maxlength: '200', 'aria-label': 'Note' });
+        var btn = el('button', { class: 'primary', type: 'button', text: 'I’ve paid' });
+        btn.addEventListener('click', function () {
+          btn.disabled = true; btn.textContent = 'Sending…';
+          post(t, { action: 'paid', note: note.value }).then(function (r) {
+            if (r && r.paid_claimed_at) { paidBox.textContent = ''; paidBox.appendChild(el('div', { class: 'banner claim', text: 'Thanks. We’ll confirm once it shows in our account.' })); }
+            else { btn.disabled = false; btn.textContent = 'I’ve paid'; }
+          }).catch(function () { btn.disabled = false; btn.textContent = 'Try again'; });
+        });
+        paidBox.appendChild(note); paidBox.appendChild(btn);
+      }
+      app.appendChild(el('div', { class: 'card' }, [el('h2', { text: 'How to pay' }), el('div', { class: 'mute', style: 'margin-bottom:6px', text: 'Pay from your banking app by PayID or bank transfer. No fees.' })].concat(rowsPay).concat([paidBox])));
+    }
+    var print = el('button', { class: 'noprint', type: 'button', style: 'margin-top:14px;width:100%', text: 'Print or save as PDF' });
+    print.addEventListener('click', function () { window.print(); });
+    app.appendChild(print);
+    // Count the view from a real browser (link previews and bots don't run this script).
+    post(t, { action: 'view' }).catch(function () {});
+  }
+  var t = token();
+  if (!/^[A-Za-z0-9_-]{16,64}$/.test(t)) { fail('Please use the link we sent you.', ''); return; }
+  fetch(API + '?t=' + encodeURIComponent(t)).then(function (r) { return r.ok ? r.json() : r.json().then(function (j) { throw j; }); })
+    .then(function (data) { render(data, t); })
+    .catch(function () { fail('We couldn’t find that invoice. Please contact us and we’ll sort it out.', ''); });
+})();
+</script>
+</body>
+</html>
