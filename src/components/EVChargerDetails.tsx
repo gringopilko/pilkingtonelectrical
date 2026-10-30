@@ -43,9 +43,10 @@ function EvnexSection() {
         <p className="mt-4 leading-relaxed text-muted-foreground">I'm certified by Evnex to install their smart chargers. Evnex is a New Zealand company that designs its chargers for Australian and New Zealand conditions. If an Evnex charger suits your car and supply, I can supply it, install and test it, set up the app and overload protection, and show you how it all works. You don't have to choose Evnex, and other chargers are still welcome.</p>
       </div>
     </div>
-    <div className="mt-8 grid gap-5 md:grid-cols-2">
+    <img src="/img/evnex-e2-colour-range.webp" alt="Evnex E2 chargers in Volcanic, Stone, Sand and Snow" width={1600} height={810} loading="lazy" decoding="async" className="mt-8 h-auto w-full rounded-2xl object-cover" />
+    <div className="mt-5 grid gap-5 md:grid-cols-2">
       <figure className="rounded-2xl bg-muted p-6 dark:bg-slate-200/10">
-        <div className="flex h-52 items-end justify-center sm:h-60"><img src="/img/evnex-e2-colours.webp" alt="Evnex E2 home chargers in four colours" width={868} height={944} loading="lazy" className="h-full w-auto object-contain" /></div>
+        <div className="flex h-52 items-end justify-center sm:h-60"><img src="/img/evnex-e2-plus-volcanic.webp" alt="Evnex E2 Plus home charger in Volcanic with its tethered Type 2 cable" width={449} height={640} loading="lazy" className="h-full w-auto object-contain" /></div>
         <figcaption className="mt-6">
           <h3 className="text-lg font-bold text-foreground">Evnex E2 range</h3>
           <p className="mt-1 text-sm font-semibold text-primary">Single phase, up to 7.4 kW</p>
@@ -53,7 +54,7 @@ function EvnexSection() {
         </figcaption>
       </figure>
       <figure className="rounded-2xl bg-muted p-6 dark:bg-slate-200/10">
-        <div className="flex h-52 items-end justify-center sm:h-60"><img src="/img/evnex-x22.webp" alt="Evnex X22 three-phase EV charger with socket" width={424} height={720} loading="lazy" className="h-full w-auto object-contain" /></div>
+        <div className="flex h-52 items-end justify-center sm:h-60"><img src="/img/evnex-x22-stone.webp" alt="Evnex X22 three-phase EV charger in Stone with a tethered cable" width={325} height={640} loading="lazy" className="h-full w-auto object-contain" /></div>
         <figcaption className="mt-6">
           <h3 className="text-lg font-bold text-foreground">Evnex X22</h3>
           <p className="mt-1 text-sm font-semibold text-primary">Three phase, up to 22 kW</p>
