@@ -27,7 +27,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">
     watchFor: [
       "Damp subfloors and flood risk. I keep electrical gear up high where possible and make sure safety switches are in place",
       "Old ceramic fuse boards in older flat blocks and common areas",
-      "Solid brick walls that can't always be chased. Premium surface ducting is often the best-value finish in art deco flats",
+      "Solid brick walls. I chase them for the cleanest finish wherever possible. Where body corporate rules or budget rule it out, premium surface ducting is a neat alternative that suits art deco flats",
     ],
   },
   "St Kilda": {
