@@ -1,5 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { Phone, MapPin, ChevronRight } from "lucide-react";
+import { Phone, MapPin, ChevronRight, Check } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ServiceTiles } from "@/components/ServiceTiles";
@@ -110,12 +110,20 @@ function SuburbPage() {
           <div className="mb-12 max-w-3xl">
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Your local electrician in {suburb.name}</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">{suburb.localIntro}</p>
-            {suburb.commonJobs && (
-              <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
-                {suburb.commonJobs.map((job) => (
-                  <li key={job} className="rounded-xl border border-border bg-card px-4 py-3">{job}</li>
-                ))}
-              </ul>
+            {suburb.watchFor && (
+              <>
+                <h3 className="mt-6 text-lg font-bold tracking-tight">What I watch for in {suburb.name}</h3>
+                <ul className="mt-3 space-y-2.5">
+                  {suburb.watchFor.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm leading-relaxed">
+                      <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
+                        <Check className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
             )}
           </div>
         )}

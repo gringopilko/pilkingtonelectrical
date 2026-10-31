@@ -8,205 +8,402 @@ export interface SuburbEntry {
   blurb: string;
   neighbours: string[];
   localIntro?: string;
-  commonJobs?: string[];
+  watchFor?: string[];
 }
 
-const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "commonJobs">> = {
+/** What makes each suburb different, and the electrical issues that come with it. */
+const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">> = {
   "Melbourne CBD": {
-    localIntro: "Pilkington Electrical works across the Melbourne CBD for offices, shops, cafes, apartment buildings and owners corporations, from fit-outs and lighting upgrades to test and tag and fault finding, with work planned around your business hours where possible.",
-    commonJobs: ["Office and retail fit-outs", "Test and tag for workplaces", "Commercial lighting and LED upgrades", "Apartment, body corporate and common area electrical"],
+    localIntro: "Office towers, Victorian-era buildings, laneway cafes and shops, and a growing number of apartment towers, all with tight access and busy trading hours.",
+    watchFor: [
+      "Work planned around trading hours, often early or after close",
+      "Ageing risers and submains in older buildings",
+      "Office and shop fit-outs, plus test and tag for workplaces",
+    ],
   },
-  "Hampton East": {
-    localIntro: "Based locally in Hampton East, Pilkington Electrical provides direct, owner-operated service for houses, townhouses, units and local businesses throughout 3188 and nearby Bayside suburbs.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Fault finding and electrical repairs", "Lighting, power points and ceiling fans", "EV charger and dedicated circuit installation"],
-  },
-  Hampton: {
-    localIntro: "Servicing Hampton homes, apartments and small businesses from nearby Hampton East, with straightforward communication directly from the electrician completing the work.",
-    commonJobs: ["Switchboard and RCBO upgrades", "Renovation wiring and new circuits", "Lighting and power-point installation", "Smoke alarms and electrical maintenance"],
-  },
-  Moorabbin: {
-    localIntro: "Providing residential and small commercial electrical work across Moorabbin, from repairs and upgrades in established homes to maintenance for local businesses and property managers.",
-    commonJobs: ["Electrical fault finding", "Commercial and real-estate maintenance", "Switchboard upgrades", "Lighting and dedicated appliance circuits"],
-  },
-  Bentleigh: {
-    localIntro: "Pilkington Electrical services Bentleigh houses, units and renovation projects, with tidy workmanship and compliant electrical upgrades delivered personally, start to finish.",
-    commonJobs: ["Renovation and extension wiring", "Switchboards and safety switches", "Lighting, fans and power points", "Fault finding and repairs"],
-  },
-  "Albert Park": {
-    localIntro: "Working on Albert Park's Victorian terrace and semi-detached housing near St Vincent Gardens and Bridport Street, much of it under heritage overlay, with electrical work that respects the age and character of the property.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades respecting heritage features", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  "Middle Park": {
-    localIntro: "Servicing Middle Park's well-preserved Victorian and Edwardian terraces around Armstrong Street and Canterbury Road, one of Melbourne's strictest heritage-conservation areas, with electrical work suited to the character of the property.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades respecting heritage features", "Renovation and extension circuits", "Fault finding and repairs"],
-  },
-  "South Melbourne": {
-    localIntro: "Covering South Melbourne's wide, leafy streets of Victorian homes and apartment buildings around Clarendon Street, including properties near the South Melbourne Market.",
-    commonJobs: ["Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades", "Renovation and extension circuits"],
-  },
-  "Port Melbourne": {
-    localIntro: "Working across Port Melbourne's mix of single-fronted Victorian timber worker's cottages and large-scale new apartment developments near Bay Street, two very different housing types that both come through regularly.",
-    commonJobs: ["Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades", "New-build electrical for apartments"],
-  },
-  Windsor: {
-    localIntro: "Working across Windsor's diverse mix of Victorian terrace housing, semi-detached cottages and growing apartment stock around Chapel Street, with electrical work suited to the suburb's older, mostly rental-occupied properties.",
-    commonJobs: ["Rental compliance electrical checks", "Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades"],
-  },
-  Prahran: {
-    localIntro: "Servicing Prahran's mix of restored historic homes and modern apartments around Chapel Street and Greville Street, including properties in and around the Prahran Market precinct.",
-    commonJobs: ["Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades", "Rental compliance electrical checks"],
-  },
-  "South Yarra": {
-    localIntro: "Covering South Yarra's mix of period terrace homes near Fawkner Park and Darling Street, and the denser apartment stock around Toorak Road and Chapel Street, one of Melbourne's more prestigious addresses.",
-    commonJobs: ["Period-home rewiring and fault finding", "Apartment and flat electrical work", "Switchboard and safety-switch upgrades", "Renovation and extension circuits"],
-  },
-  "St Kilda East": {
-    localIntro: "Working across St Kilda East's mix of 1960s flats, Victorian-era terraces and medium-density apartments near Carlisle Street and Alma Park, with electrical work suited to both older buildings and more recent developments.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Apartment and flat electrical work", "Fault finding and repairs", "Rental compliance electrical checks"],
-  },
-  "St Kilda West": {
-    localIntro: "Servicing St Kilda West's quieter, tightly held pocket near the bay, where townhouses, low-rise apartments and character homes make up some of the area's most established real estate.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Character-home rewiring and fault finding", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  Balaclava: {
-    localIntro: "Covering Balaclava's period homes and semi-detached cottages around Carlisle Street, including the late-1870s terrace housing typical of the area, with electrical work that respects the age of the property.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Rental compliance electrical checks"],
-  },
-  Aspendale: {
-    localIntro: "Servicing Aspendale's beachside housing, from preserved mid-century homes near the foreshore to contemporary townhouse developments further from the water, split by the Nepean Highway.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Coastal-property electrical (corrosion-aware fittings)", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  "Aspendale Gardens": {
-    localIntro: "Working across Aspendale Gardens' master-planned family housing estates near the Aspendale Gardens Shopping Centre, predominantly spacious four and five-bedroom homes with high owner-occupation.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs", "Lighting and power-point installation"],
-  },
-  Braeside: {
-    localIntro: "Servicing Braeside's industrial and commercial properties, with the suburb being almost entirely industrial estate and holding very little residential housing.",
-    commonJobs: ["Commercial and industrial electrical work", "Switchboard upgrades for commercial premises", "Test and tag for workplaces", "Fault finding and repairs"],
-  },
-  Waterways: {
-    localIntro: "Working in the Waterways estate, a small, purpose-built residential development set around its own system of lakes, surrounded by the larger suburbs of Braeside, Aspendale Gardens and Keysborough.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "New-build electrical", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  Bangholme: {
-    localIntro: "Covering Bangholme's small residential pocket alongside its semi-rural and light-industrial properties, near the National Water Sports Centre on the Patterson River.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Rural and semi-rural property electrical", "Commercial and industrial electrical work", "Fault finding and repairs"],
-  },
-  "Patterson Lakes": {
-    localIntro: "Working across Patterson Lakes' waterfront housing built around its artificial canal and lake system, including marina-adjacent homes and the retirement villages further from the water.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Waterfront-property electrical", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  Seaford: {
-    localIntro: "Servicing Seaford's mix of original 1950s-60s beach houses, post-war brick veneer homes and newer townhouses and knockdown-rebuilds, close to the beach and Kananook Creek.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Period and post-war home rewiring", "Renovation and extension circuits", "New-build electrical for townhouses"],
-  },
-  "Carrum Downs": {
-    localIntro: "Covering Carrum Downs' mostly 1980s-onward housing on the former Carrum Swamp, one of Melbourne's fastest-growing suburbs through the late twentieth century, with construction still continuing today.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "New-build electrical", "Renovation and extension circuits", "Fault finding and repairs"],
-  },
-  Caulfield: {
-    localIntro: "Working around Caulfield's mix of homes near the racecourse and Monash University's Caulfield campus, with switchboard upgrades and general electrical work for the area's established housing stock.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Fault finding and repairs", "Rental compliance electrical checks", "Lighting and power-point installation"],
-  },
-  "Caulfield North": {
-    localIntro: "Servicing Caulfield North's tree-lined streets and period homes around Caulfield Park and Hawthorn Road, where heritage character is common and electrical work needs a careful approach.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades respecting heritage features", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  "Caulfield South": {
-    localIntro: "Covering Caulfield South's period-style family homes around Princes Park, with switchboard upgrades and rewiring for the area's predominantly established detached housing.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs"],
-  },
-  Mentone: {
-    localIntro: "Working on Mentone's character homes near Charman Road and the Mentone Beach foreshore, where original features like high ceilings and picture rails are common, alongside newer builds further from the beachside strip.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  Mordialloc: {
-    localIntro: "Servicing Mordialloc's mix of mid-century houses, character cottages and newer townhouses near Main Street and Mordialloc Creek, with switchboard upgrades and rewiring that respect the age of the property.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs", "New-build electrical for townhouses"],
-  },
-  Malvern: {
-    localIntro: "Working across Malvern's grand Victorian and Edwardian homes around Glenferrie Road and High Street, where much of the housing stock is heritage-listed and electrical work needs a careful, considered approach.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades respecting heritage features", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  "Glen Iris": {
-    localIntro: "Covering Glen Iris's mix of period homes, townhouses and apartments either side of Gardiners Creek, from older character properties near High Street to newer builds throughout the suburb.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "New-build electrical for townhouses and apartments"],
-  },
-  Camberwell: {
-    localIntro: "Servicing Camberwell's grand period homes around Camberwell Junction and Burke Road, much of it brick housing from the early twentieth century, with careful electrical work that suits the character of the property.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades for older brick homes", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  "Dingley Village": {
-    localIntro: "Servicing Dingley Village's family homes, mostly built from the 1970s onward around quiet court-style streets near the Dingley Village Neighbourhood Centre, with straightforward switchboard and general electrical work for established family properties.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs", "Lighting and power-point installation"],
-  },
-  Murrumbeena: {
-    localIntro: "Working in Murrumbeena's village-feel pocket around the heritage-listed Murrumbeena Village Precinct, a small, well-connected suburb where character homes sit alongside more recent development.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  Clayton: {
-    localIntro: "Covering Clayton's mix of 1960s homes and student/rental housing around Monash University and Clayton Road, where a high proportion of properties are rentals needing regular compliance electrical work.",
-    commonJobs: ["Rental compliance electrical checks", "Switchboard and safety-switch upgrades", "Shared-housing and rental electrical work", "Fault finding and repairs"],
-  },
-  "Clayton South": {
-    localIntro: "Servicing Clayton South's family homes near the sandbelt golf courses and Westall, a mix of established properties and newer development close to Monash Medical Centre and the university precinct.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Rental compliance electrical checks", "Fault finding and repairs"],
-  },
-  Clarinda: {
-    localIntro: "Working across Clarinda's established family homes near Clarinda Shopping Village, with switchboard upgrades and general electrical work for the suburb's mostly mid-to-late-twentieth-century housing stock.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Fault finding and repairs", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  "Bentleigh East": {
-    localIntro: "Covering Bentleigh East's established family homes around GESAC and the Yarra Yarra Golf Club, through to the newer medium-density townhouses going up along Centre Road and East Boundary Road as the area continues to develop.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits for family homes", "New-build electrical for townhouse developments", "Fault finding and repairs"],
-  },
-  "Brighton East": {
-    localIntro: "Working on Brighton East's Art Deco and period Victorian homes around Hawthorn Road and Dendy Park, where original character features are common and electrical work needs to respect the age of the property.",
-    commonJobs: ["Period and Art Deco home rewiring", "Switchboard upgrades for older homes", "Renovation and extension electrical", "Lighting and power-point installation"],
-  },
-  Cheltenham: {
-    localIntro: "Servicing Cheltenham's mix of character homes near Charman Road and newer family builds further out, close to Southland and the sandbelt golf courses, with the area continuing to grow as the Suburban Rail Loop development progresses.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Fault finding and repairs", "Lighting and power-point installation"],
-  },
-  "Black Rock": {
-    localIntro: "Covering Black Rock from the Victorian and Edwardian homes near the Beach Road and Half Moon Bay end, through to the mid-century houses and newer apartment developments further from the coast.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Coastal-property electrical (corrosion-aware fittings)", "Renovation and extension circuits"],
-  },
-  Springvale: {
-    localIntro: "Servicing Springvale's diverse housing mix, with a significant proportion of rental properties and established homes close to the Monash Freeway and the suburb's busy shopping precinct.",
-    commonJobs: ["Rental compliance electrical checks", "Switchboard and safety-switch upgrades", "Fault finding and repairs", "Lighting and power-point installation"],
-  },
-  "Noble Park": {
-    localIntro: "Working across Noble Park's mix of houses and apartments, a notably diverse residential and commercial area where around a third of homes are apartments, roughly double the Melbourne average.",
-    commonJobs: ["Apartment and flat electrical work", "Rental compliance electrical checks", "Switchboard and safety-switch upgrades", "Fault finding and repairs"],
-  },
-  Keysborough: {
-    localIntro: "Covering Keysborough's mix of established 1960s-90s housing in the north and newer estates like Elmswood and Somerfield further south, near Tatterson Park and the Keysborough Golf Club.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "New-build electrical for newer estates", "Renovation and extension circuits", "Fault finding and repairs"],
-  },
-  Oakleigh: {
-    localIntro: "Working across Oakleigh's mix of Federation-era weatherboards near Atherton Road and the newer townhouse and apartment developments that have grown up around Eaton Mall and the station, with switchboard upgrades and rewiring for older homes alongside new-build electrical for recent builds.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard upgrades for older weatherboards", "New-build electrical for townhouses and apartments", "Lighting and power-point installation"],
-  },
-  Beaumaris: {
-    localIntro: "Servicing Beaumaris, including the suburb's well-known collection of mid-century modern homes around the Concourse and the coast. Careful, respectful electrical work in houses where original character matters, alongside standard upgrades for newer builds.",
-    commonJobs: ["Switchboard and safety-switch upgrades", "Electrical work in heritage mid-century homes", "Renovation and extension circuits", "Lighting and outdoor electrical"],
-  },
-  "Malvern East": {
-    localIntro: "Servicing Malvern East's period homes and renovated properties, from Edwardian and Californian bungalow rewiring through to switchboard upgrades for newer townhouse developments near Wattletree Road.",
-    commonJobs: ["Period-home rewiring and fault finding", "Switchboard and safety-switch upgrades", "Renovation and extension circuits", "Lighting and power-point installation"],
-  },
-  Brighton: {
-    localIntro: "Providing careful residential electrical work and property maintenance throughout Brighton, including established homes, apartments and renovation projects.",
-    commonJobs: ["Lighting and architectural upgrades", "Switchboard and RCBO upgrades", "Rewiring and renovation circuits", "Body corporate and real-estate maintenance"],
-  },
-  Elwood: {
-    localIntro: "Continuing to service Elwood after relocating the business base to Hampton East, including older homes, apartments, body corporate common areas and local businesses.",
-    commonJobs: ["Older-home fault finding and rewiring", "Apartment and body corporate maintenance", "Switchboard and safety-switch upgrades", "Lighting and power-point installation"],
+  "Elwood": {
+    localIntro: "Built on drained swampland around the Elwood Canal and Elster Creek, so it's low-lying and some streets still flood in heavy rain. Famous for its art deco and interwar apartment blocks.",
+    watchFor: [
+      "Damp subfloors and flood risk. I keep electrical gear up high where possible and make sure safety switches are in place",
+      "Old ceramic fuse boards in older flat blocks and common areas",
+      "Solid brick walls that can't always be chased. Premium surface ducting is often the best-value finish in art deco flats",
+    ],
   },
   "St Kilda": {
-    localIntro: "Servicing St Kilda apartments, character homes, commercial premises and body corporate properties with reliable repairs, upgrades and ongoing electrical maintenance.",
-    commonJobs: ["Apartment and body corporate maintenance", "Fault finding and urgent repairs", "Switchboard and RCBO upgrades", "Lighting and commercial electrical work"],
+    localIntro: "Grand Victorian homes split into flats, art deco blocks, high-density apartments and busy strips along Acland and Fitzroy Streets.",
+    watchFor: [
+      "Ageing common-area wiring and submains in older apartment buildings",
+      "Salt air from the bay on outdoor and rooftop equipment",
+      "Body corporate work with access, notice and shutdowns planned around residents",
+    ],
+  },
+  "St Kilda East": {
+    localIntro: "Leafy streets of Victorian and Edwardian homes mixed with 1930s flats and newer apartment blocks, between Balaclava and Caulfield.",
+    watchFor: [
+      "Original wiring hidden behind renovated period interiors",
+      "1930s flats still running on old fuse boards",
+      "Rental safety checks for landlords with older flats",
+    ],
+  },
+  "St Kilda West": {
+    localIntro: "Quiet streets of Victorian terraces and apartment blocks a short walk from the beach and Catani Gardens.",
+    watchFor: [
+      "Salt air corroding outdoor lights, power points and meter boxes",
+      "Tight terraces with little roof space for new cabling",
+      "Older apartment blocks with shared switchboards and meters",
+    ],
+  },
+  "Balaclava": {
+    localIntro: "Built around the Carlisle Street shops and station, with Edwardian homes alongside plenty of 1960s walk-up flats.",
+    watchFor: [
+      "1960s walk-up flats with original wiring and cramped meter panels",
+      "Common-area lighting and safety switches in older blocks",
+      "Rental safety checks across multi-unit properties",
+    ],
+  },
+  "Windsor": {
+    localIntro: "Narrow Victorian workers' cottages and terraces packed in behind Chapel Street, with shopfronts and bars along the main strip.",
+    watchFor: [
+      "Shared walls and tight roof spaces in terraces, so cable routes need planning",
+      "Solid double-brick walls where chasing and surface finishes both need weighing up",
+      "Shop and hospitality work along Chapel Street",
+    ],
+  },
+  "Prahran": {
+    localIntro: "Victorian terraces, newer apartment towers and a busy commercial strip around Chapel Street and the Prahran Market.",
+    watchFor: [
+      "Terraces still on original wiring behind updated interiors",
+      "Shopfront and hospitality fit-outs",
+      "Apartment work under body corporate rules",
+    ],
+  },
+  "South Yarra": {
+    localIntro: "Grand Victorian mansions, art deco flats and modern high-rise apartments around Toorak Road and Chapel Street.",
+    watchFor: [
+      "High-rise apartment switchboards and building rules on access and shutdowns",
+      "Large period homes with old wiring and heavy modern loads",
+      "Lighting upgrades that suit both heritage and modern interiors",
+    ],
+  },
+  "Albert Park": {
+    localIntro: "A heritage streetscape of Victorian terraces and cottages between the lake and the beach.",
+    watchFor: [
+      "Heritage overlays to respect when adding external lights or equipment",
+      "Salt air near the beach on outdoor fittings",
+      "Narrow terraces with limited roof and floor access for new circuits",
+    ],
+  },
+  "Middle Park": {
+    localIntro: "Quiet, tree-lined streets of Victorian and Edwardian terraces near the beach and Armstrong Street, many renovated behind original facades.",
+    watchFor: [
+      "Old wiring left in place behind newer renovations",
+      "Salt air near Beaconsfield Parade on outdoor fittings",
+      "Running new circuits through tight terraces without damaging period detail",
+    ],
+  },
+  "South Melbourne": {
+    localIntro: "Workers' cottages, converted warehouses and mixed-use buildings around the South Melbourne Market and Clarendon Street.",
+    watchFor: [
+      "Warehouse conversions with leftover industrial wiring",
+      "Mixed shop-and-residence buildings with shared supply",
+      "Cafe, shop and office fit-outs",
+    ],
+  },
+  "Port Melbourne": {
+    localIntro: "Old workers' cottages near the bay alongside modern apartment developments around Beacon Cove and Bay Street.",
+    watchFor: [
+      "Salt air and wind off the bay on outdoor equipment",
+      "Compact switchboards in newer apartments with little spare room",
+      "EV charging in apartment car parks",
+    ],
+  },
+  "Brighton": {
+    localIntro: "Large Victorian, Edwardian and interwar homes, many under heritage overlays, sitting alongside big modern rebuilds.",
+    watchFor: [
+      "Cloth or rubber-insulated wiring in period homes, which goes brittle with age",
+      "Big homes with pools, heated floors and ducted air needing more supply capacity, sometimes three-phase",
+      "Fitting new work around heritage features without damaging them",
+    ],
+  },
+  "Brighton East": {
+    localIntro: "Interwar and postwar brick homes and Californian bungalows around Dendy Park, with a growing number of townhouses.",
+    watchFor: [
+      "1940s to 60s wiring stretched by modern kitchens and air conditioning",
+      "Old switchboards that trip once extensions add load",
+      "New circuits and switchboards for townhouse developments",
+    ],
+  },
+  "Hampton": {
+    localIntro: "A beachside suburb built around the Hampton Street shops, with Californian bungalows, interwar weatherboards and a steady stream of knock-down rebuilds.",
+    watchFor: [
+      "Salt air near the beach corroding outdoor lights, power points and meter boxes",
+      "Older homes still on original wiring behind renovated interiors",
+      "Outdoor lighting and power for gardens and entertaining areas",
+    ],
+  },
+  "Hampton East": {
+    localIntro: "Mostly 1950s and 60s brick veneer and weatherboard homes on decent blocks, with plenty now being replaced by townhouses and dual-occupancy builds. It's where I'm based, so I'm usually only minutes away.",
+    watchFor: [
+      "Original 1950s wiring and old fuse boards with no safety switches",
+      "Supply and switchboard upgrades for subdivisions and new builds",
+      "EV chargers in new townhouse garages",
+    ],
+  },
+  "Black Rock": {
+    localIntro: "Clifftop and foreshore streets with 1950s beach houses, mid-century homes and newer architect-designed builds.",
+    watchFor: [
+      "Heavy salt exposure. I use marine-grade and weather-sealed fittings outdoors",
+      "Original wiring in older beach houses",
+      "Garden, deck and pathway lighting built to cope with coastal weather",
+    ],
+  },
+  "Beaumaris": {
+    localIntro: "Known for its mid-century modern homes among coastal tea-tree, many with low, flat roofs and big glass walls.",
+    watchFor: [
+      "Very little roof space in flat-roof homes, which makes rewiring and new circuits harder to run",
+      "Salt air near the coast on outdoor fittings",
+      "Updating lighting in mid-century homes without spoiling the original design",
+    ],
+  },
+  "Mentone": {
+    localIntro: "A beachside suburb with Federation and interwar homes near the Mentone shops and station, plus plenty of newer units.",
+    watchFor: [
+      "Salt air along Beach Road on outdoor lights and meter boxes",
+      "Older homes with original wiring and no safety switches",
+      "Switchboard and circuit work in unit blocks",
+    ],
+  },
+  "Mordialloc": {
+    localIntro: "Where Mordialloc Creek meets the bay, with boat moorings, the Main Street shops, older weatherboards and new townhouses.",
+    watchFor: [
+      "Salt and moisture near the creek and marina on outdoor equipment",
+      "Power and lighting for sheds, boats and outdoor areas",
+      "Older weatherboards on original wiring",
+    ],
+  },
+  "Malvern": {
+    localIntro: "Grand Victorian, Edwardian and interwar homes around Glenferrie Road and High Street, many with heritage protection.",
+    watchFor: [
+      "Old wiring in large period homes, often extended in stages over the years",
+      "Heavy modern loads from kitchens, heating and air conditioning on old boards",
+      "Heritage-sensitive lighting and fittings",
+    ],
+  },
+  "Malvern East": {
+    localIntro: "Interwar and postwar homes on quieter streets near Gardiners Creek and Chadstone, with lots of renovations and extensions.",
+    watchFor: [
+      "Postwar wiring that needs safety switches and updating",
+      "New circuits for extensions and home offices",
+      "Switchboard upgrades when renovations add load",
+    ],
+  },
+  "Glen Iris": {
+    localIntro: "Californian bungalows and interwar homes on hilly, leafy streets running down to Gardiners Creek.",
+    watchFor: [
+      "Sloping blocks with long cable runs to garages, studios and outbuildings",
+      "Original wiring under floors and in roof spaces",
+      "Outdoor and garden lighting on terraced yards",
+    ],
+  },
+  "Camberwell": {
+    localIntro: "Edwardian and interwar homes around Camberwell Junction, with large blocks and protected heritage streetscapes.",
+    watchFor: [
+      "Heritage controls on external changes",
+      "Old wiring in large homes and outbuildings",
+      "Switchboard upgrades to suit modern loads",
+    ],
+  },
+  "Caulfield": {
+    localIntro: "Large Victorian and Edwardian homes near the racecourse, plus plenty of flats and rentals close to the Monash campus and station.",
+    watchFor: [
+      "Rental safety checks for landlords and property managers",
+      "Older flats with shared meters and dated switchboards",
+      "Original wiring in large period homes",
+    ],
+  },
+  "Caulfield North": {
+    localIntro: "Edwardian and interwar homes and art deco flats along Hawthorn Road and Balaclava Road.",
+    watchFor: [
+      "Ceramic fuse boards still common in art deco flats",
+      "Large period homes with original wiring",
+      "Lighting upgrades that keep the period character",
+    ],
+  },
+  "Caulfield South": {
+    localIntro: "Interwar and postwar homes along Glen Huntly Road, increasingly mixed with townhouses.",
+    watchFor: [
+      "Old wiring and missing safety switches in unrenovated homes",
+      "New switchboards and supply for townhouse builds",
+      "Extra circuits for kitchens and air conditioning",
+    ],
+  },
+  "Bentleigh": {
+    localIntro: "Interwar Californian bungalows and postwar homes close to the Centre Road shops and the Frankston line, with lots of renovations and extensions.",
+    watchFor: [
+      "Old wiring and missing safety switches uncovered during renovations",
+      "New circuits for extensions, kitchens and home offices",
+      "Switchboard upgrades when the old board can't take the extra load",
+    ],
+  },
+  "Bentleigh East": {
+    localIntro: "Mostly 1950s and 60s family homes on bigger blocks, many being replaced by units and townhouses.",
+    watchFor: [
+      "Original wiring and fuse boards in homes that haven't been updated",
+      "Supply upgrades and new switchboards for dual-occupancy builds",
+      "EV chargers and solar-ready switchboards in new builds",
+    ],
+  },
+  "Moorabbin": {
+    localIntro: "Postwar homes mixed with light industry and businesses around South Road and the Moorabbin industrial area.",
+    watchFor: [
+      "Factory and workshop circuits, including three-phase machinery",
+      "Test and tag for workplaces",
+      "Older homes still on their original switchboards",
+    ],
+  },
+  "Cheltenham": {
+    localIntro: "Postwar homes and a growing number of townhouses between Southland and the Charman Road shops.",
+    watchFor: [
+      "1950s and 60s wiring in original homes",
+      "New switchboards and supply for townhouse builds",
+      "Safety switch upgrades on older boards",
+    ],
+  },
+  "Dingley Village": {
+    localIntro: "Quiet estates of 1970s and 80s brick homes surrounded by golf courses and open space.",
+    watchFor: [
+      "Boards from the 70s and 80s that often protect power circuits only, not lighting",
+      "Old halogen downlights that run hot and are worth replacing with LEDs",
+      "Extra circuits for extensions and outdoor living",
+    ],
+  },
+  "Murrumbeena": {
+    localIntro: "Californian bungalows and postwar homes on leafy streets near Neerim Road and the station.",
+    watchFor: [
+      "Original bungalow wiring behind renovated rooms",
+      "Switchboard upgrades with safety switches",
+      "New circuits for extensions and studios",
+    ],
+  },
+  "Oakleigh": {
+    localIntro: "Victorian and Edwardian cottages and postwar homes, with the busy cafe and restaurant strip around Eaton Mall.",
+    watchFor: [
+      "Cafe and restaurant fit-outs with heavy kitchen loads",
+      "Older cottages on original wiring",
+      "Commercial lighting and test and tag for local businesses",
+    ],
+  },
+  "Clayton": {
+    localIntro: "Close to Monash University, with plenty of rentals, share houses, units and light industry.",
+    watchFor: [
+      "Rental safety checks for landlords and property managers",
+      "Share houses overloading old circuits with power boards",
+      "Small factory and workshop electrical",
+    ],
+  },
+  "Clayton South": {
+    localIntro: "Postwar homes alongside the industrial areas around Westall and Clayton Road.",
+    watchFor: [
+      "Factory and warehouse circuits, including three-phase",
+      "Test and tag for workplaces",
+      "Original wiring in older homes",
+    ],
+  },
+  "Clarinda": {
+    localIntro: "A quiet residential suburb of 1960s and 70s brick homes with established gardens.",
+    watchFor: [
+      "Switchboards from the 60s and 70s without full safety switch protection",
+      "Kitchen and air conditioning circuits on old wiring",
+      "Outdoor lighting for established gardens",
+    ],
+  },
+  "Springvale": {
+    localIntro: "A busy, multicultural shopping centre with restaurants and grocers, surrounded by postwar homes and units.",
+    watchFor: [
+      "Restaurant and shop fit-outs with heavy kitchen and refrigeration loads",
+      "Older units with dated switchboards",
+      "Test and tag for local businesses",
+    ],
+  },
+  "Noble Park": {
+    localIntro: "Postwar homes and units on established streets near the station and Douglas Street shops.",
+    watchFor: [
+      "Original wiring and fuse boards in older homes",
+      "Rental safety checks across units",
+      "Safety switch upgrades",
+    ],
+  },
+  "Keysborough": {
+    localIntro: "Newer housing estates from the 90s onwards next to industrial areas and green wedge land.",
+    watchFor: [
+      "Adding EV chargers and solar to switchboards with little spare room",
+      "Factory and warehouse electrical",
+      "Outdoor lighting and power for larger blocks",
+    ],
+  },
+  "Aspendale": {
+    localIntro: "Beachfront streets between the bay and Mordialloc Creek, with older beach houses and new builds.",
+    watchFor: [
+      "Salt air on outdoor lights, power points and meter boxes",
+      "Original wiring in older beach houses",
+      "Outdoor and deck lighting built for coastal weather",
+    ],
+  },
+  "Aspendale Gardens": {
+    localIntro: "A 1980s and 90s estate near the Edithvale wetlands, with family homes on quiet courts.",
+    watchFor: [
+      "Boards from the 80s and 90s with partial safety switch protection",
+      "Old halogen downlights worth replacing with LEDs",
+      "Extra circuits for extensions, pools and outdoor areas",
+    ],
+  },
+  "Braeside": {
+    localIntro: "Mostly industrial, with factories and warehouses next to Braeside Park.",
+    watchFor: [
+      "Three-phase machinery and factory circuits",
+      "Test and tag for workplaces",
+      "Warehouse lighting and emergency lighting",
+    ],
+  },
+  "Waterways": {
+    localIntro: "A newer estate built around lakes and wetlands, with modern family homes.",
+    watchFor: [
+      "Weather-sealed outdoor fittings near the water",
+      "Adding EV chargers and solar to newer switchboards",
+      "Garden, jetty-side and outdoor lighting",
+    ],
+  },
+  "Bangholme": {
+    localIntro: "Semi-rural green wedge land with acreage, sheds and outbuildings.",
+    watchFor: [
+      "Long underground cable runs to sheds and outbuildings",
+      "Power for pumps, workshops and machinery",
+      "Outdoor and security lighting on large properties",
+    ],
+  },
+  "Patterson Lakes": {
+    localIntro: "A canal estate of waterfront homes, many with their own jetties and boat moorings.",
+    watchFor: [
+      "Power for jetties and boat lifts, with marine-grade fittings",
+      "Salt and moisture on all outdoor equipment",
+      "Waterfront lighting that copes with the weather",
+    ],
+  },
+  "Seaford": {
+    localIntro: "Beachside streets near Kananook Creek and the Seaford wetlands, with older weatherboards and new townhouses.",
+    watchFor: [
+      "Salt air on outdoor fittings near the beach",
+      "Original wiring in older weatherboards",
+      "New switchboards and supply for townhouse builds",
+    ],
+  },
+  "Carrum Downs": {
+    localIntro: "Estates of 80s, 90s and 2000s homes alongside a large industrial area.",
+    watchFor: [
+      "Older halogen downlights and partial safety switch protection in 80s and 90s homes",
+      "Factory and warehouse electrical",
+      "Adding EV chargers and solar to existing switchboards",
+    ],
   },
 };
 
