@@ -291,7 +291,7 @@ export function QuoteForm({
           )}
         </div>
         <span className="text-xs font-normal text-muted-foreground">
-          The switchboard, the area you want work done and any fault are the most useful. Photos are kept privately and deleted after 90 days.
+          The switchboard, the area you want work done and any fault are the most useful.
         </span>
       </div>
       <div className="md:col-span-2">
