@@ -16,6 +16,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">
   "Melbourne CBD": {
     localIntro: "Office towers, Victorian-era buildings, laneway cafes and shops, and a growing number of apartment towers, all with tight access and busy trading hours.",
     watchFor: [
+      "Parking is the biggest challenge on CBD jobs. Please let me know if there's parking on site or a loading bay, and the height clearance of any car park, so the van can get in",
       "Work planned around trading hours, often early or after close",
       "Ageing risers and submains in older buildings",
       "Office and shop fit-outs, plus test and tag for workplaces",
