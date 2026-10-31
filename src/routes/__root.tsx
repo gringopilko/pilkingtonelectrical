@@ -15,8 +15,8 @@ import { trackContactClick } from "@/lib/analytics";
 import { MobileCallBar } from "@/components/MobileCallBar";
 import { SiteEffects } from "@/components/SiteEffects";
 import { themeScript } from "@/components/ThemeToggle";
-import { services } from "@/lib/services";
-import { getAllSuburbs } from "@/lib/suburbs";
+import { serviceList as services } from "@/lib/serviceList";
+import { suburbGroups } from "@/lib/suburbGroups";
 
 function NotFoundComponent() {
   return (
@@ -142,9 +142,10 @@ export const Route = createRootRouteWithContext<Record<string, never>>()({
         },
         "areaServed": [
           { "@type": "Place", "name": "Hampton East" },
-          ...getAllSuburbs()
-            .filter((s) => s.name !== "Hampton East")
-            .map((s) => ({ "@type": "Place", "name": s.name })),
+          ...suburbGroups
+            .flatMap((g) => g.suburbs)
+            .filter((name) => name !== "Hampton East")
+            .map((name) => ({ "@type": "Place", "name": name })),
         ],
         "priceRange": "$$",
         "hasCredential": {

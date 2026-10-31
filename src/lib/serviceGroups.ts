@@ -1,6 +1,4 @@
-import { services } from "@/lib/services";
-
-type Service = (typeof services)[number];
+import { serviceList as services, type ServiceBrief as Service } from "@/lib/serviceList";
 
 interface GroupDef {
   title: string;

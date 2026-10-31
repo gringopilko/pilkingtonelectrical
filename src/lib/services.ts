@@ -1,3 +1,11 @@
+import { serviceList } from "@/lib/serviceList";
+
+function brief(slug: string) {
+  const b = serviceList.find((s) => s.slug === slug);
+  if (!b) throw new Error(`Missing service in serviceList: ${slug}`);
+  return b;
+}
+
 export interface Service {
   slug: string;
   title: string;
@@ -19,9 +27,7 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    slug: "electrical-safety-inspections",
-    title: "Electrical Safety Inspections",
-    shortDesc: "Periodic electrical safety checks for rental properties, sale, or peace of mind.",
+    ...brief("electrical-safety-inspections"),
     metaDescription: "Electrical safety inspections across South East Melbourne. Rental compliance checks, pre-sale inspections, landlord servicing. Licensed electrician.",
     intro: "Thorough electrical safety checks for rental properties, landlords and property managers across Bayside and South-East Melbourne. Inspection, testing and a clear written report from your licensed electrician, with a clear quote before you book. Ask about combining your check with smoke alarm servicing.",
     included: [
@@ -47,9 +53,7 @@ export const services: Service[] = [
     tileImage: { file: "safety-inspection-tile.webp", width: 426, height: 640, focus: "50% 72%", alt: "Electrician working on a switchboard during an electrical safety check" },
   },
   {
-    slug: "test-and-tag",
-    title: "Test and Tag Melbourne",
-    shortDesc: "Portable appliance and RCD testing with clear records for Melbourne businesses.",
+    ...brief("test-and-tag"),
     metaDescription: "Test and tag across Bayside and South East Melbourne. Appliance and RCD testing, clear reports and retest schedules from a licensed electrician. Free quotes.",
     heroSubtitle: "Keep Your Workplace Safe, Tested & Properly Documented",
     intro: "Professional inspection and testing of appliances, leads, power boards and safety switches across Bayside and South East Melbourne. Pilkington Electrical helps you identify electrical faults, maintain clear testing records and plan appropriate retesting, with services carried out by a licensed A-Grade electrician.",
@@ -109,9 +113,7 @@ export const services: Service[] = [
     tileImage: { file: "test-and-tag-tile.webp", width: 904, height: 678, alt: "Test certified tag attached to an appliance power lead" },
   },
   {
-    slug: "switchboards",
-    title: "Switchboard Upgrades & Repairs",
-    shortDesc: "Old fuse box or tripping switchboard? Upgrade to a modern, compliant board.",
+    ...brief("switchboards"),
     metaDescription: "Switchboard upgrades, repairs and replacements across South East Melbourne. Licensed electrician, upfront pricing. Call Pilkington Electrical.",
     intro: "Modern circuit protection, reliable repairs and switchboard upgrades for homes and rental properties across Bayside and South-East Melbourne. Get clear advice from your licensed electrician and an upfront quote tailored to your property.",
     included: [
@@ -136,12 +138,10 @@ export const services: Service[] = [
     tileImage: { file: "hager-premium-switchboard.webp", width: 800, height: 800, alt: "Premium Hager switchboard with RCBOs and a main switch", focus: "50% 45%" },
   },
   {
-    slug: "body-corporate",
-    title: "Body Corporate & Strata Electrical",
+    ...brief("body-corporate"),
     heroSubtitle: "Shared-property maintenance, with clear communication at every step.",
     pageTitle: "Body Corporate & Strata Electrician Melbourne",
     seoTitle: "Strata & Body Corporate Electrician Melbourne",
-    shortDesc: "A dependable trade partner for strata and body corporate common area electrical.",
     metaDescription: "Strata and body corporate electrician for Bayside and South East Melbourne. Common area lighting, maintenance, safety checks and clear committee reports. REC 30450.",
     intro: "I help owners corporations, committees and property managers look after common-area electrical systems across Bayside and South East Melbourne. From a failed stairwell light to planned upgrades, you'll get practical advice, an agreed scope and reporting that makes sense for committee approval.",
     included: [
@@ -164,11 +164,9 @@ export const services: Service[] = [
     tileImage: { file: "body-corporate-tile.webp", width: 640, height: 960, focus: "50% 42%", alt: "Apartment building balconies" },
   },
   {
-    slug: "real-estate",
-    title: "Real Estate & Property Managers",
+    ...brief("real-estate"),
     heroSubtitle: "Helpful to your team. Respectful of tenants. Mindful of owners' budgets.",
     pageTitle: "Electrician for Real Estate & Property Managers Melbourne",
-    shortDesc: "Honest repairs, upgrade options and same day visits for agents, property managers and their owners.",
     metaDescription: "Electrical repairs, rental safety checks and maintenance for real estate agents in Bayside and South East Melbourne. Honest options and clear pricing.",
     intro: "I'm here to build long term relationships with real estate agents and property managers, based on understanding what you and your owners actually need. Whether it's a single repair, a compliance check or a building full of small jobs, I'm happy to help.",
     included: [
@@ -208,9 +206,7 @@ export const services: Service[] = [
     tileImage: { file: "real-estate-tile.webp", width: 640, height: 427, focus: "50% 55%", alt: "Property manager holding a folder and a house key" },
   },
   {
-    slug: "safety-switches",
-    title: "Safety Switches",
-    shortDesc: "RCD safety switch installation and testing to protect your home and family.",
+    ...brief("safety-switches"),
     metaDescription: "Safety switch (RCD) installation and testing across South East Melbourne. Licensed electrician, same-day quotes.",
     intro: "A safety switch (RCD) is one of the cheapest, most effective pieces of protection in your home, cutting power in milliseconds if there's a fault. Many older homes still don't have one fitted.",
     included: [
@@ -232,11 +228,9 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "fault-finding",
-    title: "Fault Finding & Repairs",
+    ...brief("fault-finding"),
     heroSubtitle: "Careful testing. Clear answers. Practical repairs.",
     pageTitle: "Electrical Fault Finding & Repairs Melbourne",
-    shortDesc: "Flickering lights, dead outlets, or unexplained tripping, found and fixed properly.",
     metaDescription: "Electrical fault finding and repairs across South East Melbourne. Diagnosing the real cause, not just patching symptoms. Licensed electrician.",
     intro: "Tripping circuits, flickering lights or power that disappears can be frustrating and worrying. I'll listen to what's happening, investigate the cause and explain the repair options clearly, so you know what needs attention and what the next step will cost.",
     included: [
@@ -260,10 +254,8 @@ export const services: Service[] = [
     tileImage: { file: "fault-finding-tile.webp", width: 900, height: 600, focus: "62% 50%", alt: "Thermal imager showing a heat image of switchboard wiring" },
   },
   {
-    slug: "emergency-electrical",
-    title: "Emergency Electrician",
+    ...brief("emergency-electrical"),
     heroSubtitle: "Urgent Electrical Faults. Direct Help From Your Local Electrician.",
-    shortDesc: "Urgent fault finding, make-safe work and electrical repairs across Bayside and South East Melbourne.",
     metaDescription: "Emergency electrician for loss of power and urgent electrical faults across South East Melbourne. Call Pilkington Electrical.",
     intro: "Lost power, a safety switch that will not reset, or a damaged electrical fitting? Call Pilkington Electrical for urgent fault finding and repairs across Bayside and South East Melbourne. You will speak directly with Shane, a licensed A-Grade electrician, who will confirm availability, estimated arrival time and charges before arranging a visit.",
     included: [
@@ -285,9 +277,7 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "rewiring-extensions",
-    title: "Rewiring & Extensions",
-    shortDesc: "Full or partial house rewires, new circuits for renovations and extensions.",
+    ...brief("rewiring-extensions"),
     metaDescription: "Residential rewiring and extension wiring across South East Melbourne. Full and partial rewires, new circuits. Licensed electrician.",
     intro: "Whether you're renovating, extending, or your home's wiring is simply past its use-by date, I handle full and partial rewires with minimal disruption to your day-to-day.",
     included: [
@@ -310,9 +300,7 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "wall-chasing",
-    title: "Wall Chasing & Concealed Wiring",
-    shortDesc: "Brick, concrete and masonry chasing with cables in conduit wherever possible, for a clean, built-in finish.",
+    ...brief("wall-chasing"),
     metaDescription: "Specialist wall chasing in Melbourne. Cables hidden in brick, concrete and masonry, in 25 mm conduit where possible, with H-class dust extraction.",
     seoTitle: "Wall Chasing Melbourne | Concealed Wiring in Brick",
     intro: "I specialise in chasing brick, concrete and masonry walls so new power points, switches and lights can be fully concealed. Wherever possible, cables run in 25 mm conduit, so they can be replaced later without chasing the wall again.",
@@ -331,11 +319,9 @@ export const services: Service[] = [
     tileImage: { file: "metabo-wall-chaser.webp", width: 452, height: 364, alt: "Metabo wall chaser cutting a clean channel in a brick wall" },
   },
   {
-    slug: "commercial-electrician",
-    title: "Commercial Electrician",
+    ...brief("commercial-electrician"),
     heroSubtitle: "We design practical electrical layouts and estimate the work before you commit.",
     pageTitle: "Commercial Electrical Planning, Estimates & Installation",
-    shortDesc: "Reliable electrical trade partner for businesses, offices and retail fit-outs.",
     metaDescription: "Commercial electrical layout design, cost estimates, fit-outs and maintenance in Bayside and South East Melbourne. Practical advice from a licensed electrician.",
     intro: "Planning a fit-out or upgrading a workplace? I can help design a practical lighting and power layout, estimate the electrical scope and discuss options for your budget. From initial planning through installation, you'll have one clear point of contact.",
     included: [
@@ -377,9 +363,7 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "hot-water",
-    title: "Electrical Hot Water Services",
-    shortDesc: "Installation and repair of electric hot water systems.",
+    ...brief("hot-water"),
     metaDescription: "Electric hot water system installation and repairs across South East Melbourne. Licensed electrician.",
     intro: "No hot water is never convenient. I install and repair electric hot water systems, and can talk you through the right option if you're replacing an old unit.",
     included: [
@@ -399,11 +383,9 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "lighting",
-    title: "Energy Efficient Lighting",
+    ...brief("lighting"),
     tileImage: { file: "lighting-tile.webp", width: 573, height: 573, focus: "50% 50%", alt: "Warm LED strip lighting above a kitchen splashback" },
     image: { file: "lighting-tile.webp", alt: "Warm LED strip lighting under a floating shelf in a renovated kitchen", width: 573, height: 573, focus: "50% 50%" },
-    shortDesc: "LED upgrades, downlights and outdoor lighting that cut your power bill.",
     metaDescription: "Energy efficient LED lighting installation across South East Melbourne. Downlights, outdoor & security lighting. Licensed electrician.",
     intro: "Switching to LED lighting is one of the simplest ways to cut your power bill while improving how a space looks and feels, inside and out.",
     included: [
@@ -418,12 +400,10 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "power-points",
-    title: "Power Points & USB Wall Sockets",
+    ...brief("power-points"),
     pageTitle: "Power Point Installation & USB Wall Sockets Melbourne",
     seoTitle: "Power Point Installation & USB Upgrades Melbourne",
     heroSubtitle: "More power where you need it, with styles to suit your home and budget.",
-    shortDesc: "Additional power points, USB outlets and switch upgrades.",
     metaDescription: "Power points, USB wall sockets and switch upgrades across South East Melbourne. Explore Clipsal, Hager, HPM and Legrand styles to suit your home and budget.",
     intro: "Get power where you need it, with a finish you love. I install additional power points, USB wall sockets and matching switches, from affordable everyday fittings to designer ranges for your home or office.",
     included: [
@@ -444,9 +424,7 @@ export const services: Service[] = [
     },
   },
   {
-    slug: "light-switches",
-    title: "Light Switches & Dimmers",
-    shortDesc: "Light switch replacements, dimmers and matching finishes for your home or business.",
+    ...brief("light-switches"),
     metaDescription: "Light switch and dimmer installation in Bayside and South East Melbourne. Clipsal, Hager, HPM and Legrand / BTicino. Licensed electrician, upfront quotes.",
     heroSubtitle: "Your Lighting. Your Style. Your Control.",
     intro: "Replace worn switches, add compatible dimmers or coordinate a fresh look throughout your home. Pilkington Electrical installs and upgrades light switches across Bayside and South East Melbourne, with options to match your power points, interior finishes and budget.",
@@ -454,11 +432,9 @@ export const services: Service[] = [
     body: [],
   },
   {
-    slug: "ceiling-fans",
-    title: "Ceiling Fan Installation",
+    ...brief("ceiling-fans"),
     tileImage: { file: "ceiling-fans-tile.webp", width: 800, height: 1067, focus: "50% 20%", alt: "White ceiling fan with light in a bedroom" },
     image: { file: "ceiling-fans-tile.webp", alt: "White ceiling fan with light in a bedroom with a raked ceiling", width: 800, height: 1067, focus: "50% 20%" },
-    shortDesc: "Supply and installation of ceiling fans, or new wiring for your own fan.",
     metaDescription: "Ceiling fan installation across South East Melbourne. Supply and install, or wiring for your own fan. Licensed electrician.",
     intro: "Ceiling fans are a cost-effective way to keep rooms comfortable year-round. I can supply and install, or wire up a fan you've already bought.",
     included: [
@@ -472,12 +448,10 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "smoke-alarms",
-    title: "Smoke Alarms",
+    ...brief("smoke-alarms"),
     heroSubtitle: "Understand your options. Keep your alarms working.",
     pageTitle: "Smoke Alarm Installation & Servicing Melbourne",
     image: { file: "smoke-alarm-ceiling.webp", alt: "Clipsal smoke alarm installed on a home ceiling", width: 875, height: 656 },
-    shortDesc: "Compliant smoke alarm installation, testing and replacement.",
     metaDescription: "Smoke alarm installation, servicing and rental checks in Bayside and South East Melbourne. Hardwired, battery and interconnected options explained.",
     intro: "All Victorian homes must have working smoke alarms. I assess your property, install suitable alarms and discuss photoelectric and interconnected options, with hard-wiring where required. Rental properties need annual smoke alarm safety checks.",
     included: [
@@ -492,12 +466,10 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "ev-charger-install",
-    title: "EV Charger Installation",
+    ...brief("ev-charger-install"),
     pageTitle: "EV Charger Installation in Bayside & South East Melbourne",
     heroSubtitle: "Charging that suits your car, your home and your budget.",
     image: { file: "evnex-charging-at-home.webp", alt: "Woman plugging in her electric car beside a white Evnex E2 charger on the garage wall", width: 1600, height: 906 },
-    shortDesc: "Home EV charger supply and installation, done safely and to standard.",
     metaDescription: "EV charger installation across South East Melbourne. Home charging points installed safely and to compliance standards. Licensed electrician.",
     intro: "Not sure which charger you need? I'll assess your electrical supply, discuss how you drive and quote a practical setup before work begins. Based in Hampton East, I help homeowners, property managers and businesses plan charging with clear advice and straightforward communication.",
     included: [

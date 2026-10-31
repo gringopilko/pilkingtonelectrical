@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import logoImg from "@/assets/pilkington-logo-icon.webp";
-import { services } from "@/lib/services";
+import { serviceList as services } from "@/lib/serviceList";
 import { TrustStrip } from "@/components/TrustStrip";
 import { getServiceGroups } from "@/lib/serviceGroups";
 

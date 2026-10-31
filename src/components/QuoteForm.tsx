@@ -3,7 +3,7 @@ import { Camera, Check, Loader2, X } from "lucide-react";
 import { MAX_PHOTO_BYTES, MAX_PHOTOS, PHOTO_TYPES } from "@/lib/quote-photos";
 import { notify } from "@/lib/notify";
 import { trackQuoteRequest } from "@/lib/analytics";
-import { services } from "@/lib/services";
+import { serviceList as services } from "@/lib/serviceList";
 import { getServiceGroups } from "@/lib/serviceGroups";
 
 const inputClass =
