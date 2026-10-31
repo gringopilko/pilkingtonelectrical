@@ -50,7 +50,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">
     localIntro: "Quiet streets of Victorian terraces and apartment blocks a short walk from the beach and Catani Gardens.",
     watchFor: [
       "Salt air corroding outdoor lights, power points and meter boxes",
-      "Tight terraces with little roof space for new cabling",
+      "Tight terraces with little roof space. I chase new cabling into the walls wherever possible for a concealed finish",
       "Older apartment blocks with shared switchboards and meters",
     ],
   },
@@ -66,7 +66,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">
     localIntro: "Narrow Victorian workers' cottages and terraces packed in behind Chapel Street, with shopfronts and bars along the main strip.",
     watchFor: [
       "Shared walls and tight roof spaces in terraces, so cable routes need planning",
-      "Solid double-brick walls where chasing and surface finishes both need weighing up",
+      "Solid double-brick walls. I chase them for a concealed finish wherever possible, with premium surface ducting where body corporate rules or budget call for it",
       "Shop and hospitality work along Chapel Street",
     ],
   },
@@ -91,7 +91,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">
     watchFor: [
       "Heritage overlays to respect when adding external lights or equipment",
       "Salt air near the beach on outdoor fittings",
-      "Narrow terraces with limited roof and floor access for new circuits",
+      "Narrow terraces with limited roof and floor access. Chasing into the brick keeps new circuits hidden",
     ],
   },
   "Middle Park": {
@@ -161,7 +161,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">
   "Beaumaris": {
     localIntro: "Known for its mid-century modern homes among coastal tea-tree, many with low, flat roofs and big glass walls.",
     watchFor: [
-      "Very little roof space in flat-roof homes, which makes rewiring and new circuits harder to run",
+      "Very little roof space in flat-roof homes. Where the walls are brick, chasing is often the neatest way to run new circuits and rewire",
       "Salt air near the coast on outdoor fittings",
       "Updating lighting in mid-century homes without spoiling the original design",
     ],
