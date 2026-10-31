@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Camera, Check, Loader2, X } from "lucide-react";
 import { MAX_PHOTO_BYTES, MAX_PHOTOS, PHOTO_TYPES } from "@/lib/quote-photos";
-import { toast } from "sonner";
+import { notify } from "@/lib/notify";
 import { trackQuoteRequest } from "@/lib/analytics";
 import { services } from "@/lib/services";
 import { getServiceGroups } from "@/lib/serviceGroups";
@@ -72,9 +72,9 @@ export function QuoteForm({
   const addPhotos = (list: FileList | null) => {
     if (!list) return;
     const incoming = Array.from(list).filter((f) => f.type.startsWith("image/") || /\.(heic|heif)$/i.test(f.name));
-    if (incoming.length < list.length) toast.error("Only photos can be added.");
+    if (incoming.length < list.length) notify("error", "Only photos can be added.");
     const room = MAX_PHOTOS - photos.length;
-    if (incoming.length > room) toast.error(`You can add up to ${MAX_PHOTOS} photos.`);
+    if (incoming.length > room) notify("error", `You can add up to ${MAX_PHOTOS} photos.`);
     const next = incoming.slice(0, Math.max(0, room)).map((file) => ({ file, preview: URL.createObjectURL(file) }));
     setPhotos((prev) => [...prev, ...next]);
     if (fileInput.current) fileInput.current.value = "";
@@ -92,7 +92,7 @@ export function QuoteForm({
     if (submitting) return;
 
     if (!name.trim() || !phone.trim() || !email.trim()) {
-      toast.error("Please enter your name, phone number and email address.");
+      notify("error", "Please enter your name, phone number and email address.");
       return;
     }
 
@@ -110,7 +110,7 @@ export function QuoteForm({
       }
       setUploadStatus("");
       if (skipped > 0) {
-        toast.error(
+        notify("error", 
           skipped === photos.length
             ? "Your photos couldn't be uploaded, so your request will be sent without them."
             : `${skipped} photo${skipped > 1 ? "s" : ""} couldn't be uploaded and will be left out.`,
@@ -145,7 +145,7 @@ export function QuoteForm({
       setSubmittedPhone(phone.trim());
       setDone(true);
       trackQuoteRequest(typeof window !== "undefined" ? window.location.pathname : "unknown");
-      toast.success("Quote request sent! Shane will be in touch shortly.");
+      notify("success", "Quote request sent! Shane will be in touch shortly.");
       setName("");
       setPhone("");
       setEmail("");
@@ -154,7 +154,7 @@ export function QuoteForm({
       setPhotos([]);
     } catch (err) {
       console.error(err);
-      toast.error(
+      notify("error", 
         "Couldn't send your request. Please call 0466 270 949 or email contact@pilkingtonelectrical.com.au.",
       );
     } finally {

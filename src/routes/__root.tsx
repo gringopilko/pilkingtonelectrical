@@ -1,5 +1,4 @@
 // trigger redeploy
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -9,7 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react"; 
-import { Toaster } from "@/components/ui/sonner";
+import { LazyToaster } from "@/components/LazyToaster";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { trackContactClick } from "@/lib/analytics";
@@ -79,7 +78,7 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+export const Route = createRootRouteWithContext<Record<string, never>>()({
   head: () => ({
   meta: [
     { charSet: "utf-8" },
@@ -228,8 +227,6 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
-
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const link = (e.target as HTMLElement)?.closest?.("a[href^='tel:'], a[href^='mailto:']") as HTMLAnchorElement | null;
@@ -241,12 +238,12 @@ function RootComponent() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Toaster richColors position="top-center" />
+    <>
+      <LazyToaster />
       <MobileCallBar />
       <SiteEffects />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
-    </QueryClientProvider>
+    </>
   );
 }

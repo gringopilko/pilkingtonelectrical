@@ -10,7 +10,15 @@ export default defineConfig({
     cloudflare({ viteEnvironment: { name: "ssr" } }),
     viteTsConfigPaths({ projects: ["./tsconfig.json"] }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      // Route loaders get their own small files, so page data (services, guides, suburbs)
+      // only downloads on the pages that use it instead of on every page.
+      router: {
+        codeSplittingOptions: {
+          defaultBehavior: [["loader"], ["component"], ["pendingComponent"], ["errorComponent"], ["notFoundComponent"]],
+        },
+      },
+    }),
     viteReact(),
   ],
   });
