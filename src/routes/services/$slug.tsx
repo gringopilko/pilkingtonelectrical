@@ -1,3 +1,4 @@
+import { lazy, Suspense, type ComponentType } from "react";
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Check, Phone, ChevronRight } from "lucide-react";
 import { Nav } from "@/components/Nav";
@@ -6,39 +7,93 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
 import { Collapsible } from "@/components/Collapsible";
-import { TestTagInfographic } from "@/components/TestTagInfographic";
-import { StrataInfographic } from "@/components/StrataInfographic";
-import { RealEstateInfographic } from "@/components/RealEstateInfographic";
-import { EVInfographic } from "@/components/EVInfographic";
-import { FaultFindingInfographic } from "@/components/FaultFindingInfographic";
-import { ProtectionGuide } from "@/components/ProtectionGuide";
-import { RewiringInfographic } from "@/components/RewiringInfographic";
-import { LightingComparison } from "@/components/LightingComparison";
-import { CeilingFanInfographic } from "@/components/CeilingFanInfographic";
-import { HotWaterInfographic } from "@/components/HotWaterInfographic";
-import { ChasingInfographic } from "@/components/ChasingInfographic";
 import { NoPatchingNotice } from "@/components/NoPatchingNotice";
 import { Glossed } from "@/components/Term";
-import { SwitchboardDetails } from "@/components/SwitchboardDetails";
 import { EmergencyHeroVideo } from "@/components/EmergencyHeroVideo";
-import { EmergencyElectricalDetails } from "@/components/EmergencyElectricalDetails";
-import { ElectricalSafetyDetails } from "@/components/ElectricalSafetyDetails";
-import { LightSwitchesDetails } from "@/components/LightSwitchesDetails";
-import { PowerPointsDetails } from "@/components/PowerPointsDetails";
-import { SmokeAlarmDetails } from "@/components/SmokeAlarmDetails";
-import { FaultFindingDetails } from "@/components/FaultFindingDetails";
-import { BodyCorporateDetails } from "@/components/BodyCorporateDetails";
-import { RealEstateDetails } from "@/components/RealEstateDetails";
-import { EVChargerDetails } from "@/components/EVChargerDetails";
 import { CommercialHeroVideo } from "@/components/CommercialHeroVideo";
 import { workPhotos } from "@/lib/workPhotos";
 import { guides } from "@/lib/guides";
 
 import { pageTitle } from "@/lib/seo";
+
+// Each service's own infographics and detail sections load only on that service's page,
+// so a visitor to one service doesn't download every other service's extras.
+const partLoaders = {
+  TestTagInfographic: () => import("@/components/TestTagInfographic"),
+  StrataInfographic: () => import("@/components/StrataInfographic"),
+  RealEstateInfographic: () => import("@/components/RealEstateInfographic"),
+  EVInfographic: () => import("@/components/EVInfographic"),
+  FaultFindingInfographic: () => import("@/components/FaultFindingInfographic"),
+  ProtectionGuide: () => import("@/components/ProtectionGuide"),
+  RewiringInfographic: () => import("@/components/RewiringInfographic"),
+  LightingComparison: () => import("@/components/LightingComparison"),
+  CeilingFanInfographic: () => import("@/components/CeilingFanInfographic"),
+  HotWaterInfographic: () => import("@/components/HotWaterInfographic"),
+  ChasingInfographic: () => import("@/components/ChasingInfographic"),
+  SwitchboardDetails: () => import("@/components/SwitchboardDetails"),
+  EmergencyElectricalDetails: () => import("@/components/EmergencyElectricalDetails"),
+  ElectricalSafetyDetails: () => import("@/components/ElectricalSafetyDetails"),
+  LightSwitchesDetails: () => import("@/components/LightSwitchesDetails"),
+  PowerPointsDetails: () => import("@/components/PowerPointsDetails"),
+  SmokeAlarmDetails: () => import("@/components/SmokeAlarmDetails"),
+  FaultFindingDetails: () => import("@/components/FaultFindingDetails"),
+  BodyCorporateDetails: () => import("@/components/BodyCorporateDetails"),
+  RealEstateDetails: () => import("@/components/RealEstateDetails"),
+  EVChargerDetails: () => import("@/components/EVChargerDetails"),
+};
+type PartName = keyof typeof partLoaders;
+const partsBySlug: Record<string, PartName[]> = {
+  "test-and-tag": ["TestTagInfographic"],
+  "body-corporate": ["StrataInfographic", "BodyCorporateDetails"],
+  "real-estate": ["RealEstateInfographic", "RealEstateDetails"],
+  "ev-charger-install": ["EVInfographic", "EVChargerDetails"],
+  "fault-finding": ["FaultFindingInfographic", "FaultFindingDetails"],
+  "safety-switches": ["ProtectionGuide"],
+  "rewiring-extensions": ["RewiringInfographic"],
+  "lighting": ["LightingComparison"],
+  "ceiling-fans": ["CeilingFanInfographic"],
+  "hot-water": ["HotWaterInfographic"],
+  "wall-chasing": ["ChasingInfographic"],
+  "switchboards": ["SwitchboardDetails"],
+  "emergency-electrical": ["EmergencyElectricalDetails"],
+  "electrical-safety-inspections": ["ElectricalSafetyDetails"],
+  "light-switches": ["LightSwitchesDetails"],
+  "power-points": ["PowerPointsDetails"],
+  "smoke-alarms": ["SmokeAlarmDetails"],
+};
+function lazyPart(name: PartName) {
+  const Part = lazy(() => partLoaders[name]().then((m) => ({ default: (m as unknown as Record<string, ComponentType>)[name] })));
+  return function LazyPart() {
+    return <Suspense fallback={null}><Part /></Suspense>;
+  };
+}
+const TestTagInfographic = lazyPart("TestTagInfographic");
+const StrataInfographic = lazyPart("StrataInfographic");
+const RealEstateInfographic = lazyPart("RealEstateInfographic");
+const EVInfographic = lazyPart("EVInfographic");
+const FaultFindingInfographic = lazyPart("FaultFindingInfographic");
+const ProtectionGuide = lazyPart("ProtectionGuide");
+const RewiringInfographic = lazyPart("RewiringInfographic");
+const LightingComparison = lazyPart("LightingComparison");
+const CeilingFanInfographic = lazyPart("CeilingFanInfographic");
+const HotWaterInfographic = lazyPart("HotWaterInfographic");
+const ChasingInfographic = lazyPart("ChasingInfographic");
+const SwitchboardDetails = lazyPart("SwitchboardDetails");
+const EmergencyElectricalDetails = lazyPart("EmergencyElectricalDetails");
+const ElectricalSafetyDetails = lazyPart("ElectricalSafetyDetails");
+const LightSwitchesDetails = lazyPart("LightSwitchesDetails");
+const PowerPointsDetails = lazyPart("PowerPointsDetails");
+const SmokeAlarmDetails = lazyPart("SmokeAlarmDetails");
+const FaultFindingDetails = lazyPart("FaultFindingDetails");
+const BodyCorporateDetails = lazyPart("BodyCorporateDetails");
+const RealEstateDetails = lazyPart("RealEstateDetails");
+const EVChargerDetails = lazyPart("EVChargerDetails");
+
 export const Route = createFileRoute("/services/$slug")({
-  loader: ({ params }) => {
+  loader: async ({ params }) => {
     const service = services.find((s) => s.slug === params.slug);
     if (!service) throw notFound();
+    await Promise.all((partsBySlug[service.slug] ?? []).map((name) => partLoaders[name]()));
     return service;
   },
   head: ({ loaderData }) => {
