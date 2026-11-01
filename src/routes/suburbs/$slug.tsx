@@ -31,6 +31,15 @@ export const Route = createFileRoute("/suburbs/$slug")({
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
         { property: "og:url", content: url },
+        ...(loaderData.photo
+          ? [
+              { property: "og:image", content: `https://pilkingtonelectrical.com.au/img/${loaderData.photo.file}` },
+              { property: "og:image:width", content: String(loaderData.photo.width) },
+              { property: "og:image:height", content: String(loaderData.photo.height) },
+              { property: "og:image:type", content: "image/webp" },
+              { property: "og:image:alt", content: loaderData.photo.alt },
+            ]
+          : []),
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -43,6 +52,7 @@ export const Route = createFileRoute("/suburbs/$slug")({
             "name": `Electrician services in ${loaderData.name}`,
             "description": description,
             "url": url,
+            ...(loaderData.photo ? { "image": `https://pilkingtonelectrical.com.au/img/${loaderData.photo.file}` } : {}),
             "provider": {
               "@type": "ElectricalContractor",
               "name": "Pilkington Electrical",

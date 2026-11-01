@@ -92,6 +92,7 @@ export const Route = createRootRouteWithContext<Record<string, never>>()({
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://pilkingtonelectrical.com.au/" },
     { property: "og:site_name", content: "Pilkington Electrical" },
+    { name: "robots", content: "index, follow, max-image-preview:large" },
     { property: "og:image", content: "https://pilkingtonelectrical.com.au/og-image-clean.png" },
     { property: "og:image:width", content: "1731" },
     { property: "og:image:height", content: "909" },
@@ -163,6 +164,9 @@ export const Route = createRootRouteWithContext<Record<string, never>>()({
           "https://www.google.com/maps/place/?q=place_id:ChIJU6XvSn1p1moROAWfH_eN1rw",
           "https://www.facebook.com/pilkingtonelectrical",
           "https://www.instagram.com/pilkingtonelectrical",
+          "https://www.yellowpages.com.au/hampton-east-vic/bpp/pilkington-electrical-582530986",
+          "https://www.whitepages.com.au/pilkington-electrical-12972952/hampton-east-vic-12972951B",
+          "https://www.truelocal.com.au/hampton-east-vic/tlp/pilkington-electrical-582530986",
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
