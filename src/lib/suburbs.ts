@@ -255,6 +255,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Bentleigh": {
+    photo: { file: "suburb-bentleigh-centre-road.webp", alt: "Shops along Centre Road, Bentleigh", width: 1600, height: 1002 },
     localIntro: "Interwar Californian bungalows and postwar homes close to the Centre Road shops and the Frankston line, with lots of renovations and extensions.",
     watchFor: [
       "Old wiring and missing safety switches uncovered during renovations",
@@ -335,6 +336,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Springvale": {
+    photo: { file: "suburb-springvale-centre.webp", alt: "Shoppers outside the Springvale Centre", width: 862, height: 656 },
     localIntro: "A busy, multicultural shopping centre with restaurants and grocers, surrounded by postwar homes and units.",
     watchFor: [
       "Restaurant and shop fit-outs with heavy kitchen and refrigeration loads",
