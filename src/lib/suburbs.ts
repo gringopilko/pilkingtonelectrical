@@ -313,7 +313,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Cheltenham": {
-    photo: { file: "suburb-cheltenham-southland.webp", alt: "Westfield Southland shopping centre, Cheltenham", width: 1346, height: 677 },
+    photo: { file: "suburb-cheltenham.webp", alt: "The Village apartments in Cheltenham", width: 1600, height: 1006, credit: { author: "CBG Architects PL", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:The_Village_Cheltenham.jpg" } },
     localIntro: "Postwar homes and a growing number of townhouses between Southland and the Charman Road shops.",
     watchFor: [
       "1950s and 60s wiring in original homes",
