@@ -32,6 +32,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "St Kilda": {
+    photo: { file: "suburb-st-kilda-luna-park.webp", alt: "Luna Park entrance on the St Kilda foreshore", width: 1600, height: 1067 },
     localIntro: "Grand Victorian homes split into flats, art deco blocks, high-density apartments and busy strips along Acland and Fitzroy Streets.",
     watchFor: [
       "Ageing common-area wiring and submains in older apartment buildings",
