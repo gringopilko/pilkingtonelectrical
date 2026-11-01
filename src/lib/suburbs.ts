@@ -189,6 +189,15 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
       "Older weatherboards on original wiring",
     ],
   },
+  "Toorak": {
+    photo: { file: "suburb-toorak-tennis-courts.webp", alt: "Grass tennis courts in Toorak", width: 1600, height: 1067 },
+    localIntro: "Some of Melbourne's grandest homes, from Victorian and Edwardian mansions to interwar estates and large modern builds, plus apartments and boutiques along Toorak Road.",
+    watchFor: [
+      "Large homes with heavy loads from pools, heated floors, ducted air and court lighting, often needing three-phase and a well-planned switchboard",
+      "Original wiring in period homes that have been extended in stages over the years",
+      "Gate, security, garden and outdoor lighting across large grounds",
+    ],
+  },
   "Malvern": {
     localIntro: "Grand Victorian, Edwardian and interwar homes around Glenferrie Road and High Street, many with heritage protection.",
     watchFor: [
