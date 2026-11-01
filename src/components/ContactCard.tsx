@@ -4,7 +4,7 @@ export function ContactCard({ icon, label, value, href, description, highlight =
   return (
     <a
       href={href}
-      className={`group flex items-center gap-4 rounded-2xl p-5 text-left transition-all hover:-translate-y-0.5 ${highlight ? "bg-gradient-to-br from-primary to-brand-dark text-white shadow-lg shadow-primary/25" : "border border-border bg-background hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"}`}
+      className={`group flex items-center gap-4 rounded-2xl p-5 text-left transition-all hover:-translate-y-0.5 ${highlight ? "bg-gradient-to-br from-primary to-brand-dark text-white shadow-lg shadow-primary/25 dark:shadow-primary/10" : "border border-border bg-background hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"}`}
     >
       <div className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors ${highlight ? "bg-white/15 text-white" : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"}`}>{icon}</div>
       <div className="min-w-0">
