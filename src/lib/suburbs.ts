@@ -15,6 +15,7 @@ export interface SuburbEntry {
 /** What makes each suburb different, and the electrical issues that come with it. */
 const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" | "photo">> = {
   "Melbourne CBD": {
+    photo: { file: "suburb-melbourne-cbd-princes-bridge.webp", alt: "Princes Bridge over the Yarra with Melbourne CBD towers behind", width: 1600, height: 1050 },
     localIntro: "Office towers, Victorian-era buildings, laneway cafes and shops, and a growing number of apartment towers, all with tight access and busy trading hours.",
     watchFor: [
       "Parking is the biggest challenge on CBD jobs. Please let me know if there's parking on site or a loading bay, and the height clearance of any car park, so the van can get in",
@@ -24,6 +25,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Elwood": {
+    photo: { file: "suburb-elwood-point-ormond.webp", alt: "View from Point Ormond in Elwood along the bay to the Melbourne skyline", width: 1600, height: 1200 },
     localIntro: "Built on drained swampland around the Elwood Canal and Elster Creek, so it's low-lying and some streets still flood in heavy rain. Famous for its art deco and interwar apartment blocks.",
     watchFor: [
       "Damp subfloors and flood risk. I keep electrical gear up high where possible and make sure safety switches are in place",
@@ -89,6 +91,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Albert Park": {
+    photo: { file: "suburb-albert-park-lake.webp", alt: "Aerial view of Albert Park Lake with the Melbourne skyline", width: 1600, height: 1200 },
     localIntro: "A heritage streetscape of Victorian terraces and cottages between the lake and the beach.",
     watchFor: [
       "Heritage overlays to respect when adding external lights or equipment",
@@ -113,6 +116,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Port Melbourne": {
+    photo: { file: "suburb-port-melbourne-princes-pier.webp", alt: "Old timber piles at Princes Pier, Port Melbourne", width: 1600, height: 1200 },
     localIntro: "Old workers' cottages near the bay alongside modern apartment developments around Beacon Cove and Bay Street.",
     watchFor: [
       "Salt air and wind off the bay on outdoor equipment",
