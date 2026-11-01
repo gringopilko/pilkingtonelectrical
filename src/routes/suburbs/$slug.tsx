@@ -109,15 +109,26 @@ function SuburbPage() {
         {suburb.localIntro && (
           <div className={suburb.photo ? "mb-12 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]" : "mb-12 max-w-3xl"}>
             {suburb.photo && (
-              <img
-                src={`/img/${suburb.photo.file}`}
-                alt={suburb.photo.alt}
-                width={suburb.photo.width}
-                height={suburb.photo.height}
-                loading="lazy"
-                decoding="async"
-                className="h-auto w-full rounded-2xl object-cover lg:order-2"
-              />
+              <figure className="lg:order-2">
+                <img
+                  src={`/img/${suburb.photo.file}`}
+                  alt={suburb.photo.alt}
+                  width={suburb.photo.width}
+                  height={suburb.photo.height}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full rounded-2xl object-cover"
+                />
+                {suburb.photo.credit && (
+                  <figcaption className="mt-2 text-xs text-muted-foreground">
+                    Photo:{" "}
+                    <a href={suburb.photo.credit.url} target="_blank" rel="noopener noreferrer nofollow" className="underline underline-offset-2 hover:text-foreground">
+                      {suburb.photo.credit.author}
+                    </a>
+                    , {suburb.photo.credit.license}
+                  </figcaption>
+                )}
+              </figure>
             )}
             <div className="lg:order-1">
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Your local electrician in {suburb.name}</h2>
