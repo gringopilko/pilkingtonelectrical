@@ -60,7 +60,7 @@
   --card-foreground: oklch(0.18 0.02 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 260);
-  --primary: oklch(0.63 0.18 250);
+  --primary: oklch(0.52 0.18 250); /* deeper than the logo blue so white button text and blue text on white pass WCAG AA contrast */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.96 0.005 250);
   --secondary-foreground: oklch(0.2 0.02 260);
@@ -72,7 +72,7 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.92 0.005 250);
   --input: oklch(0.92 0.005 250);
-  --ring: oklch(0.63 0.18 250);
+  --ring: oklch(0.52 0.18 250);
   --chart-1: oklch(0.63 0.18 250);
   --chart-2: oklch(0.7 0.14 245);
   --chart-3: oklch(0.55 0.16 255);
@@ -774,4 +774,10 @@ footer::after,
     outline-offset: -1px;
     background-image: radial-gradient(circle at 50% 50%, rgb(0 140 240 / 0.1), transparent 75%);
   }
+}
+
+/* Dark mode: keep the brighter blue for text and icons (it reads well on the dark background),
+   but give filled buttons a deeper blue so their white text passes WCAG AA contrast. */
+.dark .bg-primary {
+  background-color: oklch(0.55 0.17 248);
 }
