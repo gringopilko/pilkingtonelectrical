@@ -231,6 +231,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Caulfield": {
+    photo: { file: "suburb-caulfield-park.webp", alt: "Ducks on the pond in Caulfield Park", width: 1024, height: 768 },
     localIntro: "Large Victorian and Edwardian homes near the racecourse, plus plenty of flats and rentals close to the Monash campus and station.",
     watchFor: [
       "Rental safety checks for landlords and property managers",
@@ -280,6 +281,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Cheltenham": {
+    photo: { file: "suburb-cheltenham-southland.webp", alt: "Westfield Southland shopping centre, Cheltenham", width: 1346, height: 677 },
     localIntro: "Postwar homes and a growing number of townhouses between Southland and the Charman Road shops.",
     watchFor: [
       "1950s and 60s wiring in original homes",
