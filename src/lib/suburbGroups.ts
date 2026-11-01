@@ -13,7 +13,7 @@ export const suburbGroups = [
   {
     area: "Stonnington & Boroondara",
     blurb: "Established, leafy suburbs with a mix of period homes and townhouse developments. Common jobs here include rewires and switchboard upgrades in older housing stock.",
-    suburbs: ["Toorak", "Malvern", "Malvern East", "Glen Iris", "Camberwell", "Caulfield", "Caulfield North", "Caulfield South"],
+    suburbs: ["Toorak", "Malvern", "Malvern East", "Glen Iris", "Camberwell", "Hawthorn", "Caulfield", "Caulfield North", "Caulfield South"],
   },
   {
     area: "South East",

@@ -199,6 +199,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Malvern": {
+    photo: { file: "suburb-malvern-aerial.webp", alt: "Aerial view over the leafy streets of Malvern", width: 1030, height: 516 },
     localIntro: "Grand Victorian, Edwardian and interwar homes around Glenferrie Road and High Street, many with heritage protection.",
     watchFor: [
       "Old wiring in large period homes, often extended in stages over the years",
@@ -223,11 +224,21 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" 
     ],
   },
   "Camberwell": {
+    photo: { file: "suburb-camberwell-junction.webp", alt: "Trams and shops at Camberwell Junction", width: 1280, height: 853 },
     localIntro: "Edwardian and interwar homes around Camberwell Junction, with large blocks and protected heritage streetscapes.",
     watchFor: [
       "Heritage controls on external changes",
       "Old wiring in large homes and outbuildings",
       "Switchboard upgrades to suit modern loads",
+    ],
+  },
+  "Hawthorn": {
+    photo: { file: "suburb-hawthorn-glenferrie-road.webp", alt: "Shops along Glenferrie Road, Hawthorn", width: 960, height: 640 },
+    localIntro: "Grand Victorian and Edwardian homes on leafy streets by the Yarra, students around Swinburne, and busy shopping strips along Glenferrie Road and Burwood Road.",
+    watchFor: [
+      "Original wiring in large period homes, often added to in stages over the years",
+      "Student rentals and share houses that need safety checks and enough circuits for everyone",
+      "Heritage overlays to respect when adding external lights or equipment",
     ],
   },
   "Caulfield": {
