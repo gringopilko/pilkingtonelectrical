@@ -107,7 +107,19 @@ function SuburbPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-16">
         {suburb.localIntro && (
-          <div className="mb-12 max-w-3xl">
+          <div className={suburb.photo ? "mb-12 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]" : "mb-12 max-w-3xl"}>
+            {suburb.photo && (
+              <img
+                src={`/img/${suburb.photo.file}`}
+                alt={suburb.photo.alt}
+                width={suburb.photo.width}
+                height={suburb.photo.height}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full rounded-2xl object-cover lg:order-2"
+              />
+            )}
+            <div className="lg:order-1">
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Your local electrician in {suburb.name}</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">{suburb.localIntro}</p>
             {suburb.watchFor && (
@@ -125,6 +137,7 @@ function SuburbPage() {
                 </ul>
               </>
             )}
+            </div>
           </div>
         )}
         <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">Electrical services in {suburb.name}</h2>

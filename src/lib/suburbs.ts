@@ -9,10 +9,11 @@ export interface SuburbEntry {
   neighbours: string[];
   localIntro?: string;
   watchFor?: string[];
+  photo?: { file: string; alt: string; width: number; height: number };
 }
 
 /** What makes each suburb different, and the electrical issues that come with it. */
-const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">> = {
+const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor" | "photo">> = {
   "Melbourne CBD": {
     localIntro: "Office towers, Victorian-era buildings, laneway cafes and shops, and a growing number of apartment towers, all with tight access and busy trading hours.",
     watchFor: [
@@ -119,6 +120,7 @@ const suburbDetails: Record<string, Pick<SuburbEntry, "localIntro" | "watchFor">
     ],
   },
   "Brighton": {
+    photo: { file: "suburb-brighton-bathing-boxes.webp", alt: "Colourful bathing boxes on Brighton Beach", width: 1600, height: 1200 },
     localIntro: "Large Victorian, Edwardian and interwar homes, many under heritage overlays, sitting alongside big modern rebuilds.",
     watchFor: [
       "Cloth or rubber-insulated wiring in period homes, which goes brittle with age",
