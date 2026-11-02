@@ -64,28 +64,8 @@ export function QuoteForm({
   const [done, setDone] = useState(false);
   const [submittedPhone, setSubmittedPhone] = useState("");
   const [photos, setPhotos] = useState<PickedPhoto[]>([]);
+  const [boardPhotos, setBoardPhotos] = useState<PickedPhoto[]>([]);
   const [uploadStatus, setUploadStatus] = useState("");
-  const fileInput = useRef<HTMLInputElement>(null);
-
-  useEffect(() => () => photos.forEach((p) => URL.revokeObjectURL(p.preview)), [photos]);
-
-  const addPhotos = (list: FileList | null) => {
-    if (!list) return;
-    const incoming = Array.from(list).filter((f) => f.type.startsWith("image/") || /\.(heic|heif)$/i.test(f.name));
-    if (incoming.length < list.length) notify("error", "Only photos can be added.");
-    const room = MAX_PHOTOS - photos.length;
-    if (incoming.length > room) notify("error", `You can add up to ${MAX_PHOTOS} photos.`);
-    const next = incoming.slice(0, Math.max(0, room)).map((file) => ({ file, preview: URL.createObjectURL(file) }));
-    setPhotos((prev) => [...prev, ...next]);
-    if (fileInput.current) fileInput.current.value = "";
-  };
-
-  const removePhoto = (index: number) => {
-    setPhotos((prev) => {
-      URL.revokeObjectURL(prev[index].preview);
-      return prev.filter((_, i) => i !== index);
-    });
-  };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,12 +78,15 @@ export function QuoteForm({
 
     setSubmitting(true);
     try {
+      const all = [...photos.map((p) => ({ p, board: false })), ...boardPhotos.map((p) => ({ p, board: true }))];
       const photoLinks: string[] = [];
+      const boardLinks: string[] = [];
       let skipped = 0;
-      for (let i = 0; i < photos.length; i++) {
-        setUploadStatus(`Uploading photo ${i + 1} of ${photos.length}...`);
+      for (let i = 0; i < all.length; i++) {
+        setUploadStatus(`Uploading photo ${i + 1} of ${all.length}...`);
         try {
-          photoLinks.push(await uploadPhoto(photos[i].file));
+          const url = await uploadPhoto(all[i].p.file);
+          (all[i].board ? boardLinks : photoLinks).push(url);
         } catch {
           skipped++;
         }
@@ -111,7 +94,7 @@ export function QuoteForm({
       setUploadStatus("");
       if (skipped > 0) {
         notify("error", 
-          skipped === photos.length
+          skipped === all.length
             ? "Your photos couldn't be uploaded, so your request will be sent without them."
             : `${skipped} photo${skipped > 1 ? "s" : ""} couldn't be uploaded and will be left out.`,
         );
@@ -127,7 +110,8 @@ export function QuoteForm({
           email: email.trim(),
           service: service || "Not specified",
           message: message.trim() || "No message provided",
-          photos: photoLinks.length ? photoLinks.join("\n") : "No photos added",
+          "Job photos": photoLinks.length ? photoLinks.join("\n") : "No photos added",
+          "Switchboard photos": boardLinks.length ? boardLinks.join("\n") : "No photos added",
           subject: service
             ? `New Quote Request: ${service} - Pilkington Electrical`
             : "New Quote Request - Pilkington Electrical",
@@ -152,6 +136,7 @@ export function QuoteForm({
       setService(initialService);
       setMessage(initialMessage);
       setPhotos([]);
+      setBoardPhotos([]);
     } catch (err) {
       console.error(err);
       notify("error", 
@@ -252,47 +237,26 @@ export function QuoteForm({
         />
       </label>
       <div className="grid gap-2 text-sm font-semibold md:col-span-2">
-        <span>
-          Photos of the job <span className="font-normal text-muted-foreground">(optional, up to {MAX_PHOTOS})</span>
-        </span>
-        <input
-          ref={fileInput}
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={(e) => addPhotos(e.target.files)}
-          className="sr-only"
+        <PhotoPicker
           id="quote-photos"
+          label="Photos of the job"
+          max={MAX_PHOTOS}
+          hint="The area you want work done and any fault are the most useful."
+          photos={photos}
+          setPhotos={setPhotos}
           disabled={submitting}
         />
-        <div className="flex flex-wrap gap-3">
-          {photos.map((p, i) => (
-            <div key={p.preview} className="relative h-20 w-20 overflow-hidden rounded-xl bg-muted ring-1 ring-border">
-              <img src={p.preview} alt={`Photo ${i + 1}`} className="h-full w-full object-cover" />
-              <button
-                type="button"
-                onClick={() => removePhoto(i)}
-                disabled={submitting}
-                aria-label={`Remove photo ${i + 1}`}
-                className="absolute right-1 top-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/75 text-white"
-              >
-                <X className="h-3.5 w-3.5" />
-              </button>
-            </div>
-          ))}
-          {photos.length < MAX_PHOTOS && (
-            <label
-              htmlFor="quote-photos"
-              className="inline-flex h-20 min-w-20 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed border-primary/40 px-4 text-xs font-bold text-primary transition-colors hover:bg-primary/5"
-            >
-              <Camera className="h-5 w-5" aria-hidden="true" />
-              Add photos
-            </label>
-          )}
-        </div>
-        <span className="text-xs font-normal text-muted-foreground">
-          The switchboard, the area you want work done and any fault are the most useful.
-        </span>
+      </div>
+      <div className="grid gap-2 text-sm font-semibold md:col-span-2">
+        <PhotoPicker
+          id="quote-board-photos"
+          label="Photo of your switchboard"
+          max={2}
+          hint="Open the switchboard door and take a clear, straight-on photo. It helps me quote without an extra visit."
+          photos={boardPhotos}
+          setPhotos={setBoardPhotos}
+          disabled={submitting}
+        />
       </div>
       <div className="md:col-span-2">
         <button
@@ -310,5 +274,71 @@ export function QuoteForm({
         </button>
       </div>
     </form>
+  );
+}
+
+/** One photo upload area: thumbnails with remove buttons, plus an "Add photos" tile. */
+function PhotoPicker({
+  id,
+  label,
+  max,
+  hint,
+  photos,
+  setPhotos,
+  disabled,
+}: {
+  id: string;
+  label: string;
+  max: number;
+  hint: string;
+  photos: PickedPhoto[];
+  setPhotos: React.Dispatch<React.SetStateAction<PickedPhoto[]>>;
+  disabled: boolean;
+}) {
+  const fileInput = useRef<HTMLInputElement>(null);
+  useEffect(() => () => photos.forEach((p) => URL.revokeObjectURL(p.preview)), [photos]);
+
+  const addPhotos = (list: FileList | null) => {
+    if (!list) return;
+    const incoming = Array.from(list).filter((f) => f.type.startsWith("image/") || /\.(heic|heif)$/i.test(f.name));
+    if (incoming.length < list.length) notify("error", "Only photos can be added.");
+    const room = max - photos.length;
+    if (incoming.length > room) notify("error", `You can add up to ${max} photos here.`);
+    const next = incoming.slice(0, Math.max(0, room)).map((file) => ({ file, preview: URL.createObjectURL(file) }));
+    setPhotos((prev) => [...prev, ...next]);
+    if (fileInput.current) fileInput.current.value = "";
+  };
+
+  const removePhoto = (index: number) => {
+    setPhotos((prev) => {
+      URL.revokeObjectURL(prev[index].preview);
+      return prev.filter((_, i) => i !== index);
+    });
+  };
+
+  return (
+    <>
+      <span>
+        {label} <span className="font-normal text-muted-foreground">(optional, up to {max})</span>
+      </span>
+      <input ref={fileInput} type="file" accept="image/*" multiple onChange={(e) => addPhotos(e.target.files)} className="sr-only" id={id} disabled={disabled} />
+      <div className="flex flex-wrap gap-3">
+        {photos.map((p, i) => (
+          <div key={p.preview} className="relative h-20 w-20 overflow-hidden rounded-xl bg-muted ring-1 ring-border">
+            <img src={p.preview} alt={`${label} ${i + 1}`} className="h-full w-full object-cover" />
+            <button type="button" onClick={() => removePhoto(i)} disabled={disabled} aria-label={`Remove photo ${i + 1}`} className="absolute right-1 top-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/75 text-white">
+              <X className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        ))}
+        {photos.length < max && (
+          <label htmlFor={id} className="inline-flex h-20 min-w-20 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed border-primary/40 px-4 text-xs font-bold text-primary transition-colors hover:bg-primary/5">
+            <Camera className="h-5 w-5" aria-hidden="true" />
+            Add photos
+          </label>
+        )}
+      </div>
+      <span className="text-xs font-normal text-muted-foreground">{hint}</span>
+    </>
   );
 }
