@@ -5,6 +5,9 @@ import nhpLogo from "@/assets/nhp-logo.webp";
 import voltexLogo from "@/assets/voltex-logo.webp";
 import beaconLogo from "@/assets/beacon-logo.webp";
 import evnexLogo from "@/assets/evnex-logo.webp";
+import teslaLogo from "@/assets/tesla-logo.webp";
+import sonosLogo from "@/assets/sonos-logo.webp";
+import schneiderLogo from "@/assets/schneider-logo.webp";
 
 const logos = [
   { src: clipsalLogo, alt: "Clipsal", size: "h-12 sm:h-16" },
@@ -14,6 +17,9 @@ const logos = [
   { src: voltexLogo, alt: "Voltex", size: "h-9 sm:h-12" },
   { src: beaconLogo, alt: "Beacon", size: "h-9 sm:h-12" },
   { src: evnexLogo, alt: "Evnex", size: "h-5 sm:h-7" },
+  { src: teslaLogo, alt: "Tesla", size: "h-3.5 sm:h-5" },
+  { src: schneiderLogo, alt: "Schneider Electric", size: "h-8 sm:h-11" },
+  { src: sonosLogo, alt: "Sonos", size: "h-4 sm:h-6" },
 ];
 
 // Four copies, moving by half the track, so the loop is seamless even on very wide screens.
