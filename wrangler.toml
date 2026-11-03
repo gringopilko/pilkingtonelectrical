@@ -24,3 +24,8 @@ custom_domain = true
 [[routes]]
 pattern = "www.pilkingtonelectrical.com.au/*"
 zone_name = "pilkingtonelectrical.com.au"
+
+[[d1_databases]]
+binding = "INVOICES_DB"
+database_name = "pilkington-invoices"
+database_id = "919bb479-3ca1-4219-afca-87f772197a48"

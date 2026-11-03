@@ -44,7 +44,7 @@
 <script>
 (function () {
   // The invoice service. This is the only place the page talks to.
-  var API = 'https://plcuidyfhyonsqeofkdy.supabase.co/functions/v1/invoice';
+  var API = '/api/invoice';
   var app = document.getElementById('app');
   var money = function (n) { return new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD' }).format(Number(n) || 0); };
   var dmy = function (iso) { var d = new Date(iso); return isNaN(d) ? '' : d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }); };

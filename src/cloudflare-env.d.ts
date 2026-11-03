@@ -9,6 +9,15 @@ declare module "cloudflare:workers" {
       put(key: string, value: ArrayBuffer, options?: { expirationTtl?: number; metadata?: Record<string, string> }): Promise<void>;
       getWithMetadata<M>(key: string, type: "arrayBuffer"): Promise<{ value: ArrayBuffer | null; metadata: M | null }>;
     };
+    INVOICES_DB: {
+      prepare(sql: string): {
+        bind(...values: unknown[]): {
+          first<T = Record<string, unknown>>(): Promise<T | null>;
+          run(): Promise<unknown>;
+        };
+      };
+      batch(statements: unknown[]): Promise<unknown[]>;
+    };
     GOOGLE_PLACE_ID: string;
     GOOGLE_PLACES_API_KEY: string;
   };

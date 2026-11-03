@@ -20,6 +20,7 @@ import { Route as ReviewRouteImport } from './routes/review'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TermsOfTradeRouteImport } from './routes/terms-of-trade'
+import { Route as ApiInvoiceRouteImport } from './routes/api.invoice'
 import { Route as ApiQuotePhotoRouteImport } from './routes/api.quote-photo'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as GuidesSlugRouteImport } from './routes/guides/$slug'
@@ -84,6 +85,11 @@ const TermsOfTradeRoute = TermsOfTradeRouteImport.update({
   path: '/terms-of-trade',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiInvoiceRoute = ApiInvoiceRouteImport.update({
+  id: '/api/invoice',
+  path: '/api/invoice',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiQuotePhotoRoute = ApiQuotePhotoRouteImport.update({
   id: '/api/quote-photo',
   path: '/api/quote-photo',
@@ -137,6 +143,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/terms-of-trade': typeof TermsOfTradeRoute
+  '/api/invoice': typeof ApiInvoiceRoute
   '/api/quote-photo': typeof ApiQuotePhotoRouteWithChildren
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -158,6 +165,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/terms-of-trade': typeof TermsOfTradeRoute
+  '/api/invoice': typeof ApiInvoiceRoute
   '/api/quote-photo': typeof ApiQuotePhotoRouteWithChildren
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -180,6 +188,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/terms-of-trade': typeof TermsOfTradeRoute
+  '/api/invoice': typeof ApiInvoiceRoute
   '/api/quote-photo': typeof ApiQuotePhotoRouteWithChildren
   '/guides/$slug': typeof GuidesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -203,6 +212,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/terms-of-trade'
+    | '/api/invoice'
     | '/api/quote-photo'
     | '/guides/$slug'
     | '/services/$slug'
@@ -224,6 +234,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/terms-of-trade'
+    | '/api/invoice'
     | '/api/quote-photo'
     | '/guides/$slug'
     | '/services/$slug'
@@ -245,6 +256,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terms'
     | '/terms-of-trade'
+    | '/api/invoice'
     | '/api/quote-photo'
     | '/guides/$slug'
     | '/services/$slug'
@@ -267,6 +279,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   TermsOfTradeRoute: typeof TermsOfTradeRoute
+  ApiInvoiceRoute: typeof ApiInvoiceRoute
   ApiQuotePhotoRoute: typeof ApiQuotePhotoRouteWithChildren
   GuidesSlugRoute: typeof GuidesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -355,6 +368,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsOfTradeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/invoice': {
+      id: '/api/invoice'
+      path: '/api/invoice'
+      fullPath: '/api/invoice'
+      preLoaderRoute: typeof ApiInvoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/quote-photo': {
       id: '/api/quote-photo'
       path: '/api/quote-photo'
@@ -438,6 +458,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   TermsOfTradeRoute: TermsOfTradeRoute,
+  ApiInvoiceRoute: ApiInvoiceRoute,
   ApiQuotePhotoRoute: ApiQuotePhotoRouteWithChildren,
   GuidesSlugRoute: GuidesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
