@@ -21,8 +21,8 @@ export const Route = createFileRoute("/suburbs/$slug")({
     const url = `https://pilkingtonelectrical.com.au/suburbs/${loaderData.slug}`;
     const title = `Electrician ${loaderData.name} | Pilkington Electrical`;
     const description = loaderData.slug === "hampton-east"
-      ? "Local licensed electrician based in Hampton East. Fault finding, switchboards, safety switches, lighting and rental safety checks. Call 0466 270 949 for a quote."
-      : `Licensed electrician (REC 30450) for ${loaderData.name}. Fault finding, switchboards, safety switches, lighting and rental safety checks. Call 0466 270 949.`;
+      ? "Local licensed electrician based in Hampton East 3188. Fault finding, switchboards, safety switches, lighting and rental safety checks. Call 0466 270 949."
+      : `Licensed electrician (REC 30450) for ${loaderData.name}${loaderData.postcode ? ` ${loaderData.postcode}` : ""}. Fault finding, switchboards, safety switches, lighting and rental safety checks. Call 0466 270 949.`;
     return {
       meta: [
         { title },
@@ -62,6 +62,13 @@ export const Route = createFileRoute("/suburbs/$slug")({
             "areaServed": {
               "@type": "Place",
               "name": `${loaderData.name}, VIC`,
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": loaderData.name,
+                "addressRegion": "VIC",
+                ...(loaderData.postcode ? { "postalCode": loaderData.postcode } : {}),
+                "addressCountry": "AU",
+              },
             },
           }),
         },
@@ -100,7 +107,7 @@ function SuburbPage() {
             <span className="text-foreground">{suburb.name}</span>
           </nav>
           <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
-            Electrician in {suburb.name}, VIC
+            Electrician in {suburb.name}, VIC{suburb.postcode ? ` ${suburb.postcode}` : ""}
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             {suburb.slug === "melbourne-cbd" ? "Licensed commercial and residential electrical work across the Melbourne CBD, from offices, shops and cafes to apartment buildings and owners corporations." : <>Licensed residential and commercial electrical work in {suburb.name}, part of Melbourne's {suburb.area} area. {suburb.blurb}</>}

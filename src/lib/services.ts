@@ -142,7 +142,7 @@ export const services: Service[] = [
     heroSubtitle: "Shared-property maintenance, with clear communication at every step.",
     pageTitle: "Body Corporate & Strata Electrician Melbourne",
     seoTitle: "Strata & Body Corporate Electrician Melbourne",
-    metaDescription: "Strata and body corporate electrician for Bayside and South East Melbourne. Common area lighting, maintenance, safety checks and clear committee reports. REC 30450.",
+    metaDescription: "Strata and body corporate electrician for Bayside and South East Melbourne. Common area lighting, maintenance, safety checks and clear committee reports.",
     intro: "I help owners corporations, committees and property managers look after common-area electrical systems across Bayside and South East Melbourne. From a failed stairwell light to planned upgrades, you'll get practical advice, an agreed scope and reporting that makes sense for committee approval.",
     included: [
       "Common area lighting & repairs",
@@ -364,7 +364,7 @@ export const services: Service[] = [
   },
   {
     ...brief("hot-water"),
-    metaDescription: "Electric hot water system installation and repairs across South East Melbourne. Licensed electrician.",
+    metaDescription: "Electric hot water system installation, replacement and repairs across Bayside and South East Melbourne. Licensed electrician, REC 30450. Free quotes.",
     intro: "No hot water is never convenient. I install and repair electric hot water systems, and can talk you through the right option if you're replacing an old unit.",
     included: [
       "Electric hot water system installation",

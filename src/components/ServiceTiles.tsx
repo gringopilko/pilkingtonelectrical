@@ -28,7 +28,7 @@ export function ServiceTiles({ slugs }: ServiceTilesProps) {
               {pic ? (
                 <img
                   src={`/img/${pic.file}`}
-                  alt=""
+                  alt={s.tileImage?.alt ?? s.image?.alt ?? ""}
                   width={pic.width}
                   height={pic.height}
                   loading="lazy"

@@ -1,4 +1,4 @@
-import { suburbGroups, slugify } from "@/lib/suburbGroups";
+import { suburbGroups, slugify, suburbPostcodes } from "@/lib/suburbGroups";
 export { suburbGroups, slugify };
 
 export interface SuburbEntry {
@@ -7,6 +7,7 @@ export interface SuburbEntry {
   area: string;
   blurb: string;
   neighbours: string[];
+  postcode?: string;
   localIntro?: string;
   watchFor?: string[];
   photo?: { file: string; alt: string; width: number; height: number; credit?: { author: string; license: string; url: string } };
@@ -482,6 +483,7 @@ export function getAllSuburbs(): SuburbEntry[] {
       area: group.area,
       blurb: group.blurb,
       neighbours: group.suburbs.filter((s) => s !== name),
+      postcode: suburbPostcodes[name],
       ...suburbDetails[name],
     })),
   );

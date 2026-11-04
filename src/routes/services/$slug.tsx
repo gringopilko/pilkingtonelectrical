@@ -3,6 +3,7 @@ import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Check, Phone, ChevronRight } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { slugify } from "@/lib/suburbGroups";
 import { QuoteForm } from "@/components/QuoteForm";
 import { services } from "@/lib/services";
 import { WorkGallery } from "@/components/WorkGallery";
@@ -88,6 +89,9 @@ const FaultFindingDetails = lazyPart("FaultFindingDetails");
 const BodyCorporateDetails = lazyPart("BodyCorporateDetails");
 const RealEstateDetails = lazyPart("RealEstateDetails");
 const EVChargerDetails = lazyPart("EVChargerDetails");
+
+/** Suburbs closest to base, linked from every service page so Google finds the suburb pages through the site. */
+const NEARBY_SUBURBS = ["Hampton East", "Hampton", "Brighton", "Brighton East", "Bentleigh", "Bentleigh East", "Moorabbin", "Cheltenham", "Black Rock", "Beaumaris", "Elwood", "St Kilda", "Caulfield", "Malvern"];
 
 export const Route = createFileRoute("/services/$slug")({
   loader: async ({ params }) => {
@@ -384,6 +388,29 @@ function ServicePage() {
           </div>
         </section>
       )}
+
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-5xl px-6 py-12">
+          <h2 className="text-xl font-bold tracking-tight">Areas I cover</h2>
+          <p className="mt-2 text-sm text-muted-foreground">Based in Hampton East and working across Bayside, South East Melbourne and the CBD.</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {NEARBY_SUBURBS.map((name) => (
+              <Link
+                key={name}
+                to="/suburbs/$slug"
+                params={{ slug: slugify(name) }}
+                className="inline-flex items-center rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:text-primary"
+              >
+                {name}
+              </Link>
+            ))}
+            <Link to="/suburbs" className="inline-flex items-center gap-1 px-2 py-2 text-sm font-semibold text-primary hover:underline">
+              All suburbs
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {relatedGuides.length > 0 && (
         <section className="border-t border-border bg-background">

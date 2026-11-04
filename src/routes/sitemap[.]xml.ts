@@ -43,6 +43,8 @@ export const Route = createFileRoute("/sitemap.xml")({
             path: `/suburbs/${s.slug}`,
             changefreq: "monthly" as const,
             priority: "0.7",
+            // Suburb write-ups, photos and postcodes were all updated on this date. Change it when suburb pages change.
+            lastmod: "2026-11-04",
           })),
         ];
 
