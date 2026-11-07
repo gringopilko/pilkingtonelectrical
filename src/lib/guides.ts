@@ -698,6 +698,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedServices: [
+      "bathroom-heat-lights-exhaust-fans",
       "ceiling-fans",
       "lighting",
       "rewiring-extensions",

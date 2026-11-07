@@ -448,6 +448,27 @@ export const services: Service[] = [
     ],
   },
   {
+    ...brief("bathroom-heat-lights-exhaust-fans"),
+    image: { file: "bathroom-heat-light.webp", alt: "Four lamp heat light installed in a bathroom ceiling", width: 800, height: 600 },
+    metaDescription: "Bathroom heat light and exhaust fan installation across Bayside and South East Melbourne. 3-in-1 units, dedicated circuits and run-on timers. REC 30450.",
+    heroSubtitle: "3-in-1 heat lights and exhaust fans, wired properly and to the new rules.",
+    intro: "A warm bathroom and a fan that actually clears the steam. I install 3-in-1 heat light units like the IXL Tastic range, exhaust fans and heat lamps, and I'll check your wiring can handle them before anything goes up.",
+    included: [
+      "3-in-1 heat light, fan and light units installed or replaced",
+      "Exhaust fan installation and replacement",
+      "New dedicated circuit from the switchboard where needed",
+      "Light-switch interlock and 10 minute run-on timer for windowless bathrooms",
+      "Switches and timers for heat, fan and light",
+      "Safe removal and disconnection of old heat lamp units",
+    ],
+    body: [
+      "Heat lamps draw a lot more power than a light. A four-lamp unit can pull over 1,000 watts, and in many older homes the bathroom light sits on a lighting circuit wired in 1 or 1.5 mm² cable, shared with other rooms or still on original rubber-insulated wiring. In those homes I'll usually run a new dedicated circuit from the switchboard instead of tapping into the old one.",
+      "Under Victoria's newer building rules, in force since 1 May 2024 and kept in NCC 2025, exhaust from a bathroom must be ducted to outside air, not into the roof space. That includes the fan in a 3-in-1 unit. The duct and the roof or wall penetration are plumbing work, so that part is for a licensed plumber. I do the electrical side and can wire everything once the duct is in. See my guide to the new exhaust rules for the details.",
+      "If your bathroom has no proper window, the fan needs to come on with the light and keep running for 10 minutes after it's switched off. I wire the interlock and run-on timer so it works automatically.",
+      "In art deco flats with a concrete ceiling and no roof space, there's nowhere to run a duct. The usual answer is a lowered ceiling or bulkhead to hide the duct run to an outside wall, which your builder and plumber handle, with owners corporation approval for the wall. I'll wire the unit once that's in place.",
+    ],
+  },
+  {
     ...brief("smoke-alarms"),
     heroSubtitle: "Understand your options. Keep your alarms working.",
     pageTitle: "Smoke Alarm Installation & Servicing Melbourne",

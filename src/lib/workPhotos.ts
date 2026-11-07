@@ -79,7 +79,7 @@ export const workPhotos: WorkPhoto[] = [
     caption: "Bathroom heat light",
     width: 800,
     height: 600,
-    services: [],
+    services: ["bathroom-heat-lights-exhaust-fans"],
   },
   {
     file: "two-lamp-heat-light-panel.webp",

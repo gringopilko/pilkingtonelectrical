@@ -92,6 +92,11 @@ export const serviceList: ServiceBrief[] = [
     shortDesc: "Supply and installation of ceiling fans, or new wiring for your own fan.",
   },
   {
+    slug: "bathroom-heat-lights-exhaust-fans",
+    title: "Bathroom Heat Lights & Exhaust Fans",
+    shortDesc: "3-in-1 heat lights and exhaust fans, with a new circuit where your old one can't take the load.",
+  },
+  {
     slug: "smoke-alarms",
     title: "Smoke Alarms",
     shortDesc: "Compliant smoke alarm installation, testing and replacement.",
