@@ -580,6 +580,130 @@ export const guides: Guide[] = [
     ],
     relatedServices: ["ev-charger-install", "body-corporate"],
   },
+  {
+    slug: "exhaust-fans-heat-lights-rangehoods-vent-outside-victoria",
+    title: "New Rules: Exhaust Fans, Heat Lights and Rangehoods Must Vent Outside in Victoria",
+    shortTitle: "Exhaust fans must vent outside",
+    seoTitle: "Exhaust Fans Must Vent Outside: Victoria's New Rules",
+    metaDescription: "Victoria's new building rules: bathroom exhaust fans, 3-in-1 heat lights and rangehoods must be ducted outside, not into the roof. What changed and who does what.",
+    summary: "Bathroom fans, 3-in-1 heat lights and rangehoods can no longer vent into the roof space. What the rules say, when they started and who does which part.",
+    updated: "2026-11-07",
+    updatedLabel: "7 November 2026",
+    intro: "The rules for bathroom exhaust fans, 3-in-1 heat light units and rangehoods have changed. Under Victoria's building code, exhaust from a bathroom, toilet, laundry or kitchen must now be ducted all the way to outside air. Blowing it into the roof space, which was allowed for years, no longer complies. Here's what the rules say, when they started, and why the duct is a job for a plumber, not an electrician.",
+    keyPoints: [
+      "New rule: exhaust from bathrooms, toilets, laundries and kitchens must discharge to outdoor air, directly or through a duct. Venting into the roof space no longer complies.",
+      "It came into force in Victoria on 1 May 2024 under NCC 2022, and NCC 2025, adopted in Victoria on 1 May 2026, keeps the same rule.",
+      "Minimum airflow is 25 litres a second for a bathroom or toilet, and 40 litres a second for a kitchen or laundry.",
+      "A bathroom without a proper window needs its fan wired to the light switch with a 10 minute run-on timer, or a fan that runs continuously.",
+      "3-in-1 heat light units with a built-in fan, rangehoods and venting clothes dryers are all covered.",
+      "The duct and the roof or wall penetration are plumbing work in Victoria (mechanical services). The power, switching and timer are electrical work.",
+    ],
+    sections: [
+      {
+        heading: "What the new rules say",
+        paragraphs: [
+          "The National Construction Code's condensation management rules, in Part 10.8 of the Housing Provisions, require exhaust from a kitchen, bathroom, sanitary compartment (toilet) or laundry to discharge directly, or through a shaft or duct, to outdoor air.",
+          "Under the previous code, NCC 2019, exhaust could be ducted into a roof space as long as the roof space was ventilated. The Australian Building Codes Board says plainly that under NCC 2022 you can no longer duct exhaust into a ventilated roof space. It has to go outside.",
+          "The Victorian Building Authority's guidance says the same thing: all exhaust systems must discharge to outdoor air unless an exemption applies, and the code's requirements override the older Australian Standard for ventilation, AS 1668.2, where the two differ.",
+        ],
+        bullets: [
+          "Bathroom or toilet exhaust: at least 25 litres a second.",
+          "Kitchen or laundry exhaust: at least 40 litres a second.",
+          "Discharge: directly or through a duct to outdoor air, through a roof cowl, eave vent or wall vent. A duct that stops in the roof space does not comply.",
+          "Venting clothes dryers count as exhaust and must be ducted outside too. Condenser and heat pump dryers don't vent, so they're not affected.",
+        ],
+      },
+      {
+        heading: "When it started",
+        paragraphs: [
+          "These are new rules. Victoria delayed the NCC 2022 condensation and energy efficiency changes, and they came into force on 1 May 2024. Victoria then adopted the next edition, NCC 2025, on 1 May 2026, and the exhaust rule is unchanged in it.",
+          "They apply to new building work, such as a new home, an extension or a renovation that needs a building permit. They don't force you to rip out a fan that's already there, but if you're adding or replacing a fan, ducting it outside is the right way to do it. A fan that blows into the roof just moves the steam into your ceiling, where it condenses on the timbers and insulation and grows mould out of sight.",
+        ],
+      },
+      {
+        heading: "Bathrooms without a proper window",
+        paragraphs: [
+          "If a bathroom or toilet has no openable window, or the window is too small to count as natural ventilation, the fan must either run continuously, or be interlocked with the light switch so it comes on with the light, with a run-on timer that keeps it going for 10 minutes after the light goes off.",
+          "That room also needs make-up air, a way for fresh air to get in as the fan pulls air out. Usually that's a gap under the door or a vent to the next room, sized to the code or to AS 1668.2.",
+        ],
+      },
+      {
+        heading: "3-in-1 heat light units and rangehoods",
+        paragraphs: [
+          "Popular 3-in-1 units, like the IXL Tastic range, combine heat lamps, a light and an exhaust fan. The fan part is an exhaust system like any other, so under the new rules it needs to be ducted outside, not left to blow into the roof. Check the fan still moves at least 25 litres a second once it's connected to the duct, because a long or kinked duct cuts the airflow.",
+          "A rangehood is your kitchen's exhaust, and it must be ducted outside with its own dedicated duct. A recirculating rangehood, which filters the air and blows it back into the kitchen, doesn't vent anywhere, so it can't count as the kitchen's exhaust. If you're renovating a kitchen, plan the duct route early, before the cabinets go in.",
+        ],
+      },
+      {
+        heading: "Who does what: plumber or electrician",
+        paragraphs: [
+          "In Victoria, installing ventilation ductwork, including the roof or wall penetration and flashing that goes with it, is plumbing work under the mechanical services class of the Plumbing Regulations 2018. There's also a restricted class just for duct fixing. Plumbers are the trade for air and water, so the duct run, the roof cowl or wall vent, and sealing the roof is their job.",
+          "My job as the electrician is everything with power in it. I'll work alongside your plumber, and I can wire everything once the duct is in.",
+        ],
+        bullets: [
+          "Electrician: power to the fan, heat light unit or rangehood, the switching, the light-switch interlock and 10 minute run-on timer for windowless bathrooms, a new circuit if the existing one can't take the load, and testing.",
+          "Plumber (mechanical services or duct fixing): the duct from the fan to outside, the roof cowl, eave vent or wall vent, and the roof or wall penetration and flashing.",
+          "Builder or plasterer: any lowered ceiling or bulkhead needed to hide the duct, and patching. I don't patch or paint.",
+        ],
+      },
+      {
+        heading: "Older homes: heat lamps and lighting circuits",
+        paragraphs: [
+          "Heat lamps use a lot more power than a light. A four-lamp heat light unit can draw over 1,000 watts. In many older homes the bathroom light runs on a lighting circuit wired in 1 or 1.5 mm² cable and shared with other rooms, and sometimes it's still the original rubber-insulated wiring.",
+          "In those homes the safe answer is usually a new dedicated circuit from the switchboard, not tapping into the existing lighting. I'll check what's there and tell you before anything goes in.",
+        ],
+      },
+      {
+        heading: "Art deco flats and concrete ceilings",
+        paragraphs: [
+          "Many art deco and interwar flats, like those across Elwood, St Kilda and Caulfield North, have concrete ceilings with no roof space above, or another flat on top. There's simply nowhere to run a duct, so no fan in those ceilings can meet the new rule as built.",
+          "The usual way to vent outside is to lower the bathroom ceiling, a floating or dropped ceiling or a bulkhead, so the duct can run hidden above it to an outside wall. The wall penetration is the plumber's job, and because external walls in a flat block are usually common property, you'll normally need owners corporation approval first, and possibly heritage advice.",
+        ],
+      },
+      {
+        heading: "Planning a bathroom or kitchen renovation",
+        bullets: [
+          "Tell your builder and building surveyor early that you're adding or moving exhaust fans or a rangehood, so the duct route is on the plans.",
+          "Choose a fan or 3-in-1 unit with enough airflow for the length of duct it needs.",
+          "Book a plumber licensed in mechanical services or duct fixing for the duct and roof or wall penetration.",
+          "Book the electrical early too, especially in an older home that may need a new circuit, or a windowless bathroom that needs the light-switch interlock and run-on timer.",
+          "In a flat block, get owners corporation approval for any external wall penetration before work starts.",
+        ],
+      },
+    ],
+    sources: [
+      {
+        label: "Australian Building Codes Board: NCC 2022 webinar on condensation management",
+        url: "https://ncc.abcb.gov.au/resources/videos/ncc-2022-webinar-series-condensation-management",
+      },
+      {
+        label: "Building and Plumbing Commission Victoria: National Construction Code 2022 (condensation rules commenced 1 May 2024)",
+        url: "https://www.bpc.vic.gov.au/resource-hub/guides/national-construction-code-ncc-2022",
+      },
+      {
+        label: "Victorian Building Authority: Introduction to condensation management fact sheet",
+        url: "https://www.bpc.vic.gov.au/__data/assets/pdf_file/0027/24984/VBA-Fact-Sheet-PES-Introduction-to-Condensation-Management-V2.pdf",
+      },
+      {
+        label: "Building and Plumbing Commission Victoria: NCC 2025 commencement in Victoria (1 May 2026)",
+        url: "https://www.bpc.vic.gov.au/home-owners/before-you-start-building/understanding-standards-and-regulations",
+      },
+      {
+        label: "Building and Plumbing Commission Victoria: Mechanical services work",
+        url: "https://www.bpc.vic.gov.au/plumbers/plumber-classes-and-categories/mechanical-services-work",
+      },
+      {
+        label: "Building and Plumbing Commission Victoria: Mechanical services, restricted to duct fixing",
+        url: "https://www.bpc.vic.gov.au/plumbers/plumber-classes-and-categories/mechanical-services-restricted-to-duct-fixing-work",
+      },
+    ],
+    relatedServices: [
+      "ceiling-fans",
+      "lighting",
+      "rewiring-extensions",
+      "switchboards",
+    ],
+  },
 ];
 
 export function getGuide(slug: string) {

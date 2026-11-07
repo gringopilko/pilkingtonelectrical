@@ -24,6 +24,12 @@ const faqs = [
     a: "No. If a job needs holes cut in plaster or walls chased, I keep them as small and neat as possible and show you where they will be before I start, but patching and painting are not included. You will need to hire a plasterer to make good afterwards, and a painter if the area needs repainting.",
   },
   {
+    q: "Can you duct my bathroom exhaust fan, heat light or rangehood outside?",
+    a: "Under Victoria's new building rules, in force since 1 May 2024 and kept in NCC 2025, exhaust from bathrooms, toilets, laundries and kitchens must be ducted to outside air, not into the roof space. The duct and the roof or wall penetration are plumbing work (mechanical services), so that part is for a plumber. I do the electrical side: power to the fan or heat light unit, the switching, the light-switch interlock and 10 minute run-on timer for windowless bathrooms, and a new circuit if your old lighting circuit can't take a heat light unit. See the full guide on the new exhaust rules.",
+    linkTo: "/guides/exhaust-fans-heat-lights-rangehoods-vent-outside-victoria",
+    linkText: "full guide on the new exhaust rules",
+  },
+  {
     q: "Do you provide upfront pricing?",
     a: "Yes. I'll assess the job in person or over the phone and give you a clear, itemised price before any work starts, with no surprises on the invoice and no billing by the hour after you've already said yes.",
   },
