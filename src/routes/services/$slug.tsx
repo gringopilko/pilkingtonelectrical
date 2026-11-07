@@ -41,9 +41,11 @@ const partLoaders = {
   BodyCorporateDetails: () => import("@/components/BodyCorporateDetails"),
   RealEstateDetails: () => import("@/components/RealEstateDetails"),
   EVChargerDetails: () => import("@/components/EVChargerDetails"),
+  ArtDecoBathroomOptions: () => import("@/components/ArtDecoBathroomOptions"),
 };
 type PartName = keyof typeof partLoaders;
 const partsBySlug: Record<string, PartName[]> = {
+  "bathroom-heat-lights-exhaust-fans": ["ArtDecoBathroomOptions"],
   "test-and-tag": ["TestTagInfographic"],
   "body-corporate": ["StrataInfographic", "BodyCorporateDetails"],
   "real-estate": ["RealEstateInfographic", "RealEstateDetails"],
@@ -89,6 +91,7 @@ const FaultFindingDetails = lazyPart("FaultFindingDetails");
 const BodyCorporateDetails = lazyPart("BodyCorporateDetails");
 const RealEstateDetails = lazyPart("RealEstateDetails");
 const EVChargerDetails = lazyPart("EVChargerDetails");
+const ArtDecoBathroomOptions = lazyPart("ArtDecoBathroomOptions");
 
 /** Suburbs closest to base, linked from every service page so Google finds the suburb pages through the site. */
 const NEARBY_SUBURBS = ["Hampton East", "Hampton", "Brighton", "Brighton East", "Bentleigh", "Bentleigh East", "Moorabbin", "Cheltenham", "Black Rock", "Beaumaris", "Elwood", "St Kilda", "Caulfield", "Malvern"];
@@ -285,6 +288,8 @@ function ServicePage() {
         ))}
 
         {service.slug === "lighting" && <LightingComparison />}
+
+        {service.slug === "bathroom-heat-lights-exhaust-fans" && <ArtDecoBathroomOptions />}
 
         {service.sections && service.sections.length > 0 && (
           <div className="mt-10">
