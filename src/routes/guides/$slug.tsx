@@ -1,5 +1,5 @@
 import { Glossed } from "@/components/Term";
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createFileRoute, notFound, Link, redirect } from "@tanstack/react-router";
 import { Check, ChevronRight, Phone } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -10,6 +10,8 @@ import { guides, getGuide } from "@/lib/guides";
 import { pageTitle } from "@/lib/seo";
 export const Route = createFileRoute("/guides/$slug")({
   loader: ({ params }) => {
+    // Google sometimes picks up the raw route pattern from the code; send it to the list page.
+    if (params.slug === "$slug") throw redirect({ to: "/guides", statusCode: 301 });
     const guide = getGuide(params.slug);
     if (!guide) throw notFound();
     return guide;

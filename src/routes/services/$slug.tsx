@@ -1,5 +1,5 @@
 import { lazy, Suspense, type ComponentType } from "react";
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createFileRoute, notFound, Link, redirect } from "@tanstack/react-router";
 import { Check, Phone, ChevronRight } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -98,6 +98,8 @@ const NEARBY_SUBURBS = ["Hampton East", "Hampton", "Brighton", "Brighton East", 
 
 export const Route = createFileRoute("/services/$slug")({
   loader: async ({ params }) => {
+    // Google sometimes picks up the raw route pattern from the code; send it to the list page.
+    if (params.slug === "$slug") throw redirect({ to: "/services", statusCode: 301 });
     const service = services.find((s) => s.slug === params.slug);
     if (!service) throw notFound();
     await Promise.all((partsBySlug[service.slug] ?? []).map((name) => partLoaders[name]()));

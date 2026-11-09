@@ -1,4 +1,4 @@
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createFileRoute, notFound, Link, redirect } from "@tanstack/react-router";
 import { Phone, MapPin, ChevronRight, Check } from "lucide-react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -12,6 +12,8 @@ import { services } from "@/lib/services";
 
 export const Route = createFileRoute("/suburbs/$slug")({
   loader: ({ params }) => {
+    // Google sometimes picks up the raw route pattern from the code; send it to the list page.
+    if (params.slug === "$slug") throw redirect({ to: "/suburbs", statusCode: 301 });
     const suburb = getSuburbBySlug(params.slug);
     if (!suburb) throw notFound();
     return suburb;
