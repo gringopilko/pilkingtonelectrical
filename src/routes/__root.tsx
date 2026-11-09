@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react"; 
+import { useEffect, type ReactNode, useState } from "react"; 
 import { LazyToaster } from "@/components/LazyToaster";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -40,12 +40,24 @@ function NotFoundComponent() {
   );
 }
 
+const CHUNK_ERROR = /dynamically imported module|Importing a module script failed|error loading dynamically imported module|Failed to fetch|ChunkLoadError|Loading chunk/i;
+
 function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+  const isChunkError = CHUNK_ERROR.test(String((error as { message?: string })?.message ?? error));
+  const [reloading, setReloading] = useState(isChunkError);
   useEffect(() => {
+    if (isChunkError) {
+      // A newer version of the site was deployed: reload once to pick up the current files.
+      const w = window as unknown as { __peChunkReload?: () => boolean };
+      if (w.__peChunkReload?.()) return;
+      setReloading(false);
+    }
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+  }, [error, isChunkError]);
+
+  if (reloading) return null;
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -115,6 +127,11 @@ export const Route = createRootRouteWithContext<Record<string, never>>()({
 
   ],
   scripts: [
+    {
+      // If a page's code files were replaced by a newer deploy (Google often renders a page hours after
+      // downloading it), reload once to get the current files instead of showing an error page.
+      children: `(function(){var K="pe-chunk-reload";function seen(){try{var t=+sessionStorage.getItem(K)||0;if(Date.now()-t<15000)return true;sessionStorage.setItem(K,String(Date.now()));return false}catch(e){if(window.name===K)return true;window.name=K;return false}}window.__peChunkReload=function(){if(seen())return false;location.reload();return true};window.addEventListener("vite:preloadError",function(e){if(window.__peChunkReload())e.preventDefault()})})();`,
+    },
     {
       type: "application/ld+json",
       children: JSON.stringify({
