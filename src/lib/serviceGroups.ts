@@ -20,6 +20,7 @@ const defined: GroupDef[] = [
       "ceiling-fans",
       "bathroom-heat-lights-exhaust-fans",
       "hot-water",
+      "heat-pump-hot-water",
       "ev-charger-install",
     ],
   },

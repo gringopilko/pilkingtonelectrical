@@ -42,9 +42,11 @@ const partLoaders = {
   RealEstateDetails: () => import("@/components/RealEstateDetails"),
   EVChargerDetails: () => import("@/components/EVChargerDetails"),
   ArtDecoBathroomOptions: () => import("@/components/ArtDecoBathroomOptions"),
+  HeatPumpDetails: () => import("@/components/HeatPumpDetails"),
 };
 type PartName = keyof typeof partLoaders;
 const partsBySlug: Record<string, PartName[]> = {
+  "heat-pump-hot-water": ["HeatPumpDetails"],
   "bathroom-heat-lights-exhaust-fans": ["ArtDecoBathroomOptions"],
   "test-and-tag": ["TestTagInfographic"],
   "body-corporate": ["StrataInfographic", "BodyCorporateDetails"],
@@ -92,6 +94,7 @@ const BodyCorporateDetails = lazyPart("BodyCorporateDetails");
 const RealEstateDetails = lazyPart("RealEstateDetails");
 const EVChargerDetails = lazyPart("EVChargerDetails");
 const ArtDecoBathroomOptions = lazyPart("ArtDecoBathroomOptions");
+const HeatPumpDetails = lazyPart("HeatPumpDetails");
 
 /** Suburbs closest to base, linked from every service page so Google finds the suburb pages through the site. */
 const NEARBY_SUBURBS = ["Hampton East", "Hampton", "Brighton", "Brighton East", "Bentleigh", "Bentleigh East", "Moorabbin", "Cheltenham", "Black Rock", "Beaumaris", "Elwood", "St Kilda", "Caulfield", "Malvern"];
@@ -174,6 +177,8 @@ function ServicePage() {
     "power-points": ["rewiring-extensions", "switchboards", "safety-switches", "lighting", "fault-finding", "commercial-electrician"],
     "smoke-alarms": ["electrical-safety-inspections", "real-estate", "body-corporate", "safety-switches"],
     "ev-charger-install": ["switchboards", "safety-switches", "body-corporate", "commercial-electrician"],
+    "hot-water": ["heat-pump-hot-water", "switchboards", "electrical-safety-inspections", "real-estate"],
+    "heat-pump-hot-water": ["hot-water", "switchboards", "real-estate", "electrical-safety-inspections", "ev-charger-install", "safety-switches"],
     "lighting": ["ceiling-fans", "bathroom-heat-lights-exhaust-fans", "power-points", "rewiring-extensions", "commercial-electrician"],
     "ceiling-fans": ["bathroom-heat-lights-exhaust-fans", "lighting", "power-points", "rewiring-extensions", "switchboards", "light-switches"],
     "bathroom-heat-lights-exhaust-fans": ["ceiling-fans", "lighting", "switchboards", "rewiring-extensions", "safety-switches", "wall-chasing"],
@@ -292,6 +297,7 @@ function ServicePage() {
         {service.slug === "lighting" && <LightingComparison />}
 
         {service.slug === "bathroom-heat-lights-exhaust-fans" && <ArtDecoBathroomOptions />}
+        {service.slug === "heat-pump-hot-water" && <HeatPumpDetails />}
 
         {service.sections && service.sections.length > 0 && (
           <div className="mt-10">

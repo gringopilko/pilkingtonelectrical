@@ -383,6 +383,25 @@ export const services: Service[] = [
     },
   },
   {
+    ...brief("heat-pump-hot-water"),
+    metaDescription: "Heat pump hot water wiring across Bayside and South East Melbourne. New circuit, isolator, timer and switchboard checks, plus Victoria's 2027 gas rules.",
+    heroSubtitle: "Getting off gas hot water, wired properly.",
+    intro: "Heat pumps heat water using a fraction of the energy of gas or an old electric storage unit, and from 1 March 2027 they become the standard replacement for gas hot water in Victoria. I do the electrical side: the circuit, isolator, timer and switchboard, working alongside your plumber.",
+    included: [
+      "New dedicated circuit for the heat pump, with safety switch protection",
+      "Isolating switch next to the unit",
+      "Switchboard capacity check and upgrade if needed",
+      "Timer for daytime or solar heating, or an off-peak connection",
+      "Reconnecting or replacing the circuit from an old electric hot water unit",
+      "Testing and Certificate of Electrical Safety",
+    ],
+    body: [
+      "A heat pump works like a fridge in reverse. It pulls heat out of the outside air and puts it into the water, which is why it uses so much less energy than gas or an old electric element. Most homes run one on normal single-phase power, but it still needs its own circuit, and many units have a backup booster element that draws a lot more when it kicks in.",
+      "Coming off gas is where the electrical work usually sits. A gas hot water unit has no suitable power supply, so the heat pump needs a new circuit from the switchboard, and older switchboards don't always have the room or capacity for it. I'll check that before anything is booked in, so there are no surprises on the day.",
+      "The plumber removes the old system, caps the gas and does the water connections. I wire the heat pump, fit the isolator and timer, and test everything. If you're planning the switch, send me a photo of your switchboard and your current hot water unit through the quote form and I'll tell you what's needed.",
+    ],
+  },
+  {
     ...brief("lighting"),
     tileImage: { file: "lighting-tile.webp", width: 573, height: 573, focus: "50% 50%", alt: "Warm LED strip lighting above a kitchen splashback" },
     image: { file: "lighting-tile.webp", alt: "Warm LED strip lighting under a floating shelf in a renovated kitchen", width: 573, height: 573, focus: "50% 50%" },

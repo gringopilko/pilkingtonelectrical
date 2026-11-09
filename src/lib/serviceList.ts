@@ -72,6 +72,11 @@ export const serviceList: ServiceBrief[] = [
     shortDesc: "Installation and repair of electric hot water systems.",
   },
   {
+    slug: "heat-pump-hot-water",
+    title: "Heat Pump Hot Water",
+    shortDesc: "The electrical side of switching to a heat pump: new circuit, isolator, timer and switchboard checks.",
+  },
+  {
     slug: "lighting",
     title: "Energy Efficient Lighting",
     shortDesc: "LED upgrades, downlights and outdoor lighting that cut your power bill.",
