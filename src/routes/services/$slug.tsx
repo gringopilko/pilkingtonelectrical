@@ -184,7 +184,8 @@ function ServicePage() {
     "bathroom-heat-lights-exhaust-fans": ["ceiling-fans", "lighting", "switchboards", "rewiring-extensions", "safety-switches", "wall-chasing"],
     "fault-finding": ["emergency-electrical", "switchboards", "safety-switches", "electrical-safety-inspections"],
     "body-corporate": ["lighting", "switchboards", "smoke-alarms", "test-and-tag", "ev-charger-install", "real-estate"],
-    "real-estate": ["electrical-safety-inspections", "smoke-alarms", "fault-finding", "switchboards", "body-corporate", "lighting"],
+    "real-estate": ["electrical-safety-inspections", "smoke-alarms", "heat-pump-hot-water", "fault-finding", "switchboards", "body-corporate"],
+    "electrical-safety-inspections": ["real-estate", "smoke-alarms", "heat-pump-hot-water", "safety-switches", "switchboards", "fault-finding"],
     "commercial-electrician": ["test-and-tag", "lighting", "switchboards", "power-points", "body-corporate", "fault-finding"],
   };
   const preferredSlugs = relatedSlugs[service.slug];

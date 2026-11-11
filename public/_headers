@@ -1,0 +1,17 @@
+# How long browsers keep the site's files. Without this, every file was re-checked on every page view.
+
+# Code and style files have a unique name per build, so they can be kept for a year.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Photos, job photos and videos keep the same name, so keep them for a week.
+/img/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/work/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.mp4
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/*.ico
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
